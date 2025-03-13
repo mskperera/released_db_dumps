@@ -387,7 +387,7 @@ CREATE TABLE `company` (
   `companyId` int(11) NOT NULL AUTO_INCREMENT,
   `companyName` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`companyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -730,25 +730,167 @@ CREATE TABLE `currency` (
 LOCK TABLES `currency` WRITE;
 /*!40000 ALTER TABLE `currency` DISABLE KEYS */;
 INSERT INTO `currency` VALUES
-(1,'LKR','Sri Lankan Rupee','Rs'),
-(2,'USD','United States Dollar','$'),
-(3,'EUR','Euro',NULL),
-(4,'RON','Romanian Leu',NULL),
-(5,'RUB','Russian Ruble',NULL),
-(6,'JPY','Japanese Yen',NULL),
-(7,'GBP','British Pound Sterling',NULL),
-(8,'AUD','Australian Dollar',NULL),
-(9,'CAD','Canadian Dollar',NULL),
-(10,'CHF','Swiss Franc',NULL),
-(11,'CNY','Chinese Yuan Renminbi',NULL),
-(12,'INR','Indian Rupee',NULL),
-(13,'SGD','Singapore Dollar',NULL),
-(14,'ZAR','South African Rand',NULL),
-(15,'NZD','New Zealand Dollar',NULL),
-(16,'SEK','Swedish Krona',NULL),
-(17,'KRW','South Korean Won',NULL),
-(18,'BRL','Brazilian Real',NULL),
-(19,'TRY','Turkish Lira',NULL);
+(1,'AED','United Arab Emirates Dirham','د.إ'),
+(2,'AFN','Afghan Afghani','؋'),
+(3,'ALL','Albanian Lek','L'),
+(4,'AMD','Armenian Dram','֏'),
+(5,'ANG','Netherlands Antillean Guilder','ƒ'),
+(6,'AOA','Angolan Kwanza','Kz'),
+(7,'ARS','Argentine Peso','$'),
+(8,'AUD','Australian Dollar','$'),
+(9,'AWG','Aruban Florin','ƒ'),
+(10,'AZN','Azerbaijani Manat','₼'),
+(11,'BAM','Bosnia and Herzegovina Convertible Mark','KM'),
+(12,'BBD','Barbadian Dollar','$'),
+(13,'BDT','Bangladeshi Taka','৳'),
+(14,'BGN','Bulgarian Lev','лв'),
+(15,'BHD','Bahraini Dinar','.د.ب'),
+(16,'BIF','Burundian Franc','Fr'),
+(17,'BMD','Bermudian Dollar','$'),
+(18,'BND','Brunei Dollar','$'),
+(19,'BOB','Bolivian Boliviano','Bs.'),
+(20,'BRL','Brazilian Real','R$'),
+(21,'BSD','Bahamian Dollar','$'),
+(22,'BTN','Bhutanese Ngultrum','Nu.'),
+(23,'BWP','Botswana Pula','P'),
+(24,'BYN','Belarusian Ruble','Br'),
+(25,'BZD','Belize Dollar','$'),
+(26,'CAD','Canadian Dollar','$'),
+(27,'CDF','Congolese Franc','Fr'),
+(28,'CHF','Swiss Franc','Fr'),
+(29,'CLP','Chilean Peso','$'),
+(30,'CNY','Chinese Yuan','¥'),
+(31,'COP','Colombian Peso','$'),
+(32,'CRC','Costa Rican Colón','₡'),
+(33,'CUC','Cuban Convertible Peso','$'),
+(34,'CUP','Cuban Peso','$'),
+(35,'CVE','Cape Verdean Escudo','$'),
+(36,'CZK','Czech Koruna','Kč'),
+(37,'DJF','Djiboutian Franc','Fr'),
+(38,'DKK','Danish Krone','kr'),
+(39,'DOP','Dominican Peso','$'),
+(40,'DZD','Algerian Dinar','د.ج'),
+(41,'EGP','Egyptian Pound','£'),
+(42,'ERN','Eritrean Nakfa','Nfk'),
+(43,'ETB','Ethiopian Birr','Br'),
+(44,'EUR','Euro','€'),
+(45,'FJD','Fijian Dollar','$'),
+(46,'FKP','Falkland Islands Pound','£'),
+(47,'FOK','Faroese Króna','kr'),
+(48,'GBP','British Pound Sterling','£'),
+(49,'GEL','Georgian Lari','₾'),
+(50,'GGP','Guernsey Pound','£'),
+(51,'GHS','Ghanaian Cedi','₵'),
+(52,'GIP','Gibraltar Pound','£'),
+(53,'GMD','Gambian Dalasi','D'),
+(54,'GNF','Guinean Franc','Fr'),
+(55,'GTQ','Guatemalan Quetzal','Q'),
+(56,'GYD','Guyanese Dollar','$'),
+(57,'HKD','Hong Kong Dollar','$'),
+(58,'HNL','Honduran Lempira','L'),
+(59,'HRK','Croatian Kuna','kn'),
+(60,'HTG','Haitian Gourde','G'),
+(61,'HUF','Hungarian Forint','Ft'),
+(62,'IDR','Indonesian Rupiah','Rp'),
+(63,'ILS','Israeli New Shekel','₪'),
+(64,'IMP','Isle of Man Pound','£'),
+(65,'INR','Indian Rupee','₹'),
+(66,'IQD','Iraqi Dinar','ع.د'),
+(67,'IRR','Iranian Rial','﷼'),
+(68,'ISK','Icelandic Króna','kr'),
+(69,'JEP','Jersey Pound','£'),
+(70,'JMD','Jamaican Dollar','$'),
+(71,'JOD','Jordanian Dinar','د.ا'),
+(72,'JPY','Japanese Yen','¥'),
+(73,'KES','Kenyan Shilling','Sh'),
+(74,'KGS','Kyrgyzstani Som','с'),
+(75,'KHR','Cambodian Riel','៛'),
+(76,'KID','Kiribati Dollar','$'),
+(77,'KMF','Comorian Franc','Fr'),
+(78,'KRW','South Korean Won','₩'),
+(79,'KWD','Kuwaiti Dinar','د.ك'),
+(80,'KYD','Cayman Islands Dollar','$'),
+(81,'KZT','Kazakhstani Tenge','₸'),
+(82,'LAK','Lao Kip','₭'),
+(83,'LBP','Lebanese Pound','ل.ل'),
+(84,'LKR','Sri Lankan Rupee','Rs'),
+(85,'LRD','Liberian Dollar','$'),
+(86,'LSL','Lesotho Loti','L'),
+(87,'LYD','Libyan Dinar','ل.د'),
+(88,'MAD','Moroccan Dirham','د.م.'),
+(89,'MDL','Moldovan Leu','L'),
+(90,'MGA','Malagasy Ariary','Ar'),
+(91,'MKD','Macedonian Denar','ден'),
+(92,'MMK','Myanmar Kyat','K'),
+(93,'MNT','Mongolian Tugrik','₮'),
+(94,'MOP','Macanese Pataca','P'),
+(95,'MRU','Mauritanian Ouguiya','UM'),
+(96,'MUR','Mauritian Rupee','₨'),
+(97,'MVR','Maldivian Rufiyaa','.ރ'),
+(98,'MWK','Malawian Kwacha','MK'),
+(99,'MXN','Mexican Peso','$'),
+(100,'MYR','Malaysian Ringgit','RM'),
+(101,'MZN','Mozambican Metical','MT'),
+(102,'NAD','Namibian Dollar','$'),
+(103,'NGN','Nigerian Naira','₦'),
+(104,'NIO','Nicaraguan Córdoba','C$'),
+(105,'NOK','Norwegian Krone','kr'),
+(106,'NPR','Nepalese Rupee','₨'),
+(107,'NZD','New Zealand Dollar','$'),
+(108,'OMR','Omani Rial','ر.ع.'),
+(109,'PAB','Panamanian Balboa','B/.'),
+(110,'PEN','Peruvian Sol','S/.'),
+(111,'PGK','Papua New Guinean Kina','K'),
+(112,'PHP','Philippine Peso','₱'),
+(113,'PKR','Pakistani Rupee','₨'),
+(114,'PLN','Polish Złoty','zł'),
+(115,'PYG','Paraguayan Guaraní','₲'),
+(116,'QAR','Qatari Riyal','ر.ق'),
+(117,'RON','Romanian Leu','lei'),
+(118,'RSD','Serbian Dinar','дин.'),
+(119,'RUB','Russian Ruble','₽'),
+(120,'RWF','Rwandan Franc','FRw'),
+(121,'SAR','Saudi Riyal','ر.س'),
+(122,'SBD','Solomon Islands Dollar','$'),
+(123,'SCR','Seychellois Rupee','₨'),
+(124,'SDG','Sudanese Pound','ج.س.'),
+(125,'SEK','Swedish Krona','kr'),
+(126,'SGD','Singapore Dollar','$'),
+(127,'SHP','Saint Helena Pound','£'),
+(128,'SLL','Sierra Leonean Leone','Le'),
+(129,'SOS','Somali Shilling','Sh'),
+(130,'SRD','Surinamese Dollar','$'),
+(131,'SSP','South Sudanese Pound','£'),
+(132,'STN','São Tomé and Príncipe Dobra','Db'),
+(133,'SYP','Syrian Pound','£S'),
+(134,'SZL','Eswatini Lilangeni','L'),
+(135,'THB','Thai Baht','฿'),
+(136,'TJS','Tajikistani Somoni','ЅМ'),
+(137,'TMT','Turkmenistani Manat','m'),
+(138,'TND','Tunisian Dinar','د.ت'),
+(139,'TOP','Tongan Paʻanga','T$'),
+(140,'TRY','Turkish Lira','₺'),
+(141,'TTD','Trinidad and Tobago Dollar','$'),
+(142,'TVD','Tuvaluan Dollar','$'),
+(143,'TWD','New Taiwan Dollar','$'),
+(144,'TZS','Tanzanian Shilling','Sh'),
+(145,'UAH','Ukrainian Hryvnia','₴'),
+(146,'UGX','Ugandan Shilling','Sh'),
+(147,'USD','United States Dollar','$'),
+(148,'UYU','Uruguayan Peso','$U'),
+(149,'UZS','Uzbekistani Soʻm','лв'),
+(150,'VES','Venezuelan Bolívar Soberano','Bs.S'),
+(151,'VND','Vietnamese Đồng','₫'),
+(152,'VUV','Vanuatu Vatu','Vt'),
+(153,'WST','Samoan Tālā','T'),
+(154,'XAF','Central African CFA Franc','Fr'),
+(155,'XCD','East Caribbean Dollar','$'),
+(156,'XOF','West African CFA Franc','Fr'),
+(157,'XPF','CFP Franc','Fr'),
+(158,'YER','Yemeni Rial','﷼'),
+(159,'ZAR','South African Rand','R'),
+(160,'ZMW','Zambian Kwacha','ZK'),
+(161,'ZWL','Zimbabwean Dollar','$');
 /*!40000 ALTER TABLE `currency` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -801,7 +943,7 @@ CREATE TABLE `dc_store` (
   `tel2` varchar(20) DEFAULT NULL,
   `ManagerId` int(11) DEFAULT NULL,
   UNIQUE KEY `dc_storeId_UNIQUE` (`dc_storeId`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -817,7 +959,8 @@ INSERT INTO `dc_store` VALUES
 (5,1,'001','Sri Jayawardenepura Kotte','2024-01-25 13:43:38','2024-01-25 19:13:38',NULL,NULL,'Br1 address','Br city','br Province','swpmskpererea@gmail.com','0011212','011254',NULL),
 (6,8,NULL,'Pitakotte Branch','2025-03-10 16:29:45','2025-03-10 21:59:45',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
 (7,15,'S0015','Pitakotte','2025-03-11 12:42:50','2025-03-11 18:12:50','2025-03-11 12:42:50','2025-03-11 18:12:50','364 KURUNDUWATTA ROAD,','SRI JAYAWARDENAPURA KOTTE','western','spmskperera@gmail.com','0771147484','0771147484',NULL),
-(8,16,'S0016','Pitakotte','2025-03-11 13:15:05','2025-03-11 18:45:05','2025-03-11 13:15:05','2025-03-11 18:45:05','3/64 KURUNDUWATTA ROAD,','SRI JAYAWARDENAPURA KOTTE','western','spmskperera@gmail.com','0771147484','022554545',NULL);
+(8,16,'S0016','Pitakotte','2025-03-11 13:15:05','2025-03-11 18:45:05','2025-03-11 13:15:05','2025-03-11 18:45:05','3/64 KURUNDUWATTA ROAD,','SRI JAYAWARDENAPURA KOTTE','western','spmskperera@gmail.com','0771147484','022554545',NULL),
+(9,18,'S0018','bbb','2025-03-13 13:51:18','2025-03-13 19:21:18','2025-03-13 13:51:18','2025-03-13 19:21:18','3/64 KURUNDUWATTA ROAD,','SRI JAYAWARDENAPURA KOTTE','western','spmskperera@gmail.com','0771147484','0771147484',NULL);
 /*!40000 ALTER TABLE `dc_store` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1028,7 +1171,7 @@ CREATE TABLE `inventory` (
   `ModifiedDate_ServerTime` datetime DEFAULT NULL,
   `ModifiedDate_UTC` datetime DEFAULT NULL,
   PRIMARY KEY (`inventoryId`)
-) ENGINE=InnoDB AUTO_INCREMENT=837 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=838 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1065,7 +1208,8 @@ INSERT INTO `inventory` VALUES
 (833,'2025-03-11 09:48:26','2025-03-11 09:48:26',10.00,'2025-03-11 15:18:26',NULL,NULL),
 (834,'2025-03-11 09:48:26','2025-03-11 09:48:26',10.00,'2025-03-11 15:18:26',NULL,NULL),
 (835,'2025-03-11 12:43:54','2025-03-11 12:43:54',10.00,'2025-03-11 18:13:54',NULL,NULL),
-(836,'2025-03-11 13:15:37','2025-03-11 13:15:37',10.00,'2025-03-11 18:45:37',NULL,NULL);
+(836,'2025-03-11 13:15:37','2025-03-11 13:15:37',10.00,'2025-03-11 18:45:37',NULL,NULL),
+(837,'2025-03-13 13:54:31','2025-03-13 13:54:31',10.00,'2025-03-13 19:24:31',NULL,NULL);
 /*!40000 ALTER TABLE `inventory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2098,7 +2242,7 @@ CREATE TABLE `session_details_summary_temp` (
 LOCK TABLES `session_details_summary_temp` WRITE;
 /*!40000 ALTER TABLE `session_details_summary_temp` DISABLE KEYS */;
 INSERT INTO `session_details_summary_temp` VALUES
-(1,0,1,1,0,10,10,200.00,10.00,200.00,0.00,0.00,10.00,0.00,200.00,200.00,0.00,200.00,200.00,2000.00,0.00,0.00,2200.00,1);
+(0,0,0,0,0,10,10,0.00,10.00,0.00,0.00,0.00,10.00,0.00,0.00,0.00,0.00,0.00,0.00,1000.00,0.00,0.00,1000.00,0);
 /*!40000 ALTER TABLE `session_details_summary_temp` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2672,7 +2816,7 @@ CREATE TABLE `store` (
   UNIQUE KEY `branchId_UNIQUE` (`storeId`),
   KEY `store_country_fk` (`countryid`),
   CONSTRAINT `store_country_fk` FOREIGN KEY (`countryid`) REFERENCES `country` (`CountryId`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2837,7 +2981,7 @@ CREATE TABLE `system_info` (
   KEY `FK_system_info_Currency` (`CurrencyId`),
   KEY `FK_system_info_Language` (`PrimaryLanguageId`),
   CONSTRAINT `FK_Geo_Info_Currency` FOREIGN KEY (`CurrencyId`) REFERENCES `currency` (`CurrencyID`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2864,7 +3008,7 @@ CREATE TABLE `terminal` (
   `ModifiedDate_ServerTime` datetime DEFAULT NULL,
   `ModifiedDate_UTC` datetime DEFAULT NULL,
   PRIMARY KEY (`TerminalId`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2894,7 +3038,8 @@ CREATE TABLE `timezones` (
   `timeZoneDescription` varchar(255) DEFAULT NULL,
   `standardTimeName` varchar(50) DEFAULT NULL,
   `daylightSavingTimeName` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`timeZoneID`)
+  PRIMARY KEY (`timeZoneID`),
+  UNIQUE KEY `unique_timeZone` (`timeZone`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -2910,21 +3055,24 @@ INSERT INTO `timezones` VALUES
 (3,-300,'-05:00','America/New_York','US',1,'EST','Eastern Standard Time','Eastern Standard Time','Eastern Daylight Time'),
 (4,0,'+00:00','Europe/London','GB',1,'GMT','Greenwich Mean Time','Greenwich Mean Time','British Summer Time'),
 (5,60,'+01:00','Europe/Paris','FR',1,'CET','Central European Time','Central European Time','Central European Summer Time'),
-(6,120,'+02:00','Africa/Cairo','EG',1,'EET','Eastern European Time','Eastern European Time','Eastern European Summer Time'),
-(7,180,'+03:00','Europe/Moscow','RU',1,'MSK','Moscow Time','Moscow Standard Time','Moscow Daylight Time'),
-(8,240,'+04:00','Asia/Dubai','AE',0,'GST','Gulf Standard Time','Gulf Standard Time',NULL),
-(9,270,'+04:30','Asia/Kabul','AF',0,'AFT','Afghanistan Time','Afghanistan Time',NULL),
-(10,300,'+05:00','Asia/Karachi','PK',0,'PKT','Pakistan Standard Time','Pakistan Standard Time',NULL),
-(11,330,'+05:30','Asia/Calcutta','IN',1,'IST','Indian Standard Time','Indian Standard Time','Indian Daylight Time'),
-(12,345,'+05:45','Asia/Kathmandu','NP',0,'NPT','Nepal Time','Nepal Time',NULL),
-(13,360,'+06:00','Asia/Almaty','KZ',0,'ALMT','Alma-Ata Time','Alma-Ata Time',NULL),
-(14,420,'+07:00','Asia/Bangkok','TH',0,'ICT','Indochina Time','Indochina Time',NULL),
-(15,480,'+08:00','Asia/Singapore','SG',0,'SGT','Singapore Time','Singapore Time',NULL),
-(16,540,'+09:00','Asia/Tokyo','JP',0,'JST','Japan Standard Time','Japan Standard Time',NULL),
-(17,570,'+09:30','Australia/Adelaide','AU',1,'ACST','Australian Central Standard Time','Australian Central Standard Time','Australian Central Daylight Time'),
-(18,600,'+10:00','Australia/Sydney','AU',1,'AEST','Australian Eastern Standard Time','Australian Eastern Standard Time','Australian Eastern Daylight Time'),
-(19,660,'+11:00','Pacific/Guadalcanal','SB',0,'SBT','Solomon Islands Time','Solomon Islands Time',NULL),
-(20,720,'+12:00','Pacific/Fiji','FJ',1,'FJT','Fiji Time','Fiji Standard Time','Fiji Daylight Time');
+(6,60,'+01:00','Europe/Prague','CZ',1,'CET','Central European Time','Central European Standard Time','Central European Summer Time'),
+(7,120,'+02:00','Africa/Cairo','EG',1,'EET','Eastern European Time','Eastern European Time','Eastern European Summer Time'),
+(8,180,'+03:00','Europe/Moscow','RU',1,'MSK','Moscow Time','Moscow Standard Time','Moscow Daylight Time'),
+(9,240,'+04:00','Asia/Dubai','AE',0,'GST','Gulf Standard Time','Gulf Standard Time',NULL),
+(10,270,'+04:30','Asia/Kabul','AF',0,'AFT','Afghanistan Time','Afghanistan Time',NULL),
+(11,300,'+05:00','Asia/Karachi','PK',0,'PKT','Pakistan Standard Time','Pakistan Standard Time',NULL),
+(12,330,'+05:30','Asia/Calcutta','IN',1,'IST','Indian Standard Time','Indian Standard Time','Indian Daylight Time'),
+(13,345,'+05:45','Asia/Kathmandu','NP',0,'NPT','Nepal Time','Nepal Time',NULL),
+(14,360,'+06:00','Asia/Almaty','KZ',0,'ALMT','Alma-Ata Time','Alma-Ata Time',NULL),
+(15,420,'+07:00','Asia/Bangkok','TH',0,'ICT','Indochina Time','Indochina Time',NULL),
+(16,480,'+08:00','Asia/Singapore','SG',0,'SGT','Singapore Time','Singapore Time',NULL),
+(17,540,'+09:00','Asia/Tokyo','JP',0,'JST','Japan Standard Time','Japan Standard Time',NULL),
+(18,570,'+09:30','Australia/Adelaide','AU',1,'ACST','Australian Central Standard Time','Australian Central Standard Time','Australian Central Daylight Time'),
+(19,600,'+10:00','Australia/Sydney','AU',1,'AEST','Australian Eastern Standard Time','Australian Eastern Standard Time','Australian Eastern Daylight Time'),
+(20,660,'+11:00','Pacific/Guadalcanal','SB',0,'SBT','Solomon Islands Time','Solomon Islands Time',NULL),
+(21,720,'+12:00','Pacific/Fiji','FJ',1,'FJT','Fiji Time','Fiji Standard Time','Fiji Daylight Time'),
+(22,120,'+02:00','Europe/Bucharest','RO',1,'EET','Eastern European Time','Eastern European Standard Time','Eastern European Summer Time'),
+(23,60,'+01:00','Europe/Rome','IT',1,'CET','Central European Time','Central European Standard Time','Central European Summer Time');
 /*!40000 ALTER TABLE `timezones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2946,7 +3094,7 @@ CREATE TABLE `user_action_log` (
   `CreatedDate_UTC` datetime NOT NULL DEFAULT utc_timestamp(),
   PRIMARY KEY (`LogId`),
   KEY `user_action_log_UserLogID_IDX` (`UserLogID`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2998,7 +3146,8 @@ INSERT INTO `user_action_log` VALUES
 (40,1,'5:30','p','2025-02-10 10:58:48','Stock adjustment confirmed for stockBatchId: 81, adjustmentTypeId: 2, adjustedQty: 1.00, existingStockQty: 45.00','2025-02-10 10:58:48','2025-02-10 10:58:48'),
 (41,1,'5:30','p','2025-02-11 04:35:49','Stock adjustment confirmed for stockBatchId: 71, adjustmentTypeId: 2, adjustedQty: 1.00, existingStockQty: 9.00','2025-02-11 04:35:49','2025-02-11 04:35:49'),
 (42,1,'5:30','p','2025-02-11 04:35:57','Stock adjustment confirmed for stockBatchId: 71, adjustmentTypeId: 1, adjustedQty: 1.00, existingStockQty: 8.00','2025-02-11 04:35:57','2025-02-11 04:35:57'),
-(43,1,'5:30','p','2025-03-08 17:44:21','Stock adjustment confirmed for stockBatchId: 83, adjustmentTypeId: 2, adjustedQty: 2.00, existingStockQty: 20.00','2025-03-08 17:44:21','2025-03-08 17:44:21');
+(43,1,'5:30','p','2025-03-08 17:44:21','Stock adjustment confirmed for stockBatchId: 83, adjustmentTypeId: 2, adjustedQty: 2.00, existingStockQty: 20.00','2025-03-08 17:44:21','2025-03-08 17:44:21'),
+(44,2,'5:30','p','2025-03-13 13:56:10','Stock adjustment confirmed for stockBatchId: 1, adjustmentTypeId: 2, adjustedQty: 1.00, existingStockQty: 10.00','2025-03-13 13:56:10','2025-03-13 13:56:10');
 /*!40000 ALTER TABLE `user_action_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6057,6 +6206,30 @@ sp: BEGIN
     -- Set response status
     SET p_ResponseStatus = 'success';
     SET p_OutputMessage = 'Query executed successfully.';
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `get_SystemInfo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_SystemInfo`(
+)
+begin
+	
+  select utcOffset,c.currencyCode,c.symbol ,c.currencyName from system_info as si 
+      inner join currency c on si.CurrencyId=c.CurrencyID;
+
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -14135,6 +14308,9 @@ sp: BEGIN
         );
 
       set  p_userLogId=LAST_INSERT_ID();
+      
+      select c.CurrencyCode,c.Symbol ,c.CurrencyName from system_info as si 
+      inner join currency c on si.CurrencyId=c.CurrencyID;
  
         SET p_ResponseStatus = 'success';
         SET p_OutputMessage = 'Added Successfully';
@@ -15204,4 +15380,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-13 15:58:57
+-- Dump completed on 2025-03-13 19:42:14
