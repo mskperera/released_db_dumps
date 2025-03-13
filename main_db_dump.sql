@@ -37,7 +37,7 @@ CREATE TABLE `connections` (
   `jwtSecret` varchar(100) DEFAULT NULL,
   `isSettingupCompleted` bit(1) DEFAULT b'0',
   UNIQUE KEY `db_connection_id_UNIQUE` (`connectionId`)
-) ENGINE=InnoDB AUTO_INCREMENT=171 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=177 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -133,7 +133,7 @@ CREATE TABLE `userassign` (
   KEY `fk_userassign_users` (`userId`),
   CONSTRAINT `fk_userassign_connections` FOREIGN KEY (`connectionId`) REFERENCES `connections` (`connectionId`),
   CONSTRAINT `fk_userassign_users` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=168 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=174 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,7 +165,7 @@ CREATE TABLE `users` (
   `roleId` int(11) DEFAULT NULL,
   PRIMARY KEY (`userId`),
   UNIQUE KEY `userId_UNIQUE` (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=168 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=174 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -924,4 +924,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-12 22:24:57
+-- Dump completed on 2025-03-13 20:43:27
