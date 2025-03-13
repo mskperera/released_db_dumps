@@ -1358,7 +1358,7 @@ CREATE TABLE `order_header` (
   `StoreId` int(11) NOT NULL,
   `CurrencyId` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
-  `displayUserName` varchar(10) DEFAULT NULL,
+  `displayUserName` varchar(50) DEFAULT NULL,
   `dc_StoreId` int(11) NOT NULL,
   `systemInfoId` int(11) NOT NULL,
   `companyId` int(11) NOT NULL,
@@ -3015,7 +3015,7 @@ CREATE TABLE `user_registration` (
   `passwordHash` text DEFAULT NULL,
   `passwordSalt` varchar(50) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `displayName` varchar(100) DEFAULT NULL,
+  `displayName` varchar(50) DEFAULT NULL,
   `profilePic` varchar(50) DEFAULT NULL,
   `isActive` bit(1) DEFAULT b'1',
   `CreatedDate_UTC` datetime DEFAULT utc_timestamp(),
@@ -3121,7 +3121,7 @@ CREATE TABLE `userlog` (
   `utcOffset` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`userLogId`),
   CONSTRAINT `userlog_chk_1` CHECK (`LoginStatus` = _utf8mb4'Failed' or `LoginStatus` = _utf8mb4'Success')
-) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3130,86 +3130,6 @@ CREATE TABLE `userlog` (
 
 LOCK TABLES `userlog` WRITE;
 /*!40000 ALTER TABLE `userlog` DISABLE KEYS */;
-INSERT INTO `userlog` VALUES
-(13,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-09 16:38:15','2025-03-09 22:08:15','330'),
-(14,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-09 16:39:25','2025-03-09 22:09:25','330'),
-(15,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-09 16:39:40','2025-03-09 22:09:40','330'),
-(16,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-09 16:40:31','2025-03-09 22:10:31','330'),
-(17,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-09 17:13:54','2025-03-09 22:43:54','330'),
-(18,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 10:46:05','2025-03-10 16:16:05','330'),
-(19,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 10:51:42','2025-03-10 16:21:42','330'),
-(20,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 10:53:08','2025-03-10 16:23:08','330'),
-(21,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 10:54:15','2025-03-10 16:24:15','330'),
-(22,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 10:54:47','2025-03-10 16:24:47','330'),
-(23,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 10:56:55','2025-03-10 16:26:55','330'),
-(24,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 10:57:43','2025-03-10 16:27:43','330'),
-(25,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 10:58:32','2025-03-10 16:28:32','330'),
-(26,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 10:59:19','2025-03-10 16:29:19','330'),
-(27,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 11:15:37','2025-03-10 16:45:37','330'),
-(28,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 11:17:09','2025-03-10 16:47:09','330'),
-(29,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 11:18:13','2025-03-10 16:48:13','330'),
-(30,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 11:19:00','2025-03-10 16:49:00','330'),
-(31,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 11:19:50','2025-03-10 16:49:50','330'),
-(32,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 11:21:24','2025-03-10 16:51:24','330'),
-(33,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 11:24:05','2025-03-10 16:54:05','330'),
-(34,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 11:24:24','2025-03-10 16:54:24','330'),
-(35,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 11:25:33','2025-03-10 16:55:33','330'),
-(36,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 11:31:21','2025-03-10 17:01:21','330'),
-(37,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 11:31:36','2025-03-10 17:01:36','330'),
-(38,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 11:32:00','2025-03-10 17:02:00','330'),
-(39,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 11:32:10','2025-03-10 17:02:10','330'),
-(40,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 11:45:13','2025-03-10 17:15:13','330'),
-(41,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 11:45:35','2025-03-10 17:15:35','330'),
-(42,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 11:48:55','2025-03-10 17:18:55','330'),
-(43,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 11:51:45','2025-03-10 17:21:45','330'),
-(44,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 11:58:53','2025-03-10 17:28:53','330'),
-(45,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 11:59:51','2025-03-10 17:29:51','330'),
-(46,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 12:06:27','2025-03-10 17:36:27','330'),
-(47,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 12:07:05','2025-03-10 17:37:05','330'),
-(48,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 12:12:27','2025-03-10 17:42:27','330'),
-(49,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 12:39:23','2025-03-10 18:09:23','330'),
-(50,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 12:47:05','2025-03-10 18:17:05','330'),
-(51,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 13:13:54','2025-03-10 18:43:54','330'),
-(52,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 13:23:11','2025-03-10 18:53:11','330'),
-(53,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 13:25:31','2025-03-10 18:55:31','330'),
-(54,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 13:26:08','2025-03-10 18:56:08','330'),
-(55,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 13:27:15','2025-03-10 18:57:15','330'),
-(56,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 13:37:03','2025-03-10 19:07:03','330'),
-(57,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 13:58:13','2025-03-10 19:28:13','330'),
-(58,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 13:59:07','2025-03-10 19:29:07','330'),
-(59,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 13:59:41','2025-03-10 19:29:41','330'),
-(60,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 14:00:11','2025-03-10 19:30:11','330'),
-(61,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 14:01:28','2025-03-10 19:31:28','330'),
-(62,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 14:03:33','2025-03-10 19:33:33','330'),
-(63,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 14:07:35','2025-03-10 19:37:35','330'),
-(64,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 15:10:44','2025-03-10 20:40:44','330'),
-(65,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 15:27:40','2025-03-10 20:57:40','330'),
-(66,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 15:29:14','2025-03-10 20:59:14','330'),
-(67,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 15:30:20','2025-03-10 21:00:20','330'),
-(68,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 15:39:50','2025-03-10 21:09:50','330'),
-(69,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 15:46:55','2025-03-10 21:16:55','330'),
-(70,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 15:48:12','2025-03-10 21:18:12','330'),
-(71,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 15:50:49','2025-03-10 21:20:49','330'),
-(72,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 15:51:58','2025-03-10 21:21:58','330'),
-(73,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 15:59:13','2025-03-10 21:29:13','330'),
-(74,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 16:13:42','2025-03-10 21:43:42','330'),
-(75,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 16:17:45','2025-03-10 21:47:45','330'),
-(76,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 16:27:58','2025-03-10 21:57:58','330'),
-(77,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 16:28:22','2025-03-10 21:58:22','330'),
-(78,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-10 18:21:53','2025-03-10 23:51:53','330'),
-(79,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-11 10:43:00','2025-03-11 16:13:00','330'),
-(80,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-11 11:39:56','2025-03-11 17:09:56','330'),
-(81,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-11 12:29:52','2025-03-11 17:59:52','330'),
-(82,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-11 13:14:01','2025-03-11 18:44:01','330'),
-(83,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-11 13:18:22','2025-03-11 18:48:22','330'),
-(84,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-11 13:31:48','2025-03-11 19:01:48','330'),
-(85,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-11 13:36:09','2025-03-11 19:06:09','330'),
-(86,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-11 13:36:42','2025-03-11 19:06:42','330'),
-(87,1,'Failed','ipAddress','userAgent','sessionId','additionalInfo','2025-03-11 13:36:51','2025-03-11 19:06:51','330'),
-(88,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-11 13:36:54','2025-03-11 19:06:54','330'),
-(89,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-11 13:37:46','2025-03-11 19:07:46','330'),
-(90,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-11 13:39:11','2025-03-11 19:09:11','330'),
-(91,1,'Success','ipAddress','userAgent','sessionId','additionalInfo','2025-03-11 13:43:01','2025-03-11 19:13:01','330');
 /*!40000 ALTER TABLE `userlog` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3912,7 +3832,8 @@ delete from product_category;
 	
 			
                
-               
+               		delete from userlog;
+    ALTER TABLE userlog AUTO_INCREMENT = 1;
                
                
                
@@ -6712,6 +6633,7 @@ SELECT
         )
     ) AS productName,
     p.productNo,
+     p.sku,
     od.unitPrice,
     CASE 
         WHEN od.isReturned = 1 THEN TRUE 
@@ -15282,4 +15204,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-11 20:10:23
+-- Dump completed on 2025-03-13 15:58:57
