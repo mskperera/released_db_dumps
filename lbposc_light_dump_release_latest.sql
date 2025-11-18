@@ -1,4 +1,3 @@
-/*M!999999\- enable the sandbox mode */ 
 -- MariaDB dump 10.19  Distrib 10.6.22-MariaDB, for debian-linux-gnu (x86_64)
 --
 -- Host: 43.205.230.49    Database: posdb_183
@@ -19,10 +18,6 @@
 --
 -- Current Database: `posdb_183`
 --
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `posdb_183` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
-
-USE `posdb_183`;
 
 --
 -- Table structure for table `__operational_info`
