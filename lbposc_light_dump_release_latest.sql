@@ -1,8 +1,9 @@
--- MariaDB dump 10.19-11.3.0-MariaDB, for Win64 (AMD64)
+/*M!999999\- enable the sandbox mode */ 
+-- MariaDB dump 10.19  Distrib 10.6.22-MariaDB, for debian-linux-gnu (x86_64)
 --
--- Host: 127.0.0.1    Database: lbposc_light
+-- Host: 43.205.230.49    Database: posdb_183
 -- ------------------------------------------------------
--- Server version	11.3.0-MariaDB
+-- Server version	10.6.22-MariaDB-0ubuntu0.22.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,12 +17,20 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Current Database: `posdb_183`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `posdb_183` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+
+USE `posdb_183`;
+
+--
 -- Table structure for table `__operational_info`
 --
 
 DROP TABLE IF EXISTS `__operational_info`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `__operational_info` (
   `db_version` varchar(50) NOT NULL,
   `releasedDate` datetime DEFAULT NULL,
@@ -35,8 +44,7 @@ CREATE TABLE `__operational_info` (
 
 LOCK TABLES `__operational_info` WRITE;
 /*!40000 ALTER TABLE `__operational_info` DISABLE KEYS */;
-INSERT INTO `__operational_info` VALUES
-('1.0.0-alpha.1','2024-05-19 00:00:00','1');
+INSERT INTO `__operational_info` VALUES ('1.0.0-alpha.1','2024-05-19 00:00:00','1');
 /*!40000 ALTER TABLE `__operational_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -46,7 +54,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `all_product`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `all_product` (
   `allProductId` int(11) NOT NULL AUTO_INCREMENT,
   `productTypeId` int(11) DEFAULT NULL,
@@ -62,7 +70,7 @@ CREATE TABLE `all_product` (
   CONSTRAINT `all_product_combo_product_FK` FOREIGN KEY (`comboProductId`) REFERENCES `combo_product` (`productId`),
   CONSTRAINT `all_product_single_product_FK` FOREIGN KEY (`singleProductid`) REFERENCES `single_product` (`productId`),
   CONSTRAINT `all_product_variation_product_FK` FOREIGN KEY (`variationProductId`) REFERENCES `variation_product` (`variationProductId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=312 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,6 +79,7 @@ CREATE TABLE `all_product` (
 
 LOCK TABLES `all_product` WRITE;
 /*!40000 ALTER TABLE `all_product` DISABLE KEYS */;
+INSERT INTO `all_product` VALUES (37,1,34,34,NULL),(38,1,35,35,NULL),(55,1,52,NULL,NULL),(56,1,53,NULL,NULL),(57,1,54,NULL,NULL),(58,1,55,NULL,NULL),(59,1,56,NULL,NULL),(60,1,57,NULL,NULL),(61,1,58,NULL,NULL),(62,1,59,NULL,NULL),(63,1,60,NULL,NULL),(64,2,NULL,NULL,5),(65,2,NULL,NULL,6),(66,2,NULL,NULL,7),(67,2,NULL,NULL,8),(68,2,NULL,NULL,9),(69,2,NULL,NULL,10),(70,2,NULL,NULL,11),(71,2,NULL,NULL,12),(72,2,NULL,NULL,13),(73,2,NULL,NULL,14),(74,2,NULL,NULL,15),(75,2,NULL,NULL,16),(76,2,NULL,NULL,17),(77,2,NULL,NULL,18),(78,2,NULL,NULL,19),(79,2,NULL,NULL,20),(80,2,NULL,NULL,21),(81,2,NULL,NULL,22),(82,2,NULL,NULL,23),(83,2,NULL,NULL,24),(84,2,NULL,NULL,25),(86,1,74,NULL,NULL),(88,1,76,NULL,NULL),(90,1,78,NULL,NULL),(108,1,96,NULL,NULL),(111,2,NULL,NULL,28),(112,2,NULL,NULL,29),(117,2,NULL,NULL,37),(118,2,NULL,NULL,38),(119,2,NULL,NULL,39),(120,2,NULL,NULL,40),(121,2,NULL,NULL,41),(122,2,NULL,NULL,42),(123,2,NULL,NULL,43),(124,2,NULL,NULL,44),(125,2,NULL,NULL,45),(126,2,NULL,NULL,46),(127,2,NULL,NULL,47),(128,2,NULL,NULL,48),(129,2,NULL,NULL,49),(130,2,NULL,NULL,50),(131,2,NULL,NULL,51),(132,2,NULL,NULL,52),(133,2,NULL,NULL,53),(134,2,NULL,NULL,54),(135,2,NULL,NULL,55),(136,2,NULL,NULL,56),(137,2,NULL,NULL,57),(138,2,NULL,NULL,58),(139,2,NULL,NULL,59),(140,2,NULL,NULL,60),(141,2,NULL,NULL,61),(142,2,NULL,NULL,62),(143,2,NULL,NULL,63),(144,2,NULL,NULL,64),(145,2,NULL,NULL,65),(146,2,NULL,NULL,66),(147,2,NULL,NULL,67),(148,2,NULL,NULL,68),(149,2,NULL,NULL,69),(150,2,NULL,NULL,70),(151,2,NULL,NULL,71),(152,2,NULL,NULL,72),(153,2,NULL,NULL,73),(154,2,NULL,NULL,74),(155,2,NULL,NULL,75),(156,2,NULL,NULL,76),(157,2,NULL,NULL,77),(158,2,NULL,NULL,78),(159,2,NULL,NULL,79),(160,1,110,NULL,NULL),(161,1,111,NULL,NULL),(164,1,114,NULL,NULL),(190,1,131,NULL,NULL),(191,1,132,NULL,NULL),(192,1,133,NULL,NULL),(193,2,NULL,NULL,99),(194,2,NULL,NULL,100),(195,2,NULL,NULL,101),(196,2,NULL,NULL,102),(197,2,NULL,NULL,103),(198,2,NULL,NULL,104),(199,2,NULL,NULL,105),(200,2,NULL,NULL,106),(201,2,NULL,NULL,107),(202,2,NULL,NULL,108),(203,2,NULL,NULL,109),(204,2,NULL,NULL,110),(205,2,NULL,NULL,111),(224,2,NULL,NULL,130),(225,2,NULL,NULL,131),(226,2,NULL,NULL,132),(227,2,NULL,NULL,133),(228,2,NULL,NULL,134),(229,2,NULL,NULL,135),(230,2,NULL,NULL,136),(231,2,NULL,NULL,137),(232,2,NULL,NULL,138),(233,2,NULL,NULL,139),(235,2,NULL,NULL,141),(236,2,NULL,NULL,142),(238,2,NULL,NULL,144),(239,2,NULL,NULL,145),(241,2,NULL,NULL,147),(246,2,NULL,NULL,152),(248,2,NULL,NULL,154),(249,2,NULL,NULL,155),(250,2,NULL,NULL,156),(252,2,NULL,NULL,158),(254,2,NULL,NULL,160),(255,2,NULL,NULL,161),(257,2,NULL,NULL,163),(258,1,148,NULL,NULL),(259,2,NULL,NULL,164),(260,2,NULL,NULL,165),(261,2,NULL,NULL,166),(262,2,NULL,NULL,167),(263,2,NULL,NULL,168),(264,2,NULL,NULL,169),(265,2,NULL,NULL,170),(266,2,NULL,NULL,171),(267,2,NULL,NULL,172),(269,2,NULL,NULL,174),(270,2,NULL,NULL,175),(271,2,NULL,NULL,176),(272,2,NULL,NULL,177),(273,2,NULL,NULL,178),(274,2,NULL,NULL,179),(275,2,NULL,NULL,180),(276,2,NULL,NULL,181),(277,2,NULL,NULL,182),(278,2,NULL,NULL,183),(279,2,NULL,NULL,184),(280,2,NULL,NULL,185),(281,2,NULL,NULL,186),(282,2,NULL,NULL,187),(283,2,NULL,NULL,188),(284,2,NULL,NULL,189),(285,2,NULL,NULL,190),(286,2,NULL,NULL,191),(287,2,NULL,NULL,192),(288,2,NULL,NULL,193),(289,2,NULL,NULL,194),(290,2,NULL,NULL,195),(291,2,NULL,NULL,196),(292,2,NULL,NULL,197),(293,2,NULL,NULL,198),(294,2,NULL,NULL,199),(295,2,NULL,NULL,200),(296,2,NULL,NULL,201),(297,2,NULL,NULL,202),(298,2,NULL,NULL,203),(299,2,NULL,NULL,204),(300,2,NULL,NULL,205),(301,2,NULL,NULL,206),(303,2,NULL,NULL,208),(304,2,NULL,NULL,209),(305,2,NULL,NULL,210),(306,2,NULL,NULL,211),(307,2,NULL,NULL,212),(308,2,NULL,NULL,213),(309,2,NULL,NULL,214),(310,2,NULL,NULL,215),(311,2,NULL,NULL,216);
 /*!40000 ALTER TABLE `all_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -80,7 +89,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `bank_transfer_payments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bank_transfer_payments` (
   `receiverBankAccountId` int(11) NOT NULL,
   `senderBankAccountId` int(11) NOT NULL
@@ -102,7 +111,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `batch_order_preference`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `batch_order_preference` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sortType` enum('batchQueueNumber','expDate') NOT NULL,
@@ -117,11 +126,7 @@ CREATE TABLE `batch_order_preference` (
 
 LOCK TABLES `batch_order_preference` WRITE;
 /*!40000 ALTER TABLE `batch_order_preference` DISABLE KEYS */;
-INSERT INTO `batch_order_preference` VALUES
-(1,'batchQueueNumber','ASC'),
-(2,'expDate','DESC'),
-(3,'batchQueueNumber','DESC'),
-(4,'expDate','ASC');
+INSERT INTO `batch_order_preference` VALUES (1,'batchQueueNumber','ASC'),(2,'expDate','DESC'),(3,'batchQueueNumber','DESC'),(4,'expDate','ASC');
 /*!40000 ALTER TABLE `batch_order_preference` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,7 +136,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `brand`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `brand` (
   `BrandId` int(11) NOT NULL AUTO_INCREMENT,
   `BrandName` varchar(50) DEFAULT NULL,
@@ -149,8 +154,7 @@ CREATE TABLE `brand` (
 
 LOCK TABLES `brand` WRITE;
 /*!40000 ALTER TABLE `brand` DISABLE KEYS */;
-INSERT INTO `brand` VALUES
-(1,'None','2024-07-31 09:21:10','2024-07-31 14:51:10',NULL,NULL);
+INSERT INTO `brand` VALUES (1,'None','2024-07-31 09:21:10','2024-07-31 14:51:10',NULL,NULL);
 /*!40000 ALTER TABLE `brand` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -160,7 +164,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `card_payments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `card_payments` (
   `PaymentId` int(11) NOT NULL,
   `CardHolderName` varchar(100) DEFAULT NULL,
@@ -182,6 +186,7 @@ CREATE TABLE `card_payments` (
 
 LOCK TABLES `card_payments` WRITE;
 /*!40000 ALTER TABLE `card_payments` DISABLE KEYS */;
+INSERT INTO `card_payments` VALUES (15,'JOHN PETER',1,'2142',12,25,NULL);
 /*!40000 ALTER TABLE `card_payments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -191,7 +196,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `card_types`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `card_types` (
   `CardTypeId` int(11) NOT NULL,
   `CardTypeName` varchar(50) DEFAULT NULL,
@@ -205,13 +210,7 @@ CREATE TABLE `card_types` (
 
 LOCK TABLES `card_types` WRITE;
 /*!40000 ALTER TABLE `card_types` DISABLE KEYS */;
-INSERT INTO `card_types` VALUES
-(1,'Visa'),
-(2,'MasterCard'),
-(3,'American Express'),
-(4,'Discover'),
-(5,'Diners Club'),
-(6,'JCB');
+INSERT INTO `card_types` VALUES (1,'Visa'),(2,'MasterCard'),(3,'American Express'),(4,'Discover'),(5,'Diners Club'),(6,'JCB');
 /*!40000 ALTER TABLE `card_types` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -221,7 +220,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `cash_denomination`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cash_denomination` (
   `currencyId` varchar(50) DEFAULT NULL,
   `qty` int(11) DEFAULT NULL,
@@ -245,7 +244,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `cash_payments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cash_payments` (
   `PaymentId` int(11) NOT NULL,
   `BalanceAmount` decimal(10,4) DEFAULT NULL,
@@ -261,6 +260,7 @@ CREATE TABLE `cash_payments` (
 
 LOCK TABLES `cash_payments` WRITE;
 /*!40000 ALTER TABLE `cash_payments` DISABLE KEYS */;
+INSERT INTO `cash_payments` VALUES (1,0.0000,1250.0000),(2,105.0000,2000.0000),(3,1760.0000,5000.0000),(4,100.0000,1000.0000),(5,3950.0000,5000.0000),(7,3450.0000,5000.0000),(8,4300.0000,5000.0000),(9,0.0000,2400.0000),(10,3000.0000,5000.0000),(11,0.0000,500.0000),(12,100.0000,500.0000),(13,100.0000,1000.0000),(14,0.0000,500.0000),(16,4600.0000,5000.0000),(17,0.0000,500.0000),(18,20.0000,50.0000),(19,0.0000,1500.0000),(20,0.0000,600.0000),(21,100.0000,1000.0000),(22,0.0000,1000.0000),(23,150.0000,1000.0000),(24,4655.0000,5000.0000),(25,0.0000,500.0000),(26,0.0000,500.0000),(27,4500.0000,5000.0000),(28,100.0000,500.0000),(29,3600.0000,5000.0000),(30,3400.0000,5000.0000),(31,3300.0000,5000.0000),(32,0.0000,1000.0000),(33,0.0000,500.0000),(34,250.0000,1000.0000),(35,3800.0000,5000.0000),(36,0.0000,500.0000),(37,310.0000,1800.0000),(38,2450.0000,5000.0000),(39,0.0000,500.0000),(40,250.0000,1000.0000),(41,500.0000,1000.0000),(42,3000.0000,5000.0000),(43,0.0000,500.0000),(44,500.0000,1000.0000),(45,3640.0000,5000.0000),(46,0.0000,500.0000),(47,0.0000,500.0000),(48,0.0000,500.0000),(49,0.0000,2700.0000),(50,0.0000,350.0000),(51,3395.0000,5000.0000),(52,0.0000,500.0000),(53,0.0000,1000.0000),(54,2150.0000,5000.0000),(55,100.0000,500.0000),(56,600.0000,1000.0000),(57,150.0000,500.0000),(58,425.0000,1000.0000),(59,50.0000,1600.0000),(60,3500.0000,5000.0000),(61,2200.0000,5000.0000),(62,1300.0000,5000.0000),(63,45.0000,1300.0000),(64,3555.0000,5000.0000),(65,500.0000,6000.0000),(66,350.0000,1000.0000),(67,250.0000,1000.0000),(68,3800.0000,5000.0000),(69,3400.0000,5000.0000),(70,3300.0000,5000.0000),(71,0.0000,1000.0000),(72,940.0000,1000.0000),(73,200.0000,1000.0000),(74,100.0000,1000.0000),(75,0.0000,1000.0000),(76,3500.0000,5000.0000),(77,500.0000,2000.0000),(78,550.0000,1000.0000),(79,500.0000,1000.0000),(80,400.0000,1000.0000),(81,400.0000,1000.0000),(82,750.0000,1000.0000),(83,4500.0000,5000.0000),(84,4100.0000,5000.0000),(85,3600.0000,5000.0000),(86,2500.0000,5000.0000),(87,0.0000,7000.0000),(88,1500.0000,7000.0000),(89,500.0000,6000.0000),(90,600.0000,2000.0000),(91,1500.0000,5000.0000),(92,3000.0000,5000.0000),(93,2000.0000,5000.0000),(94,2300.0000,5000.0000),(95,2500.0000,5000.0000),(96,0.0000,500.0000),(97,0.0000,8000.0000),(98,0.0000,7000.0000),(99,2300.0000,5000.0000),(100,2300.0000,5000.0000),(101,0.0000,500.0000),(102,200.0000,1000.0000),(103,40.0000,100.0000),(104,4000.0000,5000.0000),(105,3800.0000,5000.0000),(106,1900.0000,5000.0000),(107,0.0000,500.0000),(108,3700.0000,5000.0000),(109,250.0000,1000.0000),(110,2250.0000,5000.0000),(111,500.0000,1000.0000),(112,800.0000,1000.0000),(113,150.0000,500.0000),(114,40.0000,100.0000),(115,240.0000,500.0000),(116,500.0000,1000.0000),(117,290.0000,1000.0000),(118,365.0000,1000.0000),(119,500.0000,1000.0000),(120,150.0000,500.0000),(121,150.0000,500.0000),(122,150.0000,500.0000),(123,400.0000,2000.0000),(124,950.0000,2000.0000),(125,0.0000,1000.0000),(126,20.0000,50.0000),(127,940.0000,1000.0000),(128,100.0000,1000.0000),(129,900.0000,2000.0000),(130,2300.0000,5000.0000),(131,800.0000,2000.0000),(132,700.0000,2000.0000),(133,400.0000,2000.0000),(134,300.0000,1000.0000),(135,3600.0000,5000.0000),(136,2210.0000,5000.0000),(137,500.0000,2000.0000),(138,0.0000,5500.0000),(139,3800.0000,5000.0000),(140,0.0000,1600.0000),(141,0.0000,400.0000),(142,0.0000,500.0000),(143,70.0000,2000.0000),(144,600.0000,2000.0000),(145,100.0000,500.0000),(146,4250.0000,5000.0000),(147,4000.0000,5000.0000),(148,100.0000,500.0000),(149,1500.0000,5000.0000),(150,0.0000,100.0000),(151,1700.0000,5000.0000),(152,0.0000,8000.0000),(153,0.0000,500.0000),(154,100.0000,500.0000),(155,350.0000,1000.0000),(156,0.0000,500.0000),(157,0.0000,500.0000),(158,150.0000,500.0000),(159,250.0000,1000.0000),(160,800.0000,2000.0000),(161,2600.0000,9000.0000),(162,0.0000,5500.0000),(163,0.0000,5500.0000),(164,200.0000,1000.0000),(165,100.0000,1000.0000),(166,700.0000,2000.0000),(167,1000.0000,5000.0000),(168,1100.0000,5000.0000),(169,500.0000,5000.0000),(170,0.0000,500.0000),(171,0.0000,350.0000),(172,500.0000,2000.0000),(173,150.0000,1000.0000),(174,3650.0000,5000.0000),(175,500.0000,1000.0000),(176,335.0000,1000.0000),(177,0.0000,2000.0000),(178,1000.0000,2000.0000),(179,0.0000,5000.0000),(180,0.0000,500.0000),(181,0.0000,500.0000),(182,0.0000,500.0000),(183,600.0000,2000.0000),(184,0.0000,500.0000),(185,150.0000,500.0000),(186,100.0000,500.0000),(187,469.0000,1000.0000),(188,0.0000,3000.0000),(189,220.0000,500.0000),(190,300.0000,1000.0000),(191,0.0000,2000.0000),(192,40.0000,100.0000),(193,2400.0000,5000.0000),(194,4000.0000,5000.0000),(195,500.0000,1000.0000),(196,200.0000,1000.0000),(197,0.0000,1200.0000),(198,150.0000,2000.0000),(199,0.0000,1500.0000),(200,0.0000,850.0000),(201,0.0000,900.0000),(202,150.0000,2000.0000),(203,0.0000,500.0000),(204,0.0000,1000.0000),(205,150.0000,1000.0000),(206,4000.0000,5000.0000),(207,4000.0000,5000.0000),(208,0.0000,1000.0000),(209,0.0000,100.0000),(210,1500.0000,5000.0000),(211,400.0000,1000.0000),(212,300.0000,1000.0000),(213,620.0000,2000.0000),(214,2600.0000,5000.0000),(215,380.0000,500.0000),(216,0.0000,500.0000);
 /*!40000 ALTER TABLE `cash_payments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -270,7 +270,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `category` (
   `CategoryId` int(11) NOT NULL AUTO_INCREMENT,
   `CategoryName` varchar(50) NOT NULL,
@@ -278,8 +278,9 @@ CREATE TABLE `category` (
   `ModifiedDate_Server` datetime DEFAULT NULL,
   `CreatedDate_UTC` datetime NOT NULL DEFAULT utc_timestamp(),
   `ModifiedDate_UTC` datetime DEFAULT NULL,
+  `isHiddenFromPOSMenu` bit(1) DEFAULT b'0',
   PRIMARY KEY (`CategoryId`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -288,20 +289,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES
-(1,'Other','2023-05-21 23:42:45',NULL,'2025-02-01 17:07:50',NULL),
-(2,'Fruits','2023-12-21 22:59:23',NULL,'2025-02-01 17:07:50',NULL),
-(3,'Drinks','2023-12-21 22:59:23',NULL,'2025-02-01 17:07:50',NULL),
-(4,'Grocery Items','2023-12-21 23:00:46',NULL,'2025-02-01 17:07:50',NULL),
-(5,'Beverages','2023-12-21 23:38:18',NULL,'2025-02-01 17:07:50',NULL),
-(6,'Bakery','2023-12-21 23:38:18',NULL,'2025-02-01 17:07:50',NULL),
-(7,'Canned Goods','2023-12-21 23:38:18',NULL,'2025-02-01 17:07:50',NULL),
-(9,'Dry/Baking Goods','2023-12-21 23:38:18',NULL,'2025-02-01 17:07:50',NULL),
-(10,'Frozen Foods','2023-12-21 23:38:18',NULL,'2025-02-01 17:07:50',NULL),
-(11,'Meat','2023-12-21 23:38:18',NULL,'2025-02-01 17:07:50',NULL),
-(12,'Produce','2023-12-21 23:38:18',NULL,'2025-02-01 17:07:50',NULL),
-(14,'Paper Goods','2023-12-21 23:38:18',NULL,'2025-02-01 17:07:50',NULL),
-(17,'Other ee','2025-02-02 03:19:07',NULL,'2025-02-01 21:49:07',NULL);
+INSERT INTO `category` VALUES (29,'Enlargement','2025-07-13 07:47:38',NULL,'2025-07-13 07:47:38',NULL,'\0'),(32,'Papers','2025-07-23 17:10:44',NULL,'2025-07-23 11:40:44',NULL,''),(33,'Photo Frames','2025-07-29 02:18:09',NULL,'2025-07-28 20:48:09',NULL,'\0'),(34,'Photocopies and Scans','2025-07-30 14:11:28',NULL,'2025-07-30 08:41:28',NULL,'\0'),(37,'Print With Frame','2025-08-29 16:10:11',NULL,'2025-08-29 10:40:11',NULL,'\0'),(38,'Frame Stands','2025-08-29 20:38:00',NULL,'2025-08-29 15:08:00',NULL,'\0'),(39,'Frame Glasses','2025-08-29 20:44:16',NULL,'2025-08-29 15:14:16',NULL,'\0'),(40,'Other Items','2025-09-08 17:46:04',NULL,'2025-09-08 12:16:04',NULL,'\0'),(41,'Studio','2025-09-08 19:20:46',NULL,'2025-09-08 13:50:46',NULL,'\0'),(42,'Flymounts','2025-09-08 19:57:58',NULL,'2025-09-08 14:27:58',NULL,'\0'),(43,'Photo Frames - double box','2025-09-08 20:02:48',NULL,'2025-09-08 14:32:48',NULL,'\0'),(44,'Printouts','2025-09-09 15:20:32',NULL,'2025-09-09 09:50:32',NULL,'\0'),(45,'Lab Prints','2025-10-04 13:08:53',NULL,'2025-10-04 07:38:53',NULL,'\0');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -311,7 +299,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `combo_product`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `combo_product` (
   `productId` int(11) NOT NULL AUTO_INCREMENT,
   `sku` varchar(50) DEFAULT NULL,
@@ -325,9 +313,8 @@ CREATE TABLE `combo_product` (
   `taxPerc` decimal(10,2) DEFAULT 0.00,
   PRIMARY KEY (`productId`),
   UNIQUE KEY `unique_sku` (`sku`),
-  UNIQUE KEY `unique_barcode` (`barcode`),
-  CONSTRAINT `FK_comboProduct_product` FOREIGN KEY (`productId`) REFERENCES `product` (`ProductId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  UNIQUE KEY `unique_barcode` (`barcode`)
+) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -336,44 +323,8 @@ CREATE TABLE `combo_product` (
 
 LOCK TABLES `combo_product` WRITE;
 /*!40000 ALTER TABLE `combo_product` DISABLE KEYS */;
+INSERT INTO `combo_product` VALUES (6,'TESTC69',NULL,'2025-07-13 10:05:37','2025-07-13 15:35:37',NULL,NULL,200.00,0.00,0.00),(7,'4RPRI24',NULL,'2025-07-13 10:31:58','2025-07-13 16:01:58',NULL,NULL,500.00,0.00,0.00),(8,'STAMP21',NULL,'2025-07-13 10:41:29','2025-07-13 16:11:29',NULL,NULL,500.00,0.00,0.00),(9,'PASSP76',NULL,'2025-07-13 10:42:30','2025-07-13 16:12:30',NULL,NULL,500.00,0.00,0.00),(10,'2X2PR61',NULL,'2025-07-13 10:43:37','2025-07-13 16:13:37',NULL,NULL,500.00,0.00,0.00),(11,'2X2PR20',NULL,'2025-07-13 10:45:05','2025-07-13 16:15:05',NULL,NULL,500.00,0.00,0.00),(12,'POSTA21',NULL,'2025-07-13 10:46:04','2025-07-13 16:16:04',NULL,NULL,500.00,0.00,0.00),(13,'4RPRI53',NULL,'2025-07-13 17:56:17','2025-07-13 23:26:17',NULL,NULL,400.00,0.00,0.00),(14,'STAMP76',NULL,'2025-07-13 17:57:51','2025-07-13 23:27:51',NULL,NULL,350.00,0.00,0.00),(15,'PASSP87',NULL,'2025-07-13 18:01:00','2025-07-13 23:31:00',NULL,NULL,350.00,0.00,0.00),(16,'2X2PR91',NULL,'2025-07-13 18:01:40','2025-07-13 23:31:40',NULL,NULL,350.00,0.00,0.00),(17,'2X2PR30',NULL,'2025-07-13 18:02:23','2025-07-13 23:32:23',NULL,NULL,350.00,0.00,0.00),(18,'POSTA92',NULL,'2025-07-13 18:03:08','2025-07-13 23:33:08',NULL,NULL,350.00,0.00,0.00),(34,'ONLIN31',NULL,'2025-07-13 18:16:56','2025-07-13 23:46:56',NULL,NULL,500.00,0.00,0.00),(35,'ONLIN22',NULL,'2025-07-13 18:17:34','2025-07-13 23:47:34',NULL,NULL,400.00,0.00,0.00),(36,'PHOTO76',NULL,'2025-07-13 18:18:27','2025-07-13 23:48:27',NULL,NULL,15.00,0.00,0.00),(37,'PRINT53',NULL,'2025-07-13 18:18:55','2025-07-13 23:48:55',NULL,NULL,20.00,0.00,0.00),(38,'PRINT72',NULL,'2025-07-13 18:19:27','2025-07-13 23:49:27',NULL,NULL,60.00,0.00,0.00),(39,'4RPRI68',NULL,'2025-07-13 18:20:08','2025-07-13 23:50:08',NULL,NULL,60.00,0.00,0.00),(40,'4RPRI52',NULL,'2025-07-13 18:20:46','2025-07-13 23:50:46',NULL,NULL,200.00,0.00,0.00),(41,'5RPRI78',NULL,'2025-07-13 18:21:19','2025-07-13 23:51:19',NULL,NULL,450.00,0.00,0.00),(42,'6RPRI80',NULL,'2025-07-13 18:21:50','2025-07-13 23:51:50',NULL,NULL,500.00,0.00,0.00),(43,'8RPRI25',NULL,'2025-07-13 18:22:25','2025-07-13 23:52:25',NULL,NULL,700.00,0.00,0.00),(44,'8X12P93',NULL,'2025-07-13 18:22:58','2025-07-13 23:52:58',NULL,NULL,800.00,0.00,0.00),(45,'10X1264',NULL,'2025-07-13 18:23:35','2025-07-13 23:53:35',NULL,NULL,1000.00,0.00,0.00),(46,'10X1566',NULL,'2025-07-13 18:24:06','2025-07-13 23:54:06',NULL,NULL,1100.00,0.00,0.00),(47,'12X1587',NULL,'2025-07-13 18:24:39','2025-07-13 23:54:39',NULL,NULL,1300.00,0.00,0.00),(48,'12X1870',NULL,'2025-07-13 18:25:09','2025-07-13 23:55:09',NULL,NULL,1500.00,0.00,0.00),(49,'16X2088',NULL,'2025-07-13 18:25:45','2025-07-13 23:55:45',NULL,NULL,3500.00,0.00,0.00),(50,'16X2493',NULL,'2025-07-13 18:26:15','2025-07-13 23:56:15',NULL,NULL,4000.00,0.00,0.00),(51,'20X3085',NULL,'2025-07-13 18:26:52','2025-07-13 23:56:52',NULL,NULL,4900.00,0.00,0.00),(73,'4RPRI61',NULL,'2025-07-30 09:20:47','2025-07-30 14:50:47',NULL,NULL,60.00,0.00,0.00),(75,'5RPRI56',NULL,'2025-07-30 09:24:52','2025-07-30 14:54:52',NULL,NULL,300.00,0.00,0.00),(77,'6RPRI42',NULL,'2025-07-30 09:27:09','2025-07-30 14:57:09',NULL,NULL,1.00,0.00,0.00),(79,'8RPRI18',NULL,'2025-07-30 09:30:11','2025-07-30 15:00:11',NULL,NULL,1.00,0.00,0.00),(80,'8X1274',NULL,'2025-07-30 09:31:55','2025-07-30 15:01:55',NULL,NULL,500.00,0.00,0.00),(83,'PRINT12X15',NULL,'2025-07-30 09:39:01','2025-07-30 15:09:01',NULL,NULL,800.00,0.00,0.00),(84,'PRINT12X18',NULL,'2025-07-30 09:40:13','2025-07-30 15:10:13',NULL,NULL,1000.00,0.00,0.00),(85,'5RPRIUGNT',NULL,'2025-08-04 09:55:19','2025-08-04 15:25:19',NULL,NULL,450.00,0.00,0.00),(86,'6RPRIUGNT',NULL,'2025-08-04 09:58:14','2025-08-04 15:28:14',NULL,NULL,500.00,0.00,0.00),(87,'8RPRIUGNT',NULL,'2025-08-04 09:59:08','2025-08-04 15:29:08',NULL,NULL,600.00,0.00,0.00),(88,'8X12PUGNT',NULL,'2025-08-04 10:00:17','2025-08-04 15:30:17',NULL,NULL,600.00,0.00,0.00),(89,'10X1285',NULL,'2025-08-04 14:20:26','2025-08-04 19:50:26',NULL,NULL,800.00,0.00,0.00),(90,'10X15PRIUGNT',NULL,'2025-08-04 14:26:45','2025-08-04 19:56:45',NULL,NULL,900.00,0.00,0.00),(91,'12X15PRNTUGNT',NULL,'2025-08-04 14:28:54','2025-08-04 19:58:54',NULL,NULL,1000.00,0.00,0.00),(92,'12X18PRNTUGNT',NULL,'2025-08-04 14:29:34','2025-08-04 19:59:34',NULL,NULL,1200.00,0.00,0.00),(93,'16X20PRNTUGNT',NULL,'2025-08-04 14:30:11','2025-08-04 20:00:11',NULL,NULL,4500.00,0.00,0.00),(94,'16X24PRNTUGNT',NULL,'2025-08-04 14:30:56','2025-08-04 20:00:56',NULL,NULL,5000.00,0.00,0.00),(95,'20X30PRNTUGNT',NULL,'2025-08-04 14:31:42','2025-08-04 20:01:42',NULL,NULL,6000.00,0.00,0.00);
 /*!40000 ALTER TABLE `combo_product` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `combo_product_detail`
---
-
-DROP TABLE IF EXISTS `combo_product_detail`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `combo_product_detail` (
-  `comboProductDetailId` int(11) NOT NULL AUTO_INCREMENT,
-  `productId` int(11) DEFAULT NULL,
-  `qty` decimal(10,2) DEFAULT NULL,
-  `productId_mat` int(11) DEFAULT NULL,
-  `variationProductId_mat` int(11) DEFAULT NULL,
-  `CreatedDate_UTC` datetime NOT NULL DEFAULT utc_timestamp(),
-  `CreatedDate_ServerTime` datetime NOT NULL DEFAULT current_timestamp(),
-  `ModifiedDate_ServerTime` datetime DEFAULT NULL,
-  `ModifiedDate_UTC` datetime DEFAULT NULL,
-  PRIMARY KEY (`comboProductDetailId`),
-  KEY `FK_comboProduct_comboProductDetail` (`productId`),
-  KEY `FK_comboProductDetail_variationProduct` (`variationProductId_mat`),
-  KEY `FK_comboProductDetail_singleProductComboProduct` (`productId_mat`),
-  CONSTRAINT `FK_comboProductDetail_singleProductComboProduct` FOREIGN KEY (`productId_mat`) REFERENCES `product` (`ProductId`),
-  CONSTRAINT `FK_comboProductDetail_variationProduct` FOREIGN KEY (`variationProductId_mat`) REFERENCES `variation_product` (`variationProductId`),
-  CONSTRAINT `FK_combo_product_comboProductDetail` FOREIGN KEY (`productId`) REFERENCES `combo_product` (`productId`),
-  CONSTRAINT `CHK_productId_mat_variationProductId_mat` CHECK (`productId_mat` is not null and `variationProductId_mat` is null or `productId_mat` is null and `variationProductId_mat` is not null)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `combo_product_detail`
---
-
-LOCK TABLES `combo_product_detail` WRITE;
-/*!40000 ALTER TABLE `combo_product_detail` DISABLE KEYS */;
-/*!40000 ALTER TABLE `combo_product_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -382,12 +333,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `company`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `company` (
   `companyId` int(11) NOT NULL AUTO_INCREMENT,
   `companyName` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`companyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -396,6 +347,7 @@ CREATE TABLE `company` (
 
 LOCK TABLES `company` WRITE;
 /*!40000 ALTER TABLE `company` DISABLE KEYS */;
+INSERT INTO `company` VALUES (19,'Dayara Studio');
 /*!40000 ALTER TABLE `company` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -405,7 +357,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `conatct_type`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `conatct_type` (
   `contactTypeId` int(11) NOT NULL AUTO_INCREMENT,
   `contactTypeName` varchar(50) NOT NULL,
@@ -430,7 +382,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `contact`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `contact` (
   `contactId` int(11) NOT NULL AUTO_INCREMENT,
   `contactName` varchar(100) NOT NULL,
@@ -449,7 +401,7 @@ CREATE TABLE `contact` (
   PRIMARY KEY (`contactId`),
   KEY `FK_contact_contactType` (`contactTypeId`),
   CONSTRAINT `FK_contact_contactType` FOREIGN KEY (`contactTypeId`) REFERENCES `contact_type` (`contactTypeId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -458,6 +410,7 @@ CREATE TABLE `contact` (
 
 LOCK TABLES `contact` WRITE;
 /*!40000 ALTER TABLE `contact` DISABLE KEYS */;
+INSERT INTO `contact` VALUES (1,'Bravo Suppiers','sakdjsk@gmail.com','0212454',NULL,'1231545','54545','2025-03-15 11:22:47','2025-03-15 11:22:47','2025-03-17 19:23:52','2025-03-17 19:23:52','00001',47,3),(2,'S.M Frames','sameerawijesekara172@gmail.com','0788028366',NULL,'0788028366','fame supplier','2025-04-20 08:48:50','2025-04-20 08:48:50','2025-04-20 08:50:33','2025-04-20 08:50:33','00002',77,2),(3,'Photo Papers','tttttt@gmail.com','-',NULL,'-','-','2025-07-23 11:53:38','2025-07-23 17:23:38','2025-07-23 17:23:38','2025-07-23 11:53:38','00003',88,2),(4,'Bandaragama Picture Palace','testing@gmail.com','0777837838',NULL,'0382293284','-','2025-08-25 10:12:12','2025-08-25 15:42:12','2025-08-25 15:42:12','2025-08-25 10:12:12','00004',6,2),(5,'C and S Enterprices','o@gm.com','0777569024',NULL,'-','-','2025-08-25 10:19:38','2025-08-25 15:49:38','2025-08-25 15:50:24','2025-08-25 10:20:24','00005',6,2);
 /*!40000 ALTER TABLE `contact` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -467,7 +420,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `contact_type`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `contact_type` (
   `contactTypeId` int(11) NOT NULL AUTO_INCREMENT,
   `contactTypeName` varchar(50) DEFAULT NULL,
@@ -481,10 +434,7 @@ CREATE TABLE `contact_type` (
 
 LOCK TABLES `contact_type` WRITE;
 /*!40000 ALTER TABLE `contact_type` DISABLE KEYS */;
-INSERT INTO `contact_type` VALUES
-(1,'Customer'),
-(2,'Supplier'),
-(3,'Customer/Supplier');
+INSERT INTO `contact_type` VALUES (1,'Customer'),(2,'Supplier'),(3,'Customer/Supplier');
 /*!40000 ALTER TABLE `contact_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -494,7 +444,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `country`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `country` (
   `CountryId` int(11) NOT NULL AUTO_INCREMENT,
   `CountryName` varchar(50) DEFAULT NULL,
@@ -509,201 +459,7 @@ CREATE TABLE `country` (
 
 LOCK TABLES `country` WRITE;
 /*!40000 ALTER TABLE `country` DISABLE KEYS */;
-INSERT INTO `country` VALUES
-(196,'Afghanistan',1),
-(197,'Albania',2),
-(198,'Algeria',3),
-(199,'Andorra',4),
-(200,'Angola',5),
-(201,'Antigua and Barbuda',6),
-(202,'Argentina',7),
-(203,'Armenia',8),
-(204,'Australia',9),
-(205,'Austria',10),
-(206,'Azerbaijan',11),
-(207,'Bahamas',12),
-(208,'Bahrain',13),
-(209,'Bangladesh',14),
-(210,'Barbados',15),
-(211,'Belarus',16),
-(212,'Belgium',17),
-(213,'Belize',18),
-(214,'Benin',19),
-(215,'Bhutan',20),
-(216,'Bolivia',21),
-(217,'Bosnia and Herzegovina',22),
-(218,'Botswana',23),
-(219,'Brazil',24),
-(220,'Brunei Darussalam',25),
-(221,'Bulgaria',26),
-(222,'Burkina Faso',27),
-(223,'Burundi',28),
-(224,'Cabo Verde',29),
-(225,'Cambodia',30),
-(226,'Cameroon',31),
-(227,'Canada',32),
-(228,'Central African Republic',33),
-(229,'Chad',34),
-(230,'Chile',35),
-(231,'China',36),
-(232,'Colombia',37),
-(233,'Comoros',38),
-(234,'Congo (Congo-Brazzaville)',39),
-(235,'Costa Rica',40),
-(236,'Croatia',41),
-(237,'Cuba',42),
-(238,'Cyprus',43),
-(239,'Czech Republic',44),
-(240,'Democratic Republic of the Congo',45),
-(241,'Denmark',46),
-(242,'Djibouti',47),
-(243,'Dominica',48),
-(244,'Dominican Republic',49),
-(245,'Ecuador',50),
-(246,'Egypt',51),
-(247,'El Salvador',52),
-(248,'Equatorial Guinea',53),
-(249,'Eritrea',54),
-(250,'Estonia',55),
-(251,'Eswatini',56),
-(252,'Ethiopia',57),
-(253,'Fiji',58),
-(254,'Finland',59),
-(255,'France',60),
-(256,'Gabon',61),
-(257,'Gambia',62),
-(258,'Georgia',63),
-(259,'Germany',64),
-(260,'Ghana',65),
-(261,'Greece',66),
-(262,'Grenada',67),
-(263,'Guatemala',68),
-(264,'Guinea',69),
-(265,'Guinea-Bissau',70),
-(266,'Guyana',71),
-(267,'Haiti',72),
-(268,'Honduras',73),
-(269,'Hungary',74),
-(270,'Iceland',75),
-(271,'India',76),
-(272,'Indonesia',77),
-(273,'Iran',78),
-(274,'Iraq',79),
-(275,'Ireland',80),
-(276,'Israel',81),
-(277,'Italy',82),
-(278,'Jamaica',83),
-(279,'Japan',84),
-(280,'Jordan',85),
-(281,'Kazakhstan',86),
-(282,'Kenya',87),
-(283,'Kiribati',88),
-(284,'Korea (North)',89),
-(285,'Korea (South)',90),
-(286,'Kuwait',91),
-(287,'Kyrgyzstan',92),
-(288,'Laos',93),
-(289,'Latvia',94),
-(290,'Lebanon',95),
-(291,'Lesotho',96),
-(292,'Liberia',97),
-(293,'Libya',98),
-(294,'Liechtenstein',99),
-(295,'Lithuania',100),
-(296,'Luxembourg',101),
-(297,'Madagascar',102),
-(298,'Malawi',103),
-(299,'Malaysia',104),
-(300,'Maldives',105),
-(301,'Mali',106),
-(302,'Malta',107),
-(303,'Marshall Islands',108),
-(304,'Mauritania',109),
-(305,'Mauritius',110),
-(306,'Mexico',111),
-(307,'Micronesia',112),
-(308,'Moldova',113),
-(309,'Monaco',114),
-(310,'Mongolia',115),
-(311,'Montenegro',116),
-(312,'Morocco',117),
-(313,'Mozambique',118),
-(314,'Myanmar (formerly Burma)',119),
-(315,'Namibia',120),
-(316,'Nauru',121),
-(317,'Nepal',122),
-(318,'Netherlands',123),
-(319,'New Zealand',124),
-(320,'Nicaragua',125),
-(321,'Niger',126),
-(322,'Nigeria',127),
-(323,'North Macedonia',128),
-(324,'Norway',129),
-(325,'Oman',130),
-(326,'Pakistan',131),
-(327,'Palau',132),
-(328,'Panama',133),
-(329,'Papua New Guinea',134),
-(330,'Paraguay',135),
-(331,'Peru',136),
-(332,'Philippines',137),
-(333,'Poland',138),
-(334,'Portugal',139),
-(335,'Qatar',140),
-(336,'Romania',141),
-(337,'Russia',142),
-(338,'Rwanda',143),
-(339,'Saint Kitts and Nevis',144),
-(340,'Saint Lucia',145),
-(341,'Saint Vincent and the Grenadines',146),
-(342,'Samoa',147),
-(343,'San Marino',148),
-(344,'Sao Tome and Principe',149),
-(345,'Saudi Arabia',150),
-(346,'Senegal',151),
-(347,'Serbia',152),
-(348,'Seychelles',153),
-(349,'Sierra Leone',154),
-(350,'Singapore',155),
-(351,'Slovakia',156),
-(352,'Slovenia',157),
-(353,'Solomon Islands',158),
-(354,'Somalia',159),
-(355,'South Africa',160),
-(356,'South Sudan',161),
-(357,'Spain',162),
-(358,'Sri Lanka',163),
-(359,'Sudan',164),
-(360,'Suriname',165),
-(361,'Sweden',166),
-(362,'Switzerland',167),
-(363,'Syria',168),
-(364,'Taiwan',169),
-(365,'Tajikistan',170),
-(366,'Tanzania',171),
-(367,'Thailand',172),
-(368,'Timor-Leste',173),
-(369,'Togo',174),
-(370,'Tonga',175),
-(371,'Trinidad and Tobago',176),
-(372,'Tunisia',177),
-(373,'Turkey',178),
-(374,'Turkmenistan',179),
-(375,'Tuvalu',180),
-(376,'Uganda',181),
-(377,'Ukraine',182),
-(378,'United Arab Emirates',183),
-(379,'United Kingdom',184),
-(380,'United States of America',185),
-(381,'Uruguay',186),
-(382,'Uzbekistan',187),
-(383,'Vanuatu',188),
-(384,'Vatican City',189),
-(385,'Venezuela',190),
-(386,'Vietnam',191),
-(387,'Yemen',192),
-(388,'Zambia',193),
-(389,'Zimbabwe',194);
+INSERT INTO `country` VALUES (196,'Afghanistan',1),(197,'Albania',2),(198,'Algeria',3),(199,'Andorra',4),(200,'Angola',5),(201,'Antigua and Barbuda',6),(202,'Argentina',7),(203,'Armenia',8),(204,'Australia',9),(205,'Austria',10),(206,'Azerbaijan',11),(207,'Bahamas',12),(208,'Bahrain',13),(209,'Bangladesh',14),(210,'Barbados',15),(211,'Belarus',16),(212,'Belgium',17),(213,'Belize',18),(214,'Benin',19),(215,'Bhutan',20),(216,'Bolivia',21),(217,'Bosnia and Herzegovina',22),(218,'Botswana',23),(219,'Brazil',24),(220,'Brunei Darussalam',25),(221,'Bulgaria',26),(222,'Burkina Faso',27),(223,'Burundi',28),(224,'Cabo Verde',29),(225,'Cambodia',30),(226,'Cameroon',31),(227,'Canada',32),(228,'Central African Republic',33),(229,'Chad',34),(230,'Chile',35),(231,'China',36),(232,'Colombia',37),(233,'Comoros',38),(234,'Congo (Congo-Brazzaville)',39),(235,'Costa Rica',40),(236,'Croatia',41),(237,'Cuba',42),(238,'Cyprus',43),(239,'Czech Republic',44),(240,'Democratic Republic of the Congo',45),(241,'Denmark',46),(242,'Djibouti',47),(243,'Dominica',48),(244,'Dominican Republic',49),(245,'Ecuador',50),(246,'Egypt',51),(247,'El Salvador',52),(248,'Equatorial Guinea',53),(249,'Eritrea',54),(250,'Estonia',55),(251,'Eswatini',56),(252,'Ethiopia',57),(253,'Fiji',58),(254,'Finland',59),(255,'France',60),(256,'Gabon',61),(257,'Gambia',62),(258,'Georgia',63),(259,'Germany',64),(260,'Ghana',65),(261,'Greece',66),(262,'Grenada',67),(263,'Guatemala',68),(264,'Guinea',69),(265,'Guinea-Bissau',70),(266,'Guyana',71),(267,'Haiti',72),(268,'Honduras',73),(269,'Hungary',74),(270,'Iceland',75),(271,'India',76),(272,'Indonesia',77),(273,'Iran',78),(274,'Iraq',79),(275,'Ireland',80),(276,'Israel',81),(277,'Italy',82),(278,'Jamaica',83),(279,'Japan',84),(280,'Jordan',85),(281,'Kazakhstan',86),(282,'Kenya',87),(283,'Kiribati',88),(284,'Korea (North)',89),(285,'Korea (South)',90),(286,'Kuwait',91),(287,'Kyrgyzstan',92),(288,'Laos',93),(289,'Latvia',94),(290,'Lebanon',95),(291,'Lesotho',96),(292,'Liberia',97),(293,'Libya',98),(294,'Liechtenstein',99),(295,'Lithuania',100),(296,'Luxembourg',101),(297,'Madagascar',102),(298,'Malawi',103),(299,'Malaysia',104),(300,'Maldives',105),(301,'Mali',106),(302,'Malta',107),(303,'Marshall Islands',108),(304,'Mauritania',109),(305,'Mauritius',110),(306,'Mexico',111),(307,'Micronesia',112),(308,'Moldova',113),(309,'Monaco',114),(310,'Mongolia',115),(311,'Montenegro',116),(312,'Morocco',117),(313,'Mozambique',118),(314,'Myanmar (formerly Burma)',119),(315,'Namibia',120),(316,'Nauru',121),(317,'Nepal',122),(318,'Netherlands',123),(319,'New Zealand',124),(320,'Nicaragua',125),(321,'Niger',126),(322,'Nigeria',127),(323,'North Macedonia',128),(324,'Norway',129),(325,'Oman',130),(326,'Pakistan',131),(327,'Palau',132),(328,'Panama',133),(329,'Papua New Guinea',134),(330,'Paraguay',135),(331,'Peru',136),(332,'Philippines',137),(333,'Poland',138),(334,'Portugal',139),(335,'Qatar',140),(336,'Romania',141),(337,'Russia',142),(338,'Rwanda',143),(339,'Saint Kitts and Nevis',144),(340,'Saint Lucia',145),(341,'Saint Vincent and the Grenadines',146),(342,'Samoa',147),(343,'San Marino',148),(344,'Sao Tome and Principe',149),(345,'Saudi Arabia',150),(346,'Senegal',151),(347,'Serbia',152),(348,'Seychelles',153),(349,'Sierra Leone',154),(350,'Singapore',155),(351,'Slovakia',156),(352,'Slovenia',157),(353,'Solomon Islands',158),(354,'Somalia',159),(355,'South Africa',160),(356,'South Sudan',161),(357,'Spain',162),(358,'Sri Lanka',163),(359,'Sudan',164),(360,'Suriname',165),(361,'Sweden',166),(362,'Switzerland',167),(363,'Syria',168),(364,'Taiwan',169),(365,'Tajikistan',170),(366,'Tanzania',171),(367,'Thailand',172),(368,'Timor-Leste',173),(369,'Togo',174),(370,'Tonga',175),(371,'Trinidad and Tobago',176),(372,'Tunisia',177),(373,'Turkey',178),(374,'Turkmenistan',179),(375,'Tuvalu',180),(376,'Uganda',181),(377,'Ukraine',182),(378,'United Arab Emirates',183),(379,'United Kingdom',184),(380,'United States of America',185),(381,'Uruguay',186),(382,'Uzbekistan',187),(383,'Vanuatu',188),(384,'Vatican City',189),(385,'Venezuela',190),(386,'Vietnam',191),(387,'Yemen',192),(388,'Zambia',193),(389,'Zimbabwe',194);
 /*!40000 ALTER TABLE `country` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -713,7 +469,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `currency`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `currency` (
   `CurrencyID` int(11) NOT NULL,
   `CurrencyCode` varchar(3) DEFAULT NULL,
@@ -729,168 +485,7 @@ CREATE TABLE `currency` (
 
 LOCK TABLES `currency` WRITE;
 /*!40000 ALTER TABLE `currency` DISABLE KEYS */;
-INSERT INTO `currency` VALUES
-(1,'AED','United Arab Emirates Dirham','د.إ'),
-(2,'AFN','Afghan Afghani','؋'),
-(3,'ALL','Albanian Lek','L'),
-(4,'AMD','Armenian Dram','֏'),
-(5,'ANG','Netherlands Antillean Guilder','ƒ'),
-(6,'AOA','Angolan Kwanza','Kz'),
-(7,'ARS','Argentine Peso','$'),
-(8,'AUD','Australian Dollar','$'),
-(9,'AWG','Aruban Florin','ƒ'),
-(10,'AZN','Azerbaijani Manat','₼'),
-(11,'BAM','Bosnia and Herzegovina Convertible Mark','KM'),
-(12,'BBD','Barbadian Dollar','$'),
-(13,'BDT','Bangladeshi Taka','৳'),
-(14,'BGN','Bulgarian Lev','лв'),
-(15,'BHD','Bahraini Dinar','.د.ب'),
-(16,'BIF','Burundian Franc','Fr'),
-(17,'BMD','Bermudian Dollar','$'),
-(18,'BND','Brunei Dollar','$'),
-(19,'BOB','Bolivian Boliviano','Bs.'),
-(20,'BRL','Brazilian Real','R$'),
-(21,'BSD','Bahamian Dollar','$'),
-(22,'BTN','Bhutanese Ngultrum','Nu.'),
-(23,'BWP','Botswana Pula','P'),
-(24,'BYN','Belarusian Ruble','Br'),
-(25,'BZD','Belize Dollar','$'),
-(26,'CAD','Canadian Dollar','$'),
-(27,'CDF','Congolese Franc','Fr'),
-(28,'CHF','Swiss Franc','Fr'),
-(29,'CLP','Chilean Peso','$'),
-(30,'CNY','Chinese Yuan','¥'),
-(31,'COP','Colombian Peso','$'),
-(32,'CRC','Costa Rican Colón','₡'),
-(33,'CUC','Cuban Convertible Peso','$'),
-(34,'CUP','Cuban Peso','$'),
-(35,'CVE','Cape Verdean Escudo','$'),
-(36,'CZK','Czech Koruna','Kč'),
-(37,'DJF','Djiboutian Franc','Fr'),
-(38,'DKK','Danish Krone','kr'),
-(39,'DOP','Dominican Peso','$'),
-(40,'DZD','Algerian Dinar','د.ج'),
-(41,'EGP','Egyptian Pound','£'),
-(42,'ERN','Eritrean Nakfa','Nfk'),
-(43,'ETB','Ethiopian Birr','Br'),
-(44,'EUR','Euro','€'),
-(45,'FJD','Fijian Dollar','$'),
-(46,'FKP','Falkland Islands Pound','£'),
-(47,'FOK','Faroese Króna','kr'),
-(48,'GBP','British Pound Sterling','£'),
-(49,'GEL','Georgian Lari','₾'),
-(50,'GGP','Guernsey Pound','£'),
-(51,'GHS','Ghanaian Cedi','₵'),
-(52,'GIP','Gibraltar Pound','£'),
-(53,'GMD','Gambian Dalasi','D'),
-(54,'GNF','Guinean Franc','Fr'),
-(55,'GTQ','Guatemalan Quetzal','Q'),
-(56,'GYD','Guyanese Dollar','$'),
-(57,'HKD','Hong Kong Dollar','$'),
-(58,'HNL','Honduran Lempira','L'),
-(59,'HRK','Croatian Kuna','kn'),
-(60,'HTG','Haitian Gourde','G'),
-(61,'HUF','Hungarian Forint','Ft'),
-(62,'IDR','Indonesian Rupiah','Rp'),
-(63,'ILS','Israeli New Shekel','₪'),
-(64,'IMP','Isle of Man Pound','£'),
-(65,'INR','Indian Rupee','₹'),
-(66,'IQD','Iraqi Dinar','ع.د'),
-(67,'IRR','Iranian Rial','﷼'),
-(68,'ISK','Icelandic Króna','kr'),
-(69,'JEP','Jersey Pound','£'),
-(70,'JMD','Jamaican Dollar','$'),
-(71,'JOD','Jordanian Dinar','د.ا'),
-(72,'JPY','Japanese Yen','¥'),
-(73,'KES','Kenyan Shilling','Sh'),
-(74,'KGS','Kyrgyzstani Som','с'),
-(75,'KHR','Cambodian Riel','៛'),
-(76,'KID','Kiribati Dollar','$'),
-(77,'KMF','Comorian Franc','Fr'),
-(78,'KRW','South Korean Won','₩'),
-(79,'KWD','Kuwaiti Dinar','د.ك'),
-(80,'KYD','Cayman Islands Dollar','$'),
-(81,'KZT','Kazakhstani Tenge','₸'),
-(82,'LAK','Lao Kip','₭'),
-(83,'LBP','Lebanese Pound','ل.ل'),
-(84,'LKR','Sri Lankan Rupee','Rs'),
-(85,'LRD','Liberian Dollar','$'),
-(86,'LSL','Lesotho Loti','L'),
-(87,'LYD','Libyan Dinar','ل.د'),
-(88,'MAD','Moroccan Dirham','د.م.'),
-(89,'MDL','Moldovan Leu','L'),
-(90,'MGA','Malagasy Ariary','Ar'),
-(91,'MKD','Macedonian Denar','ден'),
-(92,'MMK','Myanmar Kyat','K'),
-(93,'MNT','Mongolian Tugrik','₮'),
-(94,'MOP','Macanese Pataca','P'),
-(95,'MRU','Mauritanian Ouguiya','UM'),
-(96,'MUR','Mauritian Rupee','₨'),
-(97,'MVR','Maldivian Rufiyaa','.ރ'),
-(98,'MWK','Malawian Kwacha','MK'),
-(99,'MXN','Mexican Peso','$'),
-(100,'MYR','Malaysian Ringgit','RM'),
-(101,'MZN','Mozambican Metical','MT'),
-(102,'NAD','Namibian Dollar','$'),
-(103,'NGN','Nigerian Naira','₦'),
-(104,'NIO','Nicaraguan Córdoba','C$'),
-(105,'NOK','Norwegian Krone','kr'),
-(106,'NPR','Nepalese Rupee','₨'),
-(107,'NZD','New Zealand Dollar','$'),
-(108,'OMR','Omani Rial','ر.ع.'),
-(109,'PAB','Panamanian Balboa','B/.'),
-(110,'PEN','Peruvian Sol','S/.'),
-(111,'PGK','Papua New Guinean Kina','K'),
-(112,'PHP','Philippine Peso','₱'),
-(113,'PKR','Pakistani Rupee','₨'),
-(114,'PLN','Polish Złoty','zł'),
-(115,'PYG','Paraguayan Guaraní','₲'),
-(116,'QAR','Qatari Riyal','ر.ق'),
-(117,'RON','Romanian Leu','lei'),
-(118,'RSD','Serbian Dinar','дин.'),
-(119,'RUB','Russian Ruble','₽'),
-(120,'RWF','Rwandan Franc','FRw'),
-(121,'SAR','Saudi Riyal','ر.س'),
-(122,'SBD','Solomon Islands Dollar','$'),
-(123,'SCR','Seychellois Rupee','₨'),
-(124,'SDG','Sudanese Pound','ج.س.'),
-(125,'SEK','Swedish Krona','kr'),
-(126,'SGD','Singapore Dollar','$'),
-(127,'SHP','Saint Helena Pound','£'),
-(128,'SLL','Sierra Leonean Leone','Le'),
-(129,'SOS','Somali Shilling','Sh'),
-(130,'SRD','Surinamese Dollar','$'),
-(131,'SSP','South Sudanese Pound','£'),
-(132,'STN','São Tomé and Príncipe Dobra','Db'),
-(133,'SYP','Syrian Pound','£S'),
-(134,'SZL','Eswatini Lilangeni','L'),
-(135,'THB','Thai Baht','฿'),
-(136,'TJS','Tajikistani Somoni','ЅМ'),
-(137,'TMT','Turkmenistani Manat','m'),
-(138,'TND','Tunisian Dinar','د.ت'),
-(139,'TOP','Tongan Paʻanga','T$'),
-(140,'TRY','Turkish Lira','₺'),
-(141,'TTD','Trinidad and Tobago Dollar','$'),
-(142,'TVD','Tuvaluan Dollar','$'),
-(143,'TWD','New Taiwan Dollar','$'),
-(144,'TZS','Tanzanian Shilling','Sh'),
-(145,'UAH','Ukrainian Hryvnia','₴'),
-(146,'UGX','Ugandan Shilling','Sh'),
-(147,'USD','United States Dollar','$'),
-(148,'UYU','Uruguayan Peso','$U'),
-(149,'UZS','Uzbekistani Soʻm','лв'),
-(150,'VES','Venezuelan Bolívar Soberano','Bs.S'),
-(151,'VND','Vietnamese Đồng','₫'),
-(152,'VUV','Vanuatu Vatu','Vt'),
-(153,'WST','Samoan Tālā','T'),
-(154,'XAF','Central African CFA Franc','Fr'),
-(155,'XCD','East Caribbean Dollar','$'),
-(156,'XOF','West African CFA Franc','Fr'),
-(157,'XPF','CFP Franc','Fr'),
-(158,'YER','Yemeni Rial','﷼'),
-(159,'ZAR','South African Rand','R'),
-(160,'ZMW','Zambian Kwacha','ZK'),
-(161,'ZWL','Zimbabwean Dollar','$');
+INSERT INTO `currency` VALUES (1,'AED','United Arab Emirates Dirham','د.إ'),(2,'AFN','Afghan Afghani','؋'),(3,'ALL','Albanian Lek','L'),(4,'AMD','Armenian Dram','֏'),(5,'ANG','Netherlands Antillean Guilder','ƒ'),(6,'AOA','Angolan Kwanza','Kz'),(7,'ARS','Argentine Peso','$'),(8,'AUD','Australian Dollar','$'),(9,'AWG','Aruban Florin','ƒ'),(10,'AZN','Azerbaijani Manat','₼'),(11,'BAM','Bosnia and Herzegovina Convertible Mark','KM'),(12,'BBD','Barbadian Dollar','$'),(13,'BDT','Bangladeshi Taka','৳'),(14,'BGN','Bulgarian Lev','лв'),(15,'BHD','Bahraini Dinar','.د.ب'),(16,'BIF','Burundian Franc','Fr'),(17,'BMD','Bermudian Dollar','$'),(18,'BND','Brunei Dollar','$'),(19,'BOB','Bolivian Boliviano','Bs.'),(20,'BRL','Brazilian Real','R$'),(21,'BSD','Bahamian Dollar','$'),(22,'BTN','Bhutanese Ngultrum','Nu.'),(23,'BWP','Botswana Pula','P'),(24,'BYN','Belarusian Ruble','Br'),(25,'BZD','Belize Dollar','$'),(26,'CAD','Canadian Dollar','$'),(27,'CDF','Congolese Franc','Fr'),(28,'CHF','Swiss Franc','Fr'),(29,'CLP','Chilean Peso','$'),(30,'CNY','Chinese Yuan','¥'),(31,'COP','Colombian Peso','$'),(32,'CRC','Costa Rican Colón','₡'),(33,'CUC','Cuban Convertible Peso','$'),(34,'CUP','Cuban Peso','$'),(35,'CVE','Cape Verdean Escudo','$'),(36,'CZK','Czech Koruna','Kč'),(37,'DJF','Djiboutian Franc','Fr'),(38,'DKK','Danish Krone','kr'),(39,'DOP','Dominican Peso','$'),(40,'DZD','Algerian Dinar','د.ج'),(41,'EGP','Egyptian Pound','£'),(42,'ERN','Eritrean Nakfa','Nfk'),(43,'ETB','Ethiopian Birr','Br'),(44,'EUR','Euro','€'),(45,'FJD','Fijian Dollar','$'),(46,'FKP','Falkland Islands Pound','£'),(47,'FOK','Faroese Króna','kr'),(48,'GBP','British Pound Sterling','£'),(49,'GEL','Georgian Lari','₾'),(50,'GGP','Guernsey Pound','£'),(51,'GHS','Ghanaian Cedi','₵'),(52,'GIP','Gibraltar Pound','£'),(53,'GMD','Gambian Dalasi','D'),(54,'GNF','Guinean Franc','Fr'),(55,'GTQ','Guatemalan Quetzal','Q'),(56,'GYD','Guyanese Dollar','$'),(57,'HKD','Hong Kong Dollar','$'),(58,'HNL','Honduran Lempira','L'),(59,'HRK','Croatian Kuna','kn'),(60,'HTG','Haitian Gourde','G'),(61,'HUF','Hungarian Forint','Ft'),(62,'IDR','Indonesian Rupiah','Rp'),(63,'ILS','Israeli New Shekel','₪'),(64,'IMP','Isle of Man Pound','£'),(65,'INR','Indian Rupee','₹'),(66,'IQD','Iraqi Dinar','ع.د'),(67,'IRR','Iranian Rial','﷼'),(68,'ISK','Icelandic Króna','kr'),(69,'JEP','Jersey Pound','£'),(70,'JMD','Jamaican Dollar','$'),(71,'JOD','Jordanian Dinar','د.ا'),(72,'JPY','Japanese Yen','¥'),(73,'KES','Kenyan Shilling','Sh'),(74,'KGS','Kyrgyzstani Som','с'),(75,'KHR','Cambodian Riel','៛'),(76,'KID','Kiribati Dollar','$'),(77,'KMF','Comorian Franc','Fr'),(78,'KRW','South Korean Won','₩'),(79,'KWD','Kuwaiti Dinar','د.ك'),(80,'KYD','Cayman Islands Dollar','$'),(81,'KZT','Kazakhstani Tenge','₸'),(82,'LAK','Lao Kip','₭'),(83,'LBP','Lebanese Pound','ل.ل'),(84,'LKR','Sri Lankan Rupee','Rs'),(85,'LRD','Liberian Dollar','$'),(86,'LSL','Lesotho Loti','L'),(87,'LYD','Libyan Dinar','ل.د'),(88,'MAD','Moroccan Dirham','د.م.'),(89,'MDL','Moldovan Leu','L'),(90,'MGA','Malagasy Ariary','Ar'),(91,'MKD','Macedonian Denar','ден'),(92,'MMK','Myanmar Kyat','K'),(93,'MNT','Mongolian Tugrik','₮'),(94,'MOP','Macanese Pataca','P'),(95,'MRU','Mauritanian Ouguiya','UM'),(96,'MUR','Mauritian Rupee','₨'),(97,'MVR','Maldivian Rufiyaa','.ރ'),(98,'MWK','Malawian Kwacha','MK'),(99,'MXN','Mexican Peso','$'),(100,'MYR','Malaysian Ringgit','RM'),(101,'MZN','Mozambican Metical','MT'),(102,'NAD','Namibian Dollar','$'),(103,'NGN','Nigerian Naira','₦'),(104,'NIO','Nicaraguan Córdoba','C$'),(105,'NOK','Norwegian Krone','kr'),(106,'NPR','Nepalese Rupee','₨'),(107,'NZD','New Zealand Dollar','$'),(108,'OMR','Omani Rial','ر.ع.'),(109,'PAB','Panamanian Balboa','B/.'),(110,'PEN','Peruvian Sol','S/.'),(111,'PGK','Papua New Guinean Kina','K'),(112,'PHP','Philippine Peso','₱'),(113,'PKR','Pakistani Rupee','₨'),(114,'PLN','Polish Złoty','zł'),(115,'PYG','Paraguayan Guaraní','₲'),(116,'QAR','Qatari Riyal','ر.ق'),(117,'RON','Romanian Leu','lei'),(118,'RSD','Serbian Dinar','дин.'),(119,'RUB','Russian Ruble','₽'),(120,'RWF','Rwandan Franc','FRw'),(121,'SAR','Saudi Riyal','ر.س'),(122,'SBD','Solomon Islands Dollar','$'),(123,'SCR','Seychellois Rupee','₨'),(124,'SDG','Sudanese Pound','ج.س.'),(125,'SEK','Swedish Krona','kr'),(126,'SGD','Singapore Dollar','$'),(127,'SHP','Saint Helena Pound','£'),(128,'SLL','Sierra Leonean Leone','Le'),(129,'SOS','Somali Shilling','Sh'),(130,'SRD','Surinamese Dollar','$'),(131,'SSP','South Sudanese Pound','£'),(132,'STN','São Tomé and Príncipe Dobra','Db'),(133,'SYP','Syrian Pound','£S'),(134,'SZL','Eswatini Lilangeni','L'),(135,'THB','Thai Baht','฿'),(136,'TJS','Tajikistani Somoni','ЅМ'),(137,'TMT','Turkmenistani Manat','m'),(138,'TND','Tunisian Dinar','د.ت'),(139,'TOP','Tongan Paʻanga','T$'),(140,'TRY','Turkish Lira','₺'),(141,'TTD','Trinidad and Tobago Dollar','$'),(142,'TVD','Tuvaluan Dollar','$'),(143,'TWD','New Taiwan Dollar','$'),(144,'TZS','Tanzanian Shilling','Sh'),(145,'UAH','Ukrainian Hryvnia','₴'),(146,'UGX','Ugandan Shilling','Sh'),(147,'USD','United States Dollar','$'),(148,'UYU','Uruguayan Peso','$U'),(149,'UZS','Uzbekistani Soʻm','лв'),(150,'VES','Venezuelan Bolívar Soberano','Bs.S'),(151,'VND','Vietnamese Đồng','₫'),(152,'VUV','Vanuatu Vatu','Vt'),(153,'WST','Samoan Tālā','T'),(154,'XAF','Central African CFA Franc','Fr'),(155,'XCD','East Caribbean Dollar','$'),(156,'XOF','West African CFA Franc','Fr'),(157,'XPF','CFP Franc','Fr'),(158,'YER','Yemeni Rial','﷼'),(159,'ZAR','South African Rand','R'),(160,'ZMW','Zambian Kwacha','ZK'),(161,'ZWL','Zimbabwean Dollar','$');
 /*!40000 ALTER TABLE `currency` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -900,7 +495,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `datachangelog`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `datachangelog` (
   `dataChangeLogID` int(11) NOT NULL AUTO_INCREMENT,
   `tableName` varchar(255) NOT NULL,
@@ -925,7 +520,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `dc_store`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `dc_store` (
   `dc_storeId` int(11) NOT NULL AUTO_INCREMENT,
   `storeId` int(11) DEFAULT NULL,
@@ -943,7 +538,7 @@ CREATE TABLE `dc_store` (
   `tel2` varchar(20) DEFAULT NULL,
   `ManagerId` int(11) DEFAULT NULL,
   UNIQUE KEY `dc_storeId_UNIQUE` (`dc_storeId`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -952,15 +547,7 @@ CREATE TABLE `dc_store` (
 
 LOCK TABLES `dc_store` WRITE;
 /*!40000 ALTER TABLE `dc_store` DISABLE KEYS */;
-INSERT INTO `dc_store` VALUES
-(2,1,'001','Br1','2024-01-25 13:43:38','2024-01-25 19:13:38',NULL,NULL,'Br1 address','Br city','br Province','swpmskpererea@gmail.com','0011212','011254',NULL),
-(3,1,'001','Br1','2024-01-25 13:43:38','2024-01-25 19:13:38',NULL,NULL,'Br1 address','Br city','br Province','swpmskpererea@gmail.com','0011212','011254',NULL),
-(4,1,'001','Br1','2024-01-25 13:43:38','2024-01-25 19:13:38',NULL,NULL,'Br1 address','Br city','br Province','swpmskpererea@gmail.com','0011212','011254',NULL),
-(5,1,'001','Sri Jayawardenepura Kotte','2024-01-25 13:43:38','2024-01-25 19:13:38',NULL,NULL,'Br1 address','Br city','br Province','swpmskpererea@gmail.com','0011212','011254',NULL),
-(6,8,NULL,'Pitakotte Branch','2025-03-10 16:29:45','2025-03-10 21:59:45',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-(7,15,'S0015','Pitakotte','2025-03-11 12:42:50','2025-03-11 18:12:50','2025-03-11 12:42:50','2025-03-11 18:12:50','364 KURUNDUWATTA ROAD,','SRI JAYAWARDENAPURA KOTTE','western','spmskperera@gmail.com','0771147484','0771147484',NULL),
-(8,16,'S0016','Pitakotte','2025-03-11 13:15:05','2025-03-11 18:45:05','2025-03-11 13:15:05','2025-03-11 18:45:05','3/64 KURUNDUWATTA ROAD,','SRI JAYAWARDENAPURA KOTTE','western','spmskperera@gmail.com','0771147484','022554545',NULL),
-(9,18,'S0018','bbb','2025-03-13 13:51:18','2025-03-13 19:21:18','2025-03-13 13:51:18','2025-03-13 19:21:18','3/64 KURUNDUWATTA ROAD,','SRI JAYAWARDENAPURA KOTTE','western','spmskperera@gmail.com','0771147484','0771147484',NULL);
+INSERT INTO `dc_store` VALUES (2,1,'001','Br1','2024-01-25 13:43:38','2024-01-25 19:13:38',NULL,NULL,'Br1 address','Br city','br Province','swpmskpererea@gmail.com','0011212','011254',NULL),(3,1,'001','Br1','2024-01-25 13:43:38','2024-01-25 19:13:38',NULL,NULL,'Br1 address','Br city','br Province','swpmskpererea@gmail.com','0011212','011254',NULL),(4,1,'001','Br1','2024-01-25 13:43:38','2024-01-25 19:13:38',NULL,NULL,'Br1 address','Br city','br Province','swpmskpererea@gmail.com','0011212','011254',NULL),(5,1,'001','Sri Jayawardenepura Kotte','2024-01-25 13:43:38','2024-01-25 19:13:38',NULL,NULL,'Br1 address','Br city','br Province','swpmskpererea@gmail.com','0011212','011254',NULL),(6,8,NULL,'Pitakotte Branch','2025-03-10 16:29:45','2025-03-10 21:59:45',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,15,'S0015','Pitakotte','2025-03-11 12:42:50','2025-03-11 18:12:50','2025-03-11 12:42:50','2025-03-11 18:12:50','364 KURUNDUWATTA ROAD,','SRI JAYAWARDENAPURA KOTTE','western','spmskperera@gmail.com','0771147484','0771147484',NULL),(8,16,'S0016','Pitakotte','2025-03-11 13:15:05','2025-03-11 18:45:05','2025-03-11 13:15:05','2025-03-11 18:45:05','3/64 KURUNDUWATTA ROAD,','SRI JAYAWARDENAPURA KOTTE','western','spmskperera@gmail.com','0771147484','022554545',NULL),(9,18,'S0018','bbb','2025-03-13 13:51:18','2025-03-13 19:21:18','2025-03-13 13:51:18','2025-03-13 19:21:18','3/64 KURUNDUWATTA ROAD,','SRI JAYAWARDENAPURA KOTTE','western','spmskperera@gmail.com','0771147484','0771147484',NULL),(10,19,'S0019','Pitakotte','2025-03-13 19:56:58','2025-03-13 19:56:58','2025-03-13 19:56:58','2025-03-13 19:56:58',' B368, Sri Jayawardenepura Kotte','Colombo','Western','dayarastudio12@gmail.com','071 410 6305','071 410 6305',NULL),(11,19,'S0019','Pitakotte','2025-03-13 19:56:58','2025-03-13 19:56:58','2025-03-13 19:56:58','2025-03-13 19:56:58','28 B, Sri Jayawardenepura Kotte','Colombo','Western','dayarastudio12@gmail.com','071 410 6305','071 410 6305',NULL),(12,19,'S0019','Pitakotte','2025-03-13 19:56:58','2025-03-13 19:56:58','2025-03-13 19:56:58','2025-03-13 19:56:58','28B, Sri Jayawardenepura Kotte','Colombo','Western','dayarastudio12@gmail.com','071 410 6305','071 410 6305',NULL),(13,19,'S0019','Pitakotte','2025-03-13 19:56:58','2025-03-13 19:56:58','2025-03-13 19:56:58','2025-03-13 19:56:58','28/B Thalawathugoda Road, Sri Jayawardenepura Kotte.','Colombo','Western','dayarastudio12@gmail.com','071 410 6305','011 287 7315',NULL),(14,19,'S0019','Pitakotte','2025-03-13 19:56:58','2025-03-13 19:56:58','2025-03-13 19:56:58','2025-03-13 19:56:58','28/B Thalawathugoda Road, Pitakotte.','Colombo','Western','dayarastudio12@gmail.com','071 410 6305','011 287 7315',NULL);
 /*!40000 ALTER TABLE `dc_store` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -970,7 +557,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `department`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `department` (
   `DepartmentId` int(11) NOT NULL AUTO_INCREMENT,
   `DepartmentName` varchar(50) NOT NULL,
@@ -988,16 +575,7 @@ CREATE TABLE `department` (
 
 LOCK TABLES `department` WRITE;
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
-INSERT INTO `department` VALUES
-(1,'Grocery','2023-12-29 03:28:46','2023-12-29 08:58:46',NULL,NULL),
-(2,'Beverages','2023-12-29 03:28:46','2023-12-29 08:58:46',NULL,NULL),
-(3,'Bakery','2023-12-29 03:28:46','2023-12-29 08:58:46',NULL,NULL),
-(4,'Household Goods','2023-12-29 03:28:46','2023-12-29 08:58:46',NULL,NULL),
-(5,'Personal Care','2023-12-29 03:28:46','2023-12-29 08:58:46',NULL,NULL),
-(6,'Electronics','2023-12-29 03:28:46','2023-12-29 08:58:46',NULL,NULL),
-(7,'Produce','2023-12-29 03:28:46','2023-12-29 08:58:46',NULL,NULL),
-(8,'Meat & Seafood','2023-12-29 03:28:46','2023-12-29 08:58:46',NULL,NULL),
-(9,'Frozen Foods','2023-12-29 03:28:46','2023-12-29 08:58:46',NULL,NULL);
+INSERT INTO `department` VALUES (1,'Grocery','2023-12-29 03:28:46','2023-12-29 08:58:46',NULL,NULL),(2,'Beverages','2023-12-29 03:28:46','2023-12-29 08:58:46',NULL,NULL),(3,'Bakery','2023-12-29 03:28:46','2023-12-29 08:58:46',NULL,NULL),(4,'Household Goods','2023-12-29 03:28:46','2023-12-29 08:58:46',NULL,NULL),(5,'Personal Care','2023-12-29 03:28:46','2023-12-29 08:58:46',NULL,NULL),(6,'Electronics','2023-12-29 03:28:46','2023-12-29 08:58:46',NULL,NULL),(7,'Produce','2023-12-29 03:28:46','2023-12-29 08:58:46',NULL,NULL),(8,'Meat & Seafood','2023-12-29 03:28:46','2023-12-29 08:58:46',NULL,NULL),(9,'Frozen Foods','2023-12-29 03:28:46','2023-12-29 08:58:46',NULL,NULL);
 /*!40000 ALTER TABLE `department` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1007,7 +585,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `discount_reason`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `discount_reason` (
   `DiscountReasonId` int(11) NOT NULL AUTO_INCREMENT,
   `ReasonName` varchar(50) DEFAULT NULL,
@@ -1022,18 +600,7 @@ CREATE TABLE `discount_reason` (
 
 LOCK TABLES `discount_reason` WRITE;
 /*!40000 ALTER TABLE `discount_reason` DISABLE KEYS */;
-INSERT INTO `discount_reason` VALUES
-(1,'Other','Enter your reason.'),
-(2,'Promotional Discount','Discount for items on special promotion or seasonal sale.'),
-(3,'Volume Discount','Discount applied for bulk or large quantity purchases.'),
-(4,'Loyalty Reward','Discount for members of our loyalty program or club.'),
-(5,'Employee Discount','Special discount offered to employees of the company.'),
-(6,'Damaged Goods','Discount for slightly damaged or imperfect items.'),
-(7,'Price Match','Price adjustment to match a competitor\'s price.'),
-(8,'Coupon Redemption','Discount applied from a coupon or voucher redemption.'),
-(9,'Manager\'s Discretion','Special discount applied at the manager\'s discretion.'),
-(10,'Early Payment','Discount for early payment or pre-payment of goods/services.'),
-(11,'End of Life Product','Discount for products that are being discontinued or phased out.');
+INSERT INTO `discount_reason` VALUES (1,'Other','Enter your reason.'),(2,'Promotional Discount','Discount for items on special promotion or seasonal sale.'),(3,'Volume Discount','Discount applied for bulk or large quantity purchases.'),(4,'Loyalty Reward','Discount for members of our loyalty program or club.'),(5,'Employee Discount','Special discount offered to employees of the company.'),(6,'Damaged Goods','Discount for slightly damaged or imperfect items.'),(7,'Price Match','Price adjustment to match a competitor\'s price.'),(8,'Coupon Redemption','Discount applied from a coupon or voucher redemption.'),(9,'Manager\'s Discretion','Special discount applied at the manager\'s discretion.'),(10,'Early Payment','Discount for early payment or pre-payment of goods/services.'),(11,'End of Life Product','Discount for products that are being discontinued or phased out.');
 /*!40000 ALTER TABLE `discount_reason` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1043,7 +610,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `discount_reason_scope`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `discount_reason_scope` (
   `DiscountReasonId` int(11) NOT NULL,
   `ScopeId` int(11) NOT NULL,
@@ -1060,22 +627,7 @@ CREATE TABLE `discount_reason_scope` (
 
 LOCK TABLES `discount_reason_scope` WRITE;
 /*!40000 ALTER TABLE `discount_reason_scope` DISABLE KEYS */;
-INSERT INTO `discount_reason_scope` VALUES
-(1,1),
-(2,1),
-(3,1),
-(4,1),
-(5,1),
-(6,1),
-(7,1),
-(8,1),
-(9,1),
-(10,1),
-(11,1),
-(1,2),
-(2,2),
-(4,2),
-(8,2);
+INSERT INTO `discount_reason_scope` VALUES (1,1),(1,2),(2,1),(2,2),(3,1),(4,1),(4,2),(5,1),(6,1),(7,1),(8,1),(8,2),(9,1),(10,1),(11,1);
 /*!40000 ALTER TABLE `discount_reason_scope` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1085,7 +637,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `discount_scope`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `discount_scope` (
   `ScopeId` int(11) NOT NULL AUTO_INCREMENT,
   `ScopeName` varchar(255) NOT NULL,
@@ -1099,9 +651,7 @@ CREATE TABLE `discount_scope` (
 
 LOCK TABLES `discount_scope` WRITE;
 /*!40000 ALTER TABLE `discount_scope` DISABLE KEYS */;
-INSERT INTO `discount_scope` VALUES
-(1,'product_level'),
-(2,'order_level');
+INSERT INTO `discount_scope` VALUES (1,'product_level'),(2,'order_level');
 /*!40000 ALTER TABLE `discount_scope` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1111,7 +661,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `discount_type`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `discount_type` (
   `DiscountTypeId` int(11) NOT NULL AUTO_INCREMENT,
   `TypeName` varchar(50) DEFAULT NULL,
@@ -1125,9 +675,7 @@ CREATE TABLE `discount_type` (
 
 LOCK TABLES `discount_type` WRITE;
 /*!40000 ALTER TABLE `discount_type` DISABLE KEYS */;
-INSERT INTO `discount_type` VALUES
-(1,'Percentage'),
-(2,'Fixed Amount');
+INSERT INTO `discount_type` VALUES (1,'Percentage'),(2,'Fixed Amount');
 /*!40000 ALTER TABLE `discount_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1137,7 +685,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `externalreceiptprinting`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `externalreceiptprinting` (
   `terminalId` int(11) DEFAULT NULL,
   `orderId` int(11) DEFAULT NULL
@@ -1150,9 +698,43 @@ CREATE TABLE `externalreceiptprinting` (
 
 LOCK TABLES `externalreceiptprinting` WRITE;
 /*!40000 ALTER TABLE `externalreceiptprinting` DISABLE KEYS */;
-INSERT INTO `externalreceiptprinting` VALUES
-(1,160);
+INSERT INTO `externalreceiptprinting` VALUES (1,160);
 /*!40000 ALTER TABLE `externalreceiptprinting` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fast_moving_items`
+--
+
+DROP TABLE IF EXISTS `fast_moving_items`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `fast_moving_items` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `product_id` bigint(20) NOT NULL,
+  `store_id` bigint(20) NOT NULL,
+  `terminal_id` bigint(20) DEFAULT NULL,
+  `sales_count` int(11) NOT NULL DEFAULT 0,
+  `last_sold_at` datetime DEFAULT NULL,
+  `rank_score` decimal(12,6) NOT NULL DEFAULT 0.000000,
+  `rank_position` int(11) DEFAULT NULL,
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uq_fmi` (`store_id`,`product_id`,`terminal_id`),
+  KEY `idx_rank` (`store_id`,`rank_score`),
+  KEY `idx_product` (`product_id`),
+  KEY `idx_terminal` (`terminal_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fast_moving_items`
+--
+
+LOCK TABLES `fast_moving_items` WRITE;
+/*!40000 ALTER TABLE `fast_moving_items` DISABLE KEYS */;
+INSERT INTO `fast_moving_items` VALUES (1,111,19,29,4,'2025-11-12 18:57:24',0.000000,6,'2025-11-13 17:15:44'),(2,16,19,29,1,'2025-11-11 09:23:56',0.000000,19,'2025-11-13 17:15:44'),(3,34,19,29,2,'2025-11-12 12:29:39',0.000000,7,'2025-11-13 17:15:44'),(4,35,19,29,5,'2025-11-12 12:30:11',0.000000,4,'2025-11-13 17:15:44'),(5,208,19,29,1,'2025-11-12 12:22:16',0.000000,18,'2025-11-13 17:15:44'),(6,209,19,29,5,'2025-11-12 12:24:19',0.000000,5,'2025-11-13 17:15:44'),(7,101,19,29,1,'2025-11-12 12:27:51',0.000000,17,'2025-11-13 17:15:44'),(8,211,19,29,9,'2025-11-13 11:44:04',0.000000,3,'2025-11-13 17:15:44'),(9,210,19,29,11,'2025-11-13 11:45:44',0.000000,2,'2025-11-13 17:15:44'),(10,166,19,29,25,'2025-11-13 11:45:08',0.000000,1,'2025-11-13 17:15:44'),(11,171,19,29,1,'2025-11-12 12:33:24',0.000000,16,'2025-11-13 17:15:44'),(12,99,19,29,1,'2025-11-13 10:58:41',0.000000,15,'2025-11-13 17:15:44'),(13,42,19,29,1,'2025-11-13 10:58:57',0.000000,14,'2025-11-13 17:15:44'),(14,110,19,29,1,'2025-11-13 10:59:19',0.000000,13,'2025-11-13 17:15:44'),(15,204,19,29,1,'2025-11-13 10:59:19',0.000000,12,'2025-11-13 17:15:44'),(16,79,19,29,1,'2025-11-13 10:59:37',0.000000,11,'2025-11-13 17:15:44'),(17,172,19,29,1,'2025-11-13 11:40:50',0.000000,10,'2025-11-13 17:15:44'),(18,177,19,29,1,'2025-11-13 11:42:25',0.000000,9,'2025-11-13 17:15:44'),(19,43,19,29,1,'2025-11-13 11:45:08',0.000000,8,'2025-11-13 17:15:44');
+/*!40000 ALTER TABLE `fast_moving_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1161,7 +743,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `inventory`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `inventory` (
   `inventoryId` int(11) NOT NULL AUTO_INCREMENT,
   `CreatedDate` timestamp NULL DEFAULT current_timestamp(),
@@ -1171,7 +753,7 @@ CREATE TABLE `inventory` (
   `ModifiedDate_ServerTime` datetime DEFAULT NULL,
   `ModifiedDate_UTC` datetime DEFAULT NULL,
   PRIMARY KEY (`inventoryId`)
-) ENGINE=InnoDB AUTO_INCREMENT=838 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1069 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1180,36 +762,7 @@ CREATE TABLE `inventory` (
 
 LOCK TABLES `inventory` WRITE;
 /*!40000 ALTER TABLE `inventory` DISABLE KEYS */;
-INSERT INTO `inventory` VALUES
-(800,'2024-12-31 15:28:39','2024-12-31 15:28:39',10.00,'2024-12-31 20:58:39',NULL,NULL),
-(801,'2024-12-31 15:29:17','2024-12-31 15:29:17',20.00,'2024-12-31 20:59:17',NULL,NULL),
-(803,'2024-12-31 15:32:54','2024-12-31 15:32:54',20.00,'2024-12-31 21:02:54',NULL,NULL),
-(804,'2024-12-31 15:32:54','2024-12-31 15:32:54',20.00,'2024-12-31 21:02:54',NULL,NULL),
-(805,'2024-12-31 15:32:54','2024-12-31 15:32:54',20.00,'2024-12-31 21:02:54',NULL,NULL),
-(806,'2024-12-31 15:35:08','2024-12-31 15:35:08',10.00,'2024-12-31 21:05:08',NULL,NULL),
-(807,'2024-12-31 15:35:08','2024-12-31 15:35:08',10.00,'2024-12-31 21:05:08',NULL,NULL),
-(808,'2024-12-31 15:35:08','2024-12-31 15:35:08',10.00,'2024-12-31 21:05:08',NULL,NULL),
-(809,'2024-12-31 15:36:45','2024-12-31 15:36:45',10.00,'2024-12-31 21:06:45',NULL,NULL),
-(810,'2024-12-31 15:37:47','2024-12-31 15:37:47',10.00,'2024-12-31 21:07:47',NULL,NULL),
-(812,'2024-12-31 15:41:23','2024-12-31 15:41:23',10.00,'2024-12-31 21:11:23',NULL,NULL),
-(813,'2024-12-31 15:52:53','2024-12-31 15:52:53',10.00,'2024-12-31 21:22:53',NULL,NULL),
-(814,'2025-01-13 11:57:35','2025-01-13 11:57:35',10.00,'2025-01-13 17:27:35',NULL,NULL),
-(815,'2025-01-27 17:42:11','2025-01-27 17:42:11',10.00,'2025-01-27 23:12:11',NULL,NULL),
-(816,'2025-01-27 17:44:51','2025-01-27 17:44:51',10.00,'2025-01-27 23:14:51',NULL,NULL),
-(817,'2025-01-27 17:52:07','2025-01-27 17:52:07',10.00,'2025-01-27 23:22:07',NULL,NULL),
-(818,'2025-01-27 17:58:11','2025-01-27 17:58:11',10.00,'2025-01-27 23:28:11',NULL,NULL),
-(826,'2025-02-08 16:41:47','2025-02-08 16:41:47',50.00,'2025-02-08 22:11:47',NULL,NULL),
-(827,'2025-02-10 10:52:33','2025-02-10 10:52:33',5.00,'2025-02-10 16:22:33',NULL,NULL),
-(828,'2025-02-10 10:52:33','2025-02-10 10:52:33',5.00,'2025-02-10 16:22:33',NULL,NULL),
-(829,'2025-02-28 09:18:04','2025-02-28 09:18:04',10.00,'2025-02-28 14:48:04',NULL,NULL),
-(830,'2025-03-08 17:39:39','2025-03-08 17:39:39',10.00,'2025-03-08 23:09:39',NULL,NULL),
-(831,'2025-03-10 16:49:05','2025-03-10 16:49:05',10.00,'2025-03-10 22:19:05',NULL,NULL),
-(832,'2025-03-10 16:51:24','2025-03-10 16:51:24',10.00,'2025-03-10 22:21:24',NULL,NULL),
-(833,'2025-03-11 09:48:26','2025-03-11 09:48:26',10.00,'2025-03-11 15:18:26',NULL,NULL),
-(834,'2025-03-11 09:48:26','2025-03-11 09:48:26',10.00,'2025-03-11 15:18:26',NULL,NULL),
-(835,'2025-03-11 12:43:54','2025-03-11 12:43:54',10.00,'2025-03-11 18:13:54',NULL,NULL),
-(836,'2025-03-11 13:15:37','2025-03-11 13:15:37',10.00,'2025-03-11 18:45:37',NULL,NULL),
-(837,'2025-03-13 13:54:31','2025-03-13 13:54:31',10.00,'2025-03-13 19:24:31',NULL,NULL);
+INSERT INTO `inventory` VALUES (800,'2024-12-31 15:28:39','2024-12-31 15:28:39',10.00,'2024-12-31 20:58:39',NULL,NULL),(801,'2024-12-31 15:29:17','2024-12-31 15:29:17',20.00,'2024-12-31 20:59:17',NULL,NULL),(803,'2024-12-31 15:32:54','2024-12-31 15:32:54',20.00,'2024-12-31 21:02:54',NULL,NULL),(804,'2024-12-31 15:32:54','2024-12-31 15:32:54',20.00,'2024-12-31 21:02:54',NULL,NULL),(805,'2024-12-31 15:32:54','2024-12-31 15:32:54',20.00,'2024-12-31 21:02:54',NULL,NULL),(806,'2024-12-31 15:35:08','2024-12-31 15:35:08',10.00,'2024-12-31 21:05:08',NULL,NULL),(807,'2024-12-31 15:35:08','2024-12-31 15:35:08',10.00,'2024-12-31 21:05:08',NULL,NULL),(808,'2024-12-31 15:35:08','2024-12-31 15:35:08',10.00,'2024-12-31 21:05:08',NULL,NULL),(809,'2024-12-31 15:36:45','2024-12-31 15:36:45',10.00,'2024-12-31 21:06:45',NULL,NULL),(810,'2024-12-31 15:37:47','2024-12-31 15:37:47',10.00,'2024-12-31 21:07:47',NULL,NULL),(812,'2024-12-31 15:41:23','2024-12-31 15:41:23',10.00,'2024-12-31 21:11:23',NULL,NULL),(813,'2024-12-31 15:52:53','2024-12-31 15:52:53',10.00,'2024-12-31 21:22:53',NULL,NULL),(814,'2025-01-13 11:57:35','2025-01-13 11:57:35',10.00,'2025-01-13 17:27:35',NULL,NULL),(815,'2025-01-27 17:42:11','2025-01-27 17:42:11',10.00,'2025-01-27 23:12:11',NULL,NULL),(816,'2025-01-27 17:44:51','2025-01-27 17:44:51',10.00,'2025-01-27 23:14:51',NULL,NULL),(817,'2025-01-27 17:52:07','2025-01-27 17:52:07',10.00,'2025-01-27 23:22:07',NULL,NULL),(818,'2025-01-27 17:58:11','2025-01-27 17:58:11',10.00,'2025-01-27 23:28:11',NULL,NULL),(826,'2025-02-08 16:41:47','2025-02-08 16:41:47',50.00,'2025-02-08 22:11:47',NULL,NULL),(827,'2025-02-10 10:52:33','2025-02-10 10:52:33',5.00,'2025-02-10 16:22:33',NULL,NULL),(828,'2025-02-10 10:52:33','2025-02-10 10:52:33',5.00,'2025-02-10 16:22:33',NULL,NULL),(829,'2025-02-28 09:18:04','2025-02-28 09:18:04',10.00,'2025-02-28 14:48:04',NULL,NULL),(830,'2025-03-08 17:39:39','2025-03-08 17:39:39',10.00,'2025-03-08 23:09:39',NULL,NULL),(831,'2025-03-10 16:49:05','2025-03-10 16:49:05',10.00,'2025-03-10 22:19:05',NULL,NULL),(832,'2025-03-10 16:51:24','2025-03-10 16:51:24',10.00,'2025-03-10 22:21:24',NULL,NULL),(833,'2025-03-11 09:48:26','2025-03-11 09:48:26',10.00,'2025-03-11 15:18:26',NULL,NULL),(834,'2025-03-11 09:48:26','2025-03-11 09:48:26',10.00,'2025-03-11 15:18:26',NULL,NULL),(835,'2025-03-11 12:43:54','2025-03-11 12:43:54',10.00,'2025-03-11 18:13:54',NULL,NULL),(836,'2025-03-11 13:15:37','2025-03-11 13:15:37',10.00,'2025-03-11 18:45:37',NULL,NULL),(837,'2025-03-13 13:54:31','2025-03-13 13:54:31',10.00,'2025-03-13 19:24:31',NULL,NULL),(838,'2025-03-15 11:06:53','2025-03-15 11:06:53',10.00,'2025-03-15 11:06:53',NULL,NULL),(840,'2025-04-20 08:59:12','2025-04-20 08:59:12',5.00,'2025-04-20 08:59:12',NULL,NULL),(841,'2025-04-20 08:59:12','2025-04-20 08:59:12',5.00,'2025-04-20 08:59:12',NULL,NULL),(842,'2025-04-20 08:59:12','2025-04-20 08:59:12',5.00,'2025-04-20 08:59:12',NULL,NULL),(843,'2025-04-20 08:59:12','2025-04-20 08:59:12',5.00,'2025-04-20 08:59:12',NULL,NULL),(846,'2025-07-23 11:42:10','2025-07-23 11:42:10',10.00,'2025-07-23 17:12:10',NULL,NULL),(847,'2025-07-23 11:46:17','2025-07-23 11:46:17',10.00,'2025-07-23 17:16:17',NULL,NULL),(848,'2025-07-23 11:46:51','2025-07-23 11:46:51',10.00,'2025-07-23 17:16:51',NULL,NULL),(849,'2025-07-23 11:47:23','2025-07-23 11:47:23',10.00,'2025-07-23 17:17:23',NULL,NULL),(850,'2025-07-23 11:47:58','2025-07-23 11:47:58',10.00,'2025-07-23 17:17:58',NULL,NULL),(851,'2025-07-23 11:48:27','2025-07-23 11:48:27',10.00,'2025-07-23 17:18:27',NULL,NULL),(852,'2025-07-23 11:48:55','2025-07-23 11:48:55',10.00,'2025-07-23 17:18:55',NULL,NULL),(853,'2025-07-23 11:49:28','2025-07-23 11:49:28',10.00,'2025-07-23 17:19:28',NULL,NULL),(854,'2025-07-23 11:50:03','2025-07-23 11:50:03',10.00,'2025-07-23 17:20:03',NULL,NULL),(857,'2025-07-28 20:55:38','2025-07-28 20:55:38',10.00,'2025-07-29 02:25:38',NULL,NULL),(858,'2025-07-28 20:55:38','2025-07-28 20:55:38',10.00,'2025-07-29 02:25:38',NULL,NULL),(859,'2025-07-28 20:56:55','2025-07-28 20:56:55',10.00,'2025-07-29 02:26:55',NULL,NULL),(860,'2025-07-28 20:56:55','2025-07-28 20:56:55',10.00,'2025-07-29 02:26:55',NULL,NULL),(861,'2025-07-28 20:58:14','2025-07-28 20:58:14',10.00,'2025-07-29 02:28:14',NULL,NULL),(862,'2025-07-28 20:58:14','2025-07-28 20:58:14',10.00,'2025-07-29 02:28:14',NULL,NULL),(874,'2025-07-28 21:16:09','2025-07-28 21:16:09',10.00,'2025-07-29 02:46:09',NULL,NULL),(875,'2025-07-28 21:16:54','2025-07-28 21:16:54',10.00,'2025-07-29 02:46:54',NULL,NULL),(876,'2025-07-30 09:24:27','2025-07-30 09:24:27',10.00,'2025-07-30 14:54:27',NULL,NULL),(877,'2025-07-30 09:25:41','2025-07-30 09:25:41',10.00,'2025-07-30 14:55:41',NULL,NULL),(878,'2025-07-30 09:28:39','2025-07-30 09:28:39',10.00,'2025-07-30 14:58:39',NULL,NULL),(879,'2025-08-04 15:22:13','2025-08-04 15:22:13',10.00,'2025-08-04 20:52:13',NULL,NULL),(882,'2025-08-25 09:36:58','2025-08-25 09:36:58',10.00,'2025-08-25 15:06:58',NULL,NULL),(885,'2025-08-25 09:48:52','2025-08-25 09:48:52',10.00,'2025-08-25 15:18:52',NULL,NULL),(886,'2025-08-25 09:48:52','2025-08-25 09:48:52',10.00,'2025-08-25 15:18:52',NULL,NULL),(887,'2025-08-25 09:53:45','2025-08-25 09:53:45',10.00,'2025-08-25 15:23:45',NULL,NULL),(888,'2025-08-25 10:02:18','2025-08-25 10:02:18',10.00,'2025-08-25 15:32:18',NULL,NULL),(889,'2025-08-25 10:06:30','2025-08-25 10:06:30',45.00,'2025-08-25 15:36:30',NULL,NULL),(891,'2025-08-25 15:59:22','2025-08-25 15:59:22',10.00,'2025-08-25 21:29:22',NULL,NULL),(893,'2025-08-25 17:26:13','2025-08-25 17:26:13',10.00,'2025-08-25 22:56:13',NULL,NULL),(939,'2025-08-29 15:19:59','2025-08-29 15:19:59',10.00,'2025-08-29 20:49:59',NULL,NULL),(974,'2025-09-03 11:59:31','2025-09-03 11:59:31',NULL,'2025-09-03 17:29:31',NULL,NULL),(978,'2025-09-03 12:03:55','2025-09-03 12:03:55',NULL,'2025-09-03 17:33:55',NULL,NULL),(979,'2025-09-03 12:05:14','2025-09-03 12:05:14',NULL,'2025-09-03 17:35:14',NULL,NULL),(980,'2025-09-03 12:08:52','2025-09-03 12:08:52',NULL,'2025-09-03 17:38:52',NULL,NULL),(993,'2025-09-04 07:59:05','2025-09-04 07:59:05',NULL,'2025-09-04 13:29:05',NULL,NULL),(994,'2025-09-04 08:00:47','2025-09-04 08:00:47',NULL,'2025-09-04 13:30:47',NULL,NULL),(995,'2025-09-04 08:01:29','2025-09-04 08:01:29',NULL,'2025-09-04 13:31:29',NULL,NULL),(998,'2025-09-09 06:13:57','2025-09-09 06:13:57',NULL,'2025-09-09 11:43:57',NULL,NULL),(999,'2025-09-09 06:13:57','2025-09-09 06:13:57',NULL,'2025-09-09 11:43:57',NULL,NULL),(1034,'2025-09-09 10:35:00','2025-09-09 10:35:00',NULL,'2025-09-09 16:05:00',NULL,NULL),(1035,'2025-09-09 10:35:00','2025-09-09 10:35:00',NULL,'2025-09-09 16:05:00',NULL,NULL),(1036,'2025-09-09 10:35:00','2025-09-09 10:35:00',NULL,'2025-09-09 16:05:00',NULL,NULL),(1039,'2025-09-22 18:54:57','2025-09-22 18:54:57',NULL,'2025-09-23 00:24:57',NULL,NULL),(1068,'2025-10-04 07:21:56','2025-10-04 07:21:56',NULL,'2025-10-04 12:51:56',NULL,NULL);
 /*!40000 ALTER TABLE `inventory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1219,7 +772,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `inventory_stock_update_order`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `inventory_stock_update_order` (
   `inventoryId` int(11) NOT NULL,
   `batchOrderPreferenceId` int(11) NOT NULL,
@@ -1234,8 +787,7 @@ CREATE TABLE `inventory_stock_update_order` (
 
 LOCK TABLES `inventory_stock_update_order` WRITE;
 /*!40000 ALTER TABLE `inventory_stock_update_order` DISABLE KEYS */;
-INSERT INTO `inventory_stock_update_order` VALUES
-(799,1);
+INSERT INTO `inventory_stock_update_order` VALUES (799,1);
 /*!40000 ALTER TABLE `inventory_stock_update_order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1245,7 +797,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `languages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `languages` (
   `LanguageID` int(11) NOT NULL AUTO_INCREMENT,
   `LanguageName` varchar(50) NOT NULL,
@@ -1262,39 +814,7 @@ CREATE TABLE `languages` (
 
 LOCK TABLES `languages` WRITE;
 /*!40000 ALTER TABLE `languages` DISABLE KEYS */;
-INSERT INTO `languages` VALUES
-(43,'Arabic','AR',1,'العربية'),
-(44,'Bengali','BN',2,'বাংলা'),
-(45,'Brazilian Portuguese','PT',3,'Português Brasileiro'),
-(46,'Chinese Mandarin','ZH',4,'中文'),
-(47,'Dutch','NL',5,'Nederlands'),
-(48,'English','EN',6,'English'),
-(49,'French','FR',7,'Français'),
-(50,'German','DE',8,'Deutsch'),
-(51,'Greek','EL',9,'Ελληνικά'),
-(52,'Gujarati','GU',10,'ગુજરાતી'),
-(53,'Hindi','HI',11,'हिन्दी'),
-(54,'Italian','IT',12,'Italiano'),
-(55,'Japanese','JA',13,'日本語'),
-(56,'Javanese','JV',14,'ꦧꦱꦗꦮ'),
-(57,'Korean','KO',15,'한국어'),
-(58,'Marathi','MR',16,'मराठी'),
-(59,'Polish','PL',17,'Polski'),
-(60,'Persian','FA',18,'فارسی'),
-(61,'Portuguese','PT',19,'Português'),
-(62,'Punjabi','PA',20,'ਪੰਜਾਬੀ'),
-(63,'Romanian','RO',21,'Română'),
-(64,'Russian','RU',22,'Русский'),
-(65,'Sinhala','SI',23,'සිංහල'),
-(66,'Spanish','ES',24,'Español'),
-(67,'Tamil','TA',25,'தமிழ்'),
-(68,'Thai','TH',26,'ไทย'),
-(69,'Turkish','TR',27,'Türkçe'),
-(70,'Ukrainian','UK',28,'Українська'),
-(71,'Urdu','UR',29,'اردو'),
-(72,'Vietnamese','VI',30,'Tiếng Việt'),
-(73,'Welsh','CY',31,'Cymraeg'),
-(74,'Xhosa','XH',32,'isiXhosa');
+INSERT INTO `languages` VALUES (43,'Arabic','AR',1,'العربية'),(44,'Bengali','BN',2,'বাংলা'),(45,'Brazilian Portuguese','PT',3,'Português Brasileiro'),(46,'Chinese Mandarin','ZH',4,'中文'),(47,'Dutch','NL',5,'Nederlands'),(48,'English','EN',6,'English'),(49,'French','FR',7,'Français'),(50,'German','DE',8,'Deutsch'),(51,'Greek','EL',9,'Ελληνικά'),(52,'Gujarati','GU',10,'ગુજરાતી'),(53,'Hindi','HI',11,'हिन्दी'),(54,'Italian','IT',12,'Italiano'),(55,'Japanese','JA',13,'日本語'),(56,'Javanese','JV',14,'ꦧꦱꦗꦮ'),(57,'Korean','KO',15,'한국어'),(58,'Marathi','MR',16,'मराठी'),(59,'Polish','PL',17,'Polski'),(60,'Persian','FA',18,'فارسی'),(61,'Portuguese','PT',19,'Português'),(62,'Punjabi','PA',20,'ਪੰਜਾਬੀ'),(63,'Romanian','RO',21,'Română'),(64,'Russian','RU',22,'Русский'),(65,'Sinhala','SI',23,'සිංහල'),(66,'Spanish','ES',24,'Español'),(67,'Tamil','TA',25,'தமிழ்'),(68,'Thai','TH',26,'ไทย'),(69,'Turkish','TR',27,'Türkçe'),(70,'Ukrainian','UK',28,'Українська'),(71,'Urdu','UR',29,'اردو'),(72,'Vietnamese','VI',30,'Tiếng Việt'),(73,'Welsh','CY',31,'Cymraeg'),(74,'Xhosa','XH',32,'isiXhosa');
 /*!40000 ALTER TABLE `languages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1304,7 +824,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `log_price_change`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `log_price_change` (
   `priceChangeLogId` int(11) NOT NULL AUTO_INCREMENT,
   `stockBatchId` int(11) NOT NULL,
@@ -1335,7 +855,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `log_stock_adjustment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `log_stock_adjustment` (
   `stockAdjustmentId` int(11) NOT NULL AUTO_INCREMENT,
   `stockBatchId` int(11) NOT NULL,
@@ -1351,7 +871,7 @@ CREATE TABLE `log_stock_adjustment` (
   KEY `stock_adjustment_non_serialized_item_FK` (`stockBatchId`),
   CONSTRAINT `stock_adjustment_non_serialized_item_FK` FOREIGN KEY (`stockBatchId`) REFERENCES `non_serialized_item` (`stockBatchId`),
   CONSTRAINT `stock_adjustment_stock_adjustment_reason_FK` FOREIGN KEY (`adjustmentReasonId`) REFERENCES `stock_adjustment_reason` (`adjustmentReasonId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1369,7 +889,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `measurement_unit`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `measurement_unit` (
   `MeasurementUnitId` int(11) NOT NULL AUTO_INCREMENT,
   `MeasurementUnitName` varchar(50) NOT NULL,
@@ -1385,17 +905,7 @@ CREATE TABLE `measurement_unit` (
 
 LOCK TABLES `measurement_unit` WRITE;
 /*!40000 ALTER TABLE `measurement_unit` DISABLE KEYS */;
-INSERT INTO `measurement_unit` VALUES
-(1,'None','2023-05-21 23:41:50',NULL),
-(2,'Kilogram','2023-12-21 23:38:18',NULL),
-(3,'Liter','2023-12-21 23:38:18',NULL),
-(4,'Unit','2023-12-21 23:38:18',NULL),
-(5,'Pack','2023-12-21 23:38:18',NULL),
-(6,'Box','2023-12-21 23:38:18',NULL),
-(7,'pcs','2024-07-20 11:32:00',NULL),
-(8,'Pair','2024-11-15 17:57:14',NULL),
-(9,'Jar','2024-12-31 21:10:40',NULL),
-(10,'hhhh','2025-02-02 13:13:27',NULL);
+INSERT INTO `measurement_unit` VALUES (1,'None','2023-05-21 23:41:50',NULL),(2,'Kilogram','2023-12-21 23:38:18',NULL),(3,'Liter','2023-12-21 23:38:18',NULL),(4,'Unit','2023-12-21 23:38:18',NULL),(5,'Pack','2023-12-21 23:38:18',NULL),(6,'Box','2023-12-21 23:38:18',NULL),(7,'pcs','2024-07-20 11:32:00',NULL),(8,'Pair','2024-11-15 17:57:14',NULL),(9,'Jar','2024-12-31 21:10:40',NULL),(10,'hhhh','2025-02-02 13:13:27',NULL);
 /*!40000 ALTER TABLE `measurement_unit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1405,7 +915,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `non_serialized_item`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `non_serialized_item` (
   `stockBatchId` int(11) NOT NULL AUTO_INCREMENT,
   `inventoryId` int(11) NOT NULL,
@@ -1429,7 +939,7 @@ CREATE TABLE `non_serialized_item` (
   CONSTRAINT `FK_batches_inventory` FOREIGN KEY (`inventoryId`) REFERENCES `inventory` (`inventoryId`),
   CONSTRAINT `FK_bathes_contact` FOREIGN KEY (`supplierId`) REFERENCES `contact` (`contactId`),
   CONSTRAINT `non_serialized_item_contact_FK` FOREIGN KEY (`supplierId`) REFERENCES `contact` (`contactId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1438,6 +948,7 @@ CREATE TABLE `non_serialized_item` (
 
 LOCK TABLES `non_serialized_item` WRITE;
 /*!40000 ALTER TABLE `non_serialized_item` DISABLE KEYS */;
+INSERT INTO `non_serialized_item` VALUES (1,838,'00001',NULL,NULL,8.00,1,1,'2025-03-15 11:23:46','2025-03-15 11:23:46',200.00,100.00,0.00,NULL,NULL,''),(2,840,'00002',NULL,NULL,6.00,2,1,'2025-04-20 09:02:34','2025-04-20 09:02:34',650.00,0.00,0.00,NULL,NULL,''),(3,841,'00003',NULL,NULL,8.00,2,1,'2025-04-20 09:02:34','2025-04-20 09:02:34',650.00,0.00,0.00,NULL,NULL,''),(4,851,'00004',NULL,NULL,87.00,3,1,'2025-07-23 16:14:42','2025-07-23 16:14:42',1.00,0.00,0.00,NULL,'2025-11-11 06:28:42',''),(5,852,'00005',NULL,NULL,96.00,3,1,'2025-07-23 16:14:42','2025-07-23 16:14:42',1.00,0.00,0.00,NULL,'2025-10-21 10:22:15','\0'),(6,853,'00006',NULL,NULL,98.00,3,1,'2025-07-23 16:14:42','2025-07-23 16:14:42',1.00,0.00,0.00,NULL,'2025-10-21 10:22:33','\0'),(7,854,'00007',NULL,NULL,98.00,3,1,'2025-07-23 16:14:42','2025-07-23 16:14:42',1.00,0.00,0.00,NULL,'2025-10-02 10:07:51','\0'),(8,846,'00008',NULL,NULL,85.00,3,1,'2025-07-23 16:14:42','2025-07-23 16:14:42',1.00,0.00,0.00,NULL,NULL,''),(10,879,'00010',NULL,NULL,0.00,1,1,'2025-08-05 11:59:14','2025-08-05 11:59:14',1.00,1.00,0.00,NULL,'2025-09-05 07:07:39',''),(11,876,'00011',NULL,NULL,999.00,1,1,'2025-08-05 11:59:14','2025-08-05 11:59:14',1.00,1.00,0.00,NULL,'2025-10-02 10:15:25','\0'),(12,847,'00012',NULL,NULL,980.50,1,1,'2025-08-05 11:59:14','2025-08-05 11:59:14',1.00,1.00,0.00,NULL,NULL,''),(13,877,'00013',NULL,NULL,999.00,1,1,'2025-08-05 11:59:14','2025-08-05 11:59:14',1.00,1.00,0.00,NULL,'2025-10-02 10:15:52','\0'),(14,848,'00014',NULL,NULL,1000.00,1,1,'2025-08-05 11:59:14','2025-08-05 11:59:14',1.00,1.00,0.00,NULL,NULL,'\0'),(15,878,'00015',NULL,NULL,996.00,1,1,'2025-08-05 11:59:14','2025-08-05 11:59:14',1.00,1.00,0.00,NULL,'2025-10-02 10:16:12','\0'),(16,849,'00016',NULL,NULL,1000.00,1,1,'2025-08-05 11:59:14','2025-08-05 11:59:14',1.00,1.00,0.00,NULL,NULL,'\0'),(17,850,'00017',NULL,NULL,994.00,1,1,'2025-08-05 11:59:14','2025-08-05 11:59:14',1.00,1.00,0.00,NULL,'2025-10-02 11:25:02','\0'),(22,879,'00002',NULL,NULL,97.00,5,2,'2025-08-25 10:21:27','2025-08-25 10:21:27',1.00,1.00,0.00,NULL,'2025-09-09 07:16:26','\0'),(23,889,'00003',NULL,NULL,5.00,2,1,'2025-08-25 14:57:24','2025-08-25 14:57:24',650.00,0.00,0.00,NULL,NULL,'\0'),(24,887,'00004',NULL,NULL,10.00,2,1,'2025-08-25 14:59:29','2025-08-25 14:59:29',1400.00,0.00,0.00,NULL,NULL,'\0'),(31,874,'00011',NULL,NULL,1.00,2,1,'2025-08-25 17:41:20','2025-08-25 17:41:20',5500.00,0.00,0.00,NULL,'2025-10-21 10:21:18','\0'),(32,893,'00012',NULL,NULL,3.00,2,1,'2025-08-25 17:41:20','2025-08-25 17:41:20',5500.00,0.00,0.00,NULL,'2025-10-21 10:21:37','\0'),(37,939,'00017',NULL,NULL,0.00,1,1,'2025-09-05 12:20:52','2025-09-05 12:20:52',1000.00,0.00,0.00,NULL,'2025-09-05 12:44:26','\0'),(38,939,'00018',NULL,NULL,0.00,1,2,'2025-09-05 12:43:25','2025-09-05 12:43:25',1000.00,0.00,0.00,NULL,'2025-10-02 11:23:45','\0'),(39,939,'00019',NULL,NULL,17.00,5,3,'2025-09-09 10:31:33','2025-09-09 10:31:33',1000.00,0.00,0.00,NULL,'2025-11-13 10:59:19','\0'),(42,1034,'00022',NULL,NULL,19.00,5,1,'2025-09-09 10:36:55','2025-09-09 10:36:55',3000.00,0.00,0.00,NULL,'2025-10-02 11:24:11','\0'),(43,1035,'00023',NULL,NULL,18.00,5,1,'2025-09-09 10:36:55','2025-09-09 10:36:55',2700.00,0.00,0.00,NULL,'2025-11-13 10:59:19','\0'),(44,1036,'00024',NULL,NULL,18.00,5,1,'2025-09-09 10:36:55','2025-09-09 10:36:55',2500.00,0.00,0.00,NULL,'2025-10-02 11:24:43','\0'),(46,861,'00001',NULL,NULL,17.00,2,1,'2025-09-09 12:03:26','2025-09-09 12:03:26',1000.00,0.00,0.00,NULL,'2025-10-02 10:04:40','\0');
 /*!40000 ALTER TABLE `non_serialized_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1447,7 +958,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `order_details`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `order_details` (
   `OrderDetailID` int(11) NOT NULL AUTO_INCREMENT,
   `OrderID` int(11) NOT NULL,
@@ -1462,6 +973,7 @@ CREATE TABLE `order_details` (
   `GrossAmount` decimal(10,2) DEFAULT NULL,
   `NetAmount` decimal(10,2) DEFAULT NULL,
   `MeasurementUnitId` int(11) DEFAULT NULL,
+  `measurementUnitName` varchar(50) DEFAULT NULL,
   `stockBatchId` int(11) DEFAULT NULL,
   `unitCost` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`OrderDetailID`),
@@ -1469,7 +981,7 @@ CREATE TABLE `order_details` (
   KEY `FK_OrderDetails_OrderHeader` (`OrderID`),
   KEY `FK_OrderDetails_Product` (`ProductId`),
   CONSTRAINT `FK_OrderDetails_OrderHeader` FOREIGN KEY (`OrderID`) REFERENCES `order_header` (`OrderId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=308 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1478,6 +990,7 @@ CREATE TABLE `order_details` (
 
 LOCK TABLES `order_details` WRITE;
 /*!40000 ALTER TABLE `order_details` DISABLE KEYS */;
+INSERT INTO `order_details` VALUES (1,1,1.0000,'2025-09-09 17:17:49','2025-09-09 11:47:49',210,500.0000,'\0',305,1,500.00,500.00,7,'pcs',NULL,0.00),(2,1,1.0000,'2025-09-09 17:17:49','2025-09-09 11:47:49',209,350.0000,'\0',304,2,350.00,350.00,7,'pcs',NULL,0.00),(3,1,1.0000,'2025-09-09 17:17:49','2025-09-09 11:47:49',35,400.0000,'\0',38,3,400.00,400.00,7,'pcs',NULL,0.00),(4,2,3.0000,'2025-09-09 17:22:00','2025-09-09 11:52:00',210,500.0000,'\0',305,7,1500.00,1500.00,7,'pcs',NULL,0.00),(5,2,1.0000,'2025-09-09 17:22:00','2025-09-09 11:52:00',211,350.0000,'\0',306,8,350.00,350.00,7,'pcs',NULL,0.00),(6,2,3.0000,'2025-09-09 17:22:00','2025-09-09 11:52:00',166,15.0000,'\0',261,9,45.00,45.00,7,'pcs',NULL,0.00),(7,3,1.0000,'2025-09-09 17:23:56','2025-09-09 11:53:56',211,350.0000,'\0',306,10,350.00,350.00,7,'pcs',NULL,0.00),(8,3,2.0000,'2025-09-09 17:23:56','2025-09-09 11:53:56',35,400.0000,'\0',38,3,800.00,800.00,7,'pcs',NULL,0.00),(9,3,6.0000,'2025-09-09 17:23:56','2025-09-09 11:53:56',166,15.0000,'\0',261,11,90.00,90.00,7,'pcs',NULL,0.00),(10,3,1.0000,'2025-09-09 17:23:56','2025-09-09 11:53:56',103,2000.0000,'\0',197,12,2000.00,2000.00,7,'pcs',NULL,0.00),(11,4,1.0000,'2025-09-09 17:24:32','2025-09-09 11:54:32',210,500.0000,'\0',305,13,500.00,500.00,7,'pcs',NULL,0.00),(12,4,1.0000,'2025-09-09 17:24:32','2025-09-09 11:54:32',35,400.0000,'\0',38,3,400.00,400.00,7,'pcs',NULL,0.00),(13,5,3.0000,'2025-09-09 17:25:33','2025-09-09 11:55:33',211,350.0000,'\0',306,14,1050.00,1050.00,7,'pcs',NULL,0.00),(16,7,1.0000,'2025-09-09 17:34:07','2025-09-09 12:04:07',210,500.0000,'\0',305,20,500.00,500.00,7,'pcs',NULL,0.00),(17,7,3.0000,'2025-09-09 17:34:07','2025-09-09 12:04:07',211,350.0000,'\0',306,21,1050.00,1050.00,7,'pcs',NULL,0.00),(18,8,2.0000,'2025-09-09 17:34:26','2025-09-09 12:04:26',211,350.0000,'\0',306,22,700.00,700.00,7,'pcs',NULL,0.00),(19,9,4.0000,'2025-09-09 17:36:35','2025-09-09 12:06:35',210,500.0000,'\0',305,23,2000.00,2000.00,7,'pcs',NULL,0.00),(20,9,1.0000,'2025-09-09 17:36:35','2025-09-09 12:06:35',35,400.0000,'\0',38,3,400.00,400.00,7,'pcs',NULL,0.00),(21,10,1.0000,'2025-09-09 17:37:19','2025-09-09 12:07:19',103,2000.0000,'\0',197,24,2000.00,2000.00,7,'pcs',NULL,0.00),(22,11,1.0000,'2025-09-09 17:51:52','2025-09-09 12:21:52',34,500.0000,'\0',37,25,500.00,500.00,7,'pcs',NULL,0.00),(23,12,1.0000,'2025-09-09 18:02:17','2025-09-09 12:32:17',35,400.0000,'\0',38,3,400.00,400.00,7,'pcs',NULL,0.00),(24,13,1.0000,'2025-09-09 18:02:49','2025-09-09 12:32:49',35,400.0000,'\0',38,3,400.00,400.00,7,'pcs',NULL,0.00),(25,13,1.0000,'2025-09-09 18:02:49','2025-09-09 12:32:49',34,500.0000,'\0',37,25,500.00,500.00,7,'pcs',NULL,0.00),(26,14,1.0000,'2025-09-09 18:06:00','2025-09-09 12:36:00',34,500.0000,'\0',37,25,500.00,500.00,7,'pcs',NULL,0.00),(27,15,1.0000,'2025-09-09 19:15:00','2025-09-09 13:45:00',13,400.0000,'\0',16,19,400.00,400.00,7,'pcs',NULL,0.00),(28,16,1.0000,'2025-09-10 09:44:38','2025-09-10 04:14:38',210,500.0000,'\0',305,35,500.00,500.00,7,'pcs',NULL,0.00),(29,17,2.0000,'2025-09-10 09:45:49','2025-09-10 04:15:49',166,15.0000,'\0',261,37,30.00,30.00,7,'pcs',NULL,0.00),(30,18,3.0000,'2025-09-10 10:22:19','2025-09-10 04:52:19',210,500.0000,'\0',305,38,1500.00,1500.00,7,'pcs',NULL,0.00),(31,19,1.0000,'2025-09-10 12:22:50','2025-09-10 06:52:50',158,600.0000,'\0',252,39,600.00,600.00,7,'pcs',NULL,0.00),(32,20,1.0000,'2025-09-10 12:23:38','2025-09-10 06:53:38',35,400.0000,'\0',38,3,400.00,400.00,7,'pcs',NULL,0.00),(33,20,1.0000,'2025-09-10 12:23:38','2025-09-10 06:53:38',34,500.0000,'\0',37,25,500.00,500.00,7,'pcs',NULL,0.00),(34,21,2.0000,'2025-09-10 12:43:15','2025-09-10 07:13:15',210,500.0000,'\0',305,40,1000.00,1000.00,7,'pcs',NULL,0.00),(35,22,1.0000,'2025-09-10 16:16:38','2025-09-10 10:46:38',209,350.0000,'\0',304,41,350.00,350.00,7,'pcs',NULL,0.00),(36,22,1.0000,'2025-09-10 16:16:38','2025-09-10 10:46:38',208,500.0000,'\0',303,42,500.00,500.00,7,'pcs',NULL,0.00),(37,23,23.0000,'2025-09-15 12:02:38','2025-09-15 06:32:38',166,15.0000,'\0',261,43,345.00,345.00,7,'pcs',NULL,0.00),(38,24,1.0000,'2025-09-15 12:04:01','2025-09-15 06:34:01',210,500.0000,'\0',305,44,500.00,500.00,7,'pcs',NULL,0.00),(39,25,1.0000,'2025-09-15 18:29:31','2025-09-15 12:59:31',34,500.0000,'\0',37,25,500.00,500.00,7,'pcs',NULL,0.00),(40,26,1.0000,'2025-09-15 18:30:18','2025-09-15 13:00:18',208,500.0000,'\0',303,45,500.00,500.00,7,'pcs',NULL,0.00),(41,27,1.0000,'2025-09-15 18:32:22','2025-09-15 13:02:22',35,400.0000,'\0',38,3,400.00,400.00,7,'pcs',NULL,0.00),(42,28,1.0000,'2025-09-15 18:32:44','2025-09-15 13:02:44',111,1400.0000,'\0',161,46,1400.00,1400.00,7,'pcs',NULL,0.00),(43,29,2.0000,'2025-09-16 13:24:02','2025-09-16 07:54:02',35,400.0000,'\0',38,3,800.00,800.00,7,'pcs',NULL,0.00),(44,29,2.0000,'2025-09-16 13:24:02','2025-09-16 07:54:02',13,400.0000,'\0',16,19,800.00,800.00,7,'pcs',NULL,0.00),(45,30,2.0000,'2025-09-16 13:25:27','2025-09-16 07:55:27',210,500.0000,'\0',305,47,1000.00,1000.00,7,'pcs',NULL,0.00),(46,30,2.0000,'2025-09-16 13:25:27','2025-09-16 07:55:27',211,350.0000,'\0',306,48,700.00,700.00,7,'pcs',NULL,0.00),(47,31,2.0000,'2025-09-16 18:17:41','2025-09-16 12:47:41',34,500.0000,'\0',37,25,1000.00,1000.00,7,'pcs',NULL,0.00),(48,32,1.0000,'2025-09-16 18:17:58','2025-09-16 12:47:58',208,500.0000,'\0',303,49,500.00,500.00,7,'pcs',NULL,0.00),(49,33,1.0000,'2025-09-16 18:18:21','2025-09-16 12:48:21',29,750.0000,'\0',112,50,750.00,750.00,7,'pcs',NULL,0.00),(50,34,1.0000,'2025-09-16 18:21:09','2025-09-16 12:51:09',13,1200.0000,'\0',72,57,1200.00,1200.00,7,'pcs',NULL,0.00),(51,35,1.0000,'2025-09-17 17:03:32','2025-09-17 11:33:32',34,500.0000,'\0',37,25,500.00,500.00,7,'pcs',NULL,0.00),(52,36,1.0000,'2025-09-17 17:06:32','2025-09-17 11:36:32',148,5.0000,'\0',258,60,5.00,5.00,7,'pcs',NULL,0.00),(53,36,1.0000,'2025-09-17 17:06:32','2025-09-17 11:36:32',34,500.0000,'\0',37,25,500.00,500.00,7,'pcs',NULL,0.00),(54,36,9.0000,'2025-09-17 17:06:32','2025-09-17 11:36:32',166,15.0000,'\0',261,64,135.00,135.00,7,'pcs',NULL,0.00),(55,36,1.0000,'2025-09-17 17:06:32','2025-09-17 11:36:32',210,500.0000,'\0',305,65,500.00,500.00,7,'pcs',NULL,0.00),(56,36,1.0000,'2025-09-17 17:06:32','2025-09-17 11:36:32',211,350.0000,'\0',306,66,350.00,350.00,7,'pcs',NULL,0.00),(57,37,1.0000,'2025-09-17 17:07:37','2025-09-17 11:37:37',208,500.0000,'\0',303,67,500.00,500.00,7,'pcs',NULL,0.00),(58,37,1.0000,'2025-09-17 17:07:37','2025-09-17 11:37:37',210,500.0000,'\0',305,68,500.00,500.00,7,'pcs',NULL,0.00),(59,37,1.0000,'2025-09-17 17:07:37','2025-09-17 11:37:37',211,350.0000,'\0',306,69,350.00,350.00,7,'pcs',NULL,0.00),(60,37,3.0000,'2025-09-17 17:07:37','2025-09-17 11:37:37',13,400.0000,'\0',16,19,1200.00,1200.00,7,'pcs',NULL,0.00),(61,38,1.0000,'2025-09-17 17:09:03','2025-09-17 11:39:03',210,500.0000,'\0',305,70,500.00,500.00,7,'pcs',NULL,0.00),(62,39,1.0000,'2025-09-17 17:11:13','2025-09-17 11:41:13',13,400.0000,'\0',16,19,400.00,400.00,7,'pcs',NULL,0.00),(63,39,1.0000,'2025-09-17 17:11:13','2025-09-17 11:41:13',211,350.0000,'\0',306,71,350.00,350.00,7,'pcs',NULL,0.00),(64,40,1.0000,'2025-09-17 17:13:52','2025-09-17 11:43:52',34,500.0000,'\0',37,25,500.00,500.00,7,'pcs',NULL,0.00),(65,41,4.0000,'2025-09-19 16:40:10','2025-09-19 11:10:10',34,500.0000,'\0',37,25,2000.00,2000.00,7,'pcs',NULL,0.00),(66,42,1.0000,'2025-09-23 00:38:14','2025-09-22 19:08:14',163,500.0000,'\0',257,75,500.00,500.00,7,'Kilogram',NULL,0.00),(67,43,1.0000,'2025-09-23 00:41:07','2025-09-22 19:11:07',163,500.0000,'\0',257,76,500.00,500.00,7,'Kilogram',NULL,0.00),(68,44,1.0000,'2025-09-24 17:24:29','2025-09-24 11:54:29',208,500.0000,'\0',303,77,500.00,500.00,7,'pcs',NULL,0.00),(69,44,1.0000,'2025-09-24 17:24:29','2025-09-24 11:54:29',210,500.0000,'\0',305,78,500.00,500.00,7,'pcs',NULL,0.00),(70,44,6.0000,'2025-09-24 17:24:29','2025-09-24 11:54:29',176,60.0000,'\0',271,79,360.00,360.00,7,'pcs',NULL,0.00),(71,45,1.0000,'2025-09-24 17:24:49','2025-09-24 11:54:49',208,500.0000,'\0',303,80,500.00,500.00,7,'pcs',NULL,0.00),(72,46,1.0000,'2025-09-24 17:25:21','2025-09-24 11:55:21',210,500.0000,'\0',305,81,500.00,500.00,7,'pcs',NULL,0.00),(73,47,1.0000,'2025-09-24 17:25:38','2025-09-24 11:55:38',210,500.0000,'\0',305,82,500.00,500.00,7,'pcs',NULL,0.00),(74,48,4.0000,'2025-09-24 17:27:46','2025-09-24 11:57:46',210,500.0000,'\0',305,83,2000.00,2000.00,7,'pcs',NULL,0.00),(75,48,2.0000,'2025-09-24 17:27:46','2025-09-24 11:57:46',211,350.0000,'\0',306,84,700.00,700.00,7,'pcs',NULL,0.00),(76,49,1.0000,'2025-09-24 17:28:49','2025-09-24 11:58:49',209,350.0000,'\0',304,85,350.00,350.00,7,'pcs',NULL,0.00),(77,50,3.0000,'2025-09-25 18:21:09','2025-09-25 12:51:09',210,500.0000,'\0',305,86,1500.00,1500.00,7,'pcs',NULL,0.00),(78,50,2.0000,'2025-09-25 18:21:09','2025-09-25 12:51:09',166,15.0000,'\0',261,87,30.00,30.00,7,'pcs',NULL,0.00),(79,50,1.0000,'2025-09-25 18:21:09','2025-09-25 12:51:09',43,75.0000,'\0',123,88,75.00,75.00,7,'pcs',NULL,0.00),(80,51,1.0000,'2025-09-25 18:26:16','2025-09-25 12:56:16',210,500.0000,'\0',305,89,500.00,500.00,7,'pcs',NULL,0.00),(81,52,2.0000,'2025-09-25 18:27:13','2025-09-25 12:57:13',78,500.0000,'\0',158,90,1000.00,1000.00,7,'pcs',NULL,0.00),(82,53,1.0000,'2025-09-25 18:29:16','2025-09-25 12:59:16',211,350.0000,'\0',306,91,350.00,350.00,7,'pcs',NULL,0.00),(83,53,1.0000,'2025-09-25 18:29:16','2025-09-25 12:59:16',103,2000.0000,'\0',197,92,2000.00,2000.00,7,'pcs',NULL,0.00),(84,53,1.0000,'2025-09-25 18:29:16','2025-09-25 12:59:16',210,500.0000,'\0',305,93,500.00,500.00,7,'pcs',NULL,0.00),(85,54,1.0000,'2025-09-25 18:32:57','2025-09-25 13:02:57',35,400.0000,'\0',38,3,400.00,400.00,7,'pcs',NULL,0.00),(86,55,1.0000,'2025-09-25 18:34:48','2025-09-25 13:04:48',35,400.0000,'\0',38,3,400.00,400.00,7,'pcs',NULL,0.00),(87,56,1.0000,'2025-09-26 16:02:23','2025-09-26 10:32:23',211,350.0000,'\0',306,102,350.00,350.00,7,'pcs',NULL,0.00),(88,57,1.0000,'2025-10-01 12:47:23','2025-10-01 07:17:23',210,500.0000,'\0',305,109,500.00,500.00,7,'pcs',NULL,0.00),(89,57,1.0000,'2025-10-01 12:47:23','2025-10-01 07:17:23',43,75.0000,'\0',123,110,75.00,75.00,7,'pcs',NULL,0.00),(90,58,1.0000,'2025-10-01 12:49:48','2025-10-01 07:19:48',210,500.0000,'\0',305,111,500.00,500.00,7,'pcs',NULL,0.00),(91,58,3.0000,'2025-10-01 12:49:48','2025-10-01 07:19:48',211,350.0000,'\0',306,112,1050.00,1050.00,7,'pcs',NULL,0.00),(92,59,3.0000,'2025-10-01 12:51:17','2025-10-01 07:21:17',210,500.0000,'\0',305,113,1500.00,1500.00,7,'pcs',NULL,0.00),(93,60,1.0000,'2025-10-01 12:52:48','2025-10-01 07:22:48',105,2800.0000,'\0',199,114,2800.00,2800.00,7,'pcs',NULL,0.00),(94,61,1.0000,'2025-10-02 15:16:10','2025-10-02 09:46:10',210,500.0000,'\0',305,115,500.00,500.00,7,'pcs',NULL,0.00),(95,61,1.0000,'2025-10-02 15:16:10','2025-10-02 09:46:10',105,2800.0000,'\0',199,116,2800.00,2800.00,7,'pcs',NULL,0.00),(96,61,1.0000,'2025-10-02 15:16:10','2025-10-02 09:46:10',35,400.0000,'\0',38,3,400.00,400.00,7,'pcs',NULL,0.00),(97,62,2.0000,'2025-10-02 15:18:04','2025-10-02 09:48:04',35,400.0000,'\0',38,3,800.00,800.00,7,'pcs',NULL,0.00),(98,62,2.0000,'2025-10-02 15:18:04','2025-10-02 09:48:04',166,15.0000,'\0',261,117,30.00,30.00,7,'pcs',NULL,0.00),(99,62,1.0000,'2025-10-02 15:18:04','2025-10-02 09:48:04',211,350.0000,'\0',306,118,350.00,350.00,7,'pcs',NULL,0.00),(100,62,1.0000,'2025-10-02 15:18:04','2025-10-02 09:48:04',43,75.0000,'\0',123,119,75.00,75.00,7,'pcs',NULL,0.00),(101,63,3.0000,'2025-10-02 15:23:49','2025-10-02 09:53:49',166,15.0000,'\0',261,126,45.00,45.00,7,'pcs',NULL,0.00),(102,63,1.0000,'2025-10-02 15:23:49','2025-10-02 09:53:49',15,1400.0000,'\0',74,127,1400.00,1400.00,7,'pcs',NULL,0.00),(103,64,1.0000,'2025-10-02 15:24:23','2025-10-02 09:54:23',24,5500.0000,'\0',83,128,5500.00,5500.00,7,'pcs',NULL,0.00),(104,65,1.0000,'2025-10-02 15:26:23','2025-10-02 09:56:23',5,650.0000,'\0',64,132,650.00,650.00,7,'pcs',NULL,1.00),(105,66,1.0000,'2025-10-02 15:26:59','2025-10-02 09:56:59',28,750.0000,'\0',111,133,750.00,750.00,7,'pcs',NULL,0.00),(106,67,1.0000,'2025-10-02 15:27:22','2025-10-02 09:57:22',13,1200.0000,'\0',72,134,1200.00,1200.00,7,'pcs',NULL,0.00),(107,68,1.0000,'2025-10-02 15:27:40','2025-10-02 09:57:40',16,1600.0000,'\0',75,135,1600.00,1600.00,7,'pcs',NULL,0.00),(108,69,1.0000,'2025-10-02 15:28:00','2025-10-02 09:58:00',17,1700.0000,'\0',76,136,1700.00,1700.00,7,'pcs',NULL,0.00),(109,70,1.0000,'2025-10-02 15:34:40','2025-10-02 10:04:40',11,1000.0000,'\0',70,144,1000.00,1000.00,7,'pcs',NULL,0.00),(110,71,1.0000,'2025-10-02 15:36:03','2025-10-02 10:06:03',176,60.0000,'\0',271,145,60.00,60.00,7,'pcs',NULL,0.00),(111,72,1.0000,'2025-10-02 15:36:24','2025-10-02 10:06:24',145,800.0000,'\0',239,146,800.00,800.00,7,'pcs',NULL,0.00),(112,73,1.0000,'2025-10-02 15:36:44','2025-10-02 10:06:44',142,900.0000,'\0',236,147,900.00,900.00,7,'pcs',NULL,0.00),(113,74,1.0000,'2025-10-02 15:37:02','2025-10-02 10:07:02',139,1000.0000,'\0',233,148,1000.00,1000.00,7,'pcs',NULL,0.00),(114,75,1.0000,'2025-10-02 15:37:21','2025-10-02 10:07:21',136,1500.0000,'\0',230,149,1500.00,1500.00,7,'pcs',NULL,0.00),(115,76,1.0000,'2025-10-02 15:37:51','2025-10-02 10:07:51',136,1500.0000,'\0',230,150,1500.00,1500.00,7,'pcs',NULL,0.00),(116,77,1.0000,'2025-10-02 15:45:25','2025-10-02 10:15:25',152,450.0000,'\0',246,155,450.00,450.00,7,'pcs',NULL,0.00),(117,78,1.0000,'2025-10-02 15:45:52','2025-10-02 10:15:52',155,500.0000,'\0',249,156,500.00,500.00,7,'pcs',NULL,0.00),(118,79,1.0000,'2025-10-02 15:46:12','2025-10-02 10:16:12',158,600.0000,'\0',252,157,600.00,600.00,7,'pcs',NULL,0.00),(119,80,1.0000,'2025-10-02 15:46:30','2025-10-02 10:16:30',161,600.0000,'\0',255,158,600.00,600.00,7,'pcs',NULL,0.00),(120,81,1.0000,'2025-10-02 15:50:51','2025-10-02 10:20:51',68,250.0000,'\0',148,162,250.00,250.00,7,'pcs',NULL,0.00),(121,82,1.0000,'2025-10-02 15:51:09','2025-10-02 10:21:09',78,500.0000,'\0',158,163,500.00,500.00,7,'pcs',NULL,0.00),(122,83,1.0000,'2025-10-02 15:51:47','2025-10-02 10:21:47',66,900.0000,'\0',146,164,900.00,900.00,7,'pcs',NULL,0.00),(123,84,1.0000,'2025-10-02 15:53:13','2025-10-02 10:23:13',111,1400.0000,'\0',161,46,1400.00,1400.00,7,'pcs',NULL,0.00),(124,85,1.0000,'2025-10-02 15:53:39','2025-10-02 10:23:39',205,2500.0000,'\0',300,165,2500.00,2500.00,7,'pcs',NULL,0.00),(125,86,2.0000,'2025-10-02 15:55:13','2025-10-02 10:25:13',114,3500.0000,'\0',164,167,7000.00,7000.00,7,'pcs',NULL,0.00),(126,87,1.0000,'2025-10-02 15:56:36','2025-10-02 10:26:36',24,5500.0000,'\0',83,168,5500.00,5500.00,7,'pcs',NULL,0.00),(127,88,1.0000,'2025-10-02 15:57:19','2025-10-02 10:27:19',24,5500.0000,'\0',83,169,5500.00,5500.00,7,'pcs',NULL,0.00),(128,89,1.0000,'2025-10-02 16:52:13','2025-10-02 11:22:13',111,1400.0000,'\0',161,46,1400.00,1400.00,7,'pcs',NULL,0.00),(129,90,1.0000,'2025-10-02 16:53:01','2025-10-02 11:23:01',114,3500.0000,'\0',164,167,3500.00,3500.00,7,'pcs',NULL,0.00),(130,91,2.0000,'2025-10-02 16:53:45','2025-10-02 11:23:45',110,1000.0000,'\0',160,172,2000.00,2000.00,7,'pcs',NULL,0.00),(131,92,1.0000,'2025-10-02 16:54:11','2025-10-02 11:24:11',203,3000.0000,'\0',298,173,3000.00,3000.00,7,'pcs',NULL,0.00),(132,93,1.0000,'2025-10-02 16:54:26','2025-10-02 11:24:26',204,2700.0000,'\0',299,174,2700.00,2700.00,7,'pcs',NULL,0.00),(133,94,1.0000,'2025-10-02 16:54:43','2025-10-02 11:24:43',205,2500.0000,'\0',300,175,2500.00,2500.00,7,'pcs',NULL,0.00),(134,95,1.0000,'2025-10-02 16:55:02','2025-10-02 11:25:02',163,500.0000,'\0',257,176,500.00,500.00,7,'Kilogram',NULL,0.00),(135,96,1.0000,'2025-10-02 16:58:29','2025-10-02 11:28:29',110,8000.0000,'\0',204,177,8000.00,8000.00,7,'pcs',NULL,0.00),(136,97,1.0000,'2025-10-02 17:03:12','2025-10-02 11:33:12',54,7000.0000,'\0',134,179,7000.00,7000.00,7,'pcs',NULL,0.00),(137,98,1.0000,'2025-10-02 17:03:37','2025-10-02 11:33:37',51,2700.0000,'\0',131,180,2700.00,2700.00,7,'pcs',NULL,0.00),(138,99,1.0000,'2025-10-02 17:04:05','2025-10-02 11:34:05',51,2700.0000,'\0',131,181,2700.00,2700.00,7,'pcs',NULL,0.00),(139,100,1.0000,'2025-10-02 17:05:11','2025-10-02 11:35:11',171,500.0000,'\0',266,182,500.00,500.00,7,'pcs',NULL,0.00),(140,101,2.0000,'2025-10-02 17:09:23','2025-10-02 11:39:23',13,400.0000,'\0',16,19,800.00,800.00,7,'pcs',NULL,0.00),(141,102,1.0000,'2025-10-02 17:10:04','2025-10-02 11:40:04',165,60.0000,'\0',260,188,60.00,60.00,7,'pcs',NULL,0.00),(142,103,1.0000,'2025-10-02 17:39:06','2025-10-02 12:09:06',110,1000.0000,'\0',160,172,1000.00,1000.00,7,'pcs',NULL,0.00),(143,104,1.0000,'2025-10-02 17:43:36','2025-10-02 12:13:36',188,1200.0000,'\0',283,193,1200.00,1200.00,7,'pcs',NULL,0.00),(144,105,4.0000,'2025-10-03 12:05:11','2025-10-03 06:35:11',210,500.0000,'\0',305,194,2000.00,2000.00,7,'pcs',NULL,0.00),(145,105,2.0000,'2025-10-03 12:05:11','2025-10-03 06:35:11',211,350.0000,'\0',306,195,700.00,700.00,7,'pcs',NULL,0.00),(146,105,1.0000,'2025-10-03 12:05:11','2025-10-03 06:35:11',35,400.0000,'\0',38,3,400.00,400.00,7,'pcs',NULL,0.00),(147,106,1.0000,'2025-10-03 12:05:26','2025-10-03 06:35:26',210,500.0000,'\0',305,196,500.00,500.00,7,'pcs',NULL,0.00),(148,107,2.0000,'2025-10-03 12:08:19','2025-10-03 06:38:19',35,400.0000,'\0',38,3,800.00,800.00,7,'pcs',NULL,0.00),(149,107,1.0000,'2025-10-03 12:08:19','2025-10-03 06:38:19',210,500.0000,'\0',305,197,500.00,500.00,7,'pcs',NULL,0.00),(150,108,1.0000,'2025-10-03 12:09:40','2025-10-03 06:39:40',211,350.0000,'\0',306,198,350.00,350.00,7,'pcs',NULL,0.00),(151,108,1.0000,'2025-10-03 12:09:40','2025-10-03 06:39:40',35,400.0000,'\0',38,3,400.00,400.00,7,'pcs',NULL,0.00),(152,109,1.0000,'2025-10-07 16:04:31','2025-10-07 10:34:31',210,500.0000,'\0',305,199,500.00,500.00,7,'pcs',NULL,0.00),(153,109,3.0000,'2025-10-07 16:04:31','2025-10-07 10:34:31',211,350.0000,'\0',306,200,1050.00,1050.00,7,'pcs',NULL,0.00),(154,109,3.0000,'2025-10-07 16:04:31','2025-10-07 10:34:31',35,400.0000,'\0',38,3,1200.00,1200.00,7,'pcs',NULL,0.00),(155,110,1.0000,'2025-10-07 17:30:14','2025-10-07 12:00:14',0,500.0000,'\0',NULL,201,500.00,500.00,NULL,'pcs',NULL,NULL),(156,111,1.0000,'2025-10-07 18:13:34','2025-10-07 12:43:34',59,200.0000,'\0',139,202,200.00,200.00,7,'pcs',NULL,0.00),(157,112,1.0000,'2025-10-07 18:14:20','2025-10-07 12:44:20',209,350.0000,'\0',304,203,350.00,350.00,7,'pcs',NULL,0.00),(158,113,1.0000,'2025-10-07 19:17:20','2025-10-07 13:47:20',176,60.0000,'\0',271,204,60.00,60.00,7,'pcs',NULL,0.00),(159,114,1.0000,'2025-10-08 09:54:17','2025-10-08 04:24:17',176,60.0000,'\0',271,206,60.00,60.00,7,'pcs',NULL,0.00),(160,114,1.0000,'2025-10-08 09:54:17','2025-10-08 04:24:17',177,200.0000,'\0',272,207,200.00,200.00,7,'pcs',NULL,0.00),(161,115,1.0000,'2025-10-08 10:01:50','2025-10-08 04:31:50',34,500.0000,'\0',37,25,500.00,500.00,7,'pcs',NULL,0.00),(162,116,1.0000,'2025-10-08 10:13:19','2025-10-08 04:43:19',210,500.0000,'\0',305,208,500.00,500.00,7,'pcs',NULL,0.00),(163,116,14.0000,'2025-10-08 10:13:19','2025-10-08 04:43:19',166,15.0000,'\0',261,209,210.00,210.00,7,'pcs',NULL,0.00),(164,117,1.0000,'2025-10-08 10:33:09','2025-10-08 05:03:09',210,500.0000,'\0',305,210,500.00,500.00,7,'pcs',NULL,0.00),(165,117,9.0000,'2025-10-08 10:33:09','2025-10-08 05:03:09',166,15.0000,'\0',261,211,135.00,135.00,7,'pcs',NULL,0.00),(166,118,1.0000,'2025-10-08 12:36:58','2025-10-08 07:06:58',34,500.0000,'\0',37,25,500.00,500.00,7,'pcs',NULL,0.00),(167,119,1.0000,'2025-10-08 12:38:51','2025-10-08 07:08:51',211,350.0000,'\0',306,212,350.00,350.00,7,'pcs',NULL,0.00),(168,120,1.0000,'2025-10-08 15:16:00','2025-10-08 09:46:00',211,350.0000,'\0',306,213,350.00,350.00,7,'pcs',NULL,0.00),(169,121,1.0000,'2025-10-08 15:46:02','2025-10-08 10:16:02',211,350.0000,'\0',306,214,350.00,350.00,7,'pcs',NULL,0.00),(170,122,4.0000,'2025-10-08 16:28:47','2025-10-08 10:58:47',211,350.0000,'\0',306,215,1400.00,1400.00,7,'pcs',NULL,0.00),(171,122,1.0000,'2025-10-08 16:28:47','2025-10-08 10:58:47',177,200.0000,'\0',272,216,200.00,200.00,7,'pcs',NULL,0.00),(172,123,1.0000,'2025-10-08 16:31:44','2025-10-08 11:01:44',210,500.0000,'\0',305,217,500.00,500.00,7,'pcs',NULL,0.00),(173,123,10.0000,'2025-10-08 16:31:45','2025-10-08 11:01:45',166,15.0000,'\0',261,218,150.00,150.00,7,'pcs',NULL,0.00),(174,123,1.0000,'2025-10-08 16:31:45','2025-10-08 11:01:45',35,400.0000,'\0',38,3,400.00,400.00,7,'pcs',NULL,0.00),(175,124,2.0000,'2025-10-08 16:32:41','2025-10-08 11:02:41',210,500.0000,'\0',305,219,1000.00,1000.00,7,'pcs',NULL,0.00),(176,125,2.0000,'2025-10-08 16:33:47','2025-10-08 11:03:47',166,15.0000,'\0',261,220,30.00,30.00,7,'pcs',NULL,0.00),(177,126,4.0000,'2025-10-08 16:36:12','2025-10-08 11:06:12',0,15.0000,'\0',NULL,221,60.00,60.00,NULL,'Unit',NULL,NULL),(178,127,1.0000,'2025-10-09 14:53:29','2025-10-09 09:23:29',34,500.0000,'\0',37,25,500.00,500.00,7,NULL,NULL,0.00),(179,127,1.0000,'2025-10-09 14:53:29','2025-10-09 09:23:29',35,400.0000,'\0',38,3,400.00,400.00,7,NULL,NULL,0.00),(180,128,1.0000,'2025-10-09 15:51:58','2025-10-09 10:21:58',177,200.0000,'\0',272,226,200.00,200.00,7,'pcs',NULL,0.00),(181,128,1.0000,'2025-10-09 15:51:58','2025-10-09 10:21:58',34,500.0000,'\0',37,25,500.00,500.00,7,'pcs',NULL,0.00),(182,128,1.0000,'2025-10-09 15:51:58','2025-10-09 10:21:58',35,400.0000,'\0',38,3,400.00,400.00,7,'pcs',NULL,0.00),(183,129,1.0000,'2025-10-09 15:52:29','2025-10-09 10:22:29',209,350.0000,'\0',304,227,350.00,350.00,7,'pcs',NULL,0.00),(184,129,1.0000,'2025-10-09 15:52:29','2025-10-09 10:22:29',29,750.0000,'\0',112,228,750.00,750.00,7,'pcs',NULL,0.00),(185,129,1.0000,'2025-10-09 15:52:29','2025-10-09 10:22:29',16,1600.0000,'\0',75,229,1600.00,1600.00,7,'pcs',NULL,0.00),(186,130,1.0000,'2025-10-09 15:53:08','2025-10-09 10:23:08',40,1200.0000,'\0',120,230,1200.00,1200.00,7,'pcs',NULL,0.00),(187,131,1.0000,'2025-10-09 15:53:36','2025-10-09 10:23:36',35,400.0000,'\0',38,3,400.00,400.00,7,'pcs',NULL,0.00),(188,131,1.0000,'2025-10-09 15:53:36','2025-10-09 10:23:36',42,100.0000,'\0',122,231,100.00,100.00,7,'pcs',NULL,0.00),(189,131,2.0000,'2025-10-09 15:53:36','2025-10-09 10:23:36',13,400.0000,'\0',16,232,800.00,800.00,7,'pcs',NULL,0.00),(190,132,1.0000,'2025-10-09 15:53:55','2025-10-09 10:23:55',16,1600.0000,'\0',75,233,1600.00,1600.00,7,'pcs',NULL,0.00),(191,133,1.0000,'2025-10-09 19:44:13','2025-10-09 14:14:13',6,700.0000,'\0',65,236,700.00,700.00,7,NULL,NULL,1.00),(192,134,1.0000,'2025-10-09 19:51:09','2025-10-09 14:21:09',37,1400.0000,'\0',117,241,1400.00,1400.00,7,NULL,NULL,0.00),(193,135,9.0000,'2025-10-11 17:17:52','2025-10-11 11:47:52',176,60.0000,'\0',271,242,540.00,540.00,7,'pcs',NULL,0.00),(194,135,3.0000,'2025-10-11 17:17:52','2025-10-11 11:47:52',35,400.0000,'\0',38,3,1200.00,1200.00,7,'pcs',NULL,0.00),(195,135,1.0000,'2025-10-11 17:17:52','2025-10-11 11:47:52',177,200.0000,'\0',272,243,200.00,200.00,7,'pcs',NULL,0.00),(196,135,1.0000,'2025-10-11 17:17:52','2025-10-11 11:47:52',211,350.0000,'\0',306,244,350.00,350.00,7,'pcs',NULL,0.00),(197,135,1.0000,'2025-10-11 17:17:52','2025-10-11 11:47:52',210,500.0000,'\0',305,245,500.00,500.00,7,'pcs',NULL,0.00),(198,136,3.0000,'2025-10-11 17:19:06','2025-10-11 11:49:06',210,500.0000,'\0',305,246,1500.00,1500.00,7,'pcs',NULL,0.00),(199,137,1.0000,'2025-10-11 17:21:00','2025-10-11 11:51:00',38,5500.0000,'\0',118,247,5500.00,5500.00,7,'pcs',NULL,0.00),(200,138,2.0000,'2025-10-11 17:21:59','2025-10-11 11:51:59',208,500.0000,'\0',303,250,1000.00,1000.00,7,'pcs',NULL,0.00),(201,138,1.0000,'2025-10-11 17:21:59','2025-10-11 11:51:59',177,200.0000,'\0',272,251,200.00,200.00,7,'pcs',NULL,0.00),(202,139,2.0000,'2025-10-14 11:58:01','2025-10-14 06:28:01',209,350.0000,'\0',304,253,700.00,700.00,7,'pcs',NULL,0.00),(203,139,1.0000,'2025-10-14 11:58:01','2025-10-14 06:28:01',169,500.0000,'\0',264,254,500.00,500.00,7,'pcs',NULL,0.00),(204,139,1.0000,'2025-10-14 11:58:01','2025-10-14 06:28:01',35,400.0000,'\0',38,3,400.00,400.00,7,'pcs',NULL,0.00),(205,140,1.0000,'2025-10-14 12:17:04','2025-10-14 06:47:04',35,400.0000,'\0',38,3,400.00,400.00,7,'pcs',NULL,0.00),(206,141,1.0000,'2025-10-14 12:17:24','2025-10-14 06:47:24',210,500.0000,'\0',305,255,500.00,500.00,7,'pcs',NULL,0.00),(207,142,1.0000,'2025-10-14 17:29:55','2025-10-14 11:59:55',209,350.0000,'\0',304,262,350.00,350.00,7,'pcs',NULL,0.00),(208,142,1.0000,'2025-10-14 17:29:55','2025-10-14 11:59:55',34,500.0000,'\0',37,25,500.00,500.00,7,'pcs',NULL,0.00),(209,142,2.0000,'2025-10-14 17:29:55','2025-10-14 11:59:55',166,15.0000,'\0',261,263,30.00,30.00,7,'pcs',NULL,0.00),(210,142,3.0000,'2025-10-14 17:29:55','2025-10-14 11:59:55',211,350.0000,'\0',306,264,1050.00,1050.00,7,'pcs',NULL,0.00),(211,143,4.0000,'2025-10-14 17:32:25','2025-10-14 12:02:25',211,350.0000,'\0',306,267,1400.00,1400.00,7,'pcs',NULL,0.00),(212,144,1.0000,'2025-10-18 22:01:22','2025-10-18 16:31:22',13,400.0000,'\0',16,232,400.00,400.00,7,'pcs',NULL,0.00),(213,145,1.0000,'2025-10-21 15:40:41','2025-10-21 10:10:41',29,750.0000,'\0',112,274,750.00,750.00,7,'pcs',NULL,0.00),(214,146,1.0000,'2025-10-21 15:41:59','2025-10-21 10:11:59',111,1000.0000,'\0',161,276,1000.00,1000.00,7,'pcs',NULL,0.00),(215,147,1.0000,'2025-10-21 15:43:31','2025-10-21 10:13:31',13,400.0000,'\0',16,277,400.00,400.00,7,'pcs',NULL,0.00),(216,148,1.0000,'2025-10-21 15:43:47','2025-10-21 10:13:47',114,3500.0000,'\0',164,278,3500.00,3500.00,7,'pcs',NULL,0.00),(217,149,1.0000,'2025-10-21 15:44:03','2025-10-21 10:14:03',42,100.0000,'\0',122,279,100.00,100.00,7,'pcs',NULL,0.00),(218,150,1.0000,'2025-10-21 15:44:48','2025-10-21 10:14:48',193,3300.0000,'\0',288,280,3300.00,3300.00,7,'pcs',NULL,0.00),(219,151,1.0000,'2025-10-21 15:45:08','2025-10-21 10:15:08',201,8000.0000,'\0',296,281,8000.00,8000.00,7,'pcs',NULL,0.00),(220,152,1.0000,'2025-10-21 15:45:33','2025-10-21 10:15:33',77,500.0000,'\0',157,282,500.00,500.00,7,'pcs',NULL,0.00),(221,153,1.0000,'2025-10-21 15:45:49','2025-10-21 10:15:49',64,400.0000,'\0',144,283,400.00,400.00,7,'pcs',NULL,0.00),(222,154,1.0000,'2025-10-21 15:46:27','2025-10-21 10:16:27',5,650.0000,'\0',64,284,650.00,650.00,7,'pcs',NULL,1.00),(223,155,1.0000,'2025-10-21 15:46:51','2025-10-21 10:16:51',208,500.0000,'\0',303,285,500.00,500.00,7,'pcs',NULL,0.00),(224,156,1.0000,'2025-10-21 15:47:05','2025-10-21 10:17:05',208,500.0000,'\0',303,286,500.00,500.00,7,'pcs',NULL,0.00),(225,157,1.0000,'2025-10-21 15:47:29','2025-10-21 10:17:29',211,350.0000,'\0',306,288,350.00,350.00,7,'pcs',NULL,0.00),(226,158,1.0000,'2025-10-21 15:48:12','2025-10-21 10:18:12',29,750.0000,'\0',112,291,750.00,750.00,7,'pcs',NULL,0.00),(227,159,1.0000,'2025-10-21 15:48:29','2025-10-21 10:18:29',13,1200.0000,'\0',72,292,1200.00,1200.00,7,'pcs',NULL,0.00),(228,160,1.0000,'2025-10-21 15:48:47','2025-10-21 10:18:47',53,6400.0000,'\0',133,293,6400.00,6400.00,7,'pcs',NULL,0.00),(229,161,1.0000,'2025-10-21 15:51:18','2025-10-21 10:21:18',24,5500.0000,'\0',83,297,5500.00,5500.00,7,'pcs',NULL,0.00),(230,162,1.0000,'2025-10-21 15:51:37','2025-10-21 10:21:37',38,5500.0000,'\0',118,298,5500.00,5500.00,7,'pcs',NULL,0.00),(231,163,1.0000,'2025-10-21 15:52:03','2025-10-21 10:22:03',145,800.0000,'\0',239,299,800.00,800.00,7,'pcs',NULL,0.00),(232,164,1.0000,'2025-10-21 15:52:15','2025-10-21 10:22:15',142,900.0000,'\0',236,300,900.00,900.00,7,'pcs',NULL,0.00),(233,165,1.0000,'2025-10-21 15:52:33','2025-10-21 10:22:33',140,1300.0000,'\0',234,301,1300.00,1300.00,7,'pcs',NULL,0.00),(234,166,1.0000,'2025-10-21 17:52:43','2025-10-21 12:22:43',134,4000.0000,'\0',228,307,4000.00,4000.00,7,'pcs',NULL,0.00),(235,167,1.0000,'2025-10-21 17:53:07','2025-10-21 12:23:07',135,3900.0000,'\0',229,308,3900.00,3900.00,7,'pcs',NULL,0.00),(236,168,1.0000,'2025-10-21 17:53:25','2025-10-21 12:23:25',132,4500.0000,'\0',226,309,4500.00,4500.00,7,'pcs',NULL,0.00),(237,169,1.0000,'2025-10-23 13:58:19','2025-10-23 08:28:19',210,500.0000,'\0',305,310,500.00,500.00,7,'pcs',NULL,0.00),(238,170,1.0000,'2025-10-23 14:02:12','2025-10-23 08:32:12',211,350.0000,'\0',306,311,350.00,350.00,7,'pcs',NULL,0.00),(239,171,1.0000,'2025-10-23 14:09:34','2025-10-23 08:39:34',101,1500.0000,'\0',195,312,1500.00,1500.00,7,'pcs',NULL,0.00),(240,172,1.0000,'2025-10-23 14:10:27','2025-10-23 08:40:27',210,500.0000,'\0',305,313,500.00,500.00,7,'pcs',NULL,0.00),(241,172,1.0000,'2025-10-23 14:10:27','2025-10-23 08:40:27',211,350.0000,'\0',306,314,350.00,350.00,7,'pcs',NULL,0.00),(242,173,1.0000,'2025-10-23 14:11:14','2025-10-23 08:41:14',211,350.0000,'\0',306,315,350.00,350.00,7,'pcs',NULL,0.00),(243,173,2.0000,'2025-10-23 14:11:14','2025-10-23 08:41:14',210,500.0000,'\0',305,316,1000.00,1000.00,7,'pcs',NULL,0.00),(244,174,1.0000,'2025-10-23 15:21:33','2025-10-23 09:51:33',210,500.0000,'\0',305,317,500.00,500.00,7,'pcs',NULL,0.00),(245,175,1.0000,'2025-10-23 17:02:26','2025-10-23 11:32:26',210,500.0000,'\0',305,326,500.00,500.00,7,'pcs',NULL,0.00),(246,175,11.0000,'2025-10-23 17:02:26','2025-10-23 11:32:26',166,15.0000,'\0',261,327,165.00,165.00,7,'pcs',NULL,0.00),(247,176,1.0000,'2025-10-23 17:12:20','2025-10-23 11:42:20',0,2000.0000,'\0',NULL,328,2000.00,2000.00,NULL,'None',NULL,NULL),(248,177,1.0000,'2025-10-23 17:14:41','2025-10-23 11:44:41',0,1000.0000,'\0',NULL,330,1000.00,1000.00,NULL,'Unit',NULL,NULL),(249,178,1.0000,'2025-11-07 21:36:41','2025-11-07 16:06:41',216,500.0000,'\0',311,331,500.00,500.00,7,'pcs',NULL,0.00),(250,178,1.0000,'2025-11-07 21:36:41','2025-11-07 16:06:41',111,1000.0000,'\0',161,276,1000.00,1000.00,7,'pcs',NULL,0.00),(251,178,1.0000,'2025-11-07 21:36:41','2025-11-07 16:06:41',114,3500.0000,'\0',164,278,3500.00,3500.00,7,'pcs',NULL,0.00),(252,179,1.0000,'2025-11-11 11:54:57','2025-11-11 06:24:57',210,500.0000,'\0',305,332,500.00,500.00,7,'pcs',NULL,0.00),(253,180,1.0000,'2025-11-11 11:55:24','2025-11-11 06:25:24',210,500.0000,'\0',305,333,500.00,500.00,7,'pcs',NULL,0.00),(254,181,1.0000,'2025-11-11 11:56:08','2025-11-11 06:26:08',210,500.0000,'\0',305,334,500.00,500.00,7,'pcs',NULL,0.00),(255,182,2.0000,'2025-11-11 11:56:31','2025-11-11 06:26:31',210,500.0000,'\0',305,335,1000.00,1000.00,7,'pcs',NULL,0.00),(256,182,1.0000,'2025-11-11 11:56:31','2025-11-11 06:26:31',35,400.0000,'\0',38,3,400.00,400.00,7,'pcs',NULL,0.00),(257,183,1.0000,'2025-11-11 11:56:54','2025-11-11 06:26:54',210,500.0000,'\0',305,336,500.00,500.00,7,'pcs',NULL,0.00),(258,184,1.0000,'2025-11-11 11:57:09','2025-11-11 06:27:09',211,350.0000,'\0',306,337,350.00,350.00,7,'pcs',NULL,0.00),(259,185,1.0000,'2025-11-11 11:57:35','2025-11-11 06:27:35',35,400.0000,'\0',38,3,400.00,400.00,7,'pcs',NULL,0.00),(260,186,1.0000,'2025-11-11 11:58:42','2025-11-11 06:28:42',210,500.0000,'\0',305,338,500.00,500.00,7,'pcs',NULL,0.00),(261,186,1.0000,'2025-11-11 11:58:42','2025-11-11 06:28:42',57,1.0000,'\0',60,339,1.00,1.00,7,'pcs',NULL,0.00),(262,186,2.0000,'2025-11-11 11:58:42','2025-11-11 06:28:42',166,15.0000,'\0',261,340,30.00,30.00,7,'pcs',NULL,0.00),(263,187,1.0000,'2025-11-11 11:59:41','2025-11-11 06:29:41',0,3000.0000,'\0',NULL,341,3000.00,3000.00,NULL,'None',NULL,NULL),(264,188,1.0000,'2025-11-11 12:01:47','2025-11-11 06:31:47',177,200.0000,'\0',272,342,200.00,200.00,NULL,'pcs',NULL,0.00),(265,188,2.0000,'2025-11-11 12:01:47','2025-11-11 06:31:47',0,40.0000,'\0',272,343,80.00,80.00,NULL,'None',NULL,0.00),(266,189,2.0000,'2025-11-11 12:02:16','2025-11-11 06:32:16',211,350.0000,'\0',306,344,700.00,700.00,7,'pcs',NULL,0.00),(267,190,1.0000,'2025-11-11 12:03:02','2025-11-11 06:33:02',19,2000.0000,'\0',78,345,2000.00,2000.00,7,'pcs',NULL,0.00),(268,191,1.0000,'2025-11-11 12:13:52','2025-11-11 06:43:52',176,60.0000,'\0',271,348,60.00,60.00,7,'pcs',NULL,0.00),(269,192,1.0000,'2025-11-11 14:53:56','2025-11-11 09:23:56',111,1000.0000,'\0',161,349,1000.00,1000.00,7,'pcs',NULL,0.00),(270,192,1.0000,'2025-11-11 14:53:56','2025-11-11 09:23:56',16,1600.0000,'\0',75,350,1600.00,1600.00,7,'pcs',NULL,0.00),(271,193,1.0000,'2025-11-11 16:46:17','2025-11-11 11:16:17',111,1000.0000,'\0',161,349,1000.00,1000.00,7,'pcs',NULL,0.00),(272,194,1.0000,'2025-11-11 22:26:45','2025-11-11 16:56:45',34,500.0000,'\0',37,25,500.00,500.00,7,'pcs',NULL,0.00),(273,195,2.0000,'2025-11-12 17:51:29','2025-11-12 12:21:29',35,400.0000,'\0',38,3,800.00,800.00,7,'pcs',NULL,0.00),(274,196,1.0000,'2025-11-12 17:52:16','2025-11-12 12:22:16',208,500.0000,'\0',303,351,500.00,500.00,7,'pcs',NULL,0.00),(275,196,2.0000,'2025-11-12 17:52:16','2025-11-12 12:22:16',209,350.0000,'\0',304,352,700.00,700.00,7,'pcs',NULL,0.00),(276,197,2.0000,'2025-11-12 17:54:19','2025-11-12 12:24:19',35,400.0000,'\0',38,3,800.00,800.00,7,'pcs',NULL,0.00),(277,197,3.0000,'2025-11-12 17:54:19','2025-11-12 12:24:19',209,350.0000,'\0',304,353,1050.00,1050.00,7,'pcs',NULL,0.00),(278,198,1.0000,'2025-11-12 17:57:51','2025-11-12 12:27:51',101,1500.0000,'\0',195,354,1500.00,1500.00,7,'pcs',NULL,0.00),(279,199,1.0000,'2025-11-12 17:59:39','2025-11-12 12:29:39',34,500.0000,'\0',37,25,500.00,500.00,7,'pcs',NULL,0.00),(280,199,1.0000,'2025-11-12 17:59:39','2025-11-12 12:29:39',211,350.0000,'\0',306,355,350.00,350.00,7,'pcs',NULL,0.00),(281,200,1.0000,'2025-11-12 18:00:11','2025-11-12 12:30:11',210,500.0000,'\0',305,356,500.00,500.00,7,'pcs',NULL,0.00),(282,200,1.0000,'2025-11-12 18:00:11','2025-11-12 12:30:11',35,400.0000,'\0',38,3,400.00,400.00,7,'pcs',NULL,0.00),(283,201,2.0000,'2025-11-12 18:02:03','2025-11-12 12:32:03',210,500.0000,'\0',305,357,1000.00,1000.00,7,'pcs',NULL,0.00),(284,201,2.0000,'2025-11-12 18:02:03','2025-11-12 12:32:03',211,350.0000,'\0',306,358,700.00,700.00,7,'pcs',NULL,0.00),(285,201,10.0000,'2025-11-12 18:02:03','2025-11-12 12:32:03',166,15.0000,'\0',261,359,150.00,150.00,7,'pcs',NULL,0.00),(286,202,1.0000,'2025-11-12 18:02:41','2025-11-12 12:32:41',210,500.0000,'\0',305,360,500.00,500.00,7,'pcs',NULL,0.00),(287,203,1.0000,'2025-11-12 18:03:24','2025-11-12 12:33:24',210,500.0000,'\0',305,361,500.00,500.00,7,'pcs',NULL,0.00),(288,203,1.0000,'2025-11-12 18:03:24','2025-11-12 12:33:24',171,500.0000,'\0',266,362,500.00,500.00,7,'pcs',NULL,0.00),(289,204,1.0000,'2025-11-12 18:04:22','2025-11-12 12:34:22',210,500.0000,'\0',305,363,500.00,500.00,7,'pcs',NULL,0.00),(290,204,1.0000,'2025-11-12 18:04:22','2025-11-12 12:34:22',211,350.0000,'\0',306,364,350.00,350.00,7,'pcs',NULL,0.00),(291,205,1.0000,'2025-11-13 00:12:34','2025-11-12 18:42:34',111,1000.0000,'\0',161,349,1000.00,1000.00,7,'pcs',NULL,0.00),(292,206,1.0000,'2025-11-13 00:27:24','2025-11-12 18:57:24',111,1000.0000,'\0',161,349,1000.00,1000.00,7,'pcs',NULL,0.00),(293,207,1.0000,'2025-11-13 16:28:41','2025-11-13 10:58:41',99,1000.0000,'\0',193,369,1000.00,1000.00,7,'pcs',NULL,0.00),(294,208,1.0000,'2025-11-13 16:28:57','2025-11-13 10:58:57',42,100.0000,'\0',122,370,100.00,100.00,7,'pcs',NULL,0.00),(295,209,1.0000,'2025-11-13 16:29:19','2025-11-13 10:59:19',110,800.0000,'\0',160,371,800.00,800.00,7,'pcs',NULL,0.00),(296,209,1.0000,'2025-11-13 16:29:19','2025-11-13 10:59:19',204,2700.0000,'\0',299,372,2700.00,2700.00,7,'pcs',NULL,0.00),(297,210,1.0000,'2025-11-13 16:29:37','2025-11-13 10:59:37',79,600.0000,'\0',159,373,600.00,600.00,7,'pcs',NULL,0.00),(298,211,1.0000,'2025-11-13 17:10:50','2025-11-13 11:40:50',211,350.0000,'\0',306,374,350.00,350.00,7,'pcs',NULL,0.00),(299,211,1.0000,'2025-11-13 17:10:50','2025-11-13 11:40:50',172,350.0000,'\0',267,375,350.00,350.00,7,'pcs',NULL,0.00),(300,212,2.0000,'2025-11-13 17:12:25','2025-11-13 11:42:25',210,500.0000,'\0',305,376,1000.00,1000.00,7,'pcs',NULL,0.00),(301,212,12.0000,'2025-11-13 17:12:25','2025-11-13 11:42:25',166,15.0000,'\0',261,377,180.00,180.00,7,'pcs',NULL,0.00),(302,212,1.0000,'2025-11-13 17:12:25','2025-11-13 11:42:25',177,200.0000,'\0',272,378,200.00,200.00,7,'pcs',NULL,0.00),(303,213,2.0000,'2025-11-13 17:14:04','2025-11-13 11:44:04',210,500.0000,'\0',305,379,1000.00,1000.00,7,'pcs',NULL,0.00),(304,213,4.0000,'2025-11-13 17:14:04','2025-11-13 11:44:04',211,350.0000,'\0',306,380,1400.00,1400.00,7,'pcs',NULL,0.00),(305,214,3.0000,'2025-11-13 17:15:08','2025-11-13 11:45:08',166,15.0000,'\0',261,381,45.00,45.00,7,'pcs',NULL,0.00),(306,214,1.0000,'2025-11-13 17:15:08','2025-11-13 11:45:08',43,75.0000,'\0',123,382,75.00,75.00,7,'pcs',NULL,0.00),(307,215,1.0000,'2025-11-13 17:15:44','2025-11-13 11:45:44',210,500.0000,'\0',305,383,500.00,500.00,7,'pcs',NULL,0.00);
 /*!40000 ALTER TABLE `order_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1487,7 +1000,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `order_header`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `order_header` (
   `OrderId` int(11) NOT NULL AUTO_INCREMENT,
   `OrderNo` varchar(50) DEFAULT NULL,
@@ -1521,7 +1034,7 @@ CREATE TABLE `order_header` (
   CONSTRAINT `FK_OrderHeader_Customer` FOREIGN KEY (`customerId`) REFERENCES `contact` (`contactId`),
   CONSTRAINT `FK_OrderHeader_SessionDetails` FOREIGN KEY (`SessionId`) REFERENCES `session_period` (`sessionId`),
   CONSTRAINT `order_header_terminal_FK` FOREIGN KEY (`terminalId`) REFERENCES `terminal` (`TerminalId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=216 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1530,6 +1043,7 @@ CREATE TABLE `order_header` (
 
 LOCK TABLES `order_header` WRITE;
 /*!40000 ALTER TABLE `order_header` DISABLE KEYS */;
+INSERT INTO `order_header` VALUES (1,'00001','\0',1,NULL,1,'2025-09-09 11:47:49','2025-09-09 17:17:49',29,NULL,19,84,5,'Dayara',14,20,19,330),(2,'00002','\0',1,NULL,1,'2025-09-09 11:52:00','2025-09-09 17:22:00',29,NULL,19,84,5,'Dayara',14,20,19,330),(3,'00003','\0',1,NULL,1,'2025-09-09 11:53:56','2025-09-09 17:23:56',29,NULL,19,84,5,'Dayara',14,20,19,330),(4,'00004','\0',1,NULL,1,'2025-09-09 11:54:32','2025-09-09 17:24:32',29,NULL,19,84,5,'Dayara',14,20,19,330),(5,'00005','\0',1,NULL,1,'2025-09-09 11:55:33','2025-09-09 17:25:33',29,NULL,19,84,5,'Dayara',14,20,19,330),(7,'00007','\0',1,NULL,1,'2025-09-09 12:04:07','2025-09-09 17:34:07',29,NULL,19,84,5,'Dayara',14,20,19,330),(8,'00008','\0',1,NULL,1,'2025-09-09 12:04:26','2025-09-09 17:34:26',29,NULL,19,84,5,'Dayara',14,20,19,330),(9,'00009','\0',1,NULL,1,'2025-09-09 12:06:35','2025-09-09 17:36:35',29,NULL,19,84,5,'Dayara',14,20,19,330),(10,'00010','\0',1,NULL,1,'2025-09-09 12:07:19','2025-09-09 17:37:19',29,NULL,19,84,5,'Dayara',14,20,19,330),(11,'00011','\0',2,NULL,1,'2025-09-09 12:21:52','2025-09-09 17:51:52',29,NULL,19,84,5,'Dayara',14,20,19,330),(12,'00012','\0',2,NULL,1,'2025-09-09 12:32:17','2025-09-09 18:02:17',29,NULL,19,84,5,'Dayara',14,20,19,330),(13,'00013','\0',2,NULL,1,'2025-09-09 12:32:49','2025-09-09 18:02:49',29,NULL,19,84,5,'Dayara',14,20,19,330),(14,'00014','',2,NULL,1,'2025-09-09 12:36:00','2025-09-09 18:06:00',29,NULL,19,84,5,'Dayara',14,20,19,330),(15,'00015','\0',5,NULL,1,'2025-09-09 13:45:00','2025-09-09 19:15:00',29,NULL,19,84,5,'Dayara',14,20,19,330),(16,'00016','\0',8,NULL,2,'2025-09-10 04:14:38','2025-09-10 09:44:38',29,NULL,19,84,5,'Dayara',14,20,19,330),(17,'00017','\0',8,NULL,2,'2025-09-10 04:15:49','2025-09-10 09:45:49',29,NULL,19,84,5,'Dayara',14,20,19,330),(18,'00018','\0',11,NULL,2,'2025-09-10 04:52:19','2025-09-10 10:22:19',29,NULL,19,84,5,'Dayara',14,20,19,330),(19,'00019','\0',13,NULL,2,'2025-09-10 06:52:50','2025-09-10 12:22:50',29,NULL,19,84,5,'Dayara',14,20,19,330),(20,'00020','\0',13,NULL,2,'2025-09-10 06:53:38','2025-09-10 12:23:38',29,NULL,19,84,5,'Dayara',14,20,19,330),(21,'00021','\0',14,NULL,2,'2025-09-10 07:13:15','2025-09-10 12:43:15',29,NULL,19,84,5,'Dayara',14,20,19,330),(22,'00022','\0',18,NULL,2,'2025-09-10 10:46:38','2025-09-10 16:16:38',29,NULL,19,84,5,'Dayara',14,20,19,330),(23,'00023','\0',28,NULL,2,'2025-09-15 06:32:38','2025-09-15 12:02:38',29,NULL,19,84,5,'Dayara',14,20,19,330),(24,'00024','\0',28,NULL,2,'2025-09-15 06:34:01','2025-09-15 12:04:01',29,NULL,19,84,5,'Dayara',14,20,19,330),(25,'00025','\0',30,NULL,2,'2025-09-15 12:59:31','2025-09-15 18:29:31',29,NULL,19,84,5,'Dayara',14,20,19,330),(26,'00026','\0',30,NULL,2,'2025-09-15 13:00:18','2025-09-15 18:30:18',29,NULL,19,84,5,'Dayara',14,20,19,330),(27,'00027','\0',31,NULL,2,'2025-09-15 13:02:22','2025-09-15 18:32:22',29,NULL,19,84,5,'Dayara',14,20,19,330),(28,'00028','\0',31,NULL,2,'2025-09-15 13:02:44','2025-09-15 18:32:44',29,NULL,19,84,5,'Dayara',14,20,19,330),(29,'00029','\0',34,NULL,2,'2025-09-16 07:54:02','2025-09-16 13:24:02',29,NULL,19,84,5,'Dayara',14,20,19,330),(30,'00030','\0',34,NULL,2,'2025-09-16 07:55:27','2025-09-16 13:25:27',29,NULL,19,84,5,'Dayara',14,20,19,330),(31,'00031','\0',38,NULL,2,'2025-09-16 12:47:41','2025-09-16 18:17:41',29,NULL,19,84,5,'Dayara',14,20,19,330),(32,'00032','\0',38,NULL,2,'2025-09-16 12:47:58','2025-09-16 18:17:58',29,NULL,19,84,5,'Dayara',14,20,19,330),(33,'00033','\0',38,NULL,2,'2025-09-16 12:48:21','2025-09-16 18:18:21',29,NULL,19,84,5,'Dayara',14,20,19,330),(34,'00034','\0',38,NULL,2,'2025-09-16 12:51:09','2025-09-16 18:21:09',29,NULL,19,84,5,'Dayara',14,20,19,330),(35,'00035','\0',40,NULL,2,'2025-09-17 11:33:32','2025-09-17 17:03:32',29,NULL,19,84,5,'Dayara',14,20,19,330),(36,'00036','\0',40,NULL,2,'2025-09-17 11:36:32','2025-09-17 17:06:32',29,NULL,19,84,5,'Dayara',14,20,19,330),(37,'00037','\0',40,NULL,2,'2025-09-17 11:37:37','2025-09-17 17:07:37',29,NULL,19,84,5,'Dayara',14,20,19,330),(38,'00038','\0',40,NULL,2,'2025-09-17 11:39:03','2025-09-17 17:09:03',29,NULL,19,84,5,'Dayara',14,20,19,330),(39,'00039','\0',40,NULL,2,'2025-09-17 11:41:13','2025-09-17 17:11:13',29,NULL,19,84,5,'Dayara',14,20,19,330),(40,'00040','\0',40,NULL,2,'2025-09-17 11:43:52','2025-09-17 17:13:52',29,NULL,19,84,5,'Dayara',14,20,19,330),(41,'00041','\0',44,NULL,2,'2025-09-19 11:10:10','2025-09-19 16:40:10',29,NULL,19,84,5,'Dayara',14,20,19,330),(42,'00042','',50,NULL,2,'2025-09-22 19:08:14','2025-09-23 00:38:14',29,NULL,19,84,5,'Dayara',14,20,19,330),(43,'00043','',50,NULL,2,'2025-09-22 19:11:07','2025-09-23 00:41:07',29,NULL,19,84,5,'Dayara',14,20,19,330),(44,'00044','\0',51,NULL,2,'2025-09-24 11:54:29','2025-09-24 17:24:29',29,NULL,19,84,5,'Dayara',14,20,19,330),(45,'00045','\0',51,NULL,2,'2025-09-24 11:54:49','2025-09-24 17:24:49',29,NULL,19,84,5,'Dayara',14,20,19,330),(46,'00046','\0',51,NULL,2,'2025-09-24 11:55:21','2025-09-24 17:25:21',29,NULL,19,84,5,'Dayara',14,20,19,330),(47,'00047','\0',51,NULL,2,'2025-09-24 11:55:38','2025-09-24 17:25:38',29,NULL,19,84,5,'Dayara',14,20,19,330),(48,'00048','\0',51,NULL,2,'2025-09-24 11:57:46','2025-09-24 17:27:46',29,NULL,19,84,5,'Dayara',14,20,19,330),(49,'00049','\0',51,NULL,2,'2025-09-24 11:58:49','2025-09-24 17:28:49',29,NULL,19,84,5,'Dayara',14,20,19,330),(50,'00050','\0',55,NULL,2,'2025-09-25 12:51:09','2025-09-25 18:21:09',29,NULL,19,84,5,'Dayara',14,20,19,330),(51,'00051','\0',56,NULL,2,'2025-09-25 12:56:16','2025-09-25 18:26:16',29,NULL,19,84,5,'Dayara',14,20,19,330),(52,'00052','\0',56,NULL,2,'2025-09-25 12:57:13','2025-09-25 18:27:13',29,NULL,19,84,5,'Dayara',14,20,19,330),(53,'00053','\0',56,NULL,2,'2025-09-25 12:59:16','2025-09-25 18:29:16',29,NULL,19,84,5,'Dayara',14,20,19,330),(54,'00054','\0',56,NULL,2,'2025-09-25 13:02:57','2025-09-25 18:32:57',29,NULL,19,84,5,'Dayara',14,20,19,330),(55,'00055','\0',56,NULL,2,'2025-09-25 13:04:48','2025-09-25 18:34:48',29,NULL,19,84,5,'Dayara',14,20,19,330),(56,'00056','\0',106,NULL,2,'2025-09-26 10:32:23','2025-09-26 16:02:23',29,NULL,19,84,5,'Dayara',14,20,19,330),(57,'00057','\0',216,NULL,2,'2025-10-01 07:17:23','2025-10-01 12:47:23',29,NULL,19,84,5,'Dayara',14,20,19,330),(58,'00058','\0',216,NULL,2,'2025-10-01 07:19:48','2025-10-01 12:49:48',29,NULL,19,84,5,'Dayara',14,20,19,330),(59,'00059','\0',216,NULL,2,'2025-10-01 07:21:17','2025-10-01 12:51:17',29,NULL,19,84,5,'Dayara',14,20,19,330),(60,'00060','\0',216,NULL,2,'2025-10-01 07:22:48','2025-10-01 12:52:48',29,NULL,19,84,5,'Dayara',14,20,19,330),(61,'00061','\0',249,NULL,2,'2025-10-02 09:46:10','2025-10-02 15:16:10',29,NULL,19,84,5,'Dayara',14,20,19,330),(62,'00062','\0',249,NULL,2,'2025-10-02 09:48:04','2025-10-02 15:18:04',29,NULL,19,84,5,'Dayara',14,20,19,330),(63,'00063','\0',249,NULL,2,'2025-10-02 09:53:49','2025-10-02 15:23:49',29,NULL,19,84,5,'Dayara',14,20,19,330),(64,'00064','\0',249,NULL,2,'2025-10-02 09:54:23','2025-10-02 15:24:23',29,NULL,19,84,5,'Dayara',14,20,19,330),(65,'00065','\0',249,NULL,2,'2025-10-02 09:56:23','2025-10-02 15:26:23',29,NULL,19,84,5,'Dayara',14,20,19,330),(66,'00066','\0',249,NULL,2,'2025-10-02 09:56:59','2025-10-02 15:26:59',29,NULL,19,84,5,'Dayara',14,20,19,330),(67,'00067','\0',249,NULL,2,'2025-10-02 09:57:22','2025-10-02 15:27:22',29,NULL,19,84,5,'Dayara',14,20,19,330),(68,'00068','\0',249,NULL,2,'2025-10-02 09:57:40','2025-10-02 15:27:40',29,NULL,19,84,5,'Dayara',14,20,19,330),(69,'00069','\0',249,NULL,2,'2025-10-02 09:58:00','2025-10-02 15:28:00',29,NULL,19,84,5,'Dayara',14,20,19,330),(70,'00070','\0',249,NULL,2,'2025-10-02 10:04:40','2025-10-02 15:34:40',29,NULL,19,84,5,'Dayara',14,20,19,330),(71,'00071','\0',249,NULL,2,'2025-10-02 10:06:03','2025-10-02 15:36:03',29,NULL,19,84,5,'Dayara',14,20,19,330),(72,'00072','\0',249,NULL,2,'2025-10-02 10:06:24','2025-10-02 15:36:24',29,NULL,19,84,5,'Dayara',14,20,19,330),(73,'00073','\0',249,NULL,2,'2025-10-02 10:06:44','2025-10-02 15:36:44',29,NULL,19,84,5,'Dayara',14,20,19,330),(74,'00074','\0',249,NULL,2,'2025-10-02 10:07:02','2025-10-02 15:37:02',29,NULL,19,84,5,'Dayara',14,20,19,330),(75,'00075','\0',249,NULL,2,'2025-10-02 10:07:21','2025-10-02 15:37:21',29,NULL,19,84,5,'Dayara',14,20,19,330),(76,'00076','\0',249,NULL,2,'2025-10-02 10:07:51','2025-10-02 15:37:51',29,NULL,19,84,5,'Dayara',14,20,19,330),(77,'00077','\0',249,NULL,2,'2025-10-02 10:15:25','2025-10-02 15:45:25',29,NULL,19,84,5,'Dayara',14,20,19,330),(78,'00078','\0',249,NULL,2,'2025-10-02 10:15:52','2025-10-02 15:45:52',29,NULL,19,84,5,'Dayara',14,20,19,330),(79,'00079','\0',249,NULL,2,'2025-10-02 10:16:12','2025-10-02 15:46:12',29,NULL,19,84,5,'Dayara',14,20,19,330),(80,'00080','\0',249,NULL,2,'2025-10-02 10:16:30','2025-10-02 15:46:30',29,NULL,19,84,5,'Dayara',14,20,19,330),(81,'00081','\0',249,NULL,2,'2025-10-02 10:20:51','2025-10-02 15:50:51',29,NULL,19,84,5,'Dayara',14,20,19,330),(82,'00082','\0',249,NULL,2,'2025-10-02 10:21:09','2025-10-02 15:51:09',29,NULL,19,84,5,'Dayara',14,20,19,330),(83,'00083','\0',250,NULL,2,'2025-10-02 10:21:47','2025-10-02 15:51:47',29,NULL,19,84,5,'Dayara',14,20,19,330),(84,'00084','\0',250,NULL,2,'2025-10-02 10:23:13','2025-10-02 15:53:13',29,NULL,19,84,5,'Dayara',14,20,19,330),(85,'00085','\0',250,NULL,2,'2025-10-02 10:23:39','2025-10-02 15:53:39',29,NULL,19,84,5,'Dayara',14,20,19,330),(86,'00086','\0',250,NULL,2,'2025-10-02 10:25:13','2025-10-02 15:55:13',29,NULL,19,84,5,'Dayara',14,20,19,330),(87,'00087','\0',250,NULL,2,'2025-10-02 10:26:36','2025-10-02 15:56:36',29,NULL,19,84,5,'Dayara',14,20,19,330),(88,'00088','\0',250,NULL,2,'2025-10-02 10:27:19','2025-10-02 15:57:19',29,NULL,19,84,5,'Dayara',14,20,19,330),(89,'00089','\0',251,NULL,2,'2025-10-02 11:22:13','2025-10-02 16:52:13',29,NULL,19,84,5,'Dayara',14,20,19,330),(90,'00090','\0',251,NULL,2,'2025-10-02 11:23:01','2025-10-02 16:53:01',29,NULL,19,84,5,'Dayara',14,20,19,330),(91,'00091','\0',251,NULL,2,'2025-10-02 11:23:45','2025-10-02 16:53:45',29,NULL,19,84,5,'Dayara',14,20,19,330),(92,'00092','\0',251,NULL,2,'2025-10-02 11:24:11','2025-10-02 16:54:11',29,NULL,19,84,5,'Dayara',14,20,19,330),(93,'00093','\0',251,NULL,2,'2025-10-02 11:24:26','2025-10-02 16:54:26',29,NULL,19,84,5,'Dayara',14,20,19,330),(94,'00094','\0',251,NULL,2,'2025-10-02 11:24:43','2025-10-02 16:54:43',29,NULL,19,84,5,'Dayara',14,20,19,330),(95,'00095','\0',251,NULL,2,'2025-10-02 11:25:02','2025-10-02 16:55:02',29,NULL,19,84,5,'Dayara',14,20,19,330),(96,'00096','\0',251,NULL,2,'2025-10-02 11:28:29','2025-10-02 16:58:29',29,NULL,19,84,5,'Dayara',14,20,19,330),(97,'00097','\0',252,NULL,2,'2025-10-02 11:33:12','2025-10-02 17:03:12',29,NULL,19,84,5,'Dayara',14,20,19,330),(98,'00098','\0',252,NULL,2,'2025-10-02 11:33:37','2025-10-02 17:03:37',29,NULL,19,84,5,'Dayara',14,20,19,330),(99,'00099','\0',252,NULL,2,'2025-10-02 11:34:05','2025-10-02 17:04:05',29,NULL,19,84,5,'Dayara',14,20,19,330),(100,'00100','\0',253,NULL,2,'2025-10-02 11:35:11','2025-10-02 17:05:11',29,NULL,19,84,5,'Dayara',14,20,19,330),(101,'00101','\0',253,NULL,2,'2025-10-02 11:39:23','2025-10-02 17:09:23',29,NULL,19,84,5,'Dayara',14,20,19,330),(102,'00102','\0',253,NULL,2,'2025-10-02 11:40:04','2025-10-02 17:10:04',29,NULL,19,84,5,'Dayara',14,20,19,330),(103,'00103','\0',254,NULL,2,'2025-10-02 12:09:06','2025-10-02 17:39:06',29,NULL,19,84,5,'Dayara',14,20,19,330),(104,'00104','\0',254,NULL,2,'2025-10-02 12:13:36','2025-10-02 17:43:36',29,NULL,19,84,5,'Dayara',14,20,19,330),(105,'00105','\0',256,NULL,2,'2025-10-03 06:35:11','2025-10-03 12:05:11',29,NULL,19,84,5,'Dayara',14,20,19,330),(106,'00106','\0',256,NULL,2,'2025-10-03 06:35:26','2025-10-03 12:05:26',29,NULL,19,84,5,'Dayara',14,20,19,330),(107,'00107','\0',256,NULL,2,'2025-10-03 06:38:19','2025-10-03 12:08:19',29,NULL,19,84,5,'Dayara',14,20,19,330),(108,'00108','\0',256,NULL,2,'2025-10-03 06:39:40','2025-10-03 12:09:40',29,NULL,19,84,5,'Dayara',14,20,19,330),(109,'00109','\0',287,NULL,2,'2025-10-07 10:34:31','2025-10-07 16:04:31',29,NULL,19,84,5,'Dayara',14,20,19,330),(110,'00110','\0',290,NULL,2,'2025-10-07 12:00:14','2025-10-07 17:30:14',29,NULL,19,84,5,'Dayara',14,20,19,330),(111,'00111','\0',291,NULL,2,'2025-10-07 12:43:34','2025-10-07 18:13:34',29,NULL,19,84,5,'Dayara',14,20,19,330),(112,'00112','\0',291,NULL,2,'2025-10-07 12:44:20','2025-10-07 18:14:20',29,NULL,19,84,5,'Dayara',14,20,19,330),(113,'00113','\0',295,NULL,2,'2025-10-07 13:47:20','2025-10-07 19:17:20',29,NULL,19,84,5,'Dayara',14,20,19,330),(114,'00114','\0',296,NULL,2,'2025-10-08 04:24:17','2025-10-08 09:54:17',29,NULL,19,84,5,'Dayara',14,20,19,330),(115,'00115','\0',296,NULL,2,'2025-10-08 04:31:50','2025-10-08 10:01:50',29,NULL,19,84,5,'Dayara',14,20,19,330),(116,'00116','\0',296,NULL,2,'2025-10-08 04:43:19','2025-10-08 10:13:19',29,NULL,19,84,5,'Dayara',14,20,19,330),(117,'00117','\0',298,NULL,2,'2025-10-08 05:03:09','2025-10-08 10:33:09',29,NULL,19,84,5,'Dayara',14,20,19,330),(118,'00118','\0',304,NULL,2,'2025-10-08 07:06:58','2025-10-08 12:36:58',29,NULL,19,84,5,'Dayara',14,20,19,330),(119,'00119','\0',305,NULL,2,'2025-10-08 07:08:51','2025-10-08 12:38:51',29,NULL,19,84,5,'Dayara',14,20,19,330),(120,'00120','\0',306,NULL,2,'2025-10-08 09:46:00','2025-10-08 15:16:00',29,NULL,19,84,5,'Dayara',14,20,19,330),(121,'00121','\0',307,NULL,2,'2025-10-08 10:16:02','2025-10-08 15:46:02',29,NULL,19,84,5,'Dayara',14,20,19,330),(122,'00122','\0',298,NULL,2,'2025-10-08 10:58:47','2025-10-08 16:28:47',29,NULL,19,84,5,'Dayara',14,20,19,330),(123,'00123','\0',298,NULL,2,'2025-10-08 11:01:44','2025-10-08 16:31:44',29,NULL,19,84,5,'Dayara',14,20,19,330),(124,'00124','\0',298,NULL,2,'2025-10-08 11:02:41','2025-10-08 16:32:41',29,NULL,19,84,5,'Dayara',14,20,19,330),(125,'00125','\0',298,NULL,2,'2025-10-08 11:03:47','2025-10-08 16:33:47',29,NULL,19,84,5,'Dayara',14,20,19,330),(126,'00126','\0',298,NULL,2,'2025-10-08 11:06:12','2025-10-08 16:36:12',29,NULL,19,84,5,'Dayara',14,20,19,330),(127,'00127','\0',308,NULL,2,'2025-10-09 09:23:29','2025-10-09 14:53:29',29,NULL,19,84,5,'Dayara',14,20,19,330),(128,'00128','\0',313,NULL,4,'2025-10-09 10:21:58','2025-10-09 15:51:58',29,NULL,19,84,5,'Dayara',14,20,19,330),(129,'00129','\0',313,NULL,4,'2025-10-09 10:22:29','2025-10-09 15:52:29',29,NULL,19,84,5,'Dayara',14,20,19,330),(130,'00130','\0',313,NULL,4,'2025-10-09 10:23:08','2025-10-09 15:53:08',29,NULL,19,84,5,'Dayara',14,20,19,330),(131,'00131','',313,NULL,4,'2025-10-09 10:23:36','2025-10-09 15:53:36',29,NULL,19,84,5,'Dayara',14,20,19,330),(132,'00132','',313,NULL,4,'2025-10-09 10:23:55','2025-10-09 15:53:55',29,NULL,19,84,5,'Dayara',14,20,19,330),(133,'00133','\0',316,NULL,4,'2025-10-09 14:14:13','2025-10-09 19:44:13',29,NULL,19,84,5,'Dayara',14,20,19,330),(134,'00134','\0',316,NULL,4,'2025-10-09 14:21:09','2025-10-09 19:51:09',29,NULL,19,84,5,'Dayara',14,20,19,330),(135,'00135','\0',317,NULL,4,'2025-10-11 11:47:52','2025-10-11 17:17:52',29,NULL,19,84,5,'Dayara',14,20,19,330),(136,'00136','\0',317,NULL,4,'2025-10-11 11:49:06','2025-10-11 17:19:06',29,NULL,19,84,5,'Dayara',14,20,19,330),(137,'00137','\0',317,NULL,4,'2025-10-11 11:51:00','2025-10-11 17:21:00',29,NULL,19,84,5,'Dayara',14,20,19,330),(138,'00138','\0',317,NULL,4,'2025-10-11 11:51:59','2025-10-11 17:21:59',29,NULL,19,84,5,'Dayara',14,20,19,330),(139,'00139','\0',324,NULL,6,'2025-10-14 06:28:01','2025-10-14 11:58:01',29,NULL,19,84,5,'Dayara',14,20,19,330),(140,'00140','\0',328,NULL,6,'2025-10-14 06:47:04','2025-10-14 12:17:04',29,NULL,19,84,5,'Dayara',14,20,19,330),(141,'00141','\0',328,NULL,6,'2025-10-14 06:47:24','2025-10-14 12:17:24',29,NULL,19,84,5,'Dayara',14,20,19,330),(142,'00142','\0',327,NULL,6,'2025-10-14 11:59:55','2025-10-14 17:29:55',29,NULL,19,84,5,'Dayara',14,20,19,330),(143,'00143','\0',327,NULL,6,'2025-10-14 12:02:25','2025-10-14 17:32:25',29,NULL,19,84,5,'Dayara',14,20,19,330),(144,'00144','',333,NULL,6,'2025-10-18 16:31:22','2025-10-18 22:01:22',29,NULL,19,84,5,'Dayara',14,20,19,330),(145,'00145','\0',335,NULL,6,'2025-10-21 10:10:41','2025-10-21 15:40:41',29,NULL,19,84,5,'Dayara',14,20,19,330),(146,'00146','\0',336,NULL,6,'2025-10-21 10:11:59','2025-10-21 15:41:59',29,NULL,19,84,5,'Dayara',14,20,19,330),(147,'00147','\0',337,NULL,6,'2025-10-21 10:13:31','2025-10-21 15:43:31',29,NULL,19,84,5,'Dayara',14,20,19,330),(148,'00148','\0',337,NULL,6,'2025-10-21 10:13:47','2025-10-21 15:43:47',29,NULL,19,84,5,'Dayara',14,20,19,330),(149,'00149','\0',337,NULL,6,'2025-10-21 10:14:03','2025-10-21 15:44:03',29,NULL,19,84,5,'Dayara',14,20,19,330),(150,'00150','\0',338,NULL,6,'2025-10-21 10:14:48','2025-10-21 15:44:48',29,NULL,19,84,5,'Dayara',14,20,19,330),(151,'00151','\0',338,NULL,6,'2025-10-21 10:15:08','2025-10-21 15:45:08',29,NULL,19,84,5,'Dayara',14,20,19,330),(152,'00152','\0',338,NULL,6,'2025-10-21 10:15:33','2025-10-21 15:45:33',29,NULL,19,84,5,'Dayara',14,20,19,330),(153,'00153','\0',338,NULL,6,'2025-10-21 10:15:49','2025-10-21 15:45:49',29,NULL,19,84,5,'Dayara',14,20,19,330),(154,'00154','\0',338,NULL,6,'2025-10-21 10:16:27','2025-10-21 15:46:27',29,NULL,19,84,5,'Dayara',14,20,19,330),(155,'00155','\0',338,NULL,6,'2025-10-21 10:16:51','2025-10-21 15:46:51',29,NULL,19,84,5,'Dayara',14,20,19,330),(156,'00156','\0',338,NULL,6,'2025-10-21 10:17:05','2025-10-21 15:47:05',29,NULL,19,84,5,'Dayara',14,20,19,330),(157,'00157','\0',338,NULL,6,'2025-10-21 10:17:29','2025-10-21 15:47:29',29,NULL,19,84,5,'Dayara',14,20,19,330),(158,'00158','\0',338,NULL,6,'2025-10-21 10:18:12','2025-10-21 15:48:12',29,NULL,19,84,5,'Dayara',14,20,19,330),(159,'00159','\0',338,NULL,6,'2025-10-21 10:18:29','2025-10-21 15:48:29',29,NULL,19,84,5,'Dayara',14,20,19,330),(160,'00160','\0',338,NULL,6,'2025-10-21 10:18:47','2025-10-21 15:48:47',29,NULL,19,84,5,'Dayara',14,20,19,330),(161,'00161','\0',338,NULL,6,'2025-10-21 10:21:18','2025-10-21 15:51:18',29,NULL,19,84,5,'Dayara',14,20,19,330),(162,'00162','\0',338,NULL,6,'2025-10-21 10:21:37','2025-10-21 15:51:37',29,NULL,19,84,5,'Dayara',14,20,19,330),(163,'00163','\0',338,NULL,6,'2025-10-21 10:22:03','2025-10-21 15:52:03',29,NULL,19,84,5,'Dayara',14,20,19,330),(164,'00164','\0',338,NULL,6,'2025-10-21 10:22:15','2025-10-21 15:52:15',29,NULL,19,84,5,'Dayara',14,20,19,330),(165,'00165','\0',338,NULL,6,'2025-10-21 10:22:33','2025-10-21 15:52:33',29,NULL,19,84,5,'Dayara',14,20,19,330),(166,'00166','\0',340,NULL,6,'2025-10-21 12:22:43','2025-10-21 17:52:43',29,NULL,19,84,5,'Dayara',14,20,19,330),(167,'00167','\0',340,NULL,6,'2025-10-21 12:23:07','2025-10-21 17:53:07',29,NULL,19,84,5,'Dayara',14,20,19,330),(168,'00168','\0',340,NULL,6,'2025-10-21 12:23:25','2025-10-21 17:53:25',29,NULL,19,84,5,'Dayara',14,20,19,330),(169,'00169','\0',352,NULL,6,'2025-10-23 08:28:19','2025-10-23 13:58:19',29,NULL,19,84,5,'Dayara',14,20,19,330),(170,'00170','\0',353,NULL,6,'2025-10-23 08:32:12','2025-10-23 14:02:12',29,NULL,19,84,5,'Dayara',14,20,19,330),(171,'00171','\0',353,NULL,6,'2025-10-23 08:39:34','2025-10-23 14:09:34',29,NULL,19,84,5,'Dayara',14,20,19,330),(172,'00172','\0',353,NULL,6,'2025-10-23 08:40:27','2025-10-23 14:10:27',29,NULL,19,84,5,'Dayara',14,20,19,330),(173,'00173','\0',353,NULL,6,'2025-10-23 08:41:14','2025-10-23 14:11:14',29,NULL,19,84,5,'Dayara',14,20,19,330),(174,'00174','\0',354,NULL,6,'2025-10-23 09:51:33','2025-10-23 15:21:33',29,NULL,19,84,5,'Dayara',14,20,19,330),(175,'00175','\0',354,NULL,6,'2025-10-23 11:32:26','2025-10-23 17:02:26',29,NULL,19,84,5,'Dayara',14,20,19,330),(176,'00176','\0',356,NULL,6,'2025-10-23 11:42:20','2025-10-23 17:12:20',29,NULL,19,84,5,'Dayara',14,20,19,330),(177,'00177','\0',357,NULL,6,'2025-10-23 11:44:41','2025-10-23 17:14:41',29,NULL,19,84,5,'Dayara',14,20,19,330),(178,'00178','',373,NULL,8,'2025-11-07 16:06:41','2025-11-07 21:36:41',29,NULL,19,84,5,'Dayara',14,20,19,330),(179,'00179','\0',385,NULL,10,'2025-11-11 06:24:57','2025-11-11 11:54:57',29,NULL,19,84,5,'Dayara',14,20,19,330),(180,'00180','\0',385,NULL,10,'2025-11-11 06:25:24','2025-11-11 11:55:24',29,NULL,19,84,5,'Dayara',14,20,19,330),(181,'00181','\0',385,NULL,10,'2025-11-11 06:26:08','2025-11-11 11:56:08',29,NULL,19,84,5,'Dayara',14,20,19,330),(182,'00182','\0',385,NULL,10,'2025-11-11 06:26:31','2025-11-11 11:56:31',29,NULL,19,84,5,'Dayara',14,20,19,330),(183,'00183','\0',385,NULL,10,'2025-11-11 06:26:54','2025-11-11 11:56:54',29,NULL,19,84,5,'Dayara',14,20,19,330),(184,'00184','\0',385,NULL,10,'2025-11-11 06:27:09','2025-11-11 11:57:09',29,NULL,19,84,5,'Dayara',14,20,19,330),(185,'00185','\0',385,NULL,10,'2025-11-11 06:27:35','2025-11-11 11:57:35',29,NULL,19,84,5,'Dayara',14,20,19,330),(186,'00186','\0',385,NULL,10,'2025-11-11 06:28:42','2025-11-11 11:58:42',29,NULL,19,84,5,'Dayara',14,20,19,330),(187,'00187','\0',385,NULL,10,'2025-11-11 06:29:41','2025-11-11 11:59:41',29,NULL,19,84,5,'Dayara',14,20,19,330),(188,'00188','\0',385,NULL,10,'2025-11-11 06:31:47','2025-11-11 12:01:47',29,NULL,19,84,5,'Dayara',14,20,19,330),(189,'00189','\0',385,NULL,10,'2025-11-11 06:32:16','2025-11-11 12:02:16',29,NULL,19,84,5,'Dayara',14,20,19,330),(190,'00190','\0',385,NULL,10,'2025-11-11 06:33:02','2025-11-11 12:03:02',29,NULL,19,84,5,'Dayara',14,20,19,330),(191,'00191','\0',386,NULL,10,'2025-11-11 06:43:52','2025-11-11 12:13:52',29,NULL,19,84,5,'Dayara',14,20,19,330),(192,'00192','',390,NULL,10,'2025-11-11 09:23:56','2025-11-11 14:53:56',29,NULL,19,84,5,'Dayara',14,20,19,330),(193,'00193','',396,NULL,10,'2025-11-11 11:16:17','2025-11-11 16:46:17',29,NULL,19,84,5,'Dayara',14,20,19,330),(194,'00194','',407,NULL,10,'2025-11-11 16:56:45','2025-11-11 22:26:45',29,NULL,19,84,5,'Dayara',14,20,19,330),(195,'00195','\0',412,NULL,12,'2025-11-12 12:21:29','2025-11-12 17:51:29',29,NULL,19,84,5,'Dayara',14,20,19,330),(196,'00196','\0',412,NULL,12,'2025-11-12 12:22:16','2025-11-12 17:52:16',29,NULL,19,84,5,'Dayara',14,20,19,330),(197,'00197','\0',412,NULL,12,'2025-11-12 12:24:19','2025-11-12 17:54:19',29,NULL,19,84,5,'Dayara',14,20,19,330),(198,'00198','\0',412,NULL,12,'2025-11-12 12:27:51','2025-11-12 17:57:51',29,NULL,19,84,5,'Dayara',14,20,19,330),(199,'00199','\0',412,NULL,12,'2025-11-12 12:29:39','2025-11-12 17:59:39',29,NULL,19,84,5,'Dayara',14,20,19,330),(200,'00200','\0',412,NULL,12,'2025-11-12 12:30:11','2025-11-12 18:00:11',29,NULL,19,84,5,'Dayara',14,20,19,330),(201,'00201','\0',412,NULL,12,'2025-11-12 12:32:03','2025-11-12 18:02:03',29,NULL,19,84,5,'Dayara',14,20,19,330),(202,'00202','\0',412,NULL,12,'2025-11-12 12:32:41','2025-11-12 18:02:41',29,NULL,19,84,5,'Dayara',14,20,19,330),(203,'00203','\0',412,NULL,12,'2025-11-12 12:33:24','2025-11-12 18:03:24',29,NULL,19,84,5,'Dayara',14,20,19,330),(204,'00204','\0',412,NULL,12,'2025-11-12 12:34:22','2025-11-12 18:04:22',29,NULL,19,84,5,'Dayara',14,20,19,330),(205,'00205','',413,NULL,12,'2025-11-12 18:42:34','2025-11-13 00:12:34',29,NULL,19,84,5,'Dayara',14,20,19,330),(206,'00206','',413,NULL,12,'2025-11-12 18:57:24','2025-11-13 00:27:24',29,NULL,19,84,5,'Dayara',14,20,19,330),(207,'00207','\0',418,NULL,12,'2025-11-13 10:58:41','2025-11-13 16:28:41',29,NULL,19,84,5,'Dayara',14,20,19,330),(208,'00208','\0',418,NULL,12,'2025-11-13 10:58:57','2025-11-13 16:28:57',29,NULL,19,84,5,'Dayara',14,20,19,330),(209,'00209','\0',418,NULL,12,'2025-11-13 10:59:19','2025-11-13 16:29:19',29,NULL,19,84,5,'Dayara',14,20,19,330),(210,'00210','\0',418,NULL,12,'2025-11-13 10:59:37','2025-11-13 16:29:37',29,NULL,19,84,5,'Dayara',14,20,19,330),(211,'00211','\0',419,NULL,13,'2025-11-13 11:40:50','2025-11-13 17:10:50',29,NULL,19,84,5,'Dayara',14,20,19,330),(212,'00212','\0',419,NULL,13,'2025-11-13 11:42:25','2025-11-13 17:12:25',29,NULL,19,84,5,'Dayara',14,20,19,330),(213,'00213','\0',419,NULL,13,'2025-11-13 11:44:04','2025-11-13 17:14:04',29,NULL,19,84,5,'Dayara',14,20,19,330),(214,'00214','\0',419,NULL,13,'2025-11-13 11:45:08','2025-11-13 17:15:08',29,NULL,19,84,5,'Dayara',14,20,19,330),(215,'00215','\0',419,NULL,13,'2025-11-13 11:45:44','2025-11-13 17:15:44',29,NULL,19,84,5,'Dayara',14,20,19,330);
 /*!40000 ALTER TABLE `order_header` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1539,7 +1053,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `order_line_discount`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `order_line_discount` (
   `OrderDetailId` int(11) NOT NULL,
   `DiscountTypeId` int(11) DEFAULT NULL,
@@ -1572,7 +1086,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `order_line_tax`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `order_line_tax` (
   `OrderDetailId` int(11) NOT NULL,
   `TaxRate` decimal(10,2) NOT NULL DEFAULT 0.00,
@@ -1598,7 +1112,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `order_overall_discount`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `order_overall_discount` (
   `Order_OverallDiscountId` int(11) NOT NULL AUTO_INCREMENT,
   `OrderId` int(11) NOT NULL,
@@ -1632,7 +1146,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `order_payments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `order_payments` (
   `PaymentId` int(11) NOT NULL AUTO_INCREMENT,
   `OrderId` int(11) NOT NULL,
@@ -1643,7 +1157,7 @@ CREATE TABLE `order_payments` (
   KEY `FK_OrderPayments_OrderHeader` (`OrderId`),
   KEY `FK_OrderPayments_Methods` (`MethodId`),
   CONSTRAINT `FK_order_payments_order_header` FOREIGN KEY (`OrderId`) REFERENCES `order_header` (`OrderId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=217 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1652,6 +1166,7 @@ CREATE TABLE `order_payments` (
 
 LOCK TABLES `order_payments` WRITE;
 /*!40000 ALTER TABLE `order_payments` DISABLE KEYS */;
+INSERT INTO `order_payments` VALUES (1,1,1,1250.0000,'2025-09-09 06:17:49'),(2,2,1,2000.0000,'2025-09-09 06:22:00'),(3,3,1,5000.0000,'2025-09-09 06:23:56'),(4,4,1,1000.0000,'2025-09-09 06:24:32'),(5,5,1,5000.0000,'2025-09-09 06:25:33'),(7,7,1,5000.0000,'2025-09-09 06:34:07'),(8,8,1,5000.0000,'2025-09-09 06:34:26'),(9,9,1,2400.0000,'2025-09-09 06:36:35'),(10,10,1,5000.0000,'2025-09-09 06:37:19'),(11,11,1,500.0000,'2025-09-09 06:51:52'),(12,12,1,500.0000,'2025-09-09 07:02:17'),(13,13,1,1000.0000,'2025-09-09 07:02:49'),(14,14,1,200.0000,'2025-09-09 07:06:00'),(15,14,2,300.0000,'2025-09-09 07:06:00'),(16,15,1,5000.0000,'2025-09-09 08:15:00'),(17,16,1,500.0000,'2025-09-09 22:44:38'),(18,17,1,50.0000,'2025-09-09 22:45:49'),(19,18,1,1500.0000,'2025-09-09 23:22:19'),(20,19,1,600.0000,'2025-09-10 01:22:50'),(21,20,1,1000.0000,'2025-09-10 01:23:38'),(22,21,1,1000.0000,'2025-09-10 01:43:15'),(23,22,1,1000.0000,'2025-09-10 05:16:38'),(24,23,1,5000.0000,'2025-09-15 01:02:38'),(25,24,1,500.0000,'2025-09-15 01:04:01'),(26,25,1,500.0000,'2025-09-15 07:29:31'),(27,26,1,5000.0000,'2025-09-15 07:30:18'),(28,27,1,500.0000,'2025-09-15 07:32:22'),(29,28,1,5000.0000,'2025-09-15 07:32:44'),(30,29,1,5000.0000,'2025-09-16 02:24:02'),(31,30,1,5000.0000,'2025-09-16 02:25:27'),(32,31,1,1000.0000,'2025-09-16 07:17:41'),(33,32,1,500.0000,'2025-09-16 07:17:58'),(34,33,1,1000.0000,'2025-09-16 07:18:21'),(35,34,1,5000.0000,'2025-09-16 07:21:09'),(36,35,1,500.0000,'2025-09-17 06:03:32'),(37,36,1,1800.0000,'2025-09-17 06:06:32'),(38,37,1,5000.0000,'2025-09-17 06:07:37'),(39,38,1,500.0000,'2025-09-17 06:09:03'),(40,39,1,1000.0000,'2025-09-17 06:11:13'),(41,40,1,1000.0000,'2025-09-17 06:13:52'),(42,41,1,5000.0000,'2025-09-19 05:40:10'),(43,42,1,500.0000,'2025-09-22 13:38:14'),(44,43,1,1000.0000,'2025-09-22 13:41:07'),(45,44,1,5000.0000,'2025-09-24 06:24:29'),(46,45,1,500.0000,'2025-09-24 06:24:49'),(47,46,1,500.0000,'2025-09-24 06:25:21'),(48,47,1,500.0000,'2025-09-24 06:25:38'),(49,48,1,2700.0000,'2025-09-24 06:27:46'),(50,49,1,350.0000,'2025-09-24 06:28:49'),(51,50,1,5000.0000,'2025-09-25 07:21:09'),(52,51,1,500.0000,'2025-09-25 07:26:16'),(53,52,1,1000.0000,'2025-09-25 07:27:13'),(54,53,1,5000.0000,'2025-09-25 07:29:16'),(55,54,1,500.0000,'2025-09-25 07:32:57'),(56,55,1,1000.0000,'2025-09-25 07:34:48'),(57,56,1,500.0000,'2025-09-26 05:02:23'),(58,57,1,1000.0000,'2025-10-01 01:47:23'),(59,58,1,1600.0000,'2025-10-01 01:49:48'),(60,59,1,5000.0000,'2025-10-01 01:51:17'),(61,60,1,5000.0000,'2025-10-01 01:52:48'),(62,61,1,5000.0000,'2025-10-02 04:16:10'),(63,62,1,1300.0000,'2025-10-02 04:18:04'),(64,63,1,5000.0000,'2025-10-02 04:23:49'),(65,64,1,6000.0000,'2025-10-02 04:24:23'),(66,65,1,1000.0000,'2025-10-02 04:26:23'),(67,66,1,1000.0000,'2025-10-02 04:26:59'),(68,67,1,5000.0000,'2025-10-02 04:27:22'),(69,68,1,5000.0000,'2025-10-02 04:27:40'),(70,69,1,5000.0000,'2025-10-02 04:28:00'),(71,70,1,1000.0000,'2025-10-02 04:34:40'),(72,71,1,1000.0000,'2025-10-02 04:36:03'),(73,72,1,1000.0000,'2025-10-02 04:36:24'),(74,73,1,1000.0000,'2025-10-02 04:36:44'),(75,74,1,1000.0000,'2025-10-02 04:37:02'),(76,75,1,5000.0000,'2025-10-02 04:37:21'),(77,76,1,2000.0000,'2025-10-02 04:37:51'),(78,77,1,1000.0000,'2025-10-02 04:45:26'),(79,78,1,1000.0000,'2025-10-02 04:45:52'),(80,79,1,1000.0000,'2025-10-02 04:46:12'),(81,80,1,1000.0000,'2025-10-02 04:46:30'),(82,81,1,1000.0000,'2025-10-02 04:50:51'),(83,82,1,5000.0000,'2025-10-02 04:51:09'),(84,83,1,5000.0000,'2025-10-02 04:51:47'),(85,84,1,5000.0000,'2025-10-02 04:53:13'),(86,85,1,5000.0000,'2025-10-02 04:53:39'),(87,86,1,7000.0000,'2025-10-02 04:55:13'),(88,87,1,7000.0000,'2025-10-02 04:56:36'),(89,88,1,6000.0000,'2025-10-02 04:57:19'),(90,89,1,2000.0000,'2025-10-02 05:52:13'),(91,90,1,5000.0000,'2025-10-02 05:53:01'),(92,91,1,5000.0000,'2025-10-02 05:53:45'),(93,92,1,5000.0000,'2025-10-02 05:54:11'),(94,93,1,5000.0000,'2025-10-02 05:54:26'),(95,94,1,5000.0000,'2025-10-02 05:54:43'),(96,95,1,500.0000,'2025-10-02 05:55:02'),(97,96,1,8000.0000,'2025-10-02 05:58:29'),(98,97,1,7000.0000,'2025-10-02 06:03:12'),(99,98,1,5000.0000,'2025-10-02 06:03:37'),(100,99,1,5000.0000,'2025-10-02 06:04:05'),(101,100,1,500.0000,'2025-10-02 06:05:11'),(102,101,1,1000.0000,'2025-10-02 06:09:23'),(103,102,1,100.0000,'2025-10-02 06:10:04'),(104,103,1,5000.0000,'2025-10-02 06:39:06'),(105,104,1,5000.0000,'2025-10-02 06:43:36'),(106,105,1,5000.0000,'2025-10-03 01:05:11'),(107,106,1,500.0000,'2025-10-03 01:05:26'),(108,107,1,5000.0000,'2025-10-03 01:08:19'),(109,108,1,1000.0000,'2025-10-03 01:09:40'),(110,109,1,5000.0000,'2025-10-07 05:04:31'),(111,110,1,1000.0000,'2025-10-07 06:30:14'),(112,111,1,1000.0000,'2025-10-07 07:13:34'),(113,112,1,500.0000,'2025-10-07 07:14:20'),(114,113,1,100.0000,'2025-10-07 08:17:20'),(115,114,1,500.0000,'2025-10-07 22:54:17'),(116,115,1,1000.0000,'2025-10-07 23:01:50'),(117,116,1,1000.0000,'2025-10-07 23:13:19'),(118,117,1,1000.0000,'2025-10-07 23:33:09'),(119,118,1,1000.0000,'2025-10-08 01:36:58'),(120,119,1,500.0000,'2025-10-08 01:38:51'),(121,120,1,500.0000,'2025-10-08 04:16:00'),(122,121,1,500.0000,'2025-10-08 04:46:02'),(123,122,1,2000.0000,'2025-10-08 05:28:47'),(124,123,1,2000.0000,'2025-10-08 05:31:45'),(125,124,1,1000.0000,'2025-10-08 05:32:41'),(126,125,1,50.0000,'2025-10-08 05:33:47'),(127,126,1,1000.0000,'2025-10-08 05:36:12'),(128,127,1,1000.0000,'2025-10-09 03:53:29'),(129,128,1,2000.0000,'2025-10-09 04:51:58'),(130,129,1,5000.0000,'2025-10-09 04:52:29'),(131,130,1,2000.0000,'2025-10-09 04:53:08'),(132,131,1,2000.0000,'2025-10-09 04:53:36'),(133,132,1,2000.0000,'2025-10-09 04:53:55'),(134,133,1,1000.0000,'2025-10-09 08:44:13'),(135,134,1,5000.0000,'2025-10-09 08:51:09'),(136,135,1,5000.0000,'2025-10-11 06:17:52'),(137,136,1,2000.0000,'2025-10-11 06:19:06'),(138,137,1,5500.0000,'2025-10-11 06:21:00'),(139,138,1,5000.0000,'2025-10-11 06:21:59'),(140,139,1,1600.0000,'2025-10-14 00:58:01'),(141,140,1,400.0000,'2025-10-14 01:17:04'),(142,141,1,500.0000,'2025-10-14 01:17:24'),(143,142,1,2000.0000,'2025-10-14 06:29:55'),(144,143,1,2000.0000,'2025-10-14 06:32:25'),(145,144,1,500.0000,'2025-10-18 11:01:22'),(146,145,1,5000.0000,'2025-10-21 04:40:41'),(147,146,1,5000.0000,'2025-10-21 04:41:59'),(148,147,1,500.0000,'2025-10-21 04:43:31'),(149,148,1,5000.0000,'2025-10-21 04:43:47'),(150,149,1,100.0000,'2025-10-21 04:44:03'),(151,150,1,5000.0000,'2025-10-21 04:44:48'),(152,151,1,8000.0000,'2025-10-21 04:45:08'),(153,152,1,500.0000,'2025-10-21 04:45:33'),(154,153,1,500.0000,'2025-10-21 04:45:49'),(155,154,1,1000.0000,'2025-10-21 04:46:27'),(156,155,1,500.0000,'2025-10-21 04:46:51'),(157,156,1,500.0000,'2025-10-21 04:47:05'),(158,157,1,500.0000,'2025-10-21 04:47:29'),(159,158,1,1000.0000,'2025-10-21 04:48:12'),(160,159,1,2000.0000,'2025-10-21 04:48:29'),(161,160,1,9000.0000,'2025-10-21 04:48:47'),(162,161,1,5500.0000,'2025-10-21 04:51:18'),(163,162,1,5500.0000,'2025-10-21 04:51:37'),(164,163,1,1000.0000,'2025-10-21 04:52:03'),(165,164,1,1000.0000,'2025-10-21 04:52:15'),(166,165,1,2000.0000,'2025-10-21 04:52:33'),(167,166,1,5000.0000,'2025-10-21 06:52:43'),(168,167,1,5000.0000,'2025-10-21 06:53:07'),(169,168,1,5000.0000,'2025-10-21 06:53:25'),(170,169,1,500.0000,'2025-10-23 02:58:19'),(171,170,1,350.0000,'2025-10-23 03:02:12'),(172,171,1,2000.0000,'2025-10-23 03:09:34'),(173,172,1,1000.0000,'2025-10-23 03:10:27'),(174,173,1,5000.0000,'2025-10-23 03:11:14'),(175,174,1,1000.0000,'2025-10-23 04:21:33'),(176,175,1,1000.0000,'2025-10-23 06:02:26'),(177,176,1,2000.0000,'2025-10-23 06:12:20'),(178,177,1,2000.0000,'2025-10-23 06:14:41'),(179,178,1,5000.0000,'2025-11-07 10:36:41'),(180,179,1,500.0000,'2025-11-11 00:54:57'),(181,180,1,500.0000,'2025-11-11 00:55:24'),(182,181,1,500.0000,'2025-11-11 00:56:08'),(183,182,1,2000.0000,'2025-11-11 00:56:31'),(184,183,1,500.0000,'2025-11-11 00:56:54'),(185,184,1,500.0000,'2025-11-11 00:57:09'),(186,185,1,500.0000,'2025-11-11 00:57:35'),(187,186,1,1000.0000,'2025-11-11 00:58:42'),(188,187,1,3000.0000,'2025-11-11 00:59:41'),(189,188,1,500.0000,'2025-11-11 01:01:47'),(190,189,1,1000.0000,'2025-11-11 01:02:16'),(191,190,1,2000.0000,'2025-11-11 01:03:02'),(192,191,1,100.0000,'2025-11-11 01:13:52'),(193,192,1,5000.0000,'2025-11-11 03:53:56'),(194,193,1,5000.0000,'2025-11-11 05:46:17'),(195,194,1,1000.0000,'2025-11-11 11:26:45'),(196,195,1,1000.0000,'2025-11-12 06:51:29'),(197,196,1,1200.0000,'2025-11-12 06:52:16'),(198,197,1,2000.0000,'2025-11-12 06:54:19'),(199,198,1,1500.0000,'2025-11-12 06:57:51'),(200,199,1,850.0000,'2025-11-12 06:59:39'),(201,200,1,900.0000,'2025-11-12 07:00:11'),(202,201,1,2000.0000,'2025-11-12 07:02:03'),(203,202,1,500.0000,'2025-11-12 07:02:41'),(204,203,1,1000.0000,'2025-11-12 07:03:24'),(205,204,1,1000.0000,'2025-11-12 07:04:22'),(206,205,1,5000.0000,'2025-11-12 13:12:34'),(207,206,1,5000.0000,'2025-11-12 13:27:24'),(208,207,1,1000.0000,'2025-11-13 05:28:41'),(209,208,1,100.0000,'2025-11-13 05:28:57'),(210,209,1,5000.0000,'2025-11-13 05:29:19'),(211,210,1,1000.0000,'2025-11-13 05:29:37'),(212,211,1,1000.0000,'2025-11-13 06:10:50'),(213,212,1,2000.0000,'2025-11-13 06:12:25'),(214,213,1,5000.0000,'2025-11-13 06:14:04'),(215,214,1,500.0000,'2025-11-13 06:15:08'),(216,215,1,500.0000,'2025-11-13 06:15:44');
 /*!40000 ALTER TABLE `order_payments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1661,7 +1176,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `order_return`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `order_return` (
   `order_return_id` int(11) NOT NULL AUTO_INCREMENT,
   `orderDetailId` int(11) DEFAULT NULL,
@@ -1693,7 +1208,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `order_summary_processed`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `order_summary_processed` (
   `OrderId` int(11) NOT NULL,
   `GrossAmount_total` decimal(10,2) DEFAULT NULL,
@@ -1718,6 +1233,7 @@ CREATE TABLE `order_summary_processed` (
 
 LOCK TABLES `order_summary_processed` WRITE;
 /*!40000 ALTER TABLE `order_summary_processed` DISABLE KEYS */;
+INSERT INTO `order_summary_processed` VALUES (1,1250.00,0.00,0.00,0.00,1250.00,1250.00,1250.00,0.00,0,0.00),(2,1895.00,0.00,0.00,0.00,1895.00,1895.00,1895.00,0.00,105,0.00),(3,3240.00,0.00,0.00,0.00,3240.00,3240.00,3240.00,0.00,1760,0.00),(4,900.00,0.00,0.00,0.00,900.00,900.00,900.00,0.00,100,0.00),(5,1050.00,0.00,0.00,0.00,1050.00,1050.00,1050.00,0.00,3950,0.00),(7,1550.00,0.00,0.00,0.00,1550.00,1550.00,1550.00,0.00,3450,0.00),(8,700.00,0.00,0.00,0.00,700.00,700.00,700.00,0.00,4300,0.00),(9,2400.00,0.00,0.00,0.00,2400.00,2400.00,2400.00,0.00,0,0.00),(10,2000.00,0.00,0.00,0.00,2000.00,2000.00,2000.00,0.00,3000,0.00),(11,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(12,400.00,0.00,0.00,0.00,400.00,400.00,400.00,0.00,100,0.00),(13,900.00,0.00,0.00,0.00,900.00,900.00,900.00,0.00,100,0.00),(14,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(15,400.00,0.00,0.00,0.00,400.00,400.00,400.00,0.00,4600,0.00),(16,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(17,30.00,0.00,0.00,0.00,30.00,30.00,30.00,0.00,20,0.00),(18,1500.00,0.00,0.00,0.00,1500.00,1500.00,1500.00,0.00,0,0.00),(19,600.00,0.00,0.00,0.00,600.00,600.00,600.00,0.00,0,0.00),(20,900.00,0.00,0.00,0.00,900.00,900.00,900.00,0.00,100,0.00),(21,1000.00,0.00,0.00,0.00,1000.00,1000.00,1000.00,0.00,0,0.00),(22,850.00,0.00,0.00,0.00,850.00,850.00,850.00,0.00,150,0.00),(23,345.00,0.00,0.00,0.00,345.00,345.00,345.00,0.00,4655,0.00),(24,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(25,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(26,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,4500,0.00),(27,400.00,0.00,0.00,0.00,400.00,400.00,400.00,0.00,100,0.00),(28,1400.00,0.00,0.00,0.00,1400.00,1400.00,1400.00,0.00,3600,0.00),(29,1600.00,0.00,0.00,0.00,1600.00,1600.00,1600.00,0.00,3400,0.00),(30,1700.00,0.00,0.00,0.00,1700.00,1700.00,1700.00,0.00,3300,0.00),(31,1000.00,0.00,0.00,0.00,1000.00,1000.00,1000.00,0.00,0,0.00),(32,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(33,750.00,0.00,0.00,0.00,750.00,750.00,750.00,0.00,250,0.00),(34,1200.00,0.00,0.00,0.00,1200.00,1200.00,1200.00,0.00,3800,0.00),(35,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(36,1490.00,0.00,0.00,0.00,1490.00,1490.00,1490.00,0.00,310,0.00),(37,2550.00,0.00,0.00,0.00,2550.00,2550.00,2550.00,0.00,2450,0.00),(38,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(39,750.00,0.00,0.00,0.00,750.00,750.00,750.00,0.00,250,0.00),(40,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,500,0.00),(41,2000.00,0.00,0.00,0.00,2000.00,2000.00,2000.00,0.00,3000,0.00),(42,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(43,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,500,0.00),(44,1360.00,0.00,0.00,0.00,1360.00,1360.00,1360.00,0.00,3640,0.00),(45,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(46,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(47,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(48,2700.00,0.00,0.00,0.00,2700.00,2700.00,2700.00,0.00,0,0.00),(49,350.00,0.00,0.00,0.00,350.00,350.00,350.00,0.00,0,0.00),(50,1605.00,0.00,0.00,0.00,1605.00,1605.00,1605.00,0.00,3395,0.00),(51,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(52,1000.00,0.00,0.00,0.00,1000.00,1000.00,1000.00,0.00,0,0.00),(53,2850.00,0.00,0.00,0.00,2850.00,2850.00,2850.00,0.00,2150,0.00),(54,400.00,0.00,0.00,0.00,400.00,400.00,400.00,0.00,100,0.00),(55,400.00,0.00,0.00,0.00,400.00,400.00,400.00,0.00,600,0.00),(56,350.00,0.00,0.00,0.00,350.00,350.00,350.00,0.00,150,0.00),(57,575.00,0.00,0.00,0.00,575.00,575.00,575.00,0.00,425,0.00),(58,1550.00,0.00,0.00,0.00,1550.00,1550.00,1550.00,0.00,50,0.00),(59,1500.00,0.00,0.00,0.00,1500.00,1500.00,1500.00,0.00,3500,0.00),(60,2800.00,0.00,0.00,0.00,2800.00,2800.00,2800.00,0.00,2200,0.00),(61,3700.00,0.00,0.00,0.00,3700.00,3700.00,3700.00,0.00,1300,0.00),(62,1255.00,0.00,0.00,0.00,1255.00,1255.00,1255.00,0.00,45,0.00),(63,1445.00,0.00,0.00,0.00,1445.00,1445.00,1445.00,0.00,3555,0.00),(64,5500.00,0.00,0.00,0.00,5500.00,5500.00,5500.00,0.00,500,0.00),(65,650.00,0.00,0.00,0.00,650.00,650.00,650.00,0.00,350,0.00),(66,750.00,0.00,0.00,0.00,750.00,750.00,750.00,0.00,250,0.00),(67,1200.00,0.00,0.00,0.00,1200.00,1200.00,1200.00,0.00,3800,0.00),(68,1600.00,0.00,0.00,0.00,1600.00,1600.00,1600.00,0.00,3400,0.00),(69,1700.00,0.00,0.00,0.00,1700.00,1700.00,1700.00,0.00,3300,0.00),(70,1000.00,0.00,0.00,0.00,1000.00,1000.00,1000.00,0.00,0,0.00),(71,60.00,0.00,0.00,0.00,60.00,60.00,60.00,0.00,940,0.00),(72,800.00,0.00,0.00,0.00,800.00,800.00,800.00,0.00,200,0.00),(73,900.00,0.00,0.00,0.00,900.00,900.00,900.00,0.00,100,0.00),(74,1000.00,0.00,0.00,0.00,1000.00,1000.00,1000.00,0.00,0,0.00),(75,1500.00,0.00,0.00,0.00,1500.00,1500.00,1500.00,0.00,3500,0.00),(76,1500.00,0.00,0.00,0.00,1500.00,1500.00,1500.00,0.00,500,0.00),(77,450.00,0.00,0.00,0.00,450.00,450.00,450.00,0.00,550,0.00),(78,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,500,0.00),(79,600.00,0.00,0.00,0.00,600.00,600.00,600.00,0.00,400,0.00),(80,600.00,0.00,0.00,0.00,600.00,600.00,600.00,0.00,400,0.00),(81,250.00,0.00,0.00,0.00,250.00,250.00,250.00,0.00,750,0.00),(82,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,4500,0.00),(83,900.00,0.00,0.00,0.00,900.00,900.00,900.00,0.00,4100,0.00),(84,1400.00,0.00,0.00,0.00,1400.00,1400.00,1400.00,0.00,3600,0.00),(85,2500.00,0.00,0.00,0.00,2500.00,2500.00,2500.00,0.00,2500,0.00),(86,7000.00,0.00,0.00,0.00,7000.00,7000.00,7000.00,0.00,0,0.00),(87,5500.00,0.00,0.00,0.00,5500.00,5500.00,5500.00,0.00,1500,0.00),(88,5500.00,0.00,0.00,0.00,5500.00,5500.00,5500.00,0.00,500,0.00),(89,1400.00,0.00,0.00,0.00,1400.00,1400.00,1400.00,0.00,600,0.00),(90,3500.00,0.00,0.00,0.00,3500.00,3500.00,3500.00,0.00,1500,0.00),(91,2000.00,0.00,0.00,0.00,2000.00,2000.00,2000.00,0.00,3000,0.00),(92,3000.00,0.00,0.00,0.00,3000.00,3000.00,3000.00,0.00,2000,0.00),(93,2700.00,0.00,0.00,0.00,2700.00,2700.00,2700.00,0.00,2300,0.00),(94,2500.00,0.00,0.00,0.00,2500.00,2500.00,2500.00,0.00,2500,0.00),(95,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(96,8000.00,0.00,0.00,0.00,8000.00,8000.00,8000.00,0.00,0,0.00),(97,7000.00,0.00,0.00,0.00,7000.00,7000.00,7000.00,0.00,0,0.00),(98,2700.00,0.00,0.00,0.00,2700.00,2700.00,2700.00,0.00,2300,0.00),(99,2700.00,0.00,0.00,0.00,2700.00,2700.00,2700.00,0.00,2300,0.00),(100,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(101,800.00,0.00,0.00,0.00,800.00,800.00,800.00,0.00,200,0.00),(102,60.00,0.00,0.00,0.00,60.00,60.00,60.00,0.00,40,0.00),(103,1000.00,0.00,0.00,0.00,1000.00,1000.00,1000.00,0.00,4000,0.00),(104,1200.00,0.00,0.00,0.00,1200.00,1200.00,1200.00,0.00,3800,0.00),(105,3100.00,0.00,0.00,0.00,3100.00,3100.00,3100.00,0.00,1900,0.00),(106,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(107,1300.00,0.00,0.00,0.00,1300.00,1300.00,1300.00,0.00,3700,0.00),(108,750.00,0.00,0.00,0.00,750.00,750.00,750.00,0.00,250,0.00),(109,2750.00,0.00,0.00,0.00,2750.00,2750.00,2750.00,0.00,2250,0.00),(110,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,500,0.00),(111,200.00,0.00,0.00,0.00,200.00,200.00,200.00,0.00,800,0.00),(112,350.00,0.00,0.00,0.00,350.00,350.00,350.00,0.00,150,0.00),(113,60.00,0.00,0.00,0.00,60.00,60.00,60.00,0.00,40,0.00),(114,260.00,0.00,0.00,0.00,260.00,260.00,260.00,0.00,240,0.00),(115,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,500,0.00),(116,710.00,0.00,0.00,0.00,710.00,710.00,710.00,0.00,290,0.00),(117,635.00,0.00,0.00,0.00,635.00,635.00,635.00,0.00,365,0.00),(118,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,500,0.00),(119,350.00,0.00,0.00,0.00,350.00,350.00,350.00,0.00,150,0.00),(120,350.00,0.00,0.00,0.00,350.00,350.00,350.00,0.00,150,0.00),(121,350.00,0.00,0.00,0.00,350.00,350.00,350.00,0.00,150,0.00),(122,1600.00,0.00,0.00,0.00,1600.00,1600.00,1600.00,0.00,400,0.00),(123,1050.00,0.00,0.00,0.00,1050.00,1050.00,1050.00,0.00,950,0.00),(124,1000.00,0.00,0.00,0.00,1000.00,1000.00,1000.00,0.00,0,0.00),(125,30.00,0.00,0.00,0.00,30.00,30.00,30.00,0.00,20,0.00),(126,60.00,0.00,0.00,0.00,60.00,60.00,60.00,0.00,940,0.00),(127,900.00,0.00,0.00,0.00,900.00,900.00,900.00,0.00,100,0.00),(128,1100.00,0.00,0.00,0.00,1100.00,1100.00,1100.00,0.00,900,0.00),(129,2700.00,0.00,0.00,0.00,2700.00,2700.00,2700.00,0.00,2300,0.00),(130,1200.00,0.00,0.00,0.00,1200.00,1200.00,1200.00,0.00,800,0.00),(131,1300.00,0.00,0.00,0.00,1300.00,1300.00,1300.00,0.00,700,0.00),(132,1600.00,0.00,0.00,0.00,1600.00,1600.00,1600.00,0.00,400,0.00),(133,700.00,0.00,0.00,0.00,700.00,700.00,700.00,0.00,300,0.00),(134,1400.00,0.00,0.00,0.00,1400.00,1400.00,1400.00,0.00,3600,0.00),(135,2790.00,0.00,0.00,0.00,2790.00,2790.00,2790.00,0.00,2210,0.00),(136,1500.00,0.00,0.00,0.00,1500.00,1500.00,1500.00,0.00,500,0.00),(137,5500.00,0.00,0.00,0.00,5500.00,5500.00,5500.00,0.00,0,0.00),(138,1200.00,0.00,0.00,0.00,1200.00,1200.00,1200.00,0.00,3800,0.00),(139,1600.00,0.00,0.00,0.00,1600.00,1600.00,1600.00,0.00,0,0.00),(140,400.00,0.00,0.00,0.00,400.00,400.00,400.00,0.00,0,0.00),(141,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(142,1930.00,0.00,0.00,0.00,1930.00,1930.00,1930.00,0.00,70,0.00),(143,1400.00,0.00,0.00,0.00,1400.00,1400.00,1400.00,0.00,600,0.00),(144,400.00,0.00,0.00,0.00,400.00,400.00,400.00,0.00,100,0.00),(145,750.00,0.00,0.00,0.00,750.00,750.00,750.00,0.00,4250,0.00),(146,1000.00,0.00,0.00,0.00,1000.00,1000.00,1000.00,0.00,4000,0.00),(147,400.00,0.00,0.00,0.00,400.00,400.00,400.00,0.00,100,0.00),(148,3500.00,0.00,0.00,0.00,3500.00,3500.00,3500.00,0.00,1500,0.00),(149,100.00,0.00,0.00,0.00,100.00,100.00,100.00,0.00,0,0.00),(150,3300.00,0.00,0.00,0.00,3300.00,3300.00,3300.00,0.00,1700,0.00),(151,8000.00,0.00,0.00,0.00,8000.00,8000.00,8000.00,0.00,0,0.00),(152,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(153,400.00,0.00,0.00,0.00,400.00,400.00,400.00,0.00,100,0.00),(154,650.00,0.00,0.00,0.00,650.00,650.00,650.00,0.00,350,0.00),(155,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(156,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(157,350.00,0.00,0.00,0.00,350.00,350.00,350.00,0.00,150,0.00),(158,750.00,0.00,0.00,0.00,750.00,750.00,750.00,0.00,250,0.00),(159,1200.00,0.00,0.00,0.00,1200.00,1200.00,1200.00,0.00,800,0.00),(160,6400.00,0.00,0.00,0.00,6400.00,6400.00,6400.00,0.00,2600,0.00),(161,5500.00,0.00,0.00,0.00,5500.00,5500.00,5500.00,0.00,0,0.00),(162,5500.00,0.00,0.00,0.00,5500.00,5500.00,5500.00,0.00,0,0.00),(163,800.00,0.00,0.00,0.00,800.00,800.00,800.00,0.00,200,0.00),(164,900.00,0.00,0.00,0.00,900.00,900.00,900.00,0.00,100,0.00),(165,1300.00,0.00,0.00,0.00,1300.00,1300.00,1300.00,0.00,700,0.00),(166,4000.00,0.00,0.00,0.00,4000.00,4000.00,4000.00,0.00,1000,0.00),(167,3900.00,0.00,0.00,0.00,3900.00,3900.00,3900.00,0.00,1100,0.00),(168,4500.00,0.00,0.00,0.00,4500.00,4500.00,4500.00,0.00,500,0.00),(169,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(170,350.00,0.00,0.00,0.00,350.00,350.00,350.00,0.00,0,0.00),(171,1500.00,0.00,0.00,0.00,1500.00,1500.00,1500.00,0.00,500,0.00),(172,850.00,0.00,0.00,0.00,850.00,850.00,850.00,0.00,150,0.00),(173,1350.00,0.00,0.00,0.00,1350.00,1350.00,1350.00,0.00,3650,0.00),(174,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,500,0.00),(175,665.00,0.00,0.00,0.00,665.00,665.00,665.00,0.00,335,0.00),(176,2000.00,0.00,0.00,0.00,2000.00,2000.00,2000.00,0.00,0,0.00),(177,1000.00,0.00,0.00,0.00,1000.00,1000.00,1000.00,0.00,1000,0.00),(178,5000.00,0.00,0.00,0.00,5000.00,5000.00,5000.00,0.00,0,0.00),(179,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(180,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(181,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(182,1400.00,0.00,0.00,0.00,1400.00,1400.00,1400.00,0.00,600,0.00),(183,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(184,350.00,0.00,0.00,0.00,350.00,350.00,350.00,0.00,150,0.00),(185,400.00,0.00,0.00,0.00,400.00,400.00,400.00,0.00,100,0.00),(186,531.00,0.00,0.00,0.00,531.00,531.00,531.00,0.00,469,0.00),(187,3000.00,0.00,0.00,0.00,3000.00,3000.00,3000.00,0.00,0,0.00),(188,280.00,0.00,0.00,0.00,280.00,280.00,280.00,0.00,220,0.00),(189,700.00,0.00,0.00,0.00,700.00,700.00,700.00,0.00,300,0.00),(190,2000.00,0.00,0.00,0.00,2000.00,2000.00,2000.00,0.00,0,0.00),(191,60.00,0.00,0.00,0.00,60.00,60.00,60.00,0.00,40,0.00),(192,2600.00,0.00,0.00,0.00,2600.00,2600.00,2600.00,0.00,2400,0.00),(193,1000.00,0.00,0.00,0.00,1000.00,1000.00,1000.00,0.00,4000,0.00),(194,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,500,0.00),(195,800.00,0.00,0.00,0.00,800.00,800.00,800.00,0.00,200,0.00),(196,1200.00,0.00,0.00,0.00,1200.00,1200.00,1200.00,0.00,0,0.00),(197,1850.00,0.00,0.00,0.00,1850.00,1850.00,1850.00,0.00,150,0.00),(198,1500.00,0.00,0.00,0.00,1500.00,1500.00,1500.00,0.00,0,0.00),(199,850.00,0.00,0.00,0.00,850.00,850.00,850.00,0.00,0,0.00),(200,900.00,0.00,0.00,0.00,900.00,900.00,900.00,0.00,0,0.00),(201,1850.00,0.00,0.00,0.00,1850.00,1850.00,1850.00,0.00,150,0.00),(202,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00),(203,1000.00,0.00,0.00,0.00,1000.00,1000.00,1000.00,0.00,0,0.00),(204,850.00,0.00,0.00,0.00,850.00,850.00,850.00,0.00,150,0.00),(205,1000.00,0.00,0.00,0.00,1000.00,1000.00,1000.00,0.00,4000,0.00),(206,1000.00,0.00,0.00,0.00,1000.00,1000.00,1000.00,0.00,4000,0.00),(207,1000.00,0.00,0.00,0.00,1000.00,1000.00,1000.00,0.00,0,0.00),(208,100.00,0.00,0.00,0.00,100.00,100.00,100.00,0.00,0,0.00),(209,3500.00,0.00,0.00,0.00,3500.00,3500.00,3500.00,0.00,1500,0.00),(210,600.00,0.00,0.00,0.00,600.00,600.00,600.00,0.00,400,0.00),(211,700.00,0.00,0.00,0.00,700.00,700.00,700.00,0.00,300,0.00),(212,1380.00,0.00,0.00,0.00,1380.00,1380.00,1380.00,0.00,620,0.00),(213,2400.00,0.00,0.00,0.00,2400.00,2400.00,2400.00,0.00,2600,0.00),(214,120.00,0.00,0.00,0.00,120.00,120.00,120.00,0.00,380,0.00),(215,500.00,0.00,0.00,0.00,500.00,500.00,500.00,0.00,0,0.00);
 /*!40000 ALTER TABLE `order_summary_processed` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1727,7 +1243,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `order_voided`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `order_voided` (
   `order_voided_id` int(11) NOT NULL AUTO_INCREMENT,
   `orderId` int(11) DEFAULT NULL,
@@ -1739,7 +1255,7 @@ CREATE TABLE `order_voided` (
   KEY `FK_OrderVoided_orderVoidingReason` (`order_voiding_reason_id`),
   CONSTRAINT `FK_OrderVoided_OrderHeader` FOREIGN KEY (`orderId`) REFERENCES `order_header` (`OrderId`),
   CONSTRAINT `FK_OrderVoided_orderVoidingReason` FOREIGN KEY (`order_voiding_reason_id`) REFERENCES `order_voiding_reason` (`order_voiding_reason_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1748,6 +1264,7 @@ CREATE TABLE `order_voided` (
 
 LOCK TABLES `order_voided` WRITE;
 /*!40000 ALTER TABLE `order_voided` DISABLE KEYS */;
+INSERT INTO `order_voided` VALUES (1,14,7,'2025-09-09 12:37:52','2025-09-09 18:07:52'),(2,42,6,'2025-09-22 19:10:17','2025-09-23 00:40:17'),(3,43,6,'2025-09-22 19:11:22','2025-09-23 00:41:22'),(4,132,6,'2025-10-09 14:21:41','2025-10-09 19:51:41'),(5,131,6,'2025-10-09 14:21:52','2025-10-09 19:51:52'),(6,144,6,'2025-10-18 16:39:16','2025-10-18 22:09:16'),(7,178,6,'2025-11-07 16:07:59','2025-11-07 21:37:59'),(8,193,6,'2025-11-11 11:16:51','2025-11-11 16:46:51'),(9,192,6,'2025-11-11 11:17:02','2025-11-11 16:47:02'),(10,194,6,'2025-11-11 16:58:34','2025-11-11 22:28:34'),(11,205,6,'2025-11-12 18:56:39','2025-11-13 00:26:39'),(12,206,6,'2025-11-12 18:57:51','2025-11-13 00:27:51');
 /*!40000 ALTER TABLE `order_voided` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1757,7 +1274,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `order_voiding_reason`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `order_voiding_reason` (
   `order_voiding_reason_id` int(11) NOT NULL AUTO_INCREMENT,
   `ReasonName` varchar(100) DEFAULT NULL,
@@ -1772,14 +1289,7 @@ CREATE TABLE `order_voiding_reason` (
 
 LOCK TABLES `order_voiding_reason` WRITE;
 /*!40000 ALTER TABLE `order_voiding_reason` DISABLE KEYS */;
-INSERT INTO `order_voiding_reason` VALUES
-(1,'Customer Requested Change','Sometimes, customers change their mind after placing an order or want to modify items.'),
-(2,'Product Unavailability','If certain items are out of stock or unavailable at the time of order fulfillment'),
-(3,'Price Discrepancy','Cases where the price charged doesn\'t match the advertised or expected price, leading to a voided order due to a \"Price Discrepancy.'),
-(4,'Employee Error','Errors made by the staff during order entry, payment processing, or inventory management'),
-(5,'Customer Dissatisfaction','If a customer expresses dissatisfaction with a product or service after placing an order'),
-(6,'Technical Issues','Issues related to the POS system, payment processing, or technical glitches leading to order cancellation'),
-(7,'Other','Any other reaon');
+INSERT INTO `order_voiding_reason` VALUES (1,'Customer Requested Change','Sometimes, customers change their mind after placing an order or want to modify items.'),(2,'Product Unavailability','If certain items are out of stock or unavailable at the time of order fulfillment'),(3,'Price Discrepancy','Cases where the price charged doesn\'t match the advertised or expected price, leading to a voided order due to a \"Price Discrepancy.'),(4,'Employee Error','Errors made by the staff during order entry, payment processing, or inventory management'),(5,'Customer Dissatisfaction','If a customer expresses dissatisfaction with a product or service after placing an order'),(6,'Technical Issues','Issues related to the POS system, payment processing, or technical glitches leading to order cancellation'),(7,'Other','Any other reaon');
 /*!40000 ALTER TABLE `order_voiding_reason` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1789,7 +1299,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `payment_methods`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `payment_methods` (
   `MethodId` int(11) NOT NULL,
   `MethodName` varchar(50) DEFAULT NULL,
@@ -1805,12 +1315,7 @@ CREATE TABLE `payment_methods` (
 
 LOCK TABLES `payment_methods` WRITE;
 /*!40000 ALTER TABLE `payment_methods` DISABLE KEYS */;
-INSERT INTO `payment_methods` VALUES
-(1,'Cash','made in cash',''),
-(2,'Card','made in card',''),
-(3,'Check','made in check','\0'),
-(4,'Credit','give for credits','\0'),
-(5,'Bank Transfer','Bank Account Transfer','');
+INSERT INTO `payment_methods` VALUES (1,'Cash','made in cash',''),(2,'Card','made in card',''),(3,'Check','made in check','\0'),(4,'Credit','give for credits','\0'),(5,'Bank Transfer','Bank Account Transfer','');
 /*!40000 ALTER TABLE `payment_methods` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1820,7 +1325,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `permission`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `permission` (
   `permissionId` int(11) NOT NULL AUTO_INCREMENT,
   `actionId` int(11) DEFAULT NULL,
@@ -1849,7 +1354,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `printappterminal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `printappterminal` (
   `PrintAppId` int(11) NOT NULL AUTO_INCREMENT,
   `terminalId` int(11) DEFAULT NULL,
@@ -1864,8 +1369,7 @@ CREATE TABLE `printappterminal` (
 
 LOCK TABLES `printappterminal` WRITE;
 /*!40000 ALTER TABLE `printappterminal` DISABLE KEYS */;
-INSERT INTO `printappterminal` VALUES
-(1,1,'Rehh34387h34jk');
+INSERT INTO `printappterminal` VALUES (1,1,'Rehh34387h34jk');
 /*!40000 ALTER TABLE `printappterminal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1875,7 +1379,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `printdesk`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `printdesk` (
   `prntdeskId` varchar(50) NOT NULL,
   `terminalId` int(11) NOT NULL,
@@ -1900,6 +1404,7 @@ CREATE TABLE `printdesk` (
 
 LOCK TABLES `printdesk` WRITE;
 /*!40000 ALTER TABLE `printdesk` DISABLE KEYS */;
+INSERT INTO `printdesk` VALUES ('1',29,'3jkfsjl','2025-03-17 18:17:20','2025-03-17 18:17:20',NULL,NULL,1,'PD1124DW23SP');
 /*!40000 ALTER TABLE `printdesk` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1909,7 +1414,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `product`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `product` (
   `ProductId` int(11) NOT NULL AUTO_INCREMENT,
   `ProductNo` varchar(100) DEFAULT NULL,
@@ -1927,6 +1432,7 @@ CREATE TABLE `product` (
   `isUnique` bit(1) DEFAULT NULL,
   `isProductItem` bit(1) DEFAULT NULL,
   `isExpiringProduct` bit(1) DEFAULT b'0',
+  `isAssemblyProduct` bit(1) DEFAULT b'0',
   PRIMARY KEY (`ProductId`),
   UNIQUE KEY `unique_product_no` (`ProductNo`),
   KEY `FK_Product_MeasurementUnit` (`MeasurementUnitId`),
@@ -1935,7 +1441,7 @@ CREATE TABLE `product` (
   CONSTRAINT `FK_Product_MeasurementUnit` FOREIGN KEY (`MeasurementUnitId`) REFERENCES `measurement_unit` (`MeasurementUnitId`),
   CONSTRAINT `FK_Product_brand` FOREIGN KEY (`BrandId`) REFERENCES `brand` (`BrandId`),
   CONSTRAINT `FK_product_productType` FOREIGN KEY (`productTypeId`) REFERENCES `product_type` (`productTypeId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=166 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1944,6 +1450,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
+INSERT INTO `product` VALUES (34,'00034','Online Passport',1,7,1,'\0','2025-07-13 18:16:56','2025-07-13 23:46:56','2025-09-08 19:23:12','2025-09-08 13:53:12','',86,'\0','\0','\0','\0'),(35,'00035','Online NIC',1,7,1,'\0','2025-07-13 18:17:34','2025-07-13 23:47:34','2025-09-08 19:22:22','2025-09-08 13:52:22','',86,'\0','\0','\0','\0'),(46,'00046','10x15 Print - customer',1,7,1,'\0','2025-07-13 18:24:06','2025-07-13 23:54:06','2025-08-04 15:13:43','2025-08-04 09:43:43','',86,'\0','\0','\0','\0'),(52,'00052','Photo Paper 4x6',1,7,1,'\0','2025-07-23 11:42:10','2025-07-23 17:12:10','2025-07-23 17:12:10','2025-07-23 11:42:10','',88,'\0','','\0','\0'),(53,'00053','Photo Paper 5x7',1,7,1,'\0','2025-07-23 11:46:17','2025-07-23 17:16:17','2025-07-23 17:16:17','2025-07-23 11:46:17','',88,'\0','','\0','\0'),(54,'00054','Photo Paper 6x8',1,7,1,'\0','2025-07-23 11:46:51','2025-07-23 17:16:51','2025-07-23 17:16:51','2025-07-23 11:46:51','',88,'\0','','\0','\0'),(55,'00055','Photo Paper 8x10',1,7,1,'\0','2025-07-23 11:47:23','2025-07-23 17:17:23','2025-07-23 17:17:23','2025-07-23 11:47:23','',88,'\0','','\0','\0'),(56,'00056','Photo Paper 8x12',1,7,1,'\0','2025-07-23 11:47:58','2025-07-23 17:17:58','2025-07-23 17:17:58','2025-07-23 11:47:58','',88,'\0','','\0','\0'),(57,'00057','Photo Paper 10x12',1,7,1,'\0','2025-07-23 11:48:27','2025-07-23 17:18:27','2025-11-10 16:32:15','2025-11-10 11:02:15','3004dcef5b1ce8241de60a61c073d5c1',88,'\0','','\0','\0'),(58,'00058','Photo Paper 10x15',1,7,1,'\0','2025-07-23 11:48:55','2025-07-23 17:18:55','2025-07-23 17:18:55','2025-07-23 11:48:55','',88,'\0','','\0','\0'),(59,'00059','Photo Paper 12x15',1,7,1,'\0','2025-07-23 11:49:28','2025-07-23 17:19:28','2025-07-23 17:19:28','2025-07-23 11:49:28','',88,'\0','','\0','\0'),(60,'00060','Photo Paper 12x18',1,7,1,'\0','2025-07-23 11:50:03','2025-07-23 17:20:03','2025-07-23 17:20:03','2025-07-23 11:50:03','',88,'\0','','\0','\0'),(61,'00061','Photo Frame 4R',1,7,2,'\0','2025-07-28 20:54:06','2025-07-29 02:24:06','2025-09-09 23:02:51','2025-09-09 17:32:51','',93,'\0','','\0','\0'),(62,'00062','Photo Frame5R',1,7,2,'\0','2025-07-28 20:55:38','2025-07-29 02:25:38','2025-08-04 13:54:56','2025-08-04 08:24:56','',93,'\0','','\0','\0'),(63,'00063','Photo Frame6R',1,7,2,'\0','2025-07-28 20:56:55','2025-07-29 02:26:55','2025-08-04 13:55:29','2025-08-04 08:25:29','',93,'\0','','\0','\0'),(64,'00064','Photo Frame8R',1,7,2,'\0','2025-07-28 20:58:14','2025-07-29 02:28:14','2025-08-04 13:56:00','2025-08-04 08:26:00','',93,'\0','','\0','\0'),(65,'00065','Photo Frame 8x12',1,7,2,'\0','2025-07-28 21:03:20','2025-07-29 02:33:20','2025-09-09 15:01:45','2025-09-09 09:31:45','',93,'\0','','\0','\0'),(66,'00066','Photo Frame10x12',1,7,2,'\0','2025-07-28 21:05:08','2025-07-29 02:35:08','2025-11-10 16:36:05','2025-11-10 11:06:05','8e6cc0551c4cd8356721d7b659b8449d',93,'\0','','\0','\0'),(67,'00067','Photo Frame10x15',1,7,2,'\0','2025-07-28 21:08:20','2025-07-29 02:38:20','2025-09-09 23:05:11','2025-09-09 17:35:11','',93,'\0','','\0','\0'),(68,'00068','Photo Frame12x15',1,7,2,'\0','2025-07-28 21:10:17','2025-07-29 02:40:17','2025-10-21 17:49:44','2025-10-21 12:19:44','',93,'\0','','\0','\0'),(69,'00069','Photo Frame12x18',1,7,2,'\0','2025-07-28 21:12:36','2025-07-29 02:42:36','2025-10-21 17:47:37','2025-10-21 12:17:37','',93,'\0','','\0','\0'),(70,'00070','Photo Frame16x20',1,7,2,'\0','2025-07-28 21:15:20','2025-07-29 02:45:20','2025-10-21 17:50:06','2025-10-21 12:20:06','',93,'\0','','\0','\0'),(71,'00071','Photo Frame16x24',1,7,2,'\0','2025-07-28 21:16:09','2025-07-29 02:46:09','2025-08-25 22:56:13','2025-08-25 17:26:13','',93,'\0','','\0','\0'),(72,'00072','Photo Frame20x30',1,7,2,'\0','2025-07-28 21:16:54','2025-07-29 02:46:54','2025-08-04 13:54:23','2025-08-04 08:24:23','',93,'\0','','\0','\0'),(74,'00074','Photo Paper 5R',1,7,1,'\0','2025-07-30 09:24:27','2025-07-30 14:54:27','2025-09-01 21:08:24','2025-09-01 15:38:24','',93,'\0','','\0','\0'),(76,'00076','Photo Paper 6R',1,7,1,'\0','2025-07-30 09:25:41','2025-07-30 14:55:41','2025-08-04 15:21:51','2025-08-04 09:51:51','',93,'\0','','\0','\0'),(78,'00078','Photo Paper 8R',1,7,1,'\0','2025-07-30 09:28:39','2025-07-30 14:58:39','2025-08-04 15:22:05','2025-08-04 09:52:05','',93,'\0','','\0','\0'),(96,'00096','Photo Paper 4R',1,7,1,'\0','2025-08-04 15:22:13','2025-08-04 20:52:13','2025-09-01 21:05:06','2025-09-01 15:35:06','',96,'\0','','\0','\0'),(99,'00099','Photo Frame 6x8',1,7,2,'\0','2025-08-25 09:45:42','2025-08-25 15:15:42','2025-09-02 20:47:47','2025-09-02 15:17:47','',6,'\0','','\0','\0'),(104,'00104','Flymount',1,7,2,'\0','2025-08-25 16:27:06','2025-08-25 21:57:06','2025-10-07 18:17:11','2025-10-07 12:47:11','',9,'\0','','\0','\0'),(105,'00105','Photo Frame 4x6',1,7,2,'\0','2025-08-25 17:40:03','2025-08-25 23:10:03','2025-09-09 23:03:55','2025-09-09 17:33:55','',9,'\0','','\0','\0'),(106,'00106','Document Scan',1,7,2,'\0','2025-08-28 09:24:55','2025-08-28 14:54:55','2025-09-12 21:31:59','2025-09-12 16:01:59','',19,'\0','\0','\0','\0'),(107,'00107','Photo Frame Double Box',1,7,2,'\0','2025-08-29 10:27:40','2025-08-29 15:57:40','2025-09-09 23:04:19','2025-09-09 17:34:19','',23,'\0','','\0','\0'),(108,'00108','Frame Stand',1,7,2,'\0','2025-08-29 15:13:33','2025-08-29 20:43:33','2025-09-09 22:58:35','2025-09-09 17:28:35','',27,'\0','','\0','\0'),(109,'00109','Frame Glass',1,7,2,'\0','2025-08-29 15:19:00','2025-08-29 20:49:00','2025-09-09 22:58:04','2025-09-09 17:28:04','',27,'\0','','\0','\0'),(110,'00110','White Mug',1,7,1,'\0','2025-08-29 15:19:59','2025-08-29 20:49:59','2025-10-04 11:02:06','2025-10-04 05:32:06','',27,'\0','','\0','\0'),(111,'00111','Magic Mug',1,7,1,'\0','2025-08-29 15:20:27','2025-08-29 20:50:27','2025-11-10 16:29:14','2025-11-10 10:59:14','6b6cbce32190ba239266a33d3d17c0a4',27,'\0','','\0','\0'),(114,'00114','Clock',1,7,1,'\0','2025-08-29 15:22:51','2025-08-29 20:52:51','2025-10-04 11:24:06','2025-10-04 05:54:06','',27,'\0','','\0','\0'),(131,'00131','Photo Paper 16x20',1,7,1,'\0','2025-09-04 07:59:05','2025-09-04 13:29:05','2025-09-04 13:29:05','2025-09-04 07:59:05','',37,'\0','','\0','\0'),(132,'00132','Photo Paper 16x24',1,7,1,'\0','2025-09-04 08:00:47','2025-09-04 13:30:47','2025-09-04 13:30:47','2025-09-04 08:00:47','',37,'\0','','\0','\0'),(133,'00133','Photo Paper 20x30',1,7,1,'\0','2025-09-04 08:01:29','2025-09-04 13:31:29','2025-09-04 13:31:29','2025-09-04 08:01:29','',37,'\0','','\0','\0'),(134,'00134','Print with Frame',1,7,2,'\0','2025-09-04 08:03:11','2025-09-04 13:33:11','2025-09-09 23:02:26','2025-09-09 17:32:26','',37,'\0','','\0','\0'),(136,'00136','Photo Print 20x30',1,7,2,'\0','2025-09-08 07:00:59','2025-09-08 12:30:59','2025-10-21 17:46:04','2025-10-21 12:16:04','',55,'\0','','\0','\0'),(137,'00137','Photo Print 16x24',1,7,2,'\0','2025-09-08 07:05:40','2025-09-08 12:35:40','2025-10-21 17:44:57','2025-10-21 12:14:57','',55,'\0','','\0','\0'),(138,'00138','Photo Print 16x20',1,7,2,'\0','2025-09-08 07:09:21','2025-09-08 12:39:21','2025-10-21 17:43:32','2025-10-21 12:13:32','',55,'\0','','\0','\0'),(139,'00139','Photo Print 12x18',1,7,2,'\0','2025-09-08 07:12:50','2025-09-08 12:42:50','2025-09-08 12:42:50','2025-09-08 07:12:50','',55,'\0','','\0',''),(140,'00140','Photo Print 12x15',1,7,2,'\0','2025-09-08 07:15:46','2025-09-08 12:45:46','2025-10-21 17:42:31','2025-10-21 12:12:31','',55,'\0','','\0','\0'),(141,'00141','Photo Print 10X15',1,7,2,'\0','2025-09-08 07:18:36','2025-09-08 12:48:36','2025-10-21 17:41:45','2025-10-21 12:11:45','',55,'\0','','\0','\0'),(142,'00142','Photo Print 10x12',1,7,2,'\0','2025-09-08 07:21:30','2025-09-08 12:51:30','2025-10-21 17:40:44','2025-10-21 12:10:44','',55,'\0','','\0','\0'),(144,'00144','Photo Print 5R',1,7,2,'\0','2025-09-08 11:03:26','2025-09-08 16:33:26','2025-10-21 17:32:43','2025-10-21 12:02:43','',55,'\0','','\0','\0'),(145,'00145','Photo Print 6R',1,7,2,'\0','2025-09-08 11:22:04','2025-09-08 16:52:04','2025-10-21 17:37:42','2025-10-21 12:07:42','',57,'\0','','\0','\0'),(146,'00146','Photo Print 8R',1,7,2,'\0','2025-09-08 11:33:48','2025-09-08 17:03:48','2025-10-21 17:37:18','2025-10-21 12:07:18','',59,'\0','','\0','\0'),(147,'00147','Photo Print 8x12',1,7,2,'\0','2025-09-08 11:46:06','2025-09-08 17:16:06','2025-10-21 17:39:40','2025-10-21 12:09:40','',59,'\0','','\0','\0'),(148,'00148','Paper A4',1,7,1,'\0','2025-09-08 11:51:50','2025-09-08 17:21:50','2025-10-04 12:51:56','2025-10-04 07:21:56','',59,'\0','','\0','\0'),(149,'00149','Printout A4',1,7,2,'\0','2025-09-08 11:52:13','2025-09-08 17:22:13','2025-09-09 15:21:00','2025-09-09 09:51:00','',59,'\0','','\0',''),(150,'00150','Photocopy',1,7,2,'\0','2025-09-08 12:22:59','2025-09-08 17:52:59','2025-09-09 17:21:44','2025-09-09 11:51:44','',59,'\0','','\0','\0'),(151,'00151','Photo Print 2x2.5',1,7,2,'\0','2025-09-09 06:13:57','2025-09-09 11:43:57','2025-09-09 15:17:45','2025-09-09 09:47:45','',60,'\0','','\0','\0'),(152,'00152','Photo Print 2x2',1,7,2,'\0','2025-09-09 06:17:47','2025-09-09 11:47:47','2025-10-04 13:01:57','2025-10-04 07:31:57','',60,'\0','','\0','\0'),(153,'00153','Postal ID Print',1,7,2,'\0','2025-09-09 06:27:17','2025-09-09 11:57:17','2025-09-10 09:59:12','2025-09-10 04:29:12','',60,'\0','','\0','\0'),(155,'00155','Stamp Print',1,7,2,'\0','2025-09-09 06:51:45','2025-09-09 12:21:45','2025-10-25 11:24:03','2025-10-25 05:54:03','',60,'\0','','\0','\0'),(156,'00156','Lab Print 4R',1,7,2,'\0','2025-09-09 08:49:15','2025-09-09 14:19:15','2025-10-04 13:12:01','2025-10-04 07:42:01','',65,'\0','','\0','\0'),(157,'00157','Tile',1,7,2,'\0','2025-09-09 10:35:00','2025-09-09 16:05:00','2025-09-09 16:05:00','2025-09-09 10:35:00','',67,'\0','','\0','\0'),(158,'00158','Rock',1,7,2,'\0','2025-09-09 10:39:36','2025-09-09 16:09:36','2025-10-04 10:56:52','2025-10-04 05:26:52','',67,'\0','','\0','\0'),(160,'00160','Passport Soft Copy',1,7,2,'\0','2025-09-09 11:39:56','2025-09-09 17:09:56','2025-09-09 17:15:56','2025-09-09 11:45:56','',1,'\0','','\0','\0'),(162,'00162','Passport',1,7,2,'\0','2025-09-09 11:42:35','2025-09-09 17:12:35','2025-09-09 17:15:04','2025-09-09 11:45:04','',1,'\0','','\0','\0'),(163,'00163','testing o',1,2,2,'\0','2025-09-22 18:53:32','2025-09-23 00:23:32','2025-09-23 00:24:57','2025-09-22 18:54:57','',50,'\0','','\0','\0'),(164,'00164','Photo Print 4R',1,7,2,'\0','2025-10-21 11:56:48','2025-10-21 17:26:48','2025-10-21 17:34:57','2025-10-21 12:04:57','',340,'\0','','\0','\0'),(165,'00165','4R Print Studio',1,7,2,'\0','2025-10-21 13:16:49','2025-10-21 18:46:49','2025-10-21 18:48:06','2025-10-21 13:18:06','',350,'\0','','\0','\0');
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1953,7 +1460,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `product_category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `product_category` (
   `ProductId` int(11) NOT NULL,
   `CategoryId` int(11) NOT NULL,
@@ -1973,6 +1480,7 @@ CREATE TABLE `product_category` (
 
 LOCK TABLES `product_category` WRITE;
 /*!40000 ALTER TABLE `product_category` DISABLE KEYS */;
+INSERT INTO `product_category` VALUES (34,41,'2025-09-08 13:53:12','2025-09-08 19:23:12',NULL),(35,41,'2025-09-08 13:52:22','2025-09-08 19:22:22',NULL),(52,32,'2025-07-23 11:42:10','2025-07-23 17:12:10',1),(53,32,'2025-07-23 11:46:17','2025-07-23 17:16:17',1),(54,32,'2025-07-23 11:46:51','2025-07-23 17:16:51',1),(55,32,'2025-07-23 11:47:23','2025-07-23 17:17:23',1),(56,32,'2025-07-23 11:47:58','2025-07-23 17:17:58',1),(57,32,'2025-07-23 11:48:27','2025-07-23 17:18:27',1),(58,32,'2025-07-23 11:48:55','2025-07-23 17:18:55',1),(59,32,'2025-07-23 11:49:28','2025-07-23 17:19:28',1),(60,32,'2025-07-23 11:50:03','2025-07-23 17:20:03',1),(61,33,'2025-07-28 20:54:06','2025-07-29 02:24:06',1),(62,33,'2025-07-28 20:55:38','2025-07-29 02:25:38',1),(63,33,'2025-07-28 20:56:55','2025-07-29 02:26:55',1),(64,33,'2025-07-28 20:58:14','2025-07-29 02:28:14',1),(65,33,'2025-07-28 21:03:20','2025-07-29 02:33:20',1),(66,33,'2025-07-28 21:05:08','2025-07-29 02:35:08',1),(67,33,'2025-07-28 21:08:20','2025-07-29 02:38:20',1),(68,33,'2025-07-28 21:10:17','2025-07-29 02:40:17',1),(69,33,'2025-07-28 21:12:36','2025-07-29 02:42:36',1),(70,33,'2025-07-28 21:15:20','2025-07-29 02:45:20',1),(71,33,'2025-07-28 21:16:09','2025-07-29 02:46:09',1),(72,33,'2025-07-28 21:16:54','2025-07-29 02:46:54',1),(74,32,'2025-07-30 09:24:27','2025-07-30 14:54:27',1),(76,32,'2025-07-30 09:25:41','2025-07-30 14:55:41',1),(78,32,'2025-07-30 09:28:39','2025-07-30 14:58:39',1),(96,32,'2025-08-04 15:22:13','2025-08-04 20:52:13',1),(99,33,'2025-08-25 09:45:42','2025-08-25 15:15:42',1),(104,42,'2025-09-08 14:28:52','2025-09-08 19:58:52',NULL),(105,33,'2025-08-25 17:40:03','2025-08-25 23:10:03',1),(106,34,'2025-09-08 12:19:47','2025-09-08 17:49:47',NULL),(107,43,'2025-09-08 14:35:07','2025-09-08 20:05:07',NULL),(108,38,'2025-08-29 15:13:33','2025-08-29 20:43:33',1),(109,39,'2025-08-29 15:19:00','2025-08-29 20:49:00',1),(110,40,'2025-09-08 12:17:00','2025-09-08 17:47:00',NULL),(111,40,'2025-09-08 12:16:47','2025-09-08 17:46:47',NULL),(114,40,'2025-09-08 12:16:30','2025-09-08 17:46:30',NULL),(131,32,'2025-09-04 07:59:05','2025-09-04 13:29:05',1),(132,32,'2025-09-04 08:00:47','2025-09-04 13:30:47',1),(133,32,'2025-09-04 08:01:29','2025-09-04 13:31:29',1),(134,37,'2025-09-04 08:03:11','2025-09-04 13:33:11',1),(136,29,'2025-09-08 07:00:59','2025-09-08 12:30:59',1),(137,29,'2025-09-08 07:05:40','2025-09-08 12:35:40',1),(138,29,'2025-09-08 07:09:21','2025-09-08 12:39:21',1),(139,29,'2025-09-08 07:12:50','2025-09-08 12:42:50',1),(140,29,'2025-09-08 07:15:46','2025-09-08 12:45:46',1),(141,29,'2025-09-08 07:18:36','2025-09-08 12:48:36',1),(142,29,'2025-09-08 07:21:30','2025-09-08 12:51:30',1),(144,29,'2025-09-08 11:03:26','2025-09-08 16:33:26',1),(145,29,'2025-09-08 11:22:04','2025-09-08 16:52:04',1),(146,29,'2025-09-08 11:33:48','2025-09-08 17:03:48',1),(147,29,'2025-09-08 11:46:06','2025-09-08 17:16:06',1),(148,32,'2025-09-08 12:12:24','2025-09-08 17:42:24',NULL),(149,44,'2025-09-09 09:51:00','2025-09-09 15:21:00',NULL),(150,34,'2025-09-08 15:34:52','2025-09-08 21:04:52',NULL),(151,41,'2025-09-09 09:47:45','2025-09-09 15:17:45',NULL),(152,41,'2025-09-09 09:47:21','2025-09-09 15:17:21',NULL),(153,41,'2025-09-09 09:44:15','2025-09-09 15:14:15',NULL),(155,41,'2025-09-09 09:46:01','2025-09-09 15:16:01',NULL),(156,45,'2025-10-04 07:42:01','2025-10-04 13:12:01',NULL),(157,40,'2025-09-09 10:35:00','2025-09-09 16:05:00',1),(158,40,'2025-09-09 10:39:36','2025-09-09 16:09:36',1),(160,41,'2025-09-09 11:39:56','2025-09-09 17:09:56',1),(162,41,'2025-09-09 11:42:35','2025-09-09 17:12:35',1),(163,40,'2025-09-22 18:53:32','2025-09-23 00:23:32',1),(164,29,'2025-10-21 11:56:48','2025-10-21 17:26:48',1),(165,41,'2025-10-21 13:16:49','2025-10-21 18:46:49',1);
 /*!40000 ALTER TABLE `product_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1982,7 +1490,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `product_department`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `product_department` (
   `productId` int(11) DEFAULT NULL,
   `departmentId` int(11) DEFAULT NULL,
@@ -2011,7 +1519,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `product_type`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `product_type` (
   `productTypeId` int(11) NOT NULL AUTO_INCREMENT,
   `productTypeName` varchar(50) DEFAULT NULL,
@@ -2025,10 +1533,7 @@ CREATE TABLE `product_type` (
 
 LOCK TABLES `product_type` WRITE;
 /*!40000 ALTER TABLE `product_type` DISABLE KEYS */;
-INSERT INTO `product_type` VALUES
-(1,'Single'),
-(2,'Variation'),
-(3,'Combo');
+INSERT INTO `product_type` VALUES (1,'Single'),(2,'Variation'),(3,'Combo');
 /*!40000 ALTER TABLE `product_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2038,12 +1543,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `product_variation_type`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `product_variation_type` (
   `variationTypeId` int(11) NOT NULL AUTO_INCREMENT,
   `variationTypeName` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`variationTypeId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2052,10 +1557,7 @@ CREATE TABLE `product_variation_type` (
 
 LOCK TABLES `product_variation_type` WRITE;
 /*!40000 ALTER TABLE `product_variation_type` DISABLE KEYS */;
-INSERT INTO `product_variation_type` VALUES
-(1,'Size'),
-(2,'Color'),
-(3,'Shape');
+INSERT INTO `product_variation_type` VALUES (1,'Size'),(2,'Color'),(3,'Shape'),(4,'Thickness '),(5,'Print Type'),(6,'Design Source'),(7,'Amount (pcs)'),(8,'Finish Option'),(9,'Media'),(10,'Issue');
 /*!40000 ALTER TABLE `product_variation_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2065,7 +1567,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `receiver_bank_account`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `receiver_bank_account` (
   `receiverBankAccountId` int(11) NOT NULL,
   `bankId` int(11) DEFAULT NULL,
@@ -2089,7 +1591,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `resource`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `resource` (
   `resourceId` int(11) NOT NULL AUTO_INCREMENT,
   `resourceName` varchar(11) DEFAULT NULL,
@@ -2117,7 +1619,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `resource_type`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `resource_type` (
   `resourceTypeId` int(11) NOT NULL AUTO_INCREMENT,
   `resourceTypeName` varchar(11) DEFAULT NULL,
@@ -2144,7 +1646,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sender_bank_account`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sender_bank_account` (
   `senderBankAccountId` int(11) NOT NULL,
   `bankId` int(11) DEFAULT NULL,
@@ -2168,7 +1670,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `serialized_item`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `serialized_item` (
   `serializedItemId` int(11) NOT NULL AUTO_INCREMENT,
   `inventoryId` int(11) DEFAULT NULL,
@@ -2206,7 +1708,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `session_details_summary_temp`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `session_details_summary_temp` (
   `noOfTransactions` int(11) DEFAULT NULL,
   `noOfVoidedTransactions` int(11) DEFAULT NULL,
@@ -2241,8 +1743,7 @@ CREATE TABLE `session_details_summary_temp` (
 
 LOCK TABLES `session_details_summary_temp` WRITE;
 /*!40000 ALTER TABLE `session_details_summary_temp` DISABLE KEYS */;
-INSERT INTO `session_details_summary_temp` VALUES
-(0,0,0,0,0,10,10,0.00,10.00,0.00,0.00,0.00,10.00,0.00,0.00,0.00,0.00,0.00,0.00,1000.00,0.00,0.00,1000.00,0);
+INSERT INTO `session_details_summary_temp` VALUES (0,0,0,0,0,10,10,0.00,0.00,0.00,0.00,0.00,10.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0);
 /*!40000 ALTER TABLE `session_details_summary_temp` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2252,7 +1753,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `session_end_details_notinuse`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `session_end_details_notinuse` (
   `sessionId` int(11) NOT NULL,
   `noOfTransactions` int(11) DEFAULT NULL,
@@ -2292,8 +1793,7 @@ CREATE TABLE `session_end_details_notinuse` (
 
 LOCK TABLES `session_end_details_notinuse` WRITE;
 /*!40000 ALTER TABLE `session_end_details_notinuse` DISABLE KEYS */;
-INSERT INTO `session_end_details_notinuse` VALUES
-(1,79,1,4,142,NULL,0,0,219550.00,0.00,219550.00,700.00,NULL,NULL,16116.00,234966.00,553200.00,2000.00,3012.38,2814.74,10000.00,NULL,NULL,NULL,1,'2025-01-26 13:05:00','2025-01-26 18:35:00');
+INSERT INTO `session_end_details_notinuse` VALUES (1,79,1,4,142,NULL,0,0,219550.00,0.00,219550.00,700.00,NULL,NULL,16116.00,234966.00,553200.00,2000.00,3012.38,2814.74,10000.00,NULL,NULL,NULL,1,'2025-01-26 13:05:00','2025-01-26 18:35:00');
 /*!40000 ALTER TABLE `session_end_details_notinuse` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2303,7 +1803,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `session_period`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `session_period` (
   `sessionId` int(11) NOT NULL AUTO_INCREMENT,
   `sessionName` varchar(50) NOT NULL,
@@ -2342,7 +1842,7 @@ CREATE TABLE `session_period` (
   `sessionEndDate_ServerTime` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`sessionId`),
   UNIQUE KEY `SessionId_UNIQUE` (`sessionId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2351,6 +1851,7 @@ CREATE TABLE `session_period` (
 
 LOCK TABLES `session_period` WRITE;
 /*!40000 ALTER TABLE `session_period` DISABLE KEYS */;
+INSERT INTO `session_period` VALUES (1,'2025 Sep 09',5700.0000,'2025-09-09 11:28:18','',1,'2025-09-09 11:28:18','2025-09-09 16:58:18',0,29,NULL,NULL,15,1,0,45,NULL,0,0,21385.00,0.00,21385.00,0.00,NULL,NULL,0.00,21385.00,42850.00,NULL,1527.50,1527.50,5700.00,NULL,'2025-09-10 02:25:41','2025-09-10 07:55:41'),(2,'2025 Sep 10',5700.0000,'2025-09-10 04:09:36','',1,'2025-09-10 04:09:36','2025-09-10 09:39:36',0,29,NULL,NULL,112,2,0,265,NULL,0,0,151130.00,0.00,151130.00,0.00,NULL,NULL,0.00,151130.00,277650.00,NULL,1373.91,1373.91,5700.00,NULL,'2025-10-09 09:27:05','2025-10-09 14:57:05'),(3,'2025 Oct 09',5000.0000,'2025-10-09 09:28:28','',1,'2025-10-09 09:28:28','2025-10-09 14:58:28',0,29,NULL,NULL,0,0,0,NULL,NULL,0,0,NULL,0.00,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,5000.00,NULL,'2025-10-09 10:18:48','2025-10-09 15:48:48'),(4,'2025 Oct 09',100.0000,'2025-10-09 10:19:22','',1,'2025-10-09 10:19:22','2025-10-09 15:49:22',0,29,NULL,NULL,11,2,0,31,NULL,0,0,18090.00,0.00,18090.00,0.00,NULL,NULL,0.00,18090.00,32500.00,NULL,2010.00,2010.00,100.00,NULL,'2025-10-11 11:57:51','2025-10-11 17:27:51'),(5,'2025 Oct 11',3000.0000,'2025-10-11 11:58:28','',1,'2025-10-11 11:58:28','2025-10-11 17:28:28',0,29,NULL,NULL,0,0,0,NULL,NULL,0,0,NULL,0.00,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,3000.00,NULL,'2025-10-14 06:25:47','2025-10-14 11:55:47'),(6,'2025 Oct 14',200.0000,'2025-10-14 06:26:24','',1,'2025-10-14 06:26:24','2025-10-14 11:56:24',0,29,NULL,NULL,39,1,0,64,NULL,0,0,69245.00,0.00,69245.00,0.00,NULL,NULL,0.00,69245.00,95450.00,NULL,1822.24,1822.24,200.00,NULL,'2025-10-23 13:43:20','2025-10-23 19:13:20'),(7,'2025 Nov 05',0.0000,'2025-11-05 15:43:31','',1,'2025-11-05 15:43:31','2025-11-05 21:13:31',0,29,NULL,NULL,0,0,0,NULL,NULL,0,0,NULL,0.00,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0.00,NULL,'2025-11-07 11:20:29','2025-11-07 16:50:29'),(8,'2025 Nov 07',1000.0000,'2025-11-07 11:21:17','',1,'2025-11-07 11:21:17','2025-11-07 16:51:17',0,29,NULL,NULL,1,1,0,NULL,NULL,0,0,NULL,0.00,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1000.00,NULL,'2025-11-11 06:23:07','2025-11-11 11:53:07'),(9,'2025 Nov 11',1000.0000,'2025-11-11 06:23:52','',1,'2025-11-11 06:23:52','2025-11-11 11:53:52',0,29,NULL,NULL,13,0,0,21,NULL,0,0,10721.00,0.00,10721.00,0.00,NULL,NULL,0.00,10721.00,12600.00,NULL,824.69,824.69,1000.00,NULL,'2025-11-11 06:57:19','2025-11-11 12:27:19'),(10,'2025 Nov 11',0.0000,'2025-11-11 08:42:36','',1,'2025-11-11 08:42:36','2025-11-11 14:12:36',0,29,NULL,NULL,16,3,0,21,NULL,0,0,10721.00,0.00,10721.00,0.00,NULL,NULL,0.00,10721.00,12600.00,NULL,824.69,824.69,0.00,NULL,'2025-11-12 12:19:34','2025-11-12 17:49:34'),(12,'2025 Nov 12',1000.0000,'2025-11-12 12:20:24','',1,'2025-11-12 12:20:24','2025-11-12 17:50:24',0,29,NULL,NULL,16,2,0,39,NULL,0,0,16500.00,0.00,16500.00,0.00,NULL,NULL,0.00,16500.00,19050.00,NULL,1178.57,1178.57,1000.00,NULL,'2025-11-13 11:39:19','2025-11-13 17:09:19'),(13,'2025 Nov 13',1000.0000,'2025-11-13 11:39:35','',1,'2025-11-13 11:39:35','2025-11-13 17:09:35',0,29,NULL,NULL,5,0,0,28,NULL,0,0,5100.00,0.00,5100.00,0.00,NULL,NULL,0.00,5100.00,9000.00,NULL,1020.00,1020.00,1000.00,NULL,'2025-11-13 11:47:29','2025-11-13 17:17:29'),(14,'2025 Nov 18',0.0000,'2025-11-18 06:20:21','\0',1,'2025-11-18 06:20:21','2025-11-18 11:50:21',0,29,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2025-11-18 06:20:21','2025-11-18 11:50:21');
 /*!40000 ALTER TABLE `session_period` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2360,7 +1861,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `shapshot_productvariationdetailid`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `shapshot_productvariationdetailid` (
   `snshot_allProductId` int(11) DEFAULT NULL,
   `VariationType` varchar(50) DEFAULT NULL,
@@ -2385,7 +1886,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `single_product`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `single_product` (
   `productId` int(11) NOT NULL,
   `SKU` varchar(50) DEFAULT NULL,
@@ -2412,6 +1913,7 @@ CREATE TABLE `single_product` (
 
 LOCK TABLES `single_product` WRITE;
 /*!40000 ALTER TABLE `single_product` DISABLE KEYS */;
+INSERT INTO `single_product` VALUES (34,'ONLIN31',NULL,'2025-07-13 18:16:56','2025-07-13 23:46:56',NULL,NULL,500.00,0.00,0.00),(35,'ONLIN22',NULL,'2025-07-13 18:17:34','2025-07-13 23:47:34',NULL,NULL,400.00,0.00,0.00),(52,'PHOTO4x6',NULL,'2025-07-23 11:42:10','2025-07-23 17:12:10',NULL,NULL,1.00,0.00,0.00),(53,'PHOTO5x7',NULL,'2025-07-23 11:46:17','2025-07-23 17:16:17',NULL,NULL,1.00,1.00,0.00),(54,'PHOTO6x8',NULL,'2025-07-23 11:46:51','2025-07-23 17:16:51',NULL,NULL,1.00,0.00,0.00),(55,'PHOTO8x10',NULL,'2025-07-23 11:47:23','2025-07-23 17:17:23',NULL,NULL,1.00,0.00,0.00),(56,'PHOTO8x12',NULL,'2025-07-23 11:47:58','2025-07-23 17:17:58',NULL,NULL,1.00,0.00,0.00),(57,'PHOTO10x12',NULL,'2025-07-23 11:48:27','2025-07-23 17:18:27',NULL,NULL,1.00,0.00,0.00),(58,'PHOTO10x15',NULL,'2025-07-23 11:48:55','2025-07-23 17:18:55',NULL,NULL,1.00,0.00,0.00),(59,'PHOTO12x15',NULL,'2025-07-23 11:49:28','2025-07-23 17:19:28',NULL,NULL,1.00,0.00,0.00),(60,'PHOTO12x18',NULL,'2025-07-23 11:50:03','2025-07-23 17:20:03',NULL,NULL,1.00,0.00,0.00),(74,'5RPAPERPH',NULL,'2025-07-30 09:24:27','2025-07-30 14:54:27',NULL,NULL,1.00,0.00,0.00),(76,'6RPAPERPH',NULL,'2025-07-30 09:25:41','2025-07-30 14:55:41',NULL,NULL,1.00,0.00,0.00),(78,'8RPAPERPH',NULL,'2025-07-30 09:28:39','2025-07-30 14:58:39',NULL,NULL,1.00,0.00,0.00),(96,'PHPAPER4R',NULL,'2025-08-04 15:22:13','2025-08-04 20:52:13',NULL,NULL,1.00,1.00,0.00),(110,'WHITEMUG',NULL,'2025-08-29 15:19:59','2025-08-29 20:49:59',NULL,NULL,800.00,0.00,0.00),(111,'MAGIC77',NULL,'2025-08-29 15:20:27','2025-08-29 20:50:27',NULL,NULL,1000.00,0.00,0.00),(114,'CLOCK26',NULL,'2025-08-29 15:22:51','2025-08-29 20:52:51',NULL,NULL,3500.00,0.00,0.00),(131,'PHOTO82',NULL,'2025-09-04 07:59:05','2025-09-04 13:29:05',NULL,NULL,1.00,0.00,0.00),(132,'PHTOPAPER55',NULL,'2025-09-04 08:00:47','2025-09-04 13:30:47',NULL,NULL,1.00,0.00,0.00),(133,'PHOTOPAPER20x30',NULL,'2025-09-04 08:01:29','2025-09-04 13:31:29',NULL,NULL,1.00,0.00,0.00),(148,'PAPERA4',NULL,'2025-09-08 11:51:50','2025-09-08 17:21:50',NULL,NULL,5.00,0.00,0.00);
 /*!40000 ALTER TABLE `single_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2421,7 +1923,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `snapshot_all_product`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `snapshot_all_product` (
   `snshot_allProductId` int(11) NOT NULL AUTO_INCREMENT,
   `allProductId` int(11) DEFAULT NULL,
@@ -2435,12 +1937,13 @@ CREATE TABLE `snapshot_all_product` (
   `barcode` varchar(100) DEFAULT NULL,
   `unitPrice` decimal(10,2) DEFAULT NULL,
   `cost` decimal(10,2) DEFAULT NULL,
+  `productDescription` varchar(200) DEFAULT NULL,
   `ModifiedDate_ServerTime` datetime DEFAULT NULL,
   `ModifiedDate_UTC` datetime DEFAULT NULL,
   `snshot_CreatedDate_UTC` datetime NOT NULL DEFAULT utc_timestamp(),
   `snshot_CreatedDate_ServerTime` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`snshot_allProductId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=384 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2449,6 +1952,7 @@ CREATE TABLE `snapshot_all_product` (
 
 LOCK TABLES `snapshot_all_product` WRITE;
 /*!40000 ALTER TABLE `snapshot_all_product` DISABLE KEYS */;
+INSERT INTO `snapshot_all_product` VALUES (1,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-09 11:47:49','2025-09-09 17:17:49'),(2,304,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYEX',NULL,350.00,NULL,'Passport Soft Copy - Extra','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-09-09 11:47:49','2025-09-09 17:17:49'),(3,38,35,1,'00035','Online NIC','None','pcs','ONLIN22',NULL,400.00,NULL,'Online NIC','2025-09-08 19:22:22','2025-09-08 13:52:22','2025-09-09 11:47:49','2025-09-09 17:17:49'),(4,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-09 11:50:51','2025-09-09 17:20:51'),(5,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-09 11:50:51','2025-09-09 17:20:51'),(6,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-08 21:04:52','2025-09-08 15:34:52','2025-09-09 11:50:51','2025-09-09 17:20:51'),(7,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-09 11:52:00','2025-09-09 17:22:00'),(8,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-09 11:52:00','2025-09-09 17:22:00'),(9,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-09-09 11:52:00','2025-09-09 17:22:00'),(10,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-09 11:53:56','2025-09-09 17:23:56'),(11,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-09-09 11:53:56','2025-09-09 17:23:56'),(12,197,134,2,'00134','Print with Frame','None','pcs','PRNTWTFRM8x12BLK',NULL,2000.00,NULL,'Print with Frame - 8x12 Black','2025-09-04 13:33:11','2025-09-04 08:03:11','2025-09-09 11:53:56','2025-09-09 17:23:56'),(13,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-09 11:54:32','2025-09-09 17:24:32'),(14,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-09 11:55:33','2025-09-09 17:25:33'),(15,196,134,2,'00134','Print with Frame','None','pcs','PRNTWTFRM8RBLK',NULL,1900.00,NULL,'Print with Frame - 8R Black','2025-09-04 13:33:11','2025-09-04 08:03:11','2025-09-09 11:57:06','2025-09-09 17:27:06'),(16,196,134,2,'00134','Print with Frame','None','pcs','PRNTWTFRM8RBLK',NULL,1900.00,NULL,'Print with Frame - 8R Black','2025-09-04 13:33:11','2025-09-04 08:03:11','2025-09-09 12:02:25','2025-09-09 17:32:25'),(17,196,134,2,'00134','Print with Frame','None','pcs','PRNTWTFRM8RBLK',NULL,1900.00,NULL,'Print with Frame - 8R Black','2025-09-04 13:33:11','2025-09-04 08:03:11','2025-09-09 12:02:42','2025-09-09 17:32:42'),(18,196,134,2,'00134','Print with Frame','None','pcs','PRNTWTFRM8RBLK',NULL,1900.00,NULL,'Print with Frame - 8R Black','2025-09-04 13:33:11','2025-09-04 08:03:11','2025-09-09 12:03:30','2025-09-09 17:33:30'),(19,16,13,1,'00013','4R Print (ex)','None','pcs','4RPRI53',NULL,400.00,NULL,'4R Print (ex)','2025-09-09 14:25:32','2025-09-09 08:55:32','2025-09-09 12:03:30','2025-09-09 17:33:30'),(20,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-09 12:04:07','2025-09-09 17:34:07'),(21,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-09 12:04:07','2025-09-09 17:34:07'),(22,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-09 12:04:26','2025-09-09 17:34:26'),(23,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-09 12:06:35','2025-09-09 17:36:35'),(24,197,134,2,'00134','Print with Frame','None','pcs','PRNTWTFRM8x12BLK',NULL,2000.00,NULL,'Print with Frame - 8x12 Black','2025-09-04 13:33:11','2025-09-04 08:03:11','2025-09-09 12:07:19','2025-09-09 17:37:19'),(25,37,34,1,'00034','Online Passport','None','pcs','ONLIN31',NULL,500.00,NULL,'Online Passport','2025-09-08 19:23:12','2025-09-08 13:53:12','2025-09-09 12:21:52','2025-09-09 17:51:52'),(26,304,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYEX',NULL,350.00,NULL,'Passport Soft Copy - Extra','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-09-09 12:30:47','2025-09-09 18:00:47'),(27,304,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYEX',NULL,350.00,NULL,'Passport Soft Copy - Extra','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-09-09 12:31:19','2025-09-09 18:01:19'),(28,263,151,2,'00151','Photo Print 2x2.5','None','pcs','PRNT2X2.5EX',NULL,350.00,NULL,'Photo Print 2x2.5 - Extra','2025-09-09 15:17:45','2025-09-09 09:47:45','2025-09-09 12:31:19','2025-09-09 18:01:19'),(29,304,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYEX',NULL,350.00,NULL,'Passport Soft Copy - Extra','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-09-09 12:31:30','2025-09-09 18:01:30'),(30,263,151,2,'00151','Photo Print 2x2.5','None','pcs','PRNT2X2.5EX',NULL,350.00,NULL,'Photo Print 2x2.5 - Extra','2025-09-09 15:17:45','2025-09-09 09:47:45','2025-09-09 12:31:30','2025-09-09 18:01:30'),(31,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-10 04:13:06','2025-09-10 09:43:06'),(32,266,153,2,'00153','Postal ID Print','None','pcs','POSTIDPRNT4P',NULL,500.00,NULL,'Postal ID Print - 4 pieces','2025-09-09 15:14:15','2025-09-09 09:44:15','2025-09-10 04:13:06','2025-09-10 09:43:06'),(33,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-10 04:13:45','2025-09-10 09:43:45'),(34,266,153,2,'00153','Postal ID Print','None','pcs','POSTIDPRNT4P',NULL,500.00,NULL,'Postal ID Print - 4 pieces','2025-09-09 15:14:15','2025-09-09 09:44:15','2025-09-10 04:13:45','2025-09-10 09:43:45'),(35,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-10 04:14:38','2025-09-10 09:44:38'),(36,266,153,2,'00153','Postal ID Print','None','pcs','POSTIDPRNT4P',NULL,500.00,NULL,'Postal ID Print - 4 pieces','2025-09-09 15:14:15','2025-09-09 09:44:15','2025-09-10 04:14:59','2025-09-10 09:44:59'),(37,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-09-10 04:15:49','2025-09-10 09:45:49'),(38,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-10 04:52:19','2025-09-10 10:22:19'),(39,252,146,2,'00146','Photo Print 8R','None','pcs','PRNT8R',NULL,600.00,NULL,'Photo Print 8R - Urgent Studio','2025-09-08 17:03:48','2025-09-08 11:33:48','2025-09-10 06:52:50','2025-09-10 12:22:50'),(40,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-10 07:13:15','2025-09-10 12:43:15'),(41,304,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYEX',NULL,350.00,NULL,'Passport Soft Copy - Extra','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-09-10 10:46:38','2025-09-10 16:16:38'),(42,303,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYORI',NULL,500.00,NULL,'Passport Soft Copy - Original','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-09-10 10:46:38','2025-09-10 16:16:38'),(43,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-09-15 06:32:38','2025-09-15 12:02:38'),(44,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-15 06:34:01','2025-09-15 12:04:01'),(45,303,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYORI',NULL,500.00,NULL,'Passport Soft Copy - Original','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-09-15 13:00:18','2025-09-15 18:30:18'),(46,161,111,1,'00111','Magic Mug','None','pcs','MAGIC77',NULL,1400.00,NULL,'Magic Mug','2025-09-08 17:46:47','2025-09-08 12:16:47','2025-09-15 13:02:44','2025-09-15 18:32:44'),(47,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-16 07:55:27','2025-09-16 13:25:27'),(48,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-16 07:55:27','2025-09-16 13:25:27'),(49,303,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYORI',NULL,500.00,NULL,'Passport Soft Copy - Original','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-09-16 12:47:58','2025-09-16 18:17:58'),(50,112,99,2,'00099','Photo Frame 6x8','None','pcs','FR6x8BROWN1/3',NULL,750.00,NULL,'Photo Frame 6x8 - 1/3\" Brown','2025-09-02 20:47:47','2025-09-02 15:17:47','2025-09-16 12:48:21','2025-09-16 18:18:21'),(51,84,72,2,'00072','Photo Frame20x30','None','pcs','FR20x30BLK3/4',NULL,7000.00,NULL,'Photo Frame20x30 - Black 3/4\"','2025-08-04 13:54:23','2025-08-04 08:24:23','2025-09-16 12:49:04','2025-09-16 18:19:04'),(52,84,72,2,'00072','Photo Frame20x30','None','pcs','FR20x30BLK3/4',NULL,7000.00,NULL,'Photo Frame20x30 - Black 3/4\"','2025-08-04 13:54:23','2025-08-04 08:24:23','2025-09-16 12:49:09','2025-09-16 18:19:09'),(53,84,72,2,'00072','Photo Frame20x30','None','pcs','FR20x30BLK3/4',NULL,7000.00,NULL,'Photo Frame20x30 - Black 3/4\"','2025-08-04 13:54:23','2025-08-04 08:24:23','2025-09-16 12:49:34','2025-09-16 18:19:34'),(54,84,72,2,'00072','Photo Frame20x30','None','pcs','FR20x30BLK3/4',NULL,7000.00,NULL,'Photo Frame20x30 - Black 3/4\"','2025-08-04 13:54:23','2025-08-04 08:24:23','2025-09-16 12:49:38','2025-09-16 18:19:38'),(55,84,72,2,'00072','Photo Frame20x30','None','pcs','FR20x30BLK3/4',NULL,7000.00,NULL,'Photo Frame20x30 - Black 3/4\"','2025-08-04 13:54:23','2025-08-04 08:24:23','2025-09-16 12:50:13','2025-09-16 18:20:13'),(56,84,72,2,'00072','Photo Frame20x30','None','pcs','FR20x30BLK3/4',NULL,7000.00,NULL,'Photo Frame20x30 - Black 3/4\"','2025-08-04 13:54:23','2025-08-04 08:24:23','2025-09-16 12:50:42','2025-09-16 18:20:42'),(57,72,65,2,'00065','Photo Frame 8x12','None','pcs','FR8x12BLK3/4',NULL,1200.00,NULL,'Photo Frame 8x12 - Black 3/4\"','2025-09-09 15:01:45','2025-09-09 09:31:45','2025-09-16 12:51:09','2025-09-16 18:21:09'),(58,80,69,2,'00069','Photo Frame12x18','None','pcs','FR12X18BLK3/4',NULL,2400.00,NULL,'Photo Frame12x18 - Black 3/4\"','2025-08-04 13:53:06','2025-08-04 08:23:06','2025-09-16 12:51:35','2025-09-16 18:21:35'),(59,80,69,2,'00069','Photo Frame12x18','None','pcs','FR12X18BLK3/4',NULL,2400.00,NULL,'Photo Frame12x18 - Black 3/4\"','2025-08-04 13:53:06','2025-08-04 08:23:06','2025-09-16 12:51:57','2025-09-16 18:21:57'),(60,258,148,1,'00148','Paper A4','None','pcs','PAPERA4',NULL,5.00,NULL,'Paper A4','2025-09-08 17:42:24','2025-09-08 12:12:24','2025-09-17 11:36:06','2025-09-17 17:06:06'),(61,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-09-17 11:36:06','2025-09-17 17:06:06'),(62,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-17 11:36:06','2025-09-17 17:06:06'),(63,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-17 11:36:06','2025-09-17 17:06:06'),(64,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-09-17 11:36:32','2025-09-17 17:06:32'),(65,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-17 11:36:32','2025-09-17 17:06:32'),(66,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-17 11:36:32','2025-09-17 17:06:32'),(67,303,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYORI',NULL,500.00,NULL,'Passport Soft Copy - Original','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-09-17 11:37:37','2025-09-17 17:07:37'),(68,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-17 11:37:37','2025-09-17 17:07:37'),(69,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-17 11:37:37','2025-09-17 17:07:37'),(70,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-17 11:39:03','2025-09-17 17:09:03'),(71,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-17 11:41:13','2025-09-17 17:11:13'),(72,82,70,2,'00070','Photo Frame16x20','None','pcs','FR16X20BLK3/4',NULL,5500.00,NULL,'Photo Frame16x20 - Black 3/4\"','2025-08-04 13:53:34','2025-08-04 08:23:34','2025-09-21 11:24:49','2025-09-21 16:54:49'),(73,82,70,2,'00070','Photo Frame16x20','None','pcs','FR16X20BLK3/4',NULL,5500.00,NULL,'Photo Frame16x20 - Black 3/4\"','2025-08-04 13:53:34','2025-08-04 08:23:34','2025-09-21 11:25:00','2025-09-21 16:55:00'),(74,82,70,2,'00070','Photo Frame16x20','None','pcs','FR16X20BLK3/4',NULL,5500.00,NULL,'Photo Frame16x20 - Black 3/4\"','2025-08-04 13:53:34','2025-08-04 08:23:34','2025-09-21 11:30:11','2025-09-21 17:00:11'),(75,257,147,2,'00147','Photo Print 8x12','None','pcs','PRNT8X12ST',NULL,500.00,NULL,'Photo Print 8x12 - Normal Studio','2025-09-08 17:16:06','2025-09-08 11:46:06','2025-09-22 19:08:14','2025-09-23 00:38:14'),(76,257,147,2,'00147','Photo Print 8x12','None','pcs','PRNT8X12ST',NULL,500.00,NULL,'Photo Print 8x12 - Normal Studio','2025-09-08 17:16:06','2025-09-08 11:46:06','2025-09-22 19:11:07','2025-09-23 00:41:07'),(77,303,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYORI',NULL,500.00,NULL,'Passport Soft Copy - Original','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-09-24 11:54:29','2025-09-24 17:24:29'),(78,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-24 11:54:29','2025-09-24 17:24:29'),(79,271,156,2,'00156','Lab Print 4R','None','pcs','PRINT4RMEDIA',NULL,60.00,NULL,'Lab Print 4R - Normal Media Print','2025-09-09 16:16:47','2025-09-09 10:46:47','2025-09-24 11:54:29','2025-09-24 17:24:29'),(80,303,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYORI',NULL,500.00,NULL,'Passport Soft Copy - Original','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-09-24 11:54:49','2025-09-24 17:24:49'),(81,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-24 11:55:21','2025-09-24 17:25:21'),(82,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-24 11:55:38','2025-09-24 17:25:38'),(83,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-24 11:57:46','2025-09-24 17:27:46'),(84,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-24 11:57:46','2025-09-24 17:27:46'),(85,304,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYEX',NULL,350.00,NULL,'Passport Soft Copy - Extra','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-09-24 11:58:49','2025-09-24 17:28:49'),(86,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-25 12:51:09','2025-09-25 18:21:09'),(87,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-09-25 12:51:09','2025-09-25 18:21:09'),(88,123,106,2,'00106','Document Scan','None','pcs','DOCSCANSM',NULL,75.00,NULL,'Document Scan - SMALL','2025-09-12 21:31:59','2025-09-12 16:01:59','2025-09-25 12:51:09','2025-09-25 18:21:09'),(89,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-25 12:56:16','2025-09-25 18:26:16'),(90,158,109,2,'00109','Frame Glass','None','pcs','FRMGLS16x24',NULL,500.00,NULL,'Frame Glass - 16x24','2025-09-09 22:58:04','2025-09-09 17:28:04','2025-09-25 12:57:13','2025-09-25 18:27:13'),(91,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-25 12:59:15','2025-09-25 18:29:15'),(92,197,134,2,'00134','Print with Frame','None','pcs','PRNTWTFRM8x12BLK',NULL,2000.00,NULL,'Print with Frame - 8x12 Black','2025-09-09 23:02:26','2025-09-09 17:32:26','2025-09-25 12:59:15','2025-09-25 18:29:15'),(93,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-25 12:59:15','2025-09-25 18:29:15'),(94,195,134,2,'00134','Print with Frame','None','pcs','PRNTWTFRM6RBLK',NULL,1500.00,NULL,'Print with Frame - 6R Black','2025-09-09 23:02:26','2025-09-09 17:32:26','2025-09-25 13:01:39','2025-09-25 18:31:39'),(95,270,155,2,'00155','Stamp Print','None','pcs','STAMPPRNTEX',NULL,350.00,NULL,'Stamp Print - Extra','2025-09-09 15:16:01','2025-09-09 09:46:01','2025-09-25 13:01:39','2025-09-25 18:31:39'),(96,195,134,2,'00134','Print with Frame','None','pcs','PRNTWTFRM6RBLK',NULL,1500.00,NULL,'Print with Frame - 6R Black','2025-09-09 23:02:26','2025-09-09 17:32:26','2025-09-25 13:01:43','2025-09-25 18:31:43'),(97,270,155,2,'00155','Stamp Print','None','pcs','STAMPPRNTEX',NULL,350.00,NULL,'Stamp Print - Extra','2025-09-09 15:16:01','2025-09-09 09:46:01','2025-09-25 13:01:43','2025-09-25 18:31:43'),(98,195,134,2,'00134','Print with Frame','None','pcs','PRNTWTFRM6RBLK',NULL,1500.00,NULL,'Print with Frame - 6R Black','2025-09-09 23:02:26','2025-09-09 17:32:26','2025-09-25 13:01:51','2025-09-25 18:31:51'),(99,270,155,2,'00155','Stamp Print','None','pcs','STAMPPRNTEX',NULL,350.00,NULL,'Stamp Print - Extra','2025-09-09 15:16:01','2025-09-09 09:46:01','2025-09-25 13:01:51','2025-09-25 18:31:51'),(100,195,134,2,'00134','Print with Frame','None','pcs','PRNTWTFRM6RBLK',NULL,1500.00,NULL,'Print with Frame - 6R Black','2025-09-09 23:02:26','2025-09-09 17:32:26','2025-09-25 13:02:14','2025-09-25 18:32:14'),(101,270,155,2,'00155','Stamp Print','None','pcs','STAMPPRNTEX',NULL,350.00,NULL,'Stamp Print - Extra','2025-09-09 15:16:01','2025-09-09 09:46:01','2025-09-25 13:02:14','2025-09-25 18:32:14'),(102,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-09-26 10:32:23','2025-09-26 16:02:23'),(103,272,156,2,'00156','Lab Print 4R','None','pcs','PRINT4RMEDIAUGNT',NULL,200.00,NULL,'Lab Print 4R - Urgeent Media Print','2025-09-09 16:16:47','2025-09-09 10:46:47','2025-09-26 10:34:04','2025-09-26 16:04:04'),(104,80,69,2,'00069','Photo Frame12x18','None','pcs','FR12X18BLK3/4',NULL,2400.00,NULL,'Photo Frame12x18 - Black 3/4\"','2025-08-04 13:53:06','2025-08-04 08:23:06','2025-09-26 10:34:04','2025-09-26 16:04:04'),(105,272,156,2,'00156','Lab Print 4R','None','pcs','PRINT4RMEDIAUGNT',NULL,200.00,NULL,'Lab Print 4R - Urgeent Media Print','2025-09-09 16:16:47','2025-09-09 10:46:47','2025-09-26 10:34:37','2025-09-26 16:04:37'),(106,80,69,2,'00069','Photo Frame12x18','None','pcs','FR12X18BLK3/4',NULL,2400.00,NULL,'Photo Frame12x18 - Black 3/4\"','2025-08-04 13:53:06','2025-08-04 08:23:06','2025-09-26 10:34:37','2025-09-26 16:04:37'),(107,272,156,2,'00156','Lab Print 4R','None','pcs','PRINT4RMEDIAUGNT',NULL,200.00,NULL,'Lab Print 4R - Urgeent Media Print','2025-09-09 16:16:47','2025-09-09 10:46:47','2025-09-26 10:42:01','2025-09-26 16:12:01'),(108,80,69,2,'00069','Photo Frame12x18','None','pcs','FR12X18BLK3/4',NULL,2400.00,NULL,'Photo Frame12x18 - Black 3/4\"','2025-08-04 13:53:06','2025-08-04 08:23:06','2025-09-26 10:42:01','2025-09-26 16:12:01'),(109,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-01 07:17:23','2025-10-01 12:47:23'),(110,123,106,2,'00106','Document Scan','None','pcs','DOCSCANSM',NULL,75.00,NULL,'Document Scan - SMALL','2025-09-12 21:31:59','2025-09-12 16:01:59','2025-10-01 07:17:23','2025-10-01 12:47:23'),(111,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-01 07:19:48','2025-10-01 12:49:48'),(112,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-01 07:19:48','2025-10-01 12:49:48'),(113,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-01 07:21:17','2025-10-01 12:51:17'),(114,199,134,2,'00134','Print with Frame','None','pcs','PRNTWTFRM10x15BLK',NULL,2800.00,NULL,'Print with Frame - 10x15 Black','2025-09-09 23:02:26','2025-09-09 17:32:26','2025-10-01 07:22:48','2025-10-01 12:52:48'),(115,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-02 09:46:09','2025-10-02 15:16:09'),(116,199,134,2,'00134','Print with Frame','None','pcs','PRNTWTFRM10x15BLK',NULL,2800.00,NULL,'Print with Frame - 10x15 Black','2025-09-09 23:02:26','2025-09-09 17:32:26','2025-10-02 09:46:09','2025-10-02 15:16:09'),(117,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-10-02 09:48:04','2025-10-02 15:18:04'),(118,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-02 09:48:04','2025-10-02 15:18:04'),(119,123,106,2,'00106','Document Scan','None','pcs','DOCSCANSM',NULL,75.00,NULL,'Document Scan - SMALL','2025-09-12 21:31:59','2025-09-12 16:01:59','2025-10-02 09:48:04','2025-10-02 15:18:04'),(120,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-10-02 09:51:53','2025-10-02 15:21:53'),(121,74,66,2,'00066','Photo Frame10x12','None','pcs','FR10x12BLK3/4',NULL,1400.00,NULL,'Photo Frame10x12 - Black 3/4\"','2025-09-09 23:05:23','2025-09-09 17:35:23','2025-10-02 09:51:53','2025-10-02 15:21:53'),(122,78,68,2,'00068','Photo Frame12x15','None','pcs','FR12X15BLK3/4',NULL,2000.00,NULL,'Photo Frame12x15 - Black 3/4\"','2025-08-04 13:52:29','2025-08-04 08:22:29','2025-10-02 09:51:53','2025-10-02 15:21:53'),(123,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-10-02 09:52:33','2025-10-02 15:22:33'),(124,74,66,2,'00066','Photo Frame10x12','None','pcs','FR10x12BLK3/4',NULL,1400.00,NULL,'Photo Frame10x12 - Black 3/4\"','2025-09-09 23:05:23','2025-09-09 17:35:23','2025-10-02 09:52:33','2025-10-02 15:22:33'),(125,78,68,2,'00068','Photo Frame12x15','None','pcs','FR12X15BLK3/4',NULL,2000.00,NULL,'Photo Frame12x15 - Black 3/4\"','2025-08-04 13:52:29','2025-08-04 08:22:29','2025-10-02 09:52:33','2025-10-02 15:22:33'),(126,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-10-02 09:53:49','2025-10-02 15:23:49'),(127,74,66,2,'00066','Photo Frame10x12','None','pcs','FR10x12BLK3/4',NULL,1400.00,NULL,'Photo Frame10x12 - Black 3/4\"','2025-09-09 23:05:23','2025-09-09 17:35:23','2025-10-02 09:53:49','2025-10-02 15:23:49'),(128,83,71,2,'00071','Photo Frame16x24','None','pcs','FR16x24BLK2\"',NULL,5500.00,NULL,'Photo Frame16x24 - Black 2\"','2025-08-25 22:56:13','2025-08-25 17:26:13','2025-10-02 09:54:23','2025-10-02 15:24:23'),(129,71,64,2,'00064','Photo Frame8R','None','pcs','FR8RSILV1',NULL,1200.00,NULL,'Photo Frame8R - Silver 1\"','2025-08-04 13:56:00','2025-08-04 08:26:00','2025-10-02 09:54:50','2025-10-02 15:24:50'),(130,71,64,2,'00064','Photo Frame8R','None','pcs','FR8RSILV1',NULL,1200.00,NULL,'Photo Frame8R - Silver 1\"','2025-08-04 13:56:00','2025-08-04 08:26:00','2025-10-02 09:55:21','2025-10-02 15:25:21'),(131,71,64,2,'00064','Photo Frame8R','None','pcs','FR8RSILV1',NULL,1200.00,NULL,'Photo Frame8R - Silver 1\"','2025-08-04 13:56:00','2025-08-04 08:26:00','2025-10-02 09:55:58','2025-10-02 15:25:58'),(132,64,61,2,'00061','Photo Frame 4R','None','pcs','FR4RBLK3/4',NULL,650.00,NULL,'Photo Frame 4R - Black 3/4\"','2025-09-09 23:02:51','2025-09-09 17:32:51','2025-10-02 09:56:23','2025-10-02 15:26:23'),(133,111,99,2,'00099','Photo Frame 6x8','None','pcs','FR6x8BLK1/2',NULL,750.00,NULL,'Photo Frame 6x8 - 1/2\" Black','2025-09-02 20:47:47','2025-09-02 15:17:47','2025-10-02 09:56:59','2025-10-02 15:26:59'),(134,72,65,2,'00065','Photo Frame 8x12','None','pcs','FR8x12BLK3/4',NULL,1200.00,NULL,'Photo Frame 8x12 - Black 3/4\"','2025-09-09 15:01:45','2025-09-09 09:31:45','2025-10-02 09:57:22','2025-10-02 15:27:22'),(135,75,66,2,'00066','Photo Frame10x12','None','pcs','FR10x12SILV1',NULL,1600.00,NULL,'Photo Frame10x12 - Silver 1\"','2025-09-09 23:05:23','2025-09-09 17:35:23','2025-10-02 09:57:40','2025-10-02 15:27:40'),(136,76,67,2,'00067','Photo Frame10x15','None','pcs','FR10x15BLK3/4',NULL,1700.00,NULL,'Photo Frame10x15 - Black 3/4\"','2025-09-09 23:05:11','2025-09-09 17:35:11','2025-10-02 09:58:00','2025-10-02 15:28:00'),(137,78,68,2,'00068','Photo Frame12x15','None','pcs','FR12X15BLK3/4',NULL,2000.00,NULL,'Photo Frame12x15 - Black 3/4\"','2025-08-04 13:52:29','2025-08-04 08:22:29','2025-10-02 09:58:21','2025-10-02 15:28:21'),(138,80,69,2,'00069','Photo Frame12x18','None','pcs','FR12X18BLK3/4',NULL,2400.00,NULL,'Photo Frame12x18 - Black 3/4\"','2025-08-04 13:53:06','2025-08-04 08:23:06','2025-10-02 09:59:00','2025-10-02 15:29:00'),(139,82,70,2,'00070','Photo Frame16x20','None','pcs','FR16X20BLK3/4',NULL,5500.00,NULL,'Photo Frame16x20 - Black 3/4\"','2025-08-04 13:53:34','2025-08-04 08:23:34','2025-10-02 09:59:57','2025-10-02 15:29:57'),(140,83,71,2,'00071','Photo Frame16x24','None','pcs','FR16x24BLK2\"',NULL,5500.00,NULL,'Photo Frame16x24 - Black 2\"','2025-08-25 22:56:13','2025-08-25 17:26:13','2025-10-02 10:00:43','2025-10-02 15:30:43'),(141,84,72,2,'00072','Photo Frame20x30','None','pcs','FR20x30BLK3/4',NULL,7000.00,NULL,'Photo Frame20x30 - Black 3/4\"','2025-08-04 13:54:23','2025-08-04 08:24:23','2025-10-02 10:02:37','2025-10-02 15:32:37'),(142,66,62,2,'00062','Photo Frame5R','None','pcs','FR5RBLK3/4',NULL,750.00,NULL,'Photo Frame5R - Black 3/4\"','2025-08-04 13:54:56','2025-08-04 08:24:56','2025-10-02 10:03:14','2025-10-02 15:33:14'),(143,68,63,2,'00063','Photo Frame6R','None','pcs','FR6RBLK3/4',NULL,750.00,NULL,'Photo Frame6R - Black 3/4\"','2025-08-04 13:55:29','2025-08-04 08:25:29','2025-10-02 10:04:01','2025-10-02 15:34:01'),(144,70,64,2,'00064','Photo Frame8R','None','pcs','FR8RBLK3/4',NULL,1000.00,NULL,'Photo Frame8R - Black 3/4\"','2025-08-04 13:56:00','2025-08-04 08:26:00','2025-10-02 10:04:40','2025-10-02 15:34:40'),(145,271,156,2,'00156','Lab Print 4R','None','pcs','PRINT4RMEDIA',NULL,60.00,NULL,'Lab Print 4R - Normal Media Print','2025-09-09 16:16:47','2025-09-09 10:46:47','2025-10-02 10:06:03','2025-10-02 15:36:03'),(146,239,142,2,'00142','Photo Print 10x12','None','pcs','PRNT10X12STUGNT',NULL,800.00,NULL,'Photo Print 10x12 - Urgent Studio','2025-09-08 12:51:30','2025-09-08 07:21:30','2025-10-02 10:06:24','2025-10-02 15:36:24'),(147,236,141,2,'00141','Photo Print 10X15','None','pcs','PRNT10X15UGNT',NULL,900.00,NULL,'Photo Print 10X15 - Urgent Studio','2025-09-08 12:48:36','2025-09-08 07:18:36','2025-10-02 10:06:44','2025-10-02 15:36:44'),(148,233,140,2,'00140','Photo Print 12x15','None','pcs','PRNT12X15UGNT',NULL,1000.00,NULL,'Photo Print 12x15 - Urgent Studio','2025-09-08 12:45:46','2025-09-08 07:15:46','2025-10-02 10:07:02','2025-10-02 15:37:02'),(149,230,139,2,'00139','Photo Print 12x18','None','pcs','PRNT12X18CUST',NULL,1500.00,NULL,'Photo Print 12x18 - Normal Customer','2025-09-08 12:42:50','2025-09-08 07:12:50','2025-10-02 10:07:21','2025-10-02 15:37:21'),(150,230,139,2,'00139','Photo Print 12x18','None','pcs','PRNT12X18CUST',NULL,1500.00,NULL,'Photo Print 12x18 - Normal Customer','2025-09-08 12:42:50','2025-09-08 07:12:50','2025-10-02 10:07:51','2025-10-02 15:37:51'),(151,228,138,2,'00138','Photo Print 16x20','None','pcs','PRNT16x20UGNT',NULL,4500.00,NULL,'Photo Print 16x20 - Urgent Studio','2025-09-08 12:39:21','2025-09-08 07:09:21','2025-10-02 10:08:10','2025-10-02 15:38:10'),(152,228,138,2,'00138','Photo Print 16x20','None','pcs','PRNT16x20UGNT',NULL,4500.00,NULL,'Photo Print 16x20 - Urgent Studio','2025-09-08 12:39:21','2025-09-08 07:09:21','2025-10-02 10:12:24','2025-10-02 15:42:24'),(153,228,138,2,'00138','Photo Print 16x20','None','pcs','PRNT16x20UGNT',NULL,4500.00,NULL,'Photo Print 16x20 - Urgent Studio','2025-09-08 12:39:21','2025-09-08 07:09:21','2025-10-02 10:13:53','2025-10-02 15:43:53'),(154,224,136,2,'00136','Photo Print 20x30','None','pcs','PRNT20x30CUST',NULL,4900.00,NULL,'Photo Print 20x30 - Normal Customer','2025-09-08 12:36:31','2025-09-08 07:06:31','2025-10-02 10:14:41','2025-10-02 15:44:41'),(155,246,144,2,'00144','Photo Print 5R','None','pcs','PRNT5R',NULL,450.00,NULL,'Photo Print 5R - Urgent Studio','2025-09-08 16:33:26','2025-09-08 11:03:26','2025-10-02 10:15:25','2025-10-02 15:45:25'),(156,249,145,2,'00145','Photo Print 6R','None','pcs','PRNT6R',NULL,500.00,NULL,'Photo Print 6R - Urgent Studio','2025-09-08 16:52:04','2025-09-08 11:22:04','2025-10-02 10:15:52','2025-10-02 15:45:52'),(157,252,146,2,'00146','Photo Print 8R','None','pcs','PRNT8R',NULL,600.00,NULL,'Photo Print 8R - Urgent Studio','2025-09-08 17:03:48','2025-09-08 11:33:48','2025-10-02 10:16:12','2025-10-02 15:46:12'),(158,255,147,2,'00147','Photo Print 8x12','None','pcs','PRNT8X12',NULL,600.00,NULL,'Photo Print 8x12 - Urgent Studio','2025-09-08 17:16:06','2025-09-08 11:46:06','2025-10-02 10:16:30','2025-10-02 15:46:30'),(162,148,109,2,'00109','Frame Glass','None','pcs','FRMGLS4R',NULL,250.00,NULL,'Frame Glass - 4R','2025-09-09 22:58:04','2025-09-09 17:28:04','2025-10-02 10:20:51','2025-10-02 15:50:51'),(163,158,109,2,'00109','Frame Glass','None','pcs','FRMGLS16x24',NULL,500.00,NULL,'Frame Glass - 16x24','2025-09-09 22:58:04','2025-09-09 17:28:04','2025-10-02 10:21:09','2025-10-02 15:51:09'),(164,146,108,2,'00108','Frame Stand','None','pcs','FRSTND16x24',NULL,900.00,NULL,'Frame Stand - 16x24','2025-09-09 22:58:35','2025-09-09 17:28:35','2025-10-02 10:21:47','2025-10-02 15:51:47'),(165,300,157,2,'00157','Tile','None','pcs','TILE6X6',NULL,2500.00,NULL,'Tile - 6x6','2025-09-09 16:05:00','2025-09-09 10:35:00','2025-10-02 10:23:39','2025-10-02 15:53:39'),(166,301,158,2,'00158','Rock','None','pcs','ROCKA4	',NULL,3500.00,NULL,'Rock - A4','2025-09-09 16:09:36','2025-09-09 10:39:36','2025-10-02 10:23:56','2025-10-02 15:53:56'),(167,164,114,1,'00114','Clock','None','pcs','CLOCK26',NULL,3500.00,NULL,'Clock','2025-09-08 17:46:30','2025-09-08 12:16:30','2025-10-02 10:25:13','2025-10-02 15:55:13'),(168,83,71,2,'00071','Photo Frame16x24','None','pcs','FR16x24BLK2\"',NULL,5500.00,NULL,'Photo Frame16x24 - Black 2\"','2025-08-25 22:56:13','2025-08-25 17:26:13','2025-10-02 10:26:36','2025-10-02 15:56:36'),(169,83,71,2,'00071','Photo Frame16x24','None','pcs','FR16x24BLK2\"',NULL,5500.00,NULL,'Photo Frame16x24 - Black 2\"','2025-08-25 22:56:13','2025-08-25 17:26:13','2025-10-02 10:27:19','2025-10-02 15:57:19'),(170,84,72,2,'00072','Photo Frame20x30','None','pcs','FR20x30BLK3/4',NULL,7000.00,NULL,'Photo Frame20x30 - Black 3/4\"','2025-08-04 13:54:23','2025-08-04 08:24:23','2025-10-02 10:29:06','2025-10-02 15:59:06'),(171,301,158,2,'00158','Rock','None','pcs','ROCKA4	',NULL,3500.00,NULL,'Rock - A4','2025-09-09 16:09:36','2025-09-09 10:39:36','2025-10-02 11:23:22','2025-10-02 16:53:22'),(172,160,110,1,'00110','White Mug','None','pcs','WHITEMUG',NULL,1000.00,NULL,'White Mug','2025-09-08 17:47:00','2025-09-08 12:17:00','2025-10-02 11:23:45','2025-10-02 16:53:45'),(173,298,157,2,'00157','Tile','None','pcs','TILEA4',NULL,3000.00,NULL,'Tile - A4','2025-09-09 16:05:00','2025-09-09 10:35:00','2025-10-02 11:24:11','2025-10-02 16:54:11'),(174,299,157,2,'00157','Tile','None','pcs','TILE8X8',NULL,2700.00,NULL,'Tile - 8X8','2025-09-09 16:05:00','2025-09-09 10:35:00','2025-10-02 11:24:26','2025-10-02 16:54:26'),(175,300,157,2,'00157','Tile','None','pcs','TILE6X6',NULL,2500.00,NULL,'Tile - 6x6','2025-09-09 16:05:00','2025-09-09 10:35:00','2025-10-02 11:24:43','2025-10-02 16:54:43'),(176,257,147,2,'00147','Photo Print 8x12','None','pcs','PRNT8X12ST',NULL,500.00,NULL,'Photo Print 8x12 - Normal Studio','2025-09-08 17:16:06','2025-09-08 11:46:06','2025-10-02 11:25:02','2025-10-02 16:55:02'),(177,204,134,2,'00134','Print with Frame','None','pcs','PRNTWTFRM20x30BLK',NULL,8000.00,NULL,'Print with Frame - 20x30 Black','2025-09-09 23:02:26','2025-09-09 17:32:26','2025-10-02 11:28:29','2025-10-02 16:58:29'),(178,134,107,2,'00107','Photo Frame Double Box','None','pcs','DBLBXFRM16x24',NULL,7000.00,NULL,'Photo Frame Double Box - 16x24','2025-09-09 23:04:19','2025-09-09 17:34:19','2025-10-02 11:32:57','2025-10-02 17:02:57'),(179,134,107,2,'00107','Photo Frame Double Box','None','pcs','DBLBXFRM16x24',NULL,7000.00,NULL,'Photo Frame Double Box - 16x24','2025-09-09 23:04:19','2025-09-09 17:34:19','2025-10-02 11:33:12','2025-10-02 17:03:12'),(180,131,107,2,'00107','Photo Frame Double Box','None','pcs','DBLBXFRM12x15',NULL,2700.00,NULL,'Photo Frame Double Box - 12x15','2025-09-09 23:04:19','2025-09-09 17:34:19','2025-10-02 11:33:37','2025-10-02 17:03:37'),(181,131,107,2,'00107','Photo Frame Double Box','None','pcs','DBLBXFRM12x15',NULL,2700.00,NULL,'Photo Frame Double Box - 12x15','2025-09-09 23:04:19','2025-09-09 17:34:19','2025-10-02 11:34:05','2025-10-02 17:04:05'),(182,266,153,2,'00153','Postal ID Print','None','pcs','POSTIDPRNT4P',NULL,500.00,NULL,'Postal ID Print - 4 pieces','2025-09-10 09:59:12','2025-09-10 04:29:12','2025-10-02 11:35:11','2025-10-02 17:05:11'),(183,270,155,2,'00155','Stamp Print','None','pcs','STAMPPRNTEX',NULL,350.00,NULL,'Stamp Print - Extra','2025-09-09 15:16:01','2025-09-09 09:46:01','2025-10-02 11:35:33','2025-10-02 17:05:33'),(184,270,155,2,'00155','Stamp Print','None','pcs','STAMPPRNTEX',NULL,350.00,NULL,'Stamp Print - Extra','2025-09-09 15:16:01','2025-09-09 09:46:01','2025-10-02 11:35:59','2025-10-02 17:05:59'),(185,269,155,2,'00155','Stamp Print','None','pcs','STAMPPRNT6P',NULL,500.00,NULL,'Stamp Print - 6 Pieces','2025-09-09 15:16:01','2025-09-09 09:46:01','2025-10-02 11:36:33','2025-10-02 17:06:33'),(186,262,151,2,'00151','Photo Print 2x2.5','None','pcs','PRNT2X2.54P',NULL,500.00,NULL,'Photo Print 2x2.5 - 4 Pieces','2025-09-09 15:17:45','2025-09-09 09:47:45','2025-10-02 11:37:57','2025-10-02 17:07:57'),(187,264,152,2,'00152','Photo Print 2x2','None','pcs','PRNT2X24P',NULL,500.00,NULL,'Photo Print 2x2 - 4 Pieces','2025-09-09 15:17:21','2025-09-09 09:47:21','2025-10-02 11:38:44','2025-10-02 17:08:44'),(188,260,149,2,'00149','Printout A4','None','pcs','PRNTA4COL',NULL,60.00,NULL,'Printout A4 - Color','2025-09-09 15:21:00','2025-09-09 09:51:00','2025-10-02 11:40:04','2025-10-02 17:10:04'),(191,202,134,2,'00134','Print with Frame','None','pcs','PRNTWTFRM16x20BLK',NULL,7000.00,NULL,'Print with Frame - 16x20 Black','2025-09-09 23:02:26','2025-09-09 17:32:26','2025-10-02 11:44:26','2025-10-02 17:14:26'),(192,301,158,2,'00158','Rock','None','pcs','ROCKA4	',NULL,3500.00,NULL,'Rock - A4','2025-09-09 16:09:36','2025-09-09 10:39:36','2025-10-02 12:09:28','2025-10-02 17:39:28'),(193,283,104,2,'00104','Flymount','None','pcs','FLYMOUNT8x12FO',NULL,1200.00,NULL,'Flymount - 8x12 Frame Only','2025-09-09 17:31:56','2025-09-09 12:01:56','2025-10-02 12:13:36','2025-10-02 17:43:36'),(194,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-03 06:35:11','2025-10-03 12:05:11'),(195,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-03 06:35:11','2025-10-03 12:05:11'),(196,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-03 06:35:26','2025-10-03 12:05:26'),(197,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-03 06:38:19','2025-10-03 12:08:19'),(198,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-03 06:39:40','2025-10-03 12:09:40'),(199,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-07 10:34:31','2025-10-07 16:04:31'),(200,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-07 10:34:31','2025-10-07 16:04:31'),(201,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,500.00,NULL,'frame 1111',NULL,NULL,'2025-10-07 12:00:14','2025-10-07 17:30:14'),(202,139,108,2,'00108','Frame Stand','None','pcs','FRSTND8R',NULL,200.00,NULL,'Frame Stand - 8R','2025-09-09 22:58:35','2025-09-09 17:28:35','2025-10-07 12:43:34','2025-10-07 18:13:34'),(203,304,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYEX',NULL,350.00,NULL,'Passport Soft Copy - Extra','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-10-07 12:44:20','2025-10-07 18:14:20'),(204,271,156,2,'00156','Lab Print 4R','None','pcs','PRINT4RMEDIA',NULL,60.00,NULL,'Lab Print 4R - Normal Media Print','2025-10-04 13:12:01','2025-10-04 07:42:01','2025-10-07 13:47:20','2025-10-07 19:17:20'),(205,271,156,2,'00156','Lab Print 4R','None','pcs','PRINT4RMEDIA',NULL,60.00,NULL,'Lab Print 4R - Normal Media Print','2025-10-04 13:12:01','2025-10-04 07:42:01','2025-10-08 04:23:59','2025-10-08 09:53:59'),(206,271,156,2,'00156','Lab Print 4R','None','pcs','PRINT4RMEDIA',NULL,60.00,NULL,'Lab Print 4R - Normal Media Print','2025-10-04 13:12:01','2025-10-04 07:42:01','2025-10-08 04:24:17','2025-10-08 09:54:17'),(207,272,156,2,'00156','Lab Print 4R','None','pcs','PRINT4RMEDIAUGNT',NULL,200.00,NULL,'Lab Print 4R - Urgeent Media Print','2025-10-04 13:12:01','2025-10-04 07:42:01','2025-10-08 04:24:17','2025-10-08 09:54:17'),(208,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-08 04:43:19','2025-10-08 10:13:19'),(209,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-10-08 04:43:19','2025-10-08 10:13:19'),(210,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-08 05:03:09','2025-10-08 10:33:09'),(211,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-10-08 05:03:09','2025-10-08 10:33:09'),(212,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-08 07:08:51','2025-10-08 12:38:51'),(213,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-08 09:46:00','2025-10-08 15:16:00'),(214,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-08 10:16:02','2025-10-08 15:46:02'),(215,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-08 10:58:47','2025-10-08 16:28:47'),(216,272,156,2,'00156','Lab Print 4R','None','pcs','PRINT4RMEDIAUGNT',NULL,200.00,NULL,'Lab Print 4R - Urgeent Media Print','2025-10-04 13:12:01','2025-10-04 07:42:01','2025-10-08 10:58:47','2025-10-08 16:28:47'),(217,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-08 11:01:44','2025-10-08 16:31:44'),(218,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-10-08 11:01:44','2025-10-08 16:31:44'),(219,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-08 11:02:41','2025-10-08 16:32:41'),(220,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-10-08 11:03:47','2025-10-08 16:33:47'),(221,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,15.00,NULL,'fram',NULL,NULL,'2025-10-08 11:06:12','2025-10-08 16:36:12'),(222,65,61,2,'00061','Photo Frame 4R','None','pcs','FR4RSILV1',NULL,700.00,NULL,'Photo Frame 4R - Silver 1\"','2025-09-09 23:02:51','2025-09-09 17:32:51','2025-10-09 09:19:32','2025-10-09 14:49:32'),(225,260,149,2,'00149','Printout A4','None','pcs','PRNTA4COL',NULL,60.00,NULL,'Printout A4 - Color','2025-09-09 15:21:00','2025-09-09 09:51:00','2025-10-09 09:22:30','2025-10-09 14:52:30'),(226,272,156,2,'00156','Lab Print 4R','None','pcs','PRINT4RMEDIAUGNT',NULL,200.00,NULL,'Lab Print 4R - Urgeent Media Print','2025-10-04 13:12:01','2025-10-04 07:42:01','2025-10-09 10:21:58','2025-10-09 15:51:58'),(227,304,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYEX',NULL,350.00,NULL,'Passport Soft Copy - Extra','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-10-09 10:22:29','2025-10-09 15:52:29'),(228,112,99,2,'00099','Photo Frame 6x8','None','pcs','FR6x8BROWN1/3',NULL,750.00,NULL,'Photo Frame 6x8 - 1/3\" Brown','2025-09-02 20:47:47','2025-09-02 15:17:47','2025-10-09 10:22:29','2025-10-09 15:52:29'),(229,75,66,2,'00066','Photo Frame10x12','None','pcs','FR10x12SILV1',NULL,1600.00,NULL,'Photo Frame10x12 - Silver 1\"','2025-09-09 23:05:23','2025-09-09 17:35:23','2025-10-09 10:22:29','2025-10-09 15:52:29'),(230,120,65,2,'00065','Photo Frame 8x12','None','pcs','FR8x12BROWN3/4',NULL,1200.00,NULL,'Photo Frame 8x12 - Brown 3/4\"','2025-09-09 15:01:45','2025-09-09 09:31:45','2025-10-09 10:23:08','2025-10-09 15:53:08'),(231,122,106,2,'00106','Document Scan','None','pcs','DOCSCANL',NULL,100.00,NULL,'Document Scan - LARGE','2025-09-12 21:31:59','2025-09-12 16:01:59','2025-10-09 10:23:36','2025-10-09 15:53:36'),(232,16,13,1,'00013','4R Print (ex)','None','pcs','4RPRI53',NULL,400.00,NULL,'4R Print (ex)','2025-10-04 11:05:16','2025-10-04 05:35:16','2025-10-09 10:23:36','2025-10-09 15:53:36'),(233,75,66,2,'00066','Photo Frame10x12','None','pcs','FR10x12SILV1',NULL,1600.00,NULL,'Photo Frame10x12 - Silver 1\"','2025-09-09 23:05:23','2025-09-09 17:35:23','2025-10-09 10:23:55','2025-10-09 15:53:55'),(234,157,109,2,'00109','Frame Glass','None','pcs','FRMGLS16x20',NULL,500.00,NULL,'Frame Glass - 16x20','2025-09-09 22:58:04','2025-09-09 17:28:04','2025-10-09 10:24:38','2025-10-09 15:54:38'),(235,258,148,1,'00148','Paper A4','None','pcs','PAPERA4',NULL,5.00,NULL,'Paper A4','2025-10-04 12:51:56','2025-10-04 07:21:56','2025-10-09 10:24:38','2025-10-09 15:54:38'),(236,65,61,2,'00061','Photo Frame 4R','None','pcs','FR4RSILV1',NULL,700.00,NULL,'Photo Frame 4R - Silver 1\"','2025-09-09 23:02:51','2025-09-09 17:32:51','2025-10-09 14:14:13','2025-10-09 19:44:13'),(241,117,104,2,'00104','Flymount','None','pcs','FLYMOUNT6x8PF',NULL,1400.00,NULL,'Flymount - 6x8 Print with Frame','2025-10-07 18:17:11','2025-10-07 12:47:11','2025-10-09 14:21:09','2025-10-09 19:51:09'),(242,271,156,2,'00156','Lab Print 4R','None','pcs','PRINT4RMEDIA',NULL,60.00,NULL,'Lab Print 4R - Normal Media Print','2025-10-04 13:12:01','2025-10-04 07:42:01','2025-10-11 11:47:52','2025-10-11 17:17:52'),(243,272,156,2,'00156','Lab Print 4R','None','pcs','PRINT4RMEDIAUGNT',NULL,200.00,NULL,'Lab Print 4R - Urgeent Media Print','2025-10-04 13:12:01','2025-10-04 07:42:01','2025-10-11 11:47:52','2025-10-11 17:17:52'),(244,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-11 11:47:52','2025-10-11 17:17:52'),(245,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-11 11:47:52','2025-10-11 17:17:52'),(246,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-11 11:49:06','2025-10-11 17:19:06'),(247,118,71,2,'00071','Photo Frame16x24','None','pcs','FR16x24BROWN2\"',NULL,5500.00,NULL,'Photo Frame16x24 - Brown 2\"','2025-08-25 22:56:13','2025-08-25 17:26:13','2025-10-11 11:51:00','2025-10-11 17:21:00'),(248,303,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYORI',NULL,500.00,NULL,'Passport Soft Copy - Original','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-10-11 11:51:36','2025-10-11 17:21:36'),(249,272,156,2,'00156','Lab Print 4R','None','pcs','PRINT4RMEDIAUGNT',NULL,200.00,NULL,'Lab Print 4R - Urgeent Media Print','2025-10-04 13:12:01','2025-10-04 07:42:01','2025-10-11 11:51:36','2025-10-11 17:21:36'),(250,303,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYORI',NULL,500.00,NULL,'Passport Soft Copy - Original','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-10-11 11:51:59','2025-10-11 17:21:59'),(251,272,156,2,'00156','Lab Print 4R','None','pcs','PRINT4RMEDIAUGNT',NULL,200.00,NULL,'Lab Print 4R - Urgeent Media Print','2025-10-04 13:12:01','2025-10-04 07:42:01','2025-10-11 11:51:59','2025-10-11 17:21:59'),(252,118,71,2,'00071','Photo Frame16x24','None','pcs','FR16x24BROWN2\"',NULL,5500.00,NULL,'Photo Frame16x24 - Brown 2\"','2025-08-25 22:56:13','2025-08-25 17:26:13','2025-10-12 07:57:43','2025-10-12 13:27:43'),(253,304,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYEX',NULL,350.00,NULL,'Passport Soft Copy - Extra','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-10-14 06:28:01','2025-10-14 11:58:01'),(254,264,152,2,'00152','Photo Print 2x2','None','pcs','PRNT2X24P',NULL,500.00,NULL,'Photo Print 2x2 - 4 Pieces','2025-10-04 13:01:57','2025-10-04 07:31:57','2025-10-14 06:28:01','2025-10-14 11:58:01'),(255,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-14 06:47:24','2025-10-14 12:17:24'),(256,304,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYEX',NULL,350.00,NULL,'Passport Soft Copy - Extra','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-10-14 11:58:06','2025-10-14 17:28:06'),(257,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-10-14 11:58:06','2025-10-14 17:28:06'),(258,270,155,2,'00155','Stamp Print','None','pcs','STAMPPRNTEX',NULL,350.00,NULL,'Stamp Print - Extra','2025-09-09 15:16:01','2025-09-09 09:46:01','2025-10-14 11:58:06','2025-10-14 17:28:06'),(259,304,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYEX',NULL,350.00,NULL,'Passport Soft Copy - Extra','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-10-14 11:58:53','2025-10-14 17:28:53'),(260,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-10-14 11:58:53','2025-10-14 17:28:53'),(261,270,155,2,'00155','Stamp Print','None','pcs','STAMPPRNTEX',NULL,350.00,NULL,'Stamp Print - Extra','2025-09-09 15:16:01','2025-09-09 09:46:01','2025-10-14 11:58:53','2025-10-14 17:28:53'),(262,304,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYEX',NULL,350.00,NULL,'Passport Soft Copy - Extra','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-10-14 11:59:55','2025-10-14 17:29:55'),(263,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-10-14 11:59:55','2025-10-14 17:29:55'),(264,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-14 11:59:55','2025-10-14 17:29:55'),(265,270,155,2,'00155','Stamp Print','None','pcs','STAMPPRNTEX',NULL,350.00,NULL,'Stamp Print - Extra','2025-09-09 15:16:01','2025-09-09 09:46:01','2025-10-14 12:00:38','2025-10-14 17:30:38'),(266,270,155,2,'00155','Stamp Print','None','pcs','STAMPPRNTEX',NULL,350.00,NULL,'Stamp Print - Extra','2025-09-09 15:16:01','2025-09-09 09:46:01','2025-10-14 12:01:14','2025-10-14 17:31:14'),(267,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-14 12:02:25','2025-10-14 17:32:25'),(268,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-14 12:03:28','2025-10-14 17:33:28'),(269,111,99,2,'00099','Photo Frame 6x8','None','pcs','FR6x8BLK1/2',NULL,750.00,NULL,'Photo Frame 6x8 - 1/2\" Black','2025-09-02 20:47:47','2025-09-02 15:17:47','2025-10-14 12:03:28','2025-10-14 17:33:28'),(270,82,70,2,'00070','Photo Frame16x20','None','pcs','FR16X20BLK3/4',NULL,5500.00,NULL,'Photo Frame16x20 - Black 3/4\"','2025-08-04 13:53:34','2025-08-04 08:23:34','2025-10-21 10:09:30','2025-10-21 15:39:30'),(271,82,70,2,'00070','Photo Frame16x20','None','pcs','FR16X20BLK3/4',NULL,5500.00,NULL,'Photo Frame16x20 - Black 3/4\"','2025-08-04 13:53:34','2025-08-04 08:23:34','2025-10-21 10:09:37','2025-10-21 15:39:37'),(272,82,70,2,'00070','Photo Frame16x20','None','pcs','FR16X20BLK3/4',NULL,5500.00,NULL,'Photo Frame16x20 - Black 3/4\"','2025-08-04 13:53:34','2025-08-04 08:23:34','2025-10-21 10:09:56','2025-10-21 15:39:56'),(273,81,69,2,'00069','Photo Frame12x18','None','pcs','FR12X18SILV1',NULL,2700.00,NULL,'Photo Frame12x18 - Silver 1\"','2025-08-04 13:53:06','2025-08-04 08:23:06','2025-10-21 10:10:20','2025-10-21 15:40:20'),(274,112,99,2,'00099','Photo Frame 6x8','None','pcs','FR6x8BROWN1/3',NULL,750.00,NULL,'Photo Frame 6x8 - 1/3\" Brown','2025-09-02 20:47:47','2025-09-02 15:17:47','2025-10-21 10:10:41','2025-10-21 15:40:41'),(275,83,71,2,'00071','Photo Frame16x24','None','pcs','FR16x24BLK2\"',NULL,5500.00,NULL,'Photo Frame16x24 - Black 2\"','2025-08-25 22:56:13','2025-08-25 17:26:13','2025-10-21 10:11:36','2025-10-21 15:41:36'),(276,161,111,1,'00111','Magic Mug','None','pcs','MAGIC77',NULL,1000.00,NULL,'Magic Mug','2025-10-04 11:01:45','2025-10-04 05:31:45','2025-10-21 10:11:59','2025-10-21 15:41:59'),(277,16,13,1,'00013','4R Print (ex)','None','pcs','4RPRI53','1144',400.00,NULL,'4R Print (ex)','2025-10-18 22:29:30','2025-10-18 16:59:30','2025-10-21 10:13:31','2025-10-21 15:43:31'),(278,164,114,1,'00114','Clock','None','pcs','CLOCK26',NULL,3500.00,NULL,'Clock','2025-10-04 11:24:06','2025-10-04 05:54:06','2025-10-21 10:13:47','2025-10-21 15:43:47'),(279,122,106,2,'00106','Document Scan','None','pcs','DOCSCANL',NULL,100.00,NULL,'Document Scan - LARGE','2025-09-12 21:31:59','2025-09-12 16:01:59','2025-10-21 10:14:03','2025-10-21 15:44:03'),(280,288,104,2,'00104','Flymount','None','pcs','FLYMOUNT12x15PF',NULL,3300.00,NULL,'Flymount - 12x15 Print with Frame','2025-10-07 18:17:11','2025-10-07 12:47:11','2025-10-21 10:14:48','2025-10-21 15:44:48'),(281,296,104,2,'00104','Flymount','None','pcs','FLYMOUNT20x30PF',NULL,8000.00,NULL,'Flymount - 20x30 Print with Frame','2025-10-07 18:17:11','2025-10-07 12:47:11','2025-10-21 10:15:08','2025-10-21 15:45:08'),(282,157,109,2,'00109','Frame Glass','None','pcs','FRMGLS16x20',NULL,500.00,NULL,'Frame Glass - 16x20','2025-09-09 22:58:04','2025-09-09 17:28:04','2025-10-21 10:15:33','2025-10-21 15:45:33'),(283,144,108,2,'00108','Frame Stand','None','pcs','FRSTND12x18',NULL,400.00,NULL,'Frame Stand - 12x18','2025-09-09 22:58:35','2025-09-09 17:28:35','2025-10-21 10:15:49','2025-10-21 15:45:49'),(284,64,61,2,'00061','Photo Frame 4R','None','pcs','FR4RBLK3/4',NULL,650.00,NULL,'Photo Frame 4R - Black 3/4\"','2025-09-09 23:02:51','2025-09-09 17:32:51','2025-10-21 10:16:27','2025-10-21 15:46:27'),(285,303,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYORI',NULL,500.00,NULL,'Passport Soft Copy - Original','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-10-21 10:16:51','2025-10-21 15:46:51'),(286,303,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYORI',NULL,500.00,NULL,'Passport Soft Copy - Original','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-10-21 10:17:05','2025-10-21 15:47:05'),(287,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-21 10:17:19','2025-10-21 15:47:19'),(288,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-21 10:17:29','2025-10-21 15:47:29'),(289,65,61,2,'00061','Photo Frame 4R','None','pcs','FR4RSILV1',NULL,700.00,NULL,'Photo Frame 4R - Silver 1\"','2025-09-09 23:02:51','2025-09-09 17:32:51','2025-10-21 10:17:52','2025-10-21 15:47:52'),(290,121,105,2,'00105','Photo Frame 4x6','None','pcs','FR4x6BLK',NULL,1.00,NULL,'Photo Frame 4x6 - 1/2\" Black','2025-09-09 23:03:55','2025-09-09 17:33:55','2025-10-21 10:17:52','2025-10-21 15:47:52'),(291,112,99,2,'00099','Photo Frame 6x8','None','pcs','FR6x8BROWN1/3',NULL,750.00,NULL,'Photo Frame 6x8 - 1/3\" Brown','2025-09-02 20:47:47','2025-09-02 15:17:47','2025-10-21 10:18:12','2025-10-21 15:48:12'),(292,72,65,2,'00065','Photo Frame 8x12','None','pcs','FR8x12BLK3/4',NULL,1200.00,NULL,'Photo Frame 8x12 - Black 3/4\"','2025-09-09 15:01:45','2025-09-09 09:31:45','2025-10-21 10:18:29','2025-10-21 15:48:29'),(293,133,107,2,'00107','Photo Frame Double Box','None','pcs','DBLBXFRM16x20',NULL,6400.00,NULL,'Photo Frame Double Box - 16x20','2025-09-09 23:04:19','2025-09-09 17:34:19','2025-10-21 10:18:47','2025-10-21 15:48:47'),(294,79,68,2,'00068','Photo Frame12x15','None','pcs','FR12X15SILV1',NULL,2400.00,NULL,'Photo Frame12x15 - Silver 1\"','2025-08-04 13:52:29','2025-08-04 08:22:29','2025-10-21 10:18:57','2025-10-21 15:48:57'),(295,78,68,2,'00068','Photo Frame12x15','None','pcs','FR12X15BLK3/4',NULL,2000.00,NULL,'Photo Frame12x15 - Black 3/4\"','2025-08-04 13:52:29','2025-08-04 08:22:29','2025-10-21 10:20:03','2025-10-21 15:50:03'),(296,82,70,2,'00070','Photo Frame16x20','None','pcs','FR16X20BLK3/4',NULL,5500.00,NULL,'Photo Frame16x20 - Black 3/4\"','2025-08-04 13:53:34','2025-08-04 08:23:34','2025-10-21 10:20:44','2025-10-21 15:50:44'),(297,83,71,2,'00071','Photo Frame16x24','None','pcs','FR16x24BLK2\"',NULL,5500.00,NULL,'Photo Frame16x24 - Black 2\"','2025-08-25 22:56:13','2025-08-25 17:26:13','2025-10-21 10:21:18','2025-10-21 15:51:18'),(298,118,71,2,'00071','Photo Frame16x24','None','pcs','FR16x24BROWN2\"',NULL,5500.00,NULL,'Photo Frame16x24 - Brown 2\"','2025-08-25 22:56:13','2025-08-25 17:26:13','2025-10-21 10:21:37','2025-10-21 15:51:37'),(299,239,142,2,'00142','Photo Print 10x12','None','pcs','PRNT10X12STUGNT',NULL,800.00,NULL,'Photo Print 10x12 - Urgent Studio','2025-09-08 12:51:30','2025-09-08 07:21:30','2025-10-21 10:22:03','2025-10-21 15:52:03'),(300,236,141,2,'00141','Photo Print 10X15','None','pcs','PRNT10X15UGNT',NULL,900.00,NULL,'Photo Print 10X15 - Urgent Studio','2025-09-08 12:48:36','2025-09-08 07:18:36','2025-10-21 10:22:15','2025-10-21 15:52:15'),(301,234,140,2,'00140','Photo Print 12x15','None','pcs','PRNT12X15',NULL,1300.00,NULL,'Photo Print 12x15 - Normal Customer','2025-09-08 12:45:46','2025-09-08 07:15:46','2025-10-21 10:22:33','2025-10-21 15:52:33'),(302,228,138,2,'00138','Photo Print 16x20','None','pcs','PRNT16x20UGNT',NULL,4500.00,NULL,'Photo Print 16x20 - Urgent Studio','2025-09-08 12:39:21','2025-09-08 07:09:21','2025-10-21 10:22:46','2025-10-21 15:52:46'),(303,226,137,2,'00137','Photo Print 16x24','None','pcs','PRNT16x24UGNT',NULL,5000.00,NULL,'Photo Print 16x24 - Urgent Studio','2025-09-08 12:35:40','2025-09-08 07:05:40','2025-10-21 10:23:27','2025-10-21 15:53:27'),(304,226,137,2,'00137','Photo Print 16x24','None','pcs','PRNT16x24UGNT',NULL,5000.00,NULL,'Photo Print 16x24 - Urgent Studio','2025-09-08 12:35:40','2025-09-08 07:05:40','2025-10-21 10:23:58','2025-10-21 15:53:58'),(305,226,137,2,'00137','Photo Print 16x24','None','pcs','PRNT16x24UGNT',NULL,5000.00,NULL,'Photo Print 16x24 - Urgent Studio','2025-09-08 12:35:40','2025-09-08 07:05:40','2025-10-21 10:25:38','2025-10-21 15:55:38'),(306,80,69,2,'00069','Photo Frame12x18','None','pcs','FR12X18BLK3/4',NULL,2400.00,NULL,'Photo Frame12x18 - Black 3/4\"','2025-08-04 13:53:06','2025-08-04 08:23:06','2025-10-21 12:17:05','2025-10-21 17:47:05'),(307,228,138,2,'00138','Photo Print 16x20','None','pcs','PRNT16x20URGENT',NULL,4000.00,NULL,'Photo Print 16x20 - Urgent','2025-10-21 17:43:32','2025-10-21 12:13:32','2025-10-21 12:22:43','2025-10-21 17:52:43'),(308,229,138,2,'00138','Photo Print 16x20','None','pcs','PRNT16x20NORMAL',NULL,3900.00,NULL,'Photo Print 16x20 - Normal','2025-10-21 17:43:32','2025-10-21 12:13:32','2025-10-21 12:23:07','2025-10-21 17:53:07'),(309,226,137,2,'00137','Photo Print 16x24','None','pcs','PRNT16x24URGENT',NULL,4500.00,NULL,'Photo Print 16x24 - Urgent Studio','2025-10-21 17:44:57','2025-10-21 12:14:57','2025-10-21 12:23:25','2025-10-21 17:53:25'),(310,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-23 08:28:19','2025-10-23 13:58:19'),(311,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-23 08:32:12','2025-10-23 14:02:12'),(312,195,134,2,'00134','Print with Frame','None','pcs','PRNTWTFRM6RBLK',NULL,1500.00,NULL,'Print with Frame - 6R Black','2025-09-09 23:02:26','2025-09-09 17:32:26','2025-10-23 08:39:33','2025-10-23 14:09:33'),(313,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-23 08:40:27','2025-10-23 14:10:27'),(314,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-23 08:40:27','2025-10-23 14:10:27'),(315,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-23 08:41:14','2025-10-23 14:11:14'),(316,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-23 08:41:14','2025-10-23 14:11:14'),(317,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-23 09:51:33','2025-10-23 15:21:33'),(318,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-23 10:48:24','2025-10-23 16:18:24'),(319,270,155,2,'00155','Stamp Print','None','pcs','STAMPPRNTEX',NULL,350.00,NULL,'Stamp Print - Extra','2025-09-09 15:16:01','2025-09-09 09:46:01','2025-10-23 10:48:24','2025-10-23 16:18:24'),(320,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-23 10:48:38','2025-10-23 16:18:38'),(321,270,155,2,'00155','Stamp Print','None','pcs','STAMPPRNTEX',NULL,350.00,NULL,'Stamp Print - Extra','2025-09-09 15:16:01','2025-09-09 09:46:01','2025-10-23 10:48:38','2025-10-23 16:18:38'),(322,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-23 10:49:27','2025-10-23 16:19:27'),(323,270,155,2,'00155','Stamp Print','None','pcs','STAMPPRNTEX',NULL,350.00,NULL,'Stamp Print - Extra','2025-09-09 15:16:01','2025-09-09 09:46:01','2025-10-23 10:49:27','2025-10-23 16:19:27'),(324,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-23 11:23:37','2025-10-23 16:53:37'),(325,270,155,2,'00155','Stamp Print','None','pcs','STAMPPRNTEX',NULL,350.00,NULL,'Stamp Print - Extra','2025-09-09 15:16:01','2025-09-09 09:46:01','2025-10-23 11:23:37','2025-10-23 16:53:37'),(326,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-10-23 11:32:26','2025-10-23 17:02:26'),(327,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-10-23 11:32:26','2025-10-23 17:02:26'),(328,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,2000.00,NULL,'print with fram',NULL,NULL,'2025-10-23 11:42:20','2025-10-23 17:12:20'),(329,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1000.00,NULL,'frame 8x12',NULL,NULL,'2025-10-23 11:43:51','2025-10-23 17:13:51'),(330,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1000.00,NULL,'frame 8x12',NULL,NULL,'2025-10-23 11:44:41','2025-10-23 17:14:41'),(331,311,165,2,'00165','4R Print Studio','None','pcs','4RPRINT',NULL,500.00,NULL,'4R Print Studio - Normal','2025-10-21 18:48:06','2025-10-21 13:18:06','2025-11-07 16:06:41','2025-11-07 21:36:41'),(332,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-11 06:24:57','2025-11-11 11:54:57'),(333,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-11 06:25:24','2025-11-11 11:55:24'),(334,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-11 06:26:08','2025-11-11 11:56:08'),(335,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-11 06:26:31','2025-11-11 11:56:31'),(336,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-11 06:26:54','2025-11-11 11:56:54'),(337,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-11 06:27:09','2025-11-11 11:57:09'),(338,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-11 06:28:42','2025-11-11 11:58:42'),(339,60,57,1,'00057','Photo Paper 10x12','None','pcs','PHOTO10x12',NULL,1.00,NULL,'Photo Paper 10x12','2025-11-10 16:32:15','2025-11-10 11:02:15','2025-11-11 06:28:42','2025-11-11 11:58:42'),(340,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-11-11 06:28:42','2025-11-11 11:58:42'),(341,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,3000.00,NULL,'FRAM',NULL,NULL,'2025-11-11 06:29:41','2025-11-11 11:59:41'),(342,272,156,2,'00156','Lab Print 4R','None','pcs','PRINT4RMEDIAUGNT',NULL,200.00,NULL,'Lab Print 4R - Urgeent Media Print','2025-10-04 13:12:01','2025-10-04 07:42:01','2025-11-11 06:31:47','2025-11-11 12:01:47'),(343,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,40.00,NULL,'EX',NULL,NULL,'2025-11-11 06:31:47','2025-11-11 12:01:47'),(344,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-11 06:32:16','2025-11-11 12:02:16'),(345,78,68,2,'00068','Photo Frame12x15','None','pcs','FR12X15BLK3/4',NULL,2000.00,NULL,'Photo Frame12x15 - Black 3/4\"','2025-10-21 17:49:44','2025-10-21 12:19:44','2025-11-11 06:33:02','2025-11-11 12:03:02'),(346,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,530.00,NULL,'ONLIN PAMANT',NULL,NULL,'2025-11-11 06:41:05','2025-11-11 12:11:05'),(347,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,530.00,NULL,'ONLIN PAMANT',NULL,NULL,'2025-11-11 06:41:46','2025-11-11 12:11:46'),(348,271,156,2,'00156','Lab Print 4R','None','pcs','PRINT4RMEDIA',NULL,60.00,NULL,'Lab Print 4R - Normal Media Print','2025-10-04 13:12:01','2025-10-04 07:42:01','2025-11-11 06:43:52','2025-11-11 12:13:52'),(349,161,111,1,'00111','Magic Mug','None','pcs','MAGIC77',NULL,1000.00,NULL,'Magic Mug','2025-11-10 16:29:14','2025-11-10 10:59:14','2025-11-11 09:23:56','2025-11-11 14:53:56'),(350,75,66,2,'00066','Photo Frame10x12','None','pcs','FR10x12SILV1',NULL,1600.00,NULL,'Photo Frame10x12 - Silver 1\"','2025-11-10 16:36:05','2025-11-10 11:06:05','2025-11-11 09:23:56','2025-11-11 14:53:56'),(351,303,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYORI',NULL,500.00,NULL,'Passport Soft Copy - Original','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-11-12 12:22:16','2025-11-12 17:52:16'),(352,304,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYEX',NULL,350.00,NULL,'Passport Soft Copy - Extra','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-11-12 12:22:16','2025-11-12 17:52:16'),(353,304,160,2,'00160','Passport Soft Copy','None','pcs','PASSPORTSCOPYEX',NULL,350.00,NULL,'Passport Soft Copy - Extra','2025-09-09 17:15:56','2025-09-09 11:45:56','2025-11-12 12:24:19','2025-11-12 17:54:19'),(354,195,134,2,'00134','Print with Frame','None','pcs','PRNTWTFRM6RBLK',NULL,1500.00,NULL,'Print with Frame - 6R Black','2025-09-09 23:02:26','2025-09-09 17:32:26','2025-11-12 12:27:51','2025-11-12 17:57:51'),(355,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-12 12:29:39','2025-11-12 17:59:39'),(356,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-12 12:30:11','2025-11-12 18:00:11'),(357,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-12 12:32:02','2025-11-12 18:02:02'),(358,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-12 12:32:02','2025-11-12 18:02:02'),(359,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-11-12 12:32:02','2025-11-12 18:02:02'),(360,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-12 12:32:41','2025-11-12 18:02:41'),(361,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-12 12:33:24','2025-11-12 18:03:24'),(362,266,153,2,'00153','Postal ID Print','None','pcs','POSTIDPRNT4P',NULL,500.00,NULL,'Postal ID Print - 4 pieces','2025-09-10 09:59:12','2025-09-10 04:29:12','2025-11-12 12:33:24','2025-11-12 18:03:24'),(363,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-12 12:34:22','2025-11-12 18:04:22'),(364,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-12 12:34:22','2025-11-12 18:04:22'),(365,262,151,2,'00151','Photo Print 2x2.5','None','pcs','PRNT2X2.54P',NULL,500.00,NULL,'Photo Print 2x2.5 - 4 Pieces','2025-09-09 15:17:45','2025-09-09 09:47:45','2025-11-12 12:38:28','2025-11-12 18:08:28'),(366,262,151,2,'00151','Photo Print 2x2.5','None','pcs','PRNT2X2.54P',NULL,500.00,NULL,'Photo Print 2x2.5 - 4 Pieces','2025-09-09 15:17:45','2025-09-09 09:47:45','2025-11-12 12:39:02','2025-11-12 18:09:02'),(367,262,151,2,'00151','Photo Print 2x2.5','None','pcs','PRNT2X2.54P',NULL,500.00,NULL,'Photo Print 2x2.5 - 4 Pieces','2025-09-09 15:17:45','2025-09-09 09:47:45','2025-11-12 12:39:37','2025-11-12 18:09:37'),(368,262,151,2,'00151','Photo Print 2x2.5','None','pcs','PRNT2X2.54P',NULL,500.00,NULL,'Photo Print 2x2.5 - 4 Pieces','2025-09-09 15:17:45','2025-09-09 09:47:45','2025-11-12 12:39:58','2025-11-12 18:09:58'),(369,193,134,2,'00134','Print with Frame','None','pcs','PRNTWTFRM4RBLK',NULL,1000.00,NULL,'Print with Frame - 4R Black','2025-09-09 23:02:26','2025-09-09 17:32:26','2025-11-13 10:58:41','2025-11-13 16:28:41'),(370,122,106,2,'00106','Document Scan','None','pcs','DOCSCANL',NULL,100.00,NULL,'Document Scan - LARGE','2025-09-12 21:31:59','2025-09-12 16:01:59','2025-11-13 10:58:57','2025-11-13 16:28:57'),(371,160,110,1,'00110','White Mug','None','pcs','WHITEMUG',NULL,800.00,NULL,'White Mug','2025-10-04 11:02:06','2025-10-04 05:32:06','2025-11-13 10:59:19','2025-11-13 16:29:19'),(372,299,157,2,'00157','Tile','None','pcs','TILE8X8',NULL,2700.00,NULL,'Tile - 8X8','2025-09-09 16:05:00','2025-09-09 10:35:00','2025-11-13 10:59:19','2025-11-13 16:29:19'),(373,159,109,2,'00109','Frame Glass','None','pcs','FRMGLS20x30',NULL,600.00,NULL,'Frame Glass - 20x30','2025-09-09 22:58:04','2025-09-09 17:28:04','2025-11-13 10:59:37','2025-11-13 16:29:37'),(374,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-13 11:40:50','2025-11-13 17:10:50'),(375,267,153,2,'00153','Postal ID Print','None','pcs','POSTIDPRNTEX',NULL,350.00,NULL,'Postal ID Print - Extra','2025-09-10 09:59:12','2025-09-10 04:29:12','2025-11-13 11:40:50','2025-11-13 17:10:50'),(376,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-13 11:42:25','2025-11-13 17:12:25'),(377,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-11-13 11:42:25','2025-11-13 17:12:25'),(378,272,156,2,'00156','Lab Print 4R','None','pcs','PRINT4RMEDIAUGNT',NULL,200.00,NULL,'Lab Print 4R - Urgeent Media Print','2025-10-04 13:12:01','2025-10-04 07:42:01','2025-11-13 11:42:25','2025-11-13 17:12:25'),(379,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-13 11:44:04','2025-11-13 17:14:04'),(380,306,162,2,'00162','Passport','None','pcs','PASSPORTEX',NULL,350.00,NULL,'Passport - Extra','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-13 11:44:04','2025-11-13 17:14:04'),(381,261,150,2,'00150','Photocopy','None','pcs','PCA4',NULL,15.00,NULL,'Photocopy - A4','2025-09-09 17:21:44','2025-09-09 11:51:44','2025-11-13 11:45:08','2025-11-13 17:15:08'),(382,123,106,2,'00106','Document Scan','None','pcs','DOCSCANSM',NULL,75.00,NULL,'Document Scan - SMALL','2025-09-12 21:31:59','2025-09-12 16:01:59','2025-11-13 11:45:08','2025-11-13 17:15:08'),(383,305,162,2,'00162','Passport','None','pcs','PASSPORT4P',NULL,500.00,NULL,'Passport - 4P','2025-09-09 17:15:04','2025-09-09 11:45:04','2025-11-13 11:45:44','2025-11-13 17:15:44');
 /*!40000 ALTER TABLE `snapshot_all_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2458,7 +1962,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `snapshot_combo_product_detail`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `snapshot_combo_product_detail` (
   `snshot_comboProductDetailId` int(11) NOT NULL AUTO_INCREMENT,
   `snshot_allProductId` int(11) DEFAULT NULL,
@@ -2487,7 +1991,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `snapshot_contact`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `snapshot_contact` (
   `snshot_contactId` int(11) NOT NULL AUTO_INCREMENT,
   `contactId` int(11) NOT NULL,
@@ -2507,7 +2011,7 @@ CREATE TABLE `snapshot_contact` (
   PRIMARY KEY (`snshot_contactId`),
   KEY `FK_snapshot_contact_contactType` (`contactTypeId`),
   CONSTRAINT `FK_snapshot_contact_contactType` FOREIGN KEY (`contactTypeId`) REFERENCES `contact_type` (`contactTypeId`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2516,20 +2020,7 @@ CREATE TABLE `snapshot_contact` (
 
 LOCK TABLES `snapshot_contact` WRITE;
 /*!40000 ALTER TABLE `snapshot_contact` DISABLE KEYS */;
-INSERT INTO `snapshot_contact` VALUES
-(6,50,'cusiiil ed','spmkk@ggm55','44445',NULL,'555','rerrrer','2025-01-14 17:01:02','2025-01-14 17:01:02','2025-01-14 17:00:52','2025-01-14 11:30:52','00050',1,NULL),
-(7,50,'cusiiil ed','spmkk@ggm55','44445',NULL,'555','rerrrer','2025-01-14 17:01:40','2025-01-14 17:01:40','2025-01-14 17:01:35','2025-01-14 11:31:35','00050',1,NULL),
-(8,1,'SUSANTHA Pere','spmkk@ggmkk','07744484876',NULL,'55554','rerrrer','2025-01-14 17:02:45','2025-01-14 17:02:45','2024-12-29 17:09:30','2024-12-29 11:39:30','00055',1,NULL),
-(9,1,'SUSANTHA Pere e','spmkk@ggmkk','07744484876',NULL,'55554','rerrrer','2025-01-14 17:05:33','2025-01-14 17:05:33','2025-01-14 17:05:30','2025-01-14 11:35:30','00055',1,NULL),
-(10,33,'custnamekk0kk33','spmkk@ggm33','44445',NULL,'555','rerrrer','2025-01-14 17:28:43','2025-01-14 17:28:43','2024-03-01 20:58:22','2024-03-01 15:28:22','00033',1,NULL),
-(11,51,'nnnmm o','spmskperera@gmail.com','0771147484',NULL,'00111','4','2025-01-14 18:00:32','2025-01-14 18:00:32','2025-01-14 18:00:08','2025-01-14 12:30:08','00051',1,NULL),
-(12,50,'cusiiil ed','spmkk@ggm55','44445',NULL,'555','rerrrer','2025-01-14 18:31:14','2025-01-14 18:31:14','2025-01-14 17:05:08','2025-01-14 11:35:08','00050',1,NULL),
-(13,14,'SUSANTHA Pe7778','spmkk@ggmkk','07744484876',NULL,'55554','rerrrer','2025-01-26 15:31:01','2025-01-26 15:31:01','2024-12-17 01:20:33','2024-12-16 19:50:33','00014',1,NULL),
-(14,13,'SUSANTHA 7','spmkk@ggmkk','07744484876',NULL,'55554','rerrrer','2025-02-09 20:54:42','2025-02-09 20:54:42','2025-02-08 16:12:32','2025-02-08 10:42:32','00013',1,NULL),
-(15,14,'Kalinga Fernando','kalin343ga@gmail.com','07744484876',NULL,'01125544874','rerrrer','2025-02-10 16:16:07','2025-02-10 16:16:07','2025-02-08 16:12:39','2025-02-08 10:42:39','00014',1,NULL),
-(16,17,'Asanka Jayawardena','asankajawa@gmail.com','0774448876',NULL,'01125458754','rerrrer','2025-03-09 00:37:46','2025-03-09 00:37:46','2024-12-17 01:24:36','2024-12-16 19:54:36','00013',1,NULL),
-(17,2,'Emily Harris','emily.harris@example.co','+947785844',NULL,'0115010445','te','2025-03-11 18:28:30','2025-03-11 18:28:30','2025-03-11 18:17:24','2025-03-11 12:47:24','00002',81,NULL),
-(18,1,'ddd','spmskperera@gmail.com','0771147484',NULL,'05454','4','2025-03-11 18:47:04','2025-03-11 18:47:04','2025-03-11 18:45:50','2025-03-11 13:15:50','00001',82,NULL);
+INSERT INTO `snapshot_contact` VALUES (6,50,'cusiiil ed','spmkk@ggm55','44445',NULL,'555','rerrrer','2025-01-14 17:01:02','2025-01-14 17:01:02','2025-01-14 17:00:52','2025-01-14 11:30:52','00050',1,NULL),(7,50,'cusiiil ed','spmkk@ggm55','44445',NULL,'555','rerrrer','2025-01-14 17:01:40','2025-01-14 17:01:40','2025-01-14 17:01:35','2025-01-14 11:31:35','00050',1,NULL),(8,1,'SUSANTHA Pere','spmkk@ggmkk','07744484876',NULL,'55554','rerrrer','2025-01-14 17:02:45','2025-01-14 17:02:45','2024-12-29 17:09:30','2024-12-29 11:39:30','00055',1,NULL),(9,1,'SUSANTHA Pere e','spmkk@ggmkk','07744484876',NULL,'55554','rerrrer','2025-01-14 17:05:33','2025-01-14 17:05:33','2025-01-14 17:05:30','2025-01-14 11:35:30','00055',1,NULL),(10,33,'custnamekk0kk33','spmkk@ggm33','44445',NULL,'555','rerrrer','2025-01-14 17:28:43','2025-01-14 17:28:43','2024-03-01 20:58:22','2024-03-01 15:28:22','00033',1,NULL),(11,51,'nnnmm o','spmskperera@gmail.com','0771147484',NULL,'00111','4','2025-01-14 18:00:32','2025-01-14 18:00:32','2025-01-14 18:00:08','2025-01-14 12:30:08','00051',1,NULL),(12,50,'cusiiil ed','spmkk@ggm55','44445',NULL,'555','rerrrer','2025-01-14 18:31:14','2025-01-14 18:31:14','2025-01-14 17:05:08','2025-01-14 11:35:08','00050',1,NULL),(13,14,'SUSANTHA Pe7778','spmkk@ggmkk','07744484876',NULL,'55554','rerrrer','2025-01-26 15:31:01','2025-01-26 15:31:01','2024-12-17 01:20:33','2024-12-16 19:50:33','00014',1,NULL),(14,13,'SUSANTHA 7','spmkk@ggmkk','07744484876',NULL,'55554','rerrrer','2025-02-09 20:54:42','2025-02-09 20:54:42','2025-02-08 16:12:32','2025-02-08 10:42:32','00013',1,NULL),(15,14,'Kalinga Fernando','kalin343ga@gmail.com','07744484876',NULL,'01125544874','rerrrer','2025-02-10 16:16:07','2025-02-10 16:16:07','2025-02-08 16:12:39','2025-02-08 10:42:39','00014',1,NULL),(16,17,'Asanka Jayawardena','asankajawa@gmail.com','0774448876',NULL,'01125458754','rerrrer','2025-03-09 00:37:46','2025-03-09 00:37:46','2024-12-17 01:24:36','2024-12-16 19:54:36','00013',1,NULL),(17,2,'Emily Harris','emily.harris@example.co','+947785844',NULL,'0115010445','te','2025-03-11 18:28:30','2025-03-11 18:28:30','2025-03-11 18:17:24','2025-03-11 12:47:24','00002',81,NULL),(18,1,'ddd','spmskperera@gmail.com','0771147484',NULL,'05454','4','2025-03-11 18:47:04','2025-03-11 18:47:04','2025-03-11 18:45:50','2025-03-11 13:15:50','00001',82,NULL),(19,1,'Bravo Suppiers','sakdjsk@gmail.com','0212454',NULL,'1231545','54545','2025-05-10 08:50:02','2025-05-10 08:50:02','2025-03-17 19:23:52','2025-03-17 19:23:52','00001',47,NULL);
 /*!40000 ALTER TABLE `snapshot_contact` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2539,17 +2030,17 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `snapshot_variation_product_detail`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `snapshot_variation_product_detail` (
   `snapshot_variationProductDetail_id` int(11) NOT NULL AUTO_INCREMENT,
   `variationProductId` int(11) DEFAULT NULL,
   `snshot_allProductId` int(11) DEFAULT NULL,
-  `variationTypeName` varchar(11) DEFAULT NULL,
-  `variationValue` varchar(11) DEFAULT NULL,
+  `variationTypeName` varchar(50) DEFAULT NULL,
+  `variationValue` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`snapshot_variationProductDetail_id`),
   KEY `snapshot_variation_product_detail_snapshot_all_product_FK` (`snshot_allProductId`),
   CONSTRAINT `snapshot_variation_product_detail_snapshot_all_product_FK` FOREIGN KEY (`snshot_allProductId`) REFERENCES `snapshot_all_product` (`snshot_allProductId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=626 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2558,6 +2049,7 @@ CREATE TABLE `snapshot_variation_product_detail` (
 
 LOCK TABLES `snapshot_variation_product_detail` WRITE;
 /*!40000 ALTER TABLE `snapshot_variation_product_detail` DISABLE KEYS */;
+INSERT INTO `snapshot_variation_product_detail` VALUES (1,NULL,1,'Amount (pcs)','4P'),(2,NULL,2,'Amount (pcs)','Extra'),(3,NULL,4,'Amount (pcs)','4P'),(4,NULL,5,'Amount (pcs)','Extra'),(5,NULL,6,'Size','A4'),(6,NULL,7,'Amount (pcs)','4P'),(7,NULL,8,'Amount (pcs)','Extra'),(8,NULL,9,'Size','A4'),(9,NULL,10,'Amount (pcs)','Extra'),(10,NULL,11,'Size','A4'),(11,NULL,12,'Size','8x12'),(12,NULL,12,'Color','Black'),(14,NULL,13,'Amount (pcs)','4P'),(15,NULL,14,'Amount (pcs)','Extra'),(16,NULL,15,'Size','8R'),(17,NULL,15,'Color','Black'),(19,NULL,16,'Size','8R'),(20,NULL,16,'Color','Black'),(22,NULL,17,'Size','8R'),(23,NULL,17,'Color','Black'),(25,NULL,18,'Size','8R'),(26,NULL,18,'Color','Black'),(28,NULL,20,'Amount (pcs)','4P'),(29,NULL,21,'Amount (pcs)','Extra'),(30,NULL,22,'Amount (pcs)','Extra'),(31,NULL,23,'Amount (pcs)','4P'),(32,NULL,24,'Size','8x12'),(33,NULL,24,'Color','Black'),(35,NULL,26,'Amount (pcs)','Extra'),(36,NULL,27,'Amount (pcs)','Extra'),(37,NULL,28,'Amount (pcs)','Extra'),(38,NULL,29,'Amount (pcs)','Extra'),(39,NULL,30,'Amount (pcs)','Extra'),(40,NULL,31,'Amount (pcs)','4P'),(41,NULL,32,'Amount (pcs)','4 pieces'),(42,NULL,33,'Amount (pcs)','4P'),(43,NULL,34,'Amount (pcs)','4 pieces'),(44,NULL,35,'Amount (pcs)','4P'),(45,NULL,36,'Amount (pcs)','4 pieces'),(46,NULL,37,'Size','A4'),(47,NULL,38,'Amount (pcs)','4P'),(48,NULL,39,'Print Type','Urgent'),(49,NULL,39,'Design Source','Studio'),(51,NULL,40,'Amount (pcs)','4P'),(52,NULL,41,'Amount (pcs)','Extra'),(53,NULL,42,'Amount (pcs)','Original'),(54,NULL,43,'Size','A4'),(55,NULL,44,'Amount (pcs)','4P'),(56,NULL,45,'Amount (pcs)','Original'),(57,NULL,47,'Amount (pcs)','4P'),(58,NULL,48,'Amount (pcs)','Extra'),(59,NULL,49,'Amount (pcs)','Original'),(60,NULL,50,'Size','1/3\"'),(61,NULL,50,'Color','Brown'),(63,NULL,51,'Color','Black'),(64,NULL,51,'Thickness ','3/4\"'),(66,NULL,52,'Color','Black'),(67,NULL,52,'Thickness ','3/4\"'),(69,NULL,53,'Color','Black'),(70,NULL,53,'Thickness ','3/4\"'),(72,NULL,54,'Color','Black'),(73,NULL,54,'Thickness ','3/4\"'),(75,NULL,55,'Color','Black'),(76,NULL,55,'Thickness ','3/4\"'),(78,NULL,56,'Color','Black'),(79,NULL,56,'Thickness ','3/4\"'),(81,NULL,57,'Color','Black'),(82,NULL,57,'Thickness ','3/4\"'),(84,NULL,58,'Color','Black'),(85,NULL,58,'Thickness ','3/4\"'),(87,NULL,59,'Color','Black'),(88,NULL,59,'Thickness ','3/4\"'),(90,NULL,61,'Size','A4'),(91,NULL,62,'Amount (pcs)','4P'),(92,NULL,63,'Amount (pcs)','Extra'),(93,NULL,64,'Size','A4'),(94,NULL,65,'Amount (pcs)','4P'),(95,NULL,66,'Amount (pcs)','Extra'),(96,NULL,67,'Amount (pcs)','Original'),(97,NULL,68,'Amount (pcs)','4P'),(98,NULL,69,'Amount (pcs)','Extra'),(99,NULL,70,'Amount (pcs)','4P'),(100,NULL,71,'Amount (pcs)','Extra'),(101,NULL,72,'Color','Black'),(102,NULL,72,'Thickness ','3/4\"'),(104,NULL,73,'Color','Black'),(105,NULL,73,'Thickness ','3/4\"'),(107,NULL,74,'Color','Black'),(108,NULL,74,'Thickness ','3/4\"'),(110,NULL,75,'Print Type','Normal'),(111,NULL,75,'Design Source','Studio'),(113,NULL,76,'Print Type','Normal'),(114,NULL,76,'Design Source','Studio'),(116,NULL,77,'Amount (pcs)','Original'),(117,NULL,78,'Amount (pcs)','4P'),(118,NULL,79,'Print Type','Normal'),(119,NULL,79,'Design Source','Media Print'),(121,NULL,80,'Amount (pcs)','Original'),(122,NULL,81,'Amount (pcs)','4P'),(123,NULL,82,'Amount (pcs)','4P'),(124,NULL,83,'Amount (pcs)','4P'),(125,NULL,84,'Amount (pcs)','Extra'),(126,NULL,85,'Amount (pcs)','Extra'),(127,NULL,86,'Amount (pcs)','4P'),(128,NULL,87,'Size','A4'),(129,NULL,88,'Size','SMALL'),(130,NULL,89,'Amount (pcs)','4P'),(131,NULL,90,'Size','16x24'),(132,NULL,91,'Amount (pcs)','Extra'),(133,NULL,92,'Size','8x12'),(134,NULL,92,'Color','Black'),(136,NULL,93,'Amount (pcs)','4P'),(137,NULL,94,'Size','6R'),(138,NULL,94,'Color','Black'),(140,NULL,95,'Amount (pcs)','Extra'),(141,NULL,96,'Size','6R'),(142,NULL,96,'Color','Black'),(144,NULL,97,'Amount (pcs)','Extra'),(145,NULL,98,'Size','6R'),(146,NULL,98,'Color','Black'),(148,NULL,99,'Amount (pcs)','Extra'),(149,NULL,100,'Size','6R'),(150,NULL,100,'Color','Black'),(152,NULL,101,'Amount (pcs)','Extra'),(153,NULL,102,'Amount (pcs)','Extra'),(154,NULL,103,'Print Type','Urgeent'),(155,NULL,103,'Design Source','Media Print'),(157,NULL,104,'Color','Black'),(158,NULL,104,'Thickness ','3/4\"'),(160,NULL,105,'Print Type','Urgeent'),(161,NULL,105,'Design Source','Media Print'),(163,NULL,106,'Color','Black'),(164,NULL,106,'Thickness ','3/4\"'),(166,NULL,107,'Print Type','Urgeent'),(167,NULL,107,'Design Source','Media Print'),(169,NULL,108,'Color','Black'),(170,NULL,108,'Thickness ','3/4\"'),(172,NULL,109,'Amount (pcs)','4P'),(173,NULL,110,'Size','SMALL'),(174,NULL,111,'Amount (pcs)','4P'),(175,NULL,112,'Amount (pcs)','Extra'),(176,NULL,113,'Amount (pcs)','4P'),(177,NULL,114,'Size','10x15'),(178,NULL,114,'Color','Black'),(180,NULL,115,'Amount (pcs)','4P'),(181,NULL,116,'Size','10x15'),(182,NULL,116,'Color','Black'),(184,NULL,117,'Size','A4'),(185,NULL,118,'Amount (pcs)','Extra'),(186,NULL,119,'Size','SMALL'),(187,NULL,120,'Size','A4'),(188,NULL,121,'Color','Black'),(189,NULL,121,'Thickness ','3/4\"'),(191,NULL,122,'Color','Black'),(192,NULL,122,'Thickness ','3/4\"'),(194,NULL,123,'Size','A4'),(195,NULL,124,'Color','Black'),(196,NULL,124,'Thickness ','3/4\"'),(198,NULL,125,'Color','Black'),(199,NULL,125,'Thickness ','3/4\"'),(201,NULL,126,'Size','A4'),(202,NULL,127,'Color','Black'),(203,NULL,127,'Thickness ','3/4\"'),(205,NULL,128,'Color','Black'),(206,NULL,128,'Thickness ','2\"'),(208,NULL,129,'Color','Silver'),(209,NULL,129,'Thickness ','1\"'),(211,NULL,130,'Color','Silver'),(212,NULL,130,'Thickness ','1\"'),(214,NULL,131,'Color','Silver'),(215,NULL,131,'Thickness ','1\"'),(217,NULL,132,'Color','Black'),(218,NULL,132,'Thickness ','3/4\"'),(220,NULL,133,'Size','1/2\"'),(221,NULL,133,'Color','Black'),(223,NULL,134,'Color','Black'),(224,NULL,134,'Thickness ','3/4\"'),(226,NULL,135,'Color','Silver'),(227,NULL,135,'Thickness ','1\"'),(229,NULL,136,'Color','Black'),(230,NULL,136,'Thickness ','3/4\"'),(232,NULL,137,'Color','Black'),(233,NULL,137,'Thickness ','3/4\"'),(235,NULL,138,'Color','Black'),(236,NULL,138,'Thickness ','3/4\"'),(238,NULL,139,'Color','Black'),(239,NULL,139,'Thickness ','3/4\"'),(241,NULL,140,'Color','Black'),(242,NULL,140,'Thickness ','2\"'),(244,NULL,141,'Color','Black'),(245,NULL,141,'Thickness ','3/4\"'),(247,NULL,142,'Color','Black'),(248,NULL,142,'Thickness ','3/4\"'),(250,NULL,143,'Color','Black'),(251,NULL,143,'Thickness ','3/4\"'),(253,NULL,144,'Color','Black'),(254,NULL,144,'Thickness ','3/4\"'),(256,NULL,145,'Print Type','Normal'),(257,NULL,145,'Design Source','Media Print'),(259,NULL,146,'Print Type','Urgent'),(260,NULL,146,'Design Source','Studio'),(262,NULL,147,'Print Type','Urgent'),(263,NULL,147,'Design Source','Studio'),(265,NULL,148,'Print Type','Urgent'),(266,NULL,148,'Design Source','Studio'),(268,NULL,149,'Print Type','Normal'),(269,NULL,149,'Design Source','Customer'),(271,NULL,150,'Print Type','Normal'),(272,NULL,150,'Design Source','Customer'),(274,NULL,151,'Print Type','Urgent'),(275,NULL,151,'Design Source','Studio'),(277,NULL,152,'Print Type','Urgent'),(278,NULL,152,'Design Source','Studio'),(280,NULL,153,'Print Type','Urgent'),(281,NULL,153,'Design Source','Studio'),(283,NULL,154,'Print Type','Normal'),(284,NULL,154,'Design Source','Customer'),(286,NULL,155,'Print Type','Urgent'),(287,NULL,155,'Design Source','Studio'),(289,NULL,156,'Print Type','Urgent'),(290,NULL,156,'Design Source','Studio'),(292,NULL,157,'Print Type','Urgent'),(293,NULL,157,'Design Source','Studio'),(295,NULL,158,'Print Type','Urgent'),(296,NULL,158,'Design Source','Studio'),(301,NULL,162,'Size','4R'),(302,NULL,163,'Size','16x24'),(303,NULL,164,'Size','16x24'),(304,NULL,165,'Size','6x6'),(305,NULL,166,'Size','A4'),(306,NULL,168,'Color','Black'),(307,NULL,168,'Thickness ','2\"'),(309,NULL,169,'Color','Black'),(310,NULL,169,'Thickness ','2\"'),(312,NULL,170,'Color','Black'),(313,NULL,170,'Thickness ','3/4\"'),(315,NULL,171,'Size','A4'),(316,NULL,173,'Size','A4'),(317,NULL,174,'Size','8X8'),(318,NULL,175,'Size','6x6'),(319,NULL,176,'Print Type','Normal'),(320,NULL,176,'Design Source','Studio'),(322,NULL,177,'Size','20x30'),(323,NULL,177,'Color','Black'),(325,NULL,178,'Size','16x24'),(326,NULL,179,'Size','16x24'),(327,NULL,180,'Size','12x15'),(328,NULL,181,'Size','12x15'),(329,NULL,182,'Amount (pcs)','4 pieces'),(330,NULL,183,'Amount (pcs)','Extra'),(331,NULL,184,'Amount (pcs)','Extra'),(332,NULL,185,'Amount (pcs)','6 Pieces'),(333,NULL,186,'Amount (pcs)','4 Pieces'),(334,NULL,187,'Amount (pcs)','4 Pieces'),(335,NULL,188,'Color','Color'),(336,NULL,191,'Size','16x20'),(337,NULL,191,'Color','Black'),(339,NULL,192,'Size','A4'),(340,NULL,193,'Size','8x12'),(341,NULL,193,'Finish Option','Frame Only'),(343,NULL,194,'Amount (pcs)','4P'),(344,NULL,195,'Amount (pcs)','Extra'),(345,NULL,196,'Amount (pcs)','4P'),(346,NULL,197,'Amount (pcs)','4P'),(347,NULL,198,'Amount (pcs)','Extra'),(348,NULL,199,'Amount (pcs)','4P'),(349,NULL,200,'Amount (pcs)','Extra'),(350,NULL,202,'Size','8R'),(351,NULL,203,'Amount (pcs)','Extra'),(352,NULL,204,'Print Type','Normal'),(353,NULL,204,'Design Source','Media Print'),(355,NULL,205,'Print Type','Normal'),(356,NULL,205,'Design Source','Media Print'),(358,NULL,206,'Print Type','Normal'),(359,NULL,206,'Design Source','Media Print'),(361,NULL,207,'Print Type','Urgeent'),(362,NULL,207,'Design Source','Media Print'),(364,NULL,208,'Amount (pcs)','4P'),(365,NULL,209,'Size','A4'),(366,NULL,210,'Amount (pcs)','4P'),(367,NULL,211,'Size','A4'),(368,NULL,212,'Amount (pcs)','Extra'),(369,NULL,213,'Amount (pcs)','Extra'),(370,NULL,214,'Amount (pcs)','Extra'),(371,NULL,215,'Amount (pcs)','Extra'),(372,NULL,216,'Print Type','Urgeent'),(373,NULL,216,'Design Source','Media Print'),(375,NULL,217,'Amount (pcs)','4P'),(376,NULL,218,'Size','A4'),(377,NULL,219,'Amount (pcs)','4P'),(378,NULL,220,'Size','A4'),(379,NULL,222,'Color','Silver'),(380,NULL,222,'Thickness ','1\"'),(384,NULL,225,'Color','Color'),(385,NULL,226,'Print Type','Urgeent'),(386,NULL,226,'Design Source','Media Print'),(388,NULL,227,'Amount (pcs)','Extra'),(389,NULL,228,'Size','1/3\"'),(390,NULL,228,'Color','Brown'),(392,NULL,229,'Color','Silver'),(393,NULL,229,'Thickness ','1\"'),(395,NULL,230,'Color','Brown'),(396,NULL,230,'Thickness ','3/4\"'),(398,NULL,231,'Size','LARGE'),(399,NULL,233,'Color','Silver'),(400,NULL,233,'Thickness ','1\"'),(402,NULL,234,'Size','16x20'),(403,NULL,236,'Color','Silver'),(404,NULL,236,'Thickness ','1\"'),(410,NULL,241,'Size','6x8'),(411,NULL,241,'Finish Option','Print with Frame'),(413,NULL,242,'Print Type','Normal'),(414,NULL,242,'Design Source','Media Print'),(416,NULL,243,'Print Type','Urgeent'),(417,NULL,243,'Design Source','Media Print'),(419,NULL,244,'Amount (pcs)','Extra'),(420,NULL,245,'Amount (pcs)','4P'),(421,NULL,246,'Amount (pcs)','4P'),(422,NULL,247,'Color','Brown'),(423,NULL,247,'Thickness ','2\"'),(425,NULL,248,'Amount (pcs)','Original'),(426,NULL,249,'Print Type','Urgeent'),(427,NULL,249,'Design Source','Media Print'),(429,NULL,250,'Amount (pcs)','Original'),(430,NULL,251,'Print Type','Urgeent'),(431,NULL,251,'Design Source','Media Print'),(433,NULL,252,'Color','Brown'),(434,NULL,252,'Thickness ','2\"'),(436,NULL,253,'Amount (pcs)','Extra'),(437,NULL,254,'Amount (pcs)','4 Pieces'),(438,NULL,255,'Amount (pcs)','4P'),(439,NULL,256,'Amount (pcs)','Extra'),(440,NULL,257,'Size','A4'),(441,NULL,258,'Amount (pcs)','Extra'),(442,NULL,259,'Amount (pcs)','Extra'),(443,NULL,260,'Size','A4'),(444,NULL,261,'Amount (pcs)','Extra'),(445,NULL,262,'Amount (pcs)','Extra'),(446,NULL,263,'Size','A4'),(447,NULL,264,'Amount (pcs)','Extra'),(448,NULL,265,'Amount (pcs)','Extra'),(449,NULL,266,'Amount (pcs)','Extra'),(450,NULL,267,'Amount (pcs)','Extra'),(451,NULL,268,'Amount (pcs)','4P'),(452,NULL,269,'Size','1/2\"'),(453,NULL,269,'Color','Black'),(455,NULL,270,'Color','Black'),(456,NULL,270,'Thickness ','3/4\"'),(458,NULL,271,'Color','Black'),(459,NULL,271,'Thickness ','3/4\"'),(461,NULL,272,'Color','Black'),(462,NULL,272,'Thickness ','3/4\"'),(464,NULL,273,'Color','Silver'),(465,NULL,273,'Thickness ','1\"'),(467,NULL,274,'Size','1/3\"'),(468,NULL,274,'Color','Brown'),(470,NULL,275,'Color','Black'),(471,NULL,275,'Thickness ','2\"'),(473,NULL,279,'Size','LARGE'),(474,NULL,280,'Size','12x15'),(475,NULL,280,'Finish Option','Print with Frame'),(477,NULL,281,'Size','20x30'),(478,NULL,281,'Finish Option','Print with Frame'),(480,NULL,282,'Size','16x20'),(481,NULL,283,'Size','12x18'),(482,NULL,284,'Color','Black'),(483,NULL,284,'Thickness ','3/4\"'),(485,NULL,285,'Amount (pcs)','Original'),(486,NULL,286,'Amount (pcs)','Original'),(487,NULL,287,'Amount (pcs)','Extra'),(488,NULL,288,'Amount (pcs)','Extra'),(489,NULL,289,'Color','Silver'),(490,NULL,289,'Thickness ','1\"'),(492,NULL,290,'Size','1/2\"'),(493,NULL,290,'Color','Black'),(495,NULL,291,'Size','1/3\"'),(496,NULL,291,'Color','Brown'),(498,NULL,292,'Color','Black'),(499,NULL,292,'Thickness ','3/4\"'),(501,NULL,293,'Size','16x20'),(502,NULL,294,'Color','Silver'),(503,NULL,294,'Thickness ','1\"'),(505,NULL,295,'Color','Black'),(506,NULL,295,'Thickness ','3/4\"'),(508,NULL,296,'Color','Black'),(509,NULL,296,'Thickness ','3/4\"'),(511,NULL,297,'Color','Black'),(512,NULL,297,'Thickness ','2\"'),(514,NULL,298,'Color','Brown'),(515,NULL,298,'Thickness ','2\"'),(517,NULL,299,'Print Type','Urgent'),(518,NULL,299,'Design Source','Studio'),(520,NULL,300,'Print Type','Urgent'),(521,NULL,300,'Design Source','Studio'),(523,NULL,301,'Print Type','Normal'),(524,NULL,301,'Design Source','Customer'),(526,NULL,302,'Print Type','Urgent'),(527,NULL,302,'Design Source','Studio'),(529,NULL,303,'Print Type','Urgent'),(530,NULL,303,'Design Source','Studio'),(532,NULL,304,'Print Type','Urgent'),(533,NULL,304,'Design Source','Studio'),(535,NULL,305,'Print Type','Urgent'),(536,NULL,305,'Design Source','Studio'),(538,NULL,306,'Color','Black'),(539,NULL,306,'Thickness ','3/4\"'),(541,NULL,307,'Print Type','Urgent'),(542,NULL,308,'Print Type','Normal'),(543,NULL,309,'Print Type','Urgent'),(544,NULL,309,'Design Source','Studio'),(546,NULL,310,'Amount (pcs)','4P'),(547,NULL,311,'Amount (pcs)','Extra'),(548,NULL,312,'Size','6R'),(549,NULL,312,'Color','Black'),(551,NULL,313,'Amount (pcs)','4P'),(552,NULL,314,'Amount (pcs)','Extra'),(553,NULL,315,'Amount (pcs)','Extra'),(554,NULL,316,'Amount (pcs)','4P'),(555,NULL,317,'Amount (pcs)','4P'),(556,NULL,318,'Amount (pcs)','4P'),(557,NULL,319,'Amount (pcs)','Extra'),(558,NULL,320,'Amount (pcs)','4P'),(559,NULL,321,'Amount (pcs)','Extra'),(560,NULL,322,'Amount (pcs)','4P'),(561,NULL,323,'Amount (pcs)','Extra'),(562,NULL,324,'Amount (pcs)','4P'),(563,NULL,325,'Amount (pcs)','Extra'),(564,NULL,326,'Amount (pcs)','4P'),(565,NULL,327,'Size','A4'),(566,NULL,331,'Issue','Normal'),(567,NULL,332,'Amount (pcs)','4P'),(568,NULL,333,'Amount (pcs)','4P'),(569,NULL,334,'Amount (pcs)','4P'),(570,NULL,335,'Amount (pcs)','4P'),(571,NULL,336,'Amount (pcs)','4P'),(572,NULL,337,'Amount (pcs)','Extra'),(573,NULL,338,'Amount (pcs)','4P'),(574,NULL,340,'Size','A4'),(575,NULL,342,'Print Type','Urgeent'),(576,NULL,342,'Design Source','Media Print'),(578,NULL,344,'Amount (pcs)','Extra'),(579,NULL,345,'Color','Black'),(580,NULL,345,'Thickness ','3/4\"'),(582,NULL,348,'Print Type','Normal'),(583,NULL,348,'Design Source','Media Print'),(585,NULL,350,'Color','Silver'),(586,NULL,350,'Thickness ','1\"'),(588,NULL,351,'Amount (pcs)','Original'),(589,NULL,352,'Amount (pcs)','Extra'),(590,NULL,353,'Amount (pcs)','Extra'),(591,NULL,354,'Size','6R'),(592,NULL,354,'Color','Black'),(594,NULL,355,'Amount (pcs)','Extra'),(595,NULL,356,'Amount (pcs)','4P'),(596,NULL,357,'Amount (pcs)','4P'),(597,NULL,358,'Amount (pcs)','Extra'),(598,NULL,359,'Size','A4'),(599,NULL,360,'Amount (pcs)','4P'),(600,NULL,361,'Amount (pcs)','4P'),(601,NULL,362,'Amount (pcs)','4 pieces'),(602,NULL,363,'Amount (pcs)','4P'),(603,NULL,364,'Amount (pcs)','Extra'),(604,NULL,365,'Amount (pcs)','4 Pieces'),(605,NULL,366,'Amount (pcs)','4 Pieces'),(606,NULL,367,'Amount (pcs)','4 Pieces'),(607,NULL,368,'Amount (pcs)','4 Pieces'),(608,NULL,369,'Size','4R'),(609,NULL,369,'Color','Black'),(611,NULL,370,'Size','LARGE'),(612,NULL,372,'Size','8X8'),(613,NULL,373,'Size','20x30'),(614,NULL,374,'Amount (pcs)','Extra'),(615,NULL,375,'Amount (pcs)','Extra'),(616,NULL,376,'Amount (pcs)','4P'),(617,NULL,377,'Size','A4'),(618,NULL,378,'Print Type','Urgeent'),(619,NULL,378,'Design Source','Media Print'),(621,NULL,379,'Amount (pcs)','4P'),(622,NULL,380,'Amount (pcs)','Extra'),(623,NULL,381,'Size','A4'),(624,NULL,382,'Size','SMALL'),(625,NULL,383,'Amount (pcs)','4P');
 /*!40000 ALTER TABLE `snapshot_variation_product_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2567,7 +2059,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `stock_adjustment_reason`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `stock_adjustment_reason` (
   `adjustmentReasonId` int(11) NOT NULL AUTO_INCREMENT,
   `adjustmentReasonName` varchar(100) DEFAULT NULL,
@@ -2586,15 +2078,7 @@ CREATE TABLE `stock_adjustment_reason` (
 
 LOCK TABLES `stock_adjustment_reason` WRITE;
 /*!40000 ALTER TABLE `stock_adjustment_reason` DISABLE KEYS */;
-INSERT INTO `stock_adjustment_reason` VALUES
-(1,'Restock',1,'2025-01-01 10:58:46','2025-01-01 10:58:46'),
-(2,'Inventory Count Adjustment',1,'2025-01-01 10:58:46','2025-01-01 10:58:46'),
-(3,'Replenishment from Supplier',1,'2025-01-01 10:58:46','2025-01-01 10:58:46'),
-(4,'Other (Addition)',1,'2025-01-01 10:58:46','2025-01-01 10:58:46'),
-(5,'Damaged Item',2,'2025-01-01 10:58:46','2025-01-01 10:58:46'),
-(6,'Lost during Transport',2,'2025-01-01 10:58:46','2025-01-01 10:58:46'),
-(7,'Expired Item',2,'2025-01-01 10:58:46','2025-01-01 10:58:46'),
-(8,'Other (Deduction)',2,'2025-01-01 10:58:46','2025-01-01 10:58:46');
+INSERT INTO `stock_adjustment_reason` VALUES (1,'Restock',1,'2025-01-01 10:58:46','2025-01-01 10:58:46'),(2,'Inventory Count Adjustment',1,'2025-01-01 10:58:46','2025-01-01 10:58:46'),(3,'Replenishment from Supplier',1,'2025-01-01 10:58:46','2025-01-01 10:58:46'),(4,'Other (Addition)',1,'2025-01-01 10:58:46','2025-01-01 10:58:46'),(5,'Damaged Item',2,'2025-01-01 10:58:46','2025-01-01 10:58:46'),(6,'Lost during Transport',2,'2025-01-01 10:58:46','2025-01-01 10:58:46'),(7,'Expired Item',2,'2025-01-01 10:58:46','2025-01-01 10:58:46'),(8,'Other (Deduction)',2,'2025-01-01 10:58:46','2025-01-01 10:58:46');
 /*!40000 ALTER TABLE `stock_adjustment_reason` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2604,7 +2088,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `stock_adjustment_type`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `stock_adjustment_type` (
   `adjustmentTypeId` int(11) NOT NULL AUTO_INCREMENT,
   `adjustmentTypeName` varchar(100) DEFAULT NULL,
@@ -2620,9 +2104,7 @@ CREATE TABLE `stock_adjustment_type` (
 
 LOCK TABLES `stock_adjustment_type` WRITE;
 /*!40000 ALTER TABLE `stock_adjustment_type` DISABLE KEYS */;
-INSERT INTO `stock_adjustment_type` VALUES
-(1,'Addition','2025-01-01 11:02:40','2025-01-01 11:02:40'),
-(2,'Deduction','2025-01-01 11:02:53','2025-01-01 11:02:53');
+INSERT INTO `stock_adjustment_type` VALUES (1,'Addition','2025-01-01 11:02:40','2025-01-01 11:02:40'),(2,'Deduction','2025-01-01 11:02:53','2025-01-01 11:02:53');
 /*!40000 ALTER TABLE `stock_adjustment_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2632,20 +2114,22 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `stock_batch_order_mapping`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `stock_batch_order_mapping` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `stockBatchId` int(11) NOT NULL,
+  `stockBatchId` int(11) DEFAULT NULL,
   `orderId` int(11) NOT NULL,
   `qty` decimal(10,2) NOT NULL,
   `CreatedDate_UTC` datetime NOT NULL DEFAULT utc_timestamp(),
   `CreatedDate_ServerTime` datetime NOT NULL DEFAULT current_timestamp(),
+  `inventoryId` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `stockBatchId` (`stockBatchId`),
   KEY `orderId` (`orderId`),
-  CONSTRAINT `stock_batch_order_mapping_ibfk_1` FOREIGN KEY (`stockBatchId`) REFERENCES `non_serialized_item` (`stockBatchId`),
-  CONSTRAINT `stock_batch_order_mapping_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `order_header` (`OrderId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  KEY `stock_batch_order_mapping_inventory_FK` (`inventoryId`),
+  CONSTRAINT `stock_batch_order_mapping_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `order_header` (`OrderId`),
+  CONSTRAINT `stock_batch_order_mapping_inventory_FK` FOREIGN KEY (`inventoryId`) REFERENCES `inventory` (`inventoryId`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2654,6 +2138,7 @@ CREATE TABLE `stock_batch_order_mapping` (
 
 LOCK TABLES `stock_batch_order_mapping` WRITE;
 /*!40000 ALTER TABLE `stock_batch_order_mapping` DISABLE KEYS */;
+INSERT INTO `stock_batch_order_mapping` VALUES (2,NULL,3,1.00,'2025-09-09 11:53:56','2025-09-09 17:23:56',850),(6,NULL,10,1.00,'2025-09-09 12:07:19','2025-09-09 17:37:19',850),(7,NULL,19,1.00,'2025-09-10 06:52:50','2025-09-10 12:22:50',878),(8,NULL,42,1.00,'2025-09-22 19:08:14','2025-09-23 00:38:14',850),(9,NULL,43,1.00,'2025-09-22 19:11:07','2025-09-23 00:41:07',850),(10,NULL,72,1.00,'2025-10-02 10:06:24','2025-10-02 15:36:24',851),(11,NULL,73,1.00,'2025-10-02 10:06:44','2025-10-02 15:36:44',852),(12,NULL,74,1.00,'2025-10-02 10:07:02','2025-10-02 15:37:02',853),(13,NULL,75,1.00,'2025-10-02 10:07:21','2025-10-02 15:37:21',854),(14,NULL,76,1.00,'2025-10-02 10:07:51','2025-10-02 15:37:51',854),(15,NULL,77,1.00,'2025-10-02 10:15:26','2025-10-02 15:45:26',876),(16,NULL,78,1.00,'2025-10-02 10:15:52','2025-10-02 15:45:52',877),(17,NULL,79,1.00,'2025-10-02 10:16:12','2025-10-02 15:46:12',878),(18,NULL,80,1.00,'2025-10-02 10:16:30','2025-10-02 15:46:30',850),(19,NULL,95,1.00,'2025-10-02 11:25:02','2025-10-02 16:55:02',850),(21,NULL,163,1.00,'2025-10-21 10:22:03','2025-10-21 15:52:03',851),(22,NULL,164,1.00,'2025-10-21 10:22:15','2025-10-21 15:52:15',852),(23,NULL,165,1.00,'2025-10-21 10:22:33','2025-10-21 15:52:33',853);
 /*!40000 ALTER TABLE `stock_batch_order_mapping` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2663,7 +2148,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `stock_entry_voided`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `stock_entry_voided` (
   `stock_entry_voided_id` int(11) NOT NULL AUTO_INCREMENT,
   `stockEntryId` int(11) DEFAULT NULL,
@@ -2693,7 +2178,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `stockentry`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `stockentry` (
   `stockEntryId` int(11) NOT NULL AUTO_INCREMENT,
   `supplierId` int(11) DEFAULT NULL,
@@ -2715,7 +2200,7 @@ CREATE TABLE `stockentry` (
   KEY `stockentry_contact_FK` (`supplierId`),
   CONSTRAINT `FK_stockEntry_store` FOREIGN KEY (`storeId`) REFERENCES `store` (`storeId`),
   CONSTRAINT `stockentry_contact_FK` FOREIGN KEY (`supplierId`) REFERENCES `contact` (`contactId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2724,6 +2209,7 @@ CREATE TABLE `stockentry` (
 
 LOCK TABLES `stockentry` WRITE;
 /*!40000 ALTER TABLE `stockentry` DISABLE KEYS */;
+INSERT INTO `stockentry` VALUES (1,2,'2025-09-09','00001',19,'2025-09-09 12:03:26','2025-09-09 17:33:26',NULL,NULL,1,'\0','11111',5,NULL),(2,1,'2025-09-09','00002',19,'2025-09-09 17:41:29','2025-09-09 23:11:29',NULL,NULL,6,'\0','0011',5,NULL),(3,1,'2025-09-09','00003',19,'2025-09-09 17:44:23','2025-09-09 23:14:23',NULL,NULL,6,'\0','1111',5,NULL);
 /*!40000 ALTER TABLE `stockentry` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2733,7 +2219,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `stockentry_voiding_reason`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `stockentry_voiding_reason` (
   `voiding_reason_id` int(11) NOT NULL AUTO_INCREMENT,
   `ReasonName` varchar(100) DEFAULT NULL,
@@ -2748,9 +2234,7 @@ CREATE TABLE `stockentry_voiding_reason` (
 
 LOCK TABLES `stockentry_voiding_reason` WRITE;
 /*!40000 ALTER TABLE `stockentry_voiding_reason` DISABLE KEYS */;
-INSERT INTO `stockentry_voiding_reason` VALUES
-(20,'Entered Incorrectly',NULL),
-(21,'Other (Please Specify)',NULL);
+INSERT INTO `stockentry_voiding_reason` VALUES (20,'Entered Incorrectly',NULL),(21,'Other (Please Specify)',NULL);
 /*!40000 ALTER TABLE `stockentry_voiding_reason` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2760,7 +2244,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `stockentrydetails`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `stockentrydetails` (
   `stockEntryDetailsId` int(11) NOT NULL AUTO_INCREMENT,
   `stockEntryId` int(11) DEFAULT NULL,
@@ -2778,7 +2262,7 @@ CREATE TABLE `stockentrydetails` (
   KEY `stockentrydetails_all_product_FK` (`allProductId`),
   CONSTRAINT `FK_stockEntryDetails_stockEntry` FOREIGN KEY (`stockEntryId`) REFERENCES `stockentry` (`stockEntryId`),
   CONSTRAINT `stockentrydetails_all_product_FK` FOREIGN KEY (`allProductId`) REFERENCES `all_product` (`allProductId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2787,6 +2271,7 @@ CREATE TABLE `stockentrydetails` (
 
 LOCK TABLES `stockentrydetails` WRITE;
 /*!40000 ALTER TABLE `stockentrydetails` DISABLE KEYS */;
+INSERT INTO `stockentrydetails` VALUES (1,1,70,20.00,0.00,'00001',1000.00,NULL,NULL,0.00),(2,2,258,1000.00,0.00,'00002',5.00,NULL,NULL,0.00),(3,2,120,100.00,0.00,'00003',1200.00,NULL,NULL,0.00),(4,2,73,100.00,0.00,'00004',1600.00,NULL,NULL,0.00),(5,2,72,100.00,0.00,'00005',1200.00,NULL,NULL,0.00),(6,2,112,100.00,0.00,'00006',750.00,NULL,NULL,0.00),(7,3,205,100.00,1.00,'00007',1.00,NULL,NULL,0.00);
 /*!40000 ALTER TABLE `stockentrydetails` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2796,7 +2281,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `store`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `store` (
   `storeId` int(11) NOT NULL AUTO_INCREMENT,
   `StoreCode` varchar(50) DEFAULT NULL,
@@ -2816,7 +2301,7 @@ CREATE TABLE `store` (
   UNIQUE KEY `branchId_UNIQUE` (`storeId`),
   KEY `store_country_fk` (`countryid`),
   CONSTRAINT `store_country_fk` FOREIGN KEY (`countryid`) REFERENCES `country` (`CountryId`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2825,6 +2310,7 @@ CREATE TABLE `store` (
 
 LOCK TABLES `store` WRITE;
 /*!40000 ALTER TABLE `store` DISABLE KEYS */;
+INSERT INTO `store` VALUES (19,'S0019','Pitakotte','2025-03-13 19:56:58','2025-03-13 19:56:58','2025-03-13 19:56:58','2025-03-13 19:56:58','28/B Thalawathugoda Road, Pitakotte.','Colombo','Western','dayarastudio12@gmail.com','071 410 6305','011 287 7315',NULL,358);
 /*!40000 ALTER TABLE `store` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2834,7 +2320,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `store_company`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `store_company` (
   `storeId` int(11) NOT NULL,
   `companyId` int(11) NOT NULL,
@@ -2855,6 +2341,7 @@ CREATE TABLE `store_company` (
 
 LOCK TABLES `store_company` WRITE;
 /*!40000 ALTER TABLE `store_company` DISABLE KEYS */;
+INSERT INTO `store_company` VALUES (19,19,'2025-03-13 19:56:58','2025-03-13 19:56:58',NULL,NULL);
 /*!40000 ALTER TABLE `store_company` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2864,7 +2351,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `store_inventory_product`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `store_inventory_product` (
   `storeInventoryProductId` int(11) NOT NULL AUTO_INCREMENT,
   `StoreId` int(11) DEFAULT NULL,
@@ -2880,10 +2367,11 @@ CREATE TABLE `store_inventory_product` (
   PRIMARY KEY (`storeInventoryProductId`),
   KEY `FK_storeInventoryProduct_store` (`StoreId`),
   KEY `FK_storeInventoryProduct_allProductId` (`allProductId`),
+  KEY `store_inventory_product_variation_product_FK` (`variationProductId`),
   CONSTRAINT `FK_storeInventoryProduct_allProductId` FOREIGN KEY (`allProductId`) REFERENCES `all_product` (`allProductId`),
   CONSTRAINT `FK_storeInventoryProduct_store` FOREIGN KEY (`StoreId`) REFERENCES `store` (`storeId`),
-  CONSTRAINT `chk_inventoryId_null` CHECK (`comboProductId` is null or `inventoryId` is null)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  CONSTRAINT `store_inventory_product_variation_product_FK` FOREIGN KEY (`variationProductId`) REFERENCES `variation_product` (`variationProductId`)
+) ENGINE=InnoDB AUTO_INCREMENT=312 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2892,6 +2380,7 @@ CREATE TABLE `store_inventory_product` (
 
 LOCK TABLES `store_inventory_product` WRITE;
 /*!40000 ALTER TABLE `store_inventory_product` DISABLE KEYS */;
+INSERT INTO `store_inventory_product` VALUES (37,19,NULL,34,34,NULL,'2025-07-13 18:16:56','2025-07-13 23:46:56',NULL,NULL,37),(38,19,NULL,35,35,NULL,'2025-07-13 18:17:34','2025-07-13 23:47:34',NULL,NULL,38),(55,19,846,52,NULL,NULL,'2025-07-23 11:42:10','2025-07-23 17:12:10',NULL,NULL,55),(56,19,847,53,NULL,NULL,'2025-07-23 11:46:17','2025-07-23 17:16:17',NULL,NULL,56),(57,19,848,54,NULL,NULL,'2025-07-23 11:46:51','2025-07-23 17:16:51',NULL,NULL,57),(58,19,849,55,NULL,NULL,'2025-07-23 11:47:23','2025-07-23 17:17:23',NULL,NULL,58),(59,19,850,56,NULL,NULL,'2025-07-23 11:47:58','2025-07-23 17:17:58',NULL,NULL,59),(60,19,851,57,NULL,NULL,'2025-07-23 11:48:27','2025-07-23 17:18:27',NULL,NULL,60),(61,19,852,58,NULL,NULL,'2025-07-23 11:48:55','2025-07-23 17:18:55',NULL,NULL,61),(62,19,853,59,NULL,NULL,'2025-07-23 11:49:28','2025-07-23 17:19:28',NULL,NULL,62),(63,19,854,60,NULL,NULL,'2025-07-23 11:50:03','2025-07-23 17:20:03',NULL,NULL,63),(64,19,NULL,NULL,NULL,5,'2025-07-28 20:54:06','2025-07-29 02:24:06',NULL,NULL,64),(65,19,NULL,NULL,NULL,6,'2025-07-28 20:54:06','2025-07-29 02:24:06',NULL,NULL,65),(66,19,857,NULL,NULL,7,'2025-07-28 20:55:38','2025-07-29 02:25:38',NULL,NULL,66),(67,19,858,NULL,NULL,8,'2025-07-28 20:55:38','2025-07-29 02:25:38',NULL,NULL,67),(68,19,859,NULL,NULL,9,'2025-07-28 20:56:55','2025-07-29 02:26:55',NULL,NULL,68),(69,19,860,NULL,NULL,10,'2025-07-28 20:56:55','2025-07-29 02:26:55',NULL,NULL,69),(70,19,861,NULL,NULL,11,'2025-07-28 20:58:14','2025-07-29 02:28:14',NULL,NULL,70),(71,19,862,NULL,NULL,12,'2025-07-28 20:58:14','2025-07-29 02:28:14',NULL,NULL,71),(72,19,NULL,NULL,NULL,13,'2025-07-28 21:03:20','2025-07-29 02:33:20',NULL,NULL,72),(73,19,NULL,NULL,NULL,14,'2025-07-28 21:03:20','2025-07-29 02:33:20',NULL,NULL,73),(74,19,NULL,NULL,NULL,15,'2025-07-28 21:05:08','2025-07-29 02:35:08',NULL,NULL,74),(75,19,NULL,NULL,NULL,16,'2025-07-28 21:05:08','2025-07-29 02:35:08',NULL,NULL,75),(76,19,NULL,NULL,NULL,17,'2025-07-28 21:08:20','2025-07-29 02:38:20',NULL,NULL,76),(77,19,NULL,NULL,NULL,18,'2025-07-28 21:08:20','2025-07-29 02:38:20',NULL,NULL,77),(78,19,NULL,NULL,NULL,19,'2025-07-28 21:10:17','2025-07-29 02:40:17',NULL,NULL,78),(79,19,NULL,NULL,NULL,20,'2025-07-28 21:10:17','2025-07-29 02:40:17',NULL,NULL,79),(80,19,NULL,NULL,NULL,21,'2025-07-28 21:12:36','2025-07-29 02:42:36',NULL,NULL,80),(81,19,NULL,NULL,NULL,22,'2025-07-28 21:12:36','2025-07-29 02:42:36',NULL,NULL,81),(82,19,NULL,NULL,NULL,23,'2025-07-28 21:15:20','2025-07-29 02:45:20',NULL,NULL,82),(83,19,874,NULL,NULL,24,'2025-07-28 21:16:09','2025-07-29 02:46:09',NULL,NULL,83),(84,19,875,NULL,NULL,25,'2025-07-28 21:16:54','2025-07-29 02:46:54',NULL,NULL,84),(86,19,876,74,NULL,NULL,'2025-07-30 09:24:27','2025-07-30 14:54:27',NULL,NULL,86),(88,19,877,76,NULL,NULL,'2025-07-30 09:25:41','2025-07-30 14:55:41',NULL,NULL,88),(90,19,878,78,NULL,NULL,'2025-07-30 09:28:39','2025-07-30 14:58:39',NULL,NULL,90),(108,19,879,96,NULL,NULL,'2025-08-04 15:22:13','2025-08-04 20:52:13',NULL,NULL,108),(112,19,NULL,NULL,NULL,28,'2025-08-25 09:45:42','2025-08-25 15:15:42',NULL,NULL,111),(113,19,NULL,NULL,NULL,29,'2025-08-25 09:45:42','2025-08-25 15:15:42',NULL,NULL,112),(121,19,NULL,NULL,NULL,37,'2025-08-25 16:27:06','2025-08-25 21:57:06',NULL,NULL,117),(122,19,893,NULL,NULL,38,'2025-08-25 17:26:13','2025-08-25 22:56:13',NULL,NULL,118),(123,19,NULL,NULL,NULL,39,'2025-08-25 17:28:38','2025-08-25 22:58:38',NULL,NULL,119),(124,19,NULL,NULL,NULL,40,'2025-08-25 17:32:14','2025-08-25 23:02:14',NULL,NULL,120),(125,19,NULL,NULL,NULL,41,'2025-08-25 17:40:03','2025-08-25 23:10:03',NULL,NULL,121),(126,19,NULL,NULL,NULL,42,'2025-08-28 09:24:55','2025-08-28 14:54:55',NULL,NULL,122),(127,19,NULL,NULL,NULL,43,'2025-08-28 09:24:55','2025-08-28 14:54:55',NULL,NULL,123),(128,19,NULL,NULL,NULL,44,'2025-08-29 10:27:40','2025-08-29 15:57:40',NULL,NULL,124),(129,19,NULL,NULL,NULL,45,'2025-08-29 15:00:31','2025-08-29 20:30:31',NULL,NULL,125),(130,19,NULL,NULL,NULL,46,'2025-08-29 15:00:31','2025-08-29 20:30:31',NULL,NULL,126),(131,19,NULL,NULL,NULL,47,'2025-08-29 15:00:31','2025-08-29 20:30:31',NULL,NULL,127),(132,19,NULL,NULL,NULL,48,'2025-08-29 15:00:31','2025-08-29 20:30:31',NULL,NULL,128),(133,19,NULL,NULL,NULL,49,'2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL,129),(134,19,NULL,NULL,NULL,50,'2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL,130),(135,19,NULL,NULL,NULL,51,'2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL,131),(136,19,NULL,NULL,NULL,52,'2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL,132),(137,19,NULL,NULL,NULL,53,'2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL,133),(138,19,NULL,NULL,NULL,54,'2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL,134),(139,19,NULL,NULL,NULL,55,'2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL,135),(140,19,NULL,NULL,NULL,56,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,136),(141,19,NULL,NULL,NULL,57,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,137),(142,19,NULL,NULL,NULL,58,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,138),(143,19,NULL,NULL,NULL,59,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,139),(144,19,NULL,NULL,NULL,60,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,140),(145,19,NULL,NULL,NULL,61,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,141),(146,19,NULL,NULL,NULL,62,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,142),(147,19,NULL,NULL,NULL,63,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,143),(148,19,NULL,NULL,NULL,64,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,144),(149,19,NULL,NULL,NULL,65,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,145),(150,19,NULL,NULL,NULL,66,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,146),(151,19,NULL,NULL,NULL,67,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,147),(152,19,NULL,NULL,NULL,68,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,148),(153,19,NULL,NULL,NULL,69,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,149),(154,19,NULL,NULL,NULL,70,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,150),(155,19,NULL,NULL,NULL,71,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,151),(156,19,NULL,NULL,NULL,72,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,152),(157,19,NULL,NULL,NULL,73,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,153),(158,19,NULL,NULL,NULL,74,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,154),(159,19,NULL,NULL,NULL,75,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,155),(160,19,NULL,NULL,NULL,76,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,156),(161,19,NULL,NULL,NULL,77,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,157),(162,19,NULL,NULL,NULL,78,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,158),(163,19,NULL,NULL,NULL,79,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,159),(164,19,939,110,NULL,NULL,'2025-08-29 15:19:59','2025-08-29 20:49:59',NULL,NULL,160),(165,19,NULL,111,NULL,NULL,'2025-08-29 15:20:27','2025-08-29 20:50:27',NULL,NULL,161),(168,19,NULL,114,NULL,NULL,'2025-08-29 15:22:51','2025-08-29 20:52:51',NULL,NULL,164),(190,19,993,131,NULL,NULL,'2025-09-04 07:59:05','2025-09-04 13:29:05',NULL,NULL,190),(191,19,994,132,NULL,NULL,'2025-09-04 08:00:47','2025-09-04 13:30:47',NULL,NULL,191),(192,19,995,133,NULL,NULL,'2025-09-04 08:01:29','2025-09-04 13:31:29',NULL,NULL,192),(193,19,NULL,NULL,NULL,99,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,193),(194,19,NULL,NULL,NULL,100,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,194),(195,19,NULL,NULL,NULL,101,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,195),(196,19,NULL,NULL,NULL,102,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,196),(197,19,NULL,NULL,NULL,103,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,197),(198,19,NULL,NULL,NULL,104,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,198),(199,19,NULL,NULL,NULL,105,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,199),(200,19,NULL,NULL,NULL,106,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,200),(201,19,NULL,NULL,NULL,107,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,201),(202,19,NULL,NULL,NULL,108,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,202),(203,19,NULL,NULL,NULL,109,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,203),(204,19,NULL,NULL,NULL,110,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,204),(205,19,NULL,NULL,NULL,111,'2025-09-05 06:21:39','2025-09-05 11:51:39',NULL,NULL,205),(224,19,NULL,NULL,NULL,130,'2025-09-08 07:00:59','2025-09-08 12:30:59',NULL,NULL,224),(225,19,NULL,NULL,NULL,131,'2025-09-08 07:00:59','2025-09-08 12:30:59',NULL,NULL,225),(226,19,NULL,NULL,NULL,132,'2025-09-08 07:05:40','2025-09-08 12:35:40',NULL,NULL,226),(227,19,NULL,NULL,NULL,133,'2025-09-08 07:05:40','2025-09-08 12:35:40',NULL,NULL,227),(228,19,NULL,NULL,NULL,134,'2025-09-08 07:09:21','2025-09-08 12:39:21',NULL,NULL,228),(229,19,NULL,NULL,NULL,135,'2025-09-08 07:09:21','2025-09-08 12:39:21',NULL,NULL,229),(230,19,NULL,NULL,NULL,136,'2025-09-08 07:12:50','2025-09-08 12:42:50',NULL,NULL,230),(231,19,NULL,NULL,NULL,137,'2025-09-08 07:12:50','2025-09-08 12:42:50',NULL,NULL,231),(232,19,NULL,NULL,NULL,138,'2025-09-08 07:12:50','2025-09-08 12:42:50',NULL,NULL,232),(233,19,NULL,NULL,NULL,139,'2025-09-08 07:15:46','2025-09-08 12:45:46',NULL,NULL,233),(235,19,NULL,NULL,NULL,141,'2025-09-08 07:15:46','2025-09-08 12:45:46',NULL,NULL,235),(236,19,NULL,NULL,NULL,142,'2025-09-08 07:18:36','2025-09-08 12:48:36',NULL,NULL,236),(238,19,NULL,NULL,NULL,144,'2025-09-08 07:18:36','2025-09-08 12:48:36',NULL,NULL,238),(239,19,NULL,NULL,NULL,145,'2025-09-08 07:21:30','2025-09-08 12:51:30',NULL,NULL,239),(241,19,NULL,NULL,NULL,147,'2025-09-08 07:21:30','2025-09-08 12:51:30',NULL,NULL,241),(246,19,NULL,NULL,NULL,152,'2025-09-08 11:03:26','2025-09-08 16:33:26',NULL,NULL,246),(248,19,NULL,NULL,NULL,154,'2025-09-08 11:03:26','2025-09-08 16:33:26',NULL,NULL,248),(249,19,NULL,NULL,NULL,155,'2025-09-08 11:22:04','2025-09-08 16:52:04',NULL,NULL,249),(250,19,NULL,NULL,NULL,156,'2025-09-08 11:22:04','2025-09-08 16:52:04',NULL,NULL,250),(252,19,NULL,NULL,NULL,158,'2025-09-08 11:33:48','2025-09-08 17:03:48',NULL,NULL,252),(254,19,NULL,NULL,NULL,160,'2025-09-08 11:33:48','2025-09-08 17:03:48',NULL,NULL,254),(255,19,NULL,NULL,NULL,161,'2025-09-08 11:46:06','2025-09-08 17:16:06',NULL,NULL,255),(257,19,NULL,NULL,NULL,163,'2025-09-08 11:46:06','2025-09-08 17:16:06',NULL,NULL,257),(258,19,1068,148,NULL,NULL,'2025-09-08 11:51:50','2025-09-08 17:21:50',NULL,NULL,258),(259,19,NULL,NULL,NULL,164,'2025-09-08 11:52:13','2025-09-08 17:22:13',NULL,NULL,259),(260,19,NULL,NULL,NULL,165,'2025-09-08 11:52:13','2025-09-08 17:22:13',NULL,NULL,260),(261,19,NULL,NULL,NULL,166,'2025-09-08 12:23:00','2025-09-08 17:53:00',NULL,NULL,261),(262,19,998,NULL,NULL,167,'2025-09-09 06:13:57','2025-09-09 11:43:57',NULL,NULL,262),(263,19,999,NULL,NULL,168,'2025-09-09 06:13:57','2025-09-09 11:43:57',NULL,NULL,263),(264,19,NULL,NULL,NULL,169,'2025-09-09 06:17:47','2025-09-09 11:47:47',NULL,NULL,264),(265,19,NULL,NULL,NULL,170,'2025-09-09 06:17:47','2025-09-09 11:47:47',NULL,NULL,265),(266,19,NULL,NULL,NULL,171,'2025-09-09 06:27:17','2025-09-09 11:57:17',NULL,NULL,266),(267,19,NULL,NULL,NULL,172,'2025-09-09 06:27:17','2025-09-09 11:57:17',NULL,NULL,267),(269,19,NULL,NULL,NULL,174,'2025-09-09 06:51:45','2025-09-09 12:21:45',NULL,NULL,269),(270,19,NULL,NULL,NULL,175,'2025-09-09 06:51:45','2025-09-09 12:21:45',NULL,NULL,270),(271,19,NULL,NULL,NULL,176,'2025-09-09 08:49:15','2025-09-09 14:19:15',NULL,NULL,271),(272,19,NULL,NULL,NULL,177,'2025-09-09 08:49:15','2025-09-09 14:19:15',NULL,NULL,272),(273,19,NULL,NULL,NULL,178,'2025-09-09 10:01:08','2025-09-09 15:31:08',NULL,NULL,273),(274,19,NULL,NULL,NULL,179,'2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL,274),(275,19,NULL,NULL,NULL,180,'2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL,275),(276,19,NULL,NULL,NULL,181,'2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL,276),(277,19,NULL,NULL,NULL,182,'2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL,277),(278,19,NULL,NULL,NULL,183,'2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL,278),(279,19,NULL,NULL,NULL,184,'2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL,279),(280,19,NULL,NULL,NULL,185,'2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL,280),(281,19,NULL,NULL,NULL,186,'2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL,281),(282,19,NULL,NULL,NULL,187,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,282),(283,19,NULL,NULL,NULL,188,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,283),(284,19,NULL,NULL,NULL,189,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,284),(285,19,NULL,NULL,NULL,190,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,285),(286,19,NULL,NULL,NULL,191,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,286),(287,19,NULL,NULL,NULL,192,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,287),(288,19,NULL,NULL,NULL,193,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,288),(289,19,NULL,NULL,NULL,194,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,289),(290,19,NULL,NULL,NULL,195,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,290),(291,19,NULL,NULL,NULL,196,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,291),(292,19,NULL,NULL,NULL,197,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,292),(293,19,NULL,NULL,NULL,198,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,293),(294,19,NULL,NULL,NULL,199,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,294),(295,19,NULL,NULL,NULL,200,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,295),(296,19,NULL,NULL,NULL,201,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,296),(297,19,NULL,NULL,NULL,202,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,297),(298,19,1034,NULL,NULL,203,'2025-09-09 10:35:00','2025-09-09 16:05:00',NULL,NULL,298),(299,19,1035,NULL,NULL,204,'2025-09-09 10:35:00','2025-09-09 16:05:00',NULL,NULL,299),(300,19,1036,NULL,NULL,205,'2025-09-09 10:35:00','2025-09-09 16:05:00',NULL,NULL,300),(301,19,NULL,NULL,NULL,206,'2025-09-09 10:39:36','2025-09-09 16:09:36',NULL,NULL,301),(303,19,NULL,NULL,NULL,208,'2025-09-09 11:39:56','2025-09-09 17:09:56',NULL,NULL,303),(304,19,NULL,NULL,NULL,209,'2025-09-09 11:39:56','2025-09-09 17:09:56',NULL,NULL,304),(305,19,NULL,NULL,NULL,210,'2025-09-09 11:42:35','2025-09-09 17:12:35',NULL,NULL,305),(306,19,NULL,NULL,NULL,211,'2025-09-09 11:42:35','2025-09-09 17:12:35',NULL,NULL,306),(307,19,1039,NULL,NULL,212,'2025-09-22 18:53:32','2025-09-23 00:23:32',NULL,NULL,307),(308,19,NULL,NULL,NULL,213,'2025-10-21 11:56:48','2025-10-21 17:26:48',NULL,NULL,308),(309,19,NULL,NULL,NULL,214,'2025-10-21 12:04:57','2025-10-21 17:34:57',NULL,NULL,309),(310,19,NULL,NULL,NULL,215,'2025-10-21 13:16:49','2025-10-21 18:46:49',NULL,NULL,310),(311,19,NULL,NULL,NULL,216,'2025-10-21 13:16:49','2025-10-21 18:46:49',NULL,NULL,311);
 /*!40000 ALTER TABLE `store_inventory_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2901,7 +2390,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `store_terminal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `store_terminal` (
   `storeId` int(11) DEFAULT NULL,
   `terminalId` int(11) NOT NULL,
@@ -2923,7 +2412,39 @@ CREATE TABLE `store_terminal` (
 
 LOCK TABLES `store_terminal` WRITE;
 /*!40000 ALTER TABLE `store_terminal` DISABLE KEYS */;
+INSERT INTO `store_terminal` VALUES (19,29,'2025-08-25 06:54:04','2025-08-25 12:24:04',NULL,NULL);
 /*!40000 ALTER TABLE `store_terminal` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sub_product_detail`
+--
+
+DROP TABLE IF EXISTS `sub_product_detail`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `sub_product_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `allProductId` int(11) NOT NULL,
+  `qty` decimal(10,2) NOT NULL,
+  `allProductId_mat` int(11) NOT NULL,
+  `createDate` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `sub_product_detail_all_product_FK` (`allProductId`),
+  KEY `sub_product_detail_all_product_FK_1` (`allProductId_mat`),
+  CONSTRAINT `sub_product_detail_all_product_FK` FOREIGN KEY (`allProductId`) REFERENCES `all_product` (`allProductId`),
+  CONSTRAINT `sub_product_detail_all_product_FK_1` FOREIGN KEY (`allProductId_mat`) REFERENCES `all_product` (`allProductId`)
+) ENGINE=InnoDB AUTO_INCREMENT=292 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sub_product_detail`
+--
+
+LOCK TABLES `sub_product_detail` WRITE;
+/*!40000 ALTER TABLE `sub_product_detail` DISABLE KEYS */;
+INSERT INTO `sub_product_detail` VALUES (261,230,1.00,63,'2025-09-08 07:12:50'),(262,231,1.00,63,'2025-09-08 07:12:50'),(263,232,1.00,63,'2025-09-08 07:12:50'),(289,259,1.00,258,'2025-09-08 11:52:13'),(290,260,1.00,258,'2025-09-08 11:52:13');
+/*!40000 ALTER TABLE `sub_product_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -2932,7 +2453,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `supplier_payments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `supplier_payments` (
   `PaymentId` int(11) NOT NULL AUTO_INCREMENT,
   `stockEntryId` int(11) NOT NULL,
@@ -2944,7 +2465,7 @@ CREATE TABLE `supplier_payments` (
   PRIMARY KEY (`PaymentId`),
   KEY `FK_supplier_payments_stockentry` (`stockEntryId`),
   CONSTRAINT `FK_supplier_payments_stockentry` FOREIGN KEY (`stockEntryId`) REFERENCES `stockentry` (`stockEntryId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2953,6 +2474,7 @@ CREATE TABLE `supplier_payments` (
 
 LOCK TABLES `supplier_payments` WRITE;
 /*!40000 ALTER TABLE `supplier_payments` DISABLE KEYS */;
+INSERT INTO `supplier_payments` VALUES (1,1,0.0000,'','2025-09-09 12:03:26','2025-09-09 17:33:26','2025-09-09 17:33:26'),(2,2,0.0000,'','2025-09-09 17:41:29','2025-09-09 23:11:29','2025-09-09 23:11:29'),(3,3,0.0000,'','2025-09-09 17:44:23','2025-09-09 23:14:23','2025-09-09 23:14:23');
 /*!40000 ALTER TABLE `supplier_payments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2962,7 +2484,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `system_info`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `system_info` (
   `systemInfoId` int(11) NOT NULL AUTO_INCREMENT,
   `utcOffset` int(11) NOT NULL,
@@ -2981,7 +2503,7 @@ CREATE TABLE `system_info` (
   KEY `FK_system_info_Currency` (`CurrencyId`),
   KEY `FK_system_info_Language` (`PrimaryLanguageId`),
   CONSTRAINT `FK_Geo_Info_Currency` FOREIGN KEY (`CurrencyId`) REFERENCES `currency` (`CurrencyID`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2990,6 +2512,7 @@ CREATE TABLE `system_info` (
 
 LOCK TABLES `system_info` WRITE;
 /*!40000 ALTER TABLE `system_info` DISABLE KEYS */;
+INSERT INTO `system_info` VALUES (20,330,358,84,48,6,'2025-03-13 19:56:58','2025-03-13 19:56:58',NULL,NULL,NULL,1);
 /*!40000 ALTER TABLE `system_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2999,7 +2522,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `terminal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `terminal` (
   `TerminalId` int(11) NOT NULL AUTO_INCREMENT,
   `TerminalName` varchar(50) NOT NULL,
@@ -3008,7 +2531,7 @@ CREATE TABLE `terminal` (
   `ModifiedDate_ServerTime` datetime DEFAULT NULL,
   `ModifiedDate_UTC` datetime DEFAULT NULL,
   PRIMARY KEY (`TerminalId`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3017,6 +2540,7 @@ CREATE TABLE `terminal` (
 
 LOCK TABLES `terminal` WRITE;
 /*!40000 ALTER TABLE `terminal` DISABLE KEYS */;
+INSERT INTO `terminal` VALUES (29,'POS1','2025-03-13 19:56:58','2025-03-13 19:56:58',NULL,NULL);
 /*!40000 ALTER TABLE `terminal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3026,7 +2550,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `timezones`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `timezones` (
   `timeZoneID` int(11) NOT NULL,
   `utcOffsetMinutes` int(11) DEFAULT NULL,
@@ -3049,30 +2573,7 @@ CREATE TABLE `timezones` (
 
 LOCK TABLES `timezones` WRITE;
 /*!40000 ALTER TABLE `timezones` DISABLE KEYS */;
-INSERT INTO `timezones` VALUES
-(1,330,'+05:30','Asia/Colombo','LK',0,'SLST','Sri Lanka Standard Time','Sri Lanka Standard Time',NULL),
-(2,-180,'-03:00','America/Argentina/Buenos_Aires','AR',1,'ART','Argentina Time','Argentina Time','Argentina Daylight Time'),
-(3,-300,'-05:00','America/New_York','US',1,'EST','Eastern Standard Time','Eastern Standard Time','Eastern Daylight Time'),
-(4,0,'+00:00','Europe/London','GB',1,'GMT','Greenwich Mean Time','Greenwich Mean Time','British Summer Time'),
-(5,60,'+01:00','Europe/Paris','FR',1,'CET','Central European Time','Central European Time','Central European Summer Time'),
-(6,60,'+01:00','Europe/Prague','CZ',1,'CET','Central European Time','Central European Standard Time','Central European Summer Time'),
-(7,120,'+02:00','Africa/Cairo','EG',1,'EET','Eastern European Time','Eastern European Time','Eastern European Summer Time'),
-(8,180,'+03:00','Europe/Moscow','RU',1,'MSK','Moscow Time','Moscow Standard Time','Moscow Daylight Time'),
-(9,240,'+04:00','Asia/Dubai','AE',0,'GST','Gulf Standard Time','Gulf Standard Time',NULL),
-(10,270,'+04:30','Asia/Kabul','AF',0,'AFT','Afghanistan Time','Afghanistan Time',NULL),
-(11,300,'+05:00','Asia/Karachi','PK',0,'PKT','Pakistan Standard Time','Pakistan Standard Time',NULL),
-(12,330,'+05:30','Asia/Calcutta','IN',1,'IST','Indian Standard Time','Indian Standard Time','Indian Daylight Time'),
-(13,345,'+05:45','Asia/Kathmandu','NP',0,'NPT','Nepal Time','Nepal Time',NULL),
-(14,360,'+06:00','Asia/Almaty','KZ',0,'ALMT','Alma-Ata Time','Alma-Ata Time',NULL),
-(15,420,'+07:00','Asia/Bangkok','TH',0,'ICT','Indochina Time','Indochina Time',NULL),
-(16,480,'+08:00','Asia/Singapore','SG',0,'SGT','Singapore Time','Singapore Time',NULL),
-(17,540,'+09:00','Asia/Tokyo','JP',0,'JST','Japan Standard Time','Japan Standard Time',NULL),
-(18,570,'+09:30','Australia/Adelaide','AU',1,'ACST','Australian Central Standard Time','Australian Central Standard Time','Australian Central Daylight Time'),
-(19,600,'+10:00','Australia/Sydney','AU',1,'AEST','Australian Eastern Standard Time','Australian Eastern Standard Time','Australian Eastern Daylight Time'),
-(20,660,'+11:00','Pacific/Guadalcanal','SB',0,'SBT','Solomon Islands Time','Solomon Islands Time',NULL),
-(21,720,'+12:00','Pacific/Fiji','FJ',1,'FJT','Fiji Time','Fiji Standard Time','Fiji Daylight Time'),
-(22,120,'+02:00','Europe/Bucharest','RO',1,'EET','Eastern European Time','Eastern European Standard Time','Eastern European Summer Time'),
-(23,60,'+01:00','Europe/Rome','IT',1,'CET','Central European Time','Central European Standard Time','Central European Summer Time');
+INSERT INTO `timezones` VALUES (1,330,'+05:30','Asia/Colombo','LK',0,'SLST','Sri Lanka Standard Time','Sri Lanka Standard Time',NULL),(2,-180,'-03:00','America/Argentina/Buenos_Aires','AR',1,'ART','Argentina Time','Argentina Time','Argentina Daylight Time'),(3,-300,'-05:00','America/New_York','US',1,'EST','Eastern Standard Time','Eastern Standard Time','Eastern Daylight Time'),(4,0,'+00:00','Europe/London','GB',1,'GMT','Greenwich Mean Time','Greenwich Mean Time','British Summer Time'),(5,60,'+01:00','Europe/Paris','FR',1,'CET','Central European Time','Central European Time','Central European Summer Time'),(6,60,'+01:00','Europe/Prague','CZ',1,'CET','Central European Time','Central European Standard Time','Central European Summer Time'),(7,120,'+02:00','Africa/Cairo','EG',1,'EET','Eastern European Time','Eastern European Time','Eastern European Summer Time'),(8,180,'+03:00','Europe/Moscow','RU',1,'MSK','Moscow Time','Moscow Standard Time','Moscow Daylight Time'),(9,240,'+04:00','Asia/Dubai','AE',0,'GST','Gulf Standard Time','Gulf Standard Time',NULL),(10,270,'+04:30','Asia/Kabul','AF',0,'AFT','Afghanistan Time','Afghanistan Time',NULL),(11,300,'+05:00','Asia/Karachi','PK',0,'PKT','Pakistan Standard Time','Pakistan Standard Time',NULL),(12,330,'+05:30','Asia/Calcutta','IN',1,'IST','Indian Standard Time','Indian Standard Time','Indian Daylight Time'),(13,345,'+05:45','Asia/Kathmandu','NP',0,'NPT','Nepal Time','Nepal Time',NULL),(14,360,'+06:00','Asia/Almaty','KZ',0,'ALMT','Alma-Ata Time','Alma-Ata Time',NULL),(15,420,'+07:00','Asia/Bangkok','TH',0,'ICT','Indochina Time','Indochina Time',NULL),(16,480,'+08:00','Asia/Singapore','SG',0,'SGT','Singapore Time','Singapore Time',NULL),(17,540,'+09:00','Asia/Tokyo','JP',0,'JST','Japan Standard Time','Japan Standard Time',NULL),(18,570,'+09:30','Australia/Adelaide','AU',1,'ACST','Australian Central Standard Time','Australian Central Standard Time','Australian Central Daylight Time'),(19,600,'+10:00','Australia/Sydney','AU',1,'AEST','Australian Eastern Standard Time','Australian Eastern Standard Time','Australian Eastern Daylight Time'),(20,660,'+11:00','Pacific/Guadalcanal','SB',0,'SBT','Solomon Islands Time','Solomon Islands Time',NULL),(21,720,'+12:00','Pacific/Fiji','FJ',1,'FJT','Fiji Time','Fiji Standard Time','Fiji Daylight Time'),(22,120,'+02:00','Europe/Bucharest','RO',1,'EET','Eastern European Time','Eastern European Standard Time','Eastern European Summer Time'),(23,60,'+01:00','Europe/Rome','IT',1,'CET','Central European Time','Central European Standard Time','Central European Summer Time');
 /*!40000 ALTER TABLE `timezones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3082,7 +2583,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `user_action_log`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_action_log` (
   `LogId` int(11) NOT NULL AUTO_INCREMENT,
   `UserLogID` int(11) NOT NULL,
@@ -3094,7 +2595,7 @@ CREATE TABLE `user_action_log` (
   `CreatedDate_UTC` datetime NOT NULL DEFAULT utc_timestamp(),
   PRIMARY KEY (`LogId`),
   KEY `user_action_log_UserLogID_IDX` (`UserLogID`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3103,51 +2604,7 @@ CREATE TABLE `user_action_log` (
 
 LOCK TABLES `user_action_log` WRITE;
 /*!40000 ALTER TABLE `user_action_log` DISABLE KEYS */;
-INSERT INTO `user_action_log` VALUES
-(1,1,'5:30','p','2025-01-01 11:51:15','Stock adjustment confirmed for stockBatchId: 57, adjustmentTypeId: 2, adjustedQty: 2.00','2025-01-01 11:51:15','2025-01-01 11:51:15'),
-(2,1,'5:30','p','2025-01-01 11:51:39','Stock adjustment confirmed for stockBatchId: 57, adjustmentTypeId: 1, adjustedQty: 1.00','2025-01-01 11:51:39','2025-01-01 11:51:39'),
-(3,1,'5:30','p','2025-01-01 13:43:00','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 2, adjustedQty: 1.00','2025-01-01 13:43:00','2025-01-01 13:43:00'),
-(4,1,'5:30','p','2025-01-01 13:43:23','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 1, adjustedQty: 1.00','2025-01-01 13:43:23','2025-01-01 13:43:23'),
-(5,1,'5:30','p','2025-01-01 13:43:36','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 2, adjustedQty: 1.00','2025-01-01 13:43:36','2025-01-01 13:43:36'),
-(6,1,'5:30','p','2025-01-01 17:19:14','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 2, adjustedQty: 2.00','2025-01-01 17:19:14','2025-01-01 17:19:14'),
-(7,1,'5:30','p','2025-01-01 17:29:20','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 1, adjustedQty: 2.00, existingStockQty: 4.00','2025-01-01 17:29:20','2025-01-01 17:29:20'),
-(8,1,'5:30','p','2025-01-01 17:31:41','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 1, adjustedQty: 2.00, existingStockQty: 6.00','2025-01-01 17:31:41','2025-01-01 17:31:41'),
-(9,1,'5:30','p','2025-01-01 17:31:53','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 1, adjustedQty: 2.00, existingStockQty: 8.00','2025-01-01 17:31:53','2025-01-01 17:31:53'),
-(10,1,'5:30','p','2025-01-01 17:33:12','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 1, adjustedQty: 2.00, existingStockQty: 10.00','2025-01-01 17:33:12','2025-01-01 17:33:12'),
-(11,1,'5:30','p','2025-01-01 17:33:26','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 1, adjustedQty: 4.00, existingStockQty: 12.00','2025-01-01 17:33:26','2025-01-01 17:33:26'),
-(12,1,'5:30','p','2025-01-01 17:34:47','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 2, adjustedQty: 2.00, existingStockQty: 16.00','2025-01-01 17:34:47','2025-01-01 17:34:47'),
-(13,1,'5:30','p','2025-01-01 17:41:15','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 2, adjustedQty: 2.00, existingStockQty: 14.00','2025-01-01 17:41:15','2025-01-01 17:41:15'),
-(14,1,'5:30','p','2025-01-01 18:24:25','Stock adjustment confirmed for stockBatchId: 63, adjustmentTypeId: 2, adjustedQty: 4.00, existingStockQty: 20.00','2025-01-01 18:24:25','2025-01-01 18:24:25'),
-(15,1,'5:30','p','2025-01-01 18:26:06','Stock adjustment confirmed for stockBatchId: 57, adjustmentTypeId: 2, adjustedQty: 2.00, existingStockQty: 15.00','2025-01-01 18:26:06','2025-01-01 18:26:06'),
-(16,1,'5:30','p','2025-01-01 18:26:50','Stock adjustment confirmed for stockBatchId: 63, adjustmentTypeId: 2, adjustedQty: 2.00, existingStockQty: 16.00','2025-01-01 18:26:50','2025-01-01 18:26:50'),
-(17,1,'5:30','p','2025-01-01 19:33:23','Updated price and cost for stockBatchId: 57, New Unit Price: 1000.00, New Unit Cost: 500.00, Old Unit Price: 750.00, Old Unit Cost: 500.00','2025-01-01 19:33:23','2025-01-01 19:33:23'),
-(18,1,'5:30','p','2025-01-02 19:13:04','Updated price and cost for stockBatchId: 57, New Unit Price: 1000.00, New Unit Cost: 500.00, Old Unit Price: 1000.00, Old Unit Cost: 500.00','2025-01-02 19:13:04','2025-01-02 19:13:04'),
-(19,1,'5:30','p','2025-01-02 19:22:50','Stock adjustment confirmed for stockBatchId: 57, adjustmentTypeId: 1, adjustedQty: 10.00, existingStockQty: 13.00','2025-01-02 19:22:50','2025-01-02 19:22:50'),
-(20,1,'5:30','p','2025-01-02 19:26:55','Updated price and cost for stockBatchId: 57, New Unit Price: 1000.00, New Unit Cost: 500.00, Old Unit Price: 1000.00, Old Unit Cost: 500.00','2025-01-02 19:26:55','2025-01-02 19:26:55'),
-(21,1,'5:30','p','2025-01-02 19:27:42','Stock adjustment confirmed for stockBatchId: 57, adjustmentTypeId: 1, adjustedQty: 4.00, existingStockQty: 23.00','2025-01-02 19:27:42','2025-01-02 19:27:42'),
-(22,1,'5:30','p','2025-01-02 19:27:49','Updated price and cost for stockBatchId: 57, New Unit Price: 1000.00, New Unit Cost: 500.00, Old Unit Price: 1000.00, Old Unit Cost: 500.00','2025-01-02 19:27:49','2025-01-02 19:27:49'),
-(23,1,'5:30','p','2025-01-02 20:01:34','Updated price and cost for stockBatchId: 57, New Unit Price: 1200.00, New Unit Cost: 500.00, Old Unit Price: 1000.00, Old Unit Cost: 500.00','2025-01-02 20:01:34','2025-01-02 20:01:34'),
-(24,1,'5:30','p','2025-01-02 20:05:53','Updated price and cost for stockBatchId: 57, New Unit Price: 1200.00, New Unit Cost: 550.00, Old Unit Price: 1200.00, Old Unit Cost: 500.00','2025-01-02 20:05:53','2025-01-02 20:05:53'),
-(25,1,'5:30','p','2025-01-02 20:07:36','Updated price and cost for stockBatchId: 63, New Unit Price: 1500.00, New Unit Cost: 1000.00, Old Unit Price: 750.00, Old Unit Cost: 700.00','2025-01-02 20:07:36','2025-01-02 20:07:36'),
-(26,1,'5:30','p','2025-01-02 20:22:23','Updated price and cost for stockBatchId: 57, New Unit Price: 1300.00, New Unit Cost: 550.00, Old Unit Price: 1200.00, Old Unit Cost: 550.00','2025-01-02 20:22:23','2025-01-02 20:22:23'),
-(27,1,'5:30','p','2025-01-13 07:24:12','Updated price and cost for stockBatchId: 70, New Unit Price: 1400.00, New Unit Cost: 1200.00, Old Unit Price: 1300.00, Old Unit Cost: 1000.00','2025-01-13 07:24:12','2025-01-13 07:24:12'),
-(28,1,'5:30','p','2025-01-13 07:28:21','Updated price and cost for stockBatchId: 70, New Unit Price: 1350.00, New Unit Cost: 1250.00, Old Unit Price: 1400.00, Old Unit Cost: 1200.00','2025-01-13 07:28:21','2025-01-13 07:28:21'),
-(29,1,'5:30','p','2025-01-13 07:35:52','Updated price and cost for stockBatchId: 57, New Unit Price: 1000.00, New Unit Cost: 500.00, Old Unit Price: 1300.00, Old Unit Cost: 550.00','2025-01-13 07:35:52','2025-01-13 07:35:52'),
-(30,1,'5:30','p','2025-01-13 07:47:33','Updated price and cost for stockBatchId: 70, New Unit Price: 1000.00, New Unit Cost: 500.00, Old Unit Price: 1350.00, Old Unit Cost: 1250.00','2025-01-13 07:47:33','2025-01-13 07:47:33'),
-(31,1,'5:30','p','2025-01-13 07:47:33','Updated price and cost for stockBatchId: 70, New Unit Price: 1000.00, New Unit Cost: 500.00, Old Unit Price: 1000.00, Old Unit Cost: 500.00','2025-01-13 07:47:33','2025-01-13 07:47:33'),
-(32,1,'5:30','p','2025-01-13 07:47:43','Updated price and cost for stockBatchId: 70, New Unit Price: 1000.00, New Unit Cost: 500.00, Old Unit Price: 1000.00, Old Unit Cost: 500.00','2025-01-13 07:47:43','2025-01-13 07:47:43'),
-(33,1,'5:30','p','2025-01-13 07:54:26','Updated price and cost for stockBatchId: 70, New Unit Price: 1000.00, New Unit Cost: 500.00, Old Unit Price: 1000.00, Old Unit Cost: 500.00','2025-01-13 07:54:26','2025-01-13 07:54:26'),
-(34,1,'5:30','p','2025-01-13 07:58:28','Updated price and cost for stockBatchId: 70, New Unit Price: 2300.00, New Unit Cost: 1500.00, Old Unit Price: 1000.00, Old Unit Cost: 500.00','2025-01-13 07:58:28','2025-01-13 07:58:28'),
-(35,1,'5:30','p','2025-01-13 07:59:23','Updated price and cost for stockBatchId: 63, New Unit Price: 1000.00, New Unit Cost: 500.00, Old Unit Price: 1500.00, Old Unit Cost: 1000.00','2025-01-13 07:59:23','2025-01-13 07:59:23'),
-(36,1,'5:30','p','2025-01-13 08:00:32','Updated price and cost for stockBatchId: 63, New Unit Price: 1200.00, New Unit Cost: 700.00, Old Unit Price: 1000.00, Old Unit Cost: 500.00','2025-01-13 08:00:32','2025-01-13 08:00:32'),
-(37,1,'5:30','p','2025-01-28 13:02:49','Stock adjustment confirmed for stockBatchId: 70, adjustmentTypeId: 2, adjustedQty: 2.00, existingStockQty: 19.00','2025-01-28 13:02:49','2025-01-28 13:02:49'),
-(38,1,'5:30','p','2025-02-10 05:33:34','Stock adjustment confirmed for stockBatchId: 70, adjustmentTypeId: 1, adjustedQty: 2.00, existingStockQty: 10.00','2025-02-10 05:33:34','2025-02-10 05:33:34'),
-(39,1,'5:30','p','2025-02-10 05:33:48','Stock adjustment confirmed for stockBatchId: 70, adjustmentTypeId: 2, adjustedQty: 1.00, existingStockQty: 12.00','2025-02-10 05:33:48','2025-02-10 05:33:48'),
-(40,1,'5:30','p','2025-02-10 10:58:48','Stock adjustment confirmed for stockBatchId: 81, adjustmentTypeId: 2, adjustedQty: 1.00, existingStockQty: 45.00','2025-02-10 10:58:48','2025-02-10 10:58:48'),
-(41,1,'5:30','p','2025-02-11 04:35:49','Stock adjustment confirmed for stockBatchId: 71, adjustmentTypeId: 2, adjustedQty: 1.00, existingStockQty: 9.00','2025-02-11 04:35:49','2025-02-11 04:35:49'),
-(42,1,'5:30','p','2025-02-11 04:35:57','Stock adjustment confirmed for stockBatchId: 71, adjustmentTypeId: 1, adjustedQty: 1.00, existingStockQty: 8.00','2025-02-11 04:35:57','2025-02-11 04:35:57'),
-(43,1,'5:30','p','2025-03-08 17:44:21','Stock adjustment confirmed for stockBatchId: 83, adjustmentTypeId: 2, adjustedQty: 2.00, existingStockQty: 20.00','2025-03-08 17:44:21','2025-03-08 17:44:21'),
-(44,2,'5:30','p','2025-03-13 13:56:10','Stock adjustment confirmed for stockBatchId: 1, adjustmentTypeId: 2, adjustedQty: 1.00, existingStockQty: 10.00','2025-03-13 13:56:10','2025-03-13 13:56:10');
+INSERT INTO `user_action_log` VALUES (1,1,'5:30','p','2025-01-01 11:51:15','Stock adjustment confirmed for stockBatchId: 57, adjustmentTypeId: 2, adjustedQty: 2.00','2025-01-01 11:51:15','2025-01-01 11:51:15'),(2,1,'5:30','p','2025-01-01 11:51:39','Stock adjustment confirmed for stockBatchId: 57, adjustmentTypeId: 1, adjustedQty: 1.00','2025-01-01 11:51:39','2025-01-01 11:51:39'),(3,1,'5:30','p','2025-01-01 13:43:00','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 2, adjustedQty: 1.00','2025-01-01 13:43:00','2025-01-01 13:43:00'),(4,1,'5:30','p','2025-01-01 13:43:23','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 1, adjustedQty: 1.00','2025-01-01 13:43:23','2025-01-01 13:43:23'),(5,1,'5:30','p','2025-01-01 13:43:36','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 2, adjustedQty: 1.00','2025-01-01 13:43:36','2025-01-01 13:43:36'),(6,1,'5:30','p','2025-01-01 17:19:14','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 2, adjustedQty: 2.00','2025-01-01 17:19:14','2025-01-01 17:19:14'),(7,1,'5:30','p','2025-01-01 17:29:20','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 1, adjustedQty: 2.00, existingStockQty: 4.00','2025-01-01 17:29:20','2025-01-01 17:29:20'),(8,1,'5:30','p','2025-01-01 17:31:41','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 1, adjustedQty: 2.00, existingStockQty: 6.00','2025-01-01 17:31:41','2025-01-01 17:31:41'),(9,1,'5:30','p','2025-01-01 17:31:53','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 1, adjustedQty: 2.00, existingStockQty: 8.00','2025-01-01 17:31:53','2025-01-01 17:31:53'),(10,1,'5:30','p','2025-01-01 17:33:12','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 1, adjustedQty: 2.00, existingStockQty: 10.00','2025-01-01 17:33:12','2025-01-01 17:33:12'),(11,1,'5:30','p','2025-01-01 17:33:26','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 1, adjustedQty: 4.00, existingStockQty: 12.00','2025-01-01 17:33:26','2025-01-01 17:33:26'),(12,1,'5:30','p','2025-01-01 17:34:47','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 2, adjustedQty: 2.00, existingStockQty: 16.00','2025-01-01 17:34:47','2025-01-01 17:34:47'),(13,1,'5:30','p','2025-01-01 17:41:15','Stock adjustment confirmed for stockBatchId: 58, adjustmentTypeId: 2, adjustedQty: 2.00, existingStockQty: 14.00','2025-01-01 17:41:15','2025-01-01 17:41:15'),(14,1,'5:30','p','2025-01-01 18:24:25','Stock adjustment confirmed for stockBatchId: 63, adjustmentTypeId: 2, adjustedQty: 4.00, existingStockQty: 20.00','2025-01-01 18:24:25','2025-01-01 18:24:25'),(15,1,'5:30','p','2025-01-01 18:26:06','Stock adjustment confirmed for stockBatchId: 57, adjustmentTypeId: 2, adjustedQty: 2.00, existingStockQty: 15.00','2025-01-01 18:26:06','2025-01-01 18:26:06'),(16,1,'5:30','p','2025-01-01 18:26:50','Stock adjustment confirmed for stockBatchId: 63, adjustmentTypeId: 2, adjustedQty: 2.00, existingStockQty: 16.00','2025-01-01 18:26:50','2025-01-01 18:26:50'),(17,1,'5:30','p','2025-01-01 19:33:23','Updated price and cost for stockBatchId: 57, New Unit Price: 1000.00, New Unit Cost: 500.00, Old Unit Price: 750.00, Old Unit Cost: 500.00','2025-01-01 19:33:23','2025-01-01 19:33:23'),(18,1,'5:30','p','2025-01-02 19:13:04','Updated price and cost for stockBatchId: 57, New Unit Price: 1000.00, New Unit Cost: 500.00, Old Unit Price: 1000.00, Old Unit Cost: 500.00','2025-01-02 19:13:04','2025-01-02 19:13:04'),(19,1,'5:30','p','2025-01-02 19:22:50','Stock adjustment confirmed for stockBatchId: 57, adjustmentTypeId: 1, adjustedQty: 10.00, existingStockQty: 13.00','2025-01-02 19:22:50','2025-01-02 19:22:50'),(20,1,'5:30','p','2025-01-02 19:26:55','Updated price and cost for stockBatchId: 57, New Unit Price: 1000.00, New Unit Cost: 500.00, Old Unit Price: 1000.00, Old Unit Cost: 500.00','2025-01-02 19:26:55','2025-01-02 19:26:55'),(21,1,'5:30','p','2025-01-02 19:27:42','Stock adjustment confirmed for stockBatchId: 57, adjustmentTypeId: 1, adjustedQty: 4.00, existingStockQty: 23.00','2025-01-02 19:27:42','2025-01-02 19:27:42'),(22,1,'5:30','p','2025-01-02 19:27:49','Updated price and cost for stockBatchId: 57, New Unit Price: 1000.00, New Unit Cost: 500.00, Old Unit Price: 1000.00, Old Unit Cost: 500.00','2025-01-02 19:27:49','2025-01-02 19:27:49'),(23,1,'5:30','p','2025-01-02 20:01:34','Updated price and cost for stockBatchId: 57, New Unit Price: 1200.00, New Unit Cost: 500.00, Old Unit Price: 1000.00, Old Unit Cost: 500.00','2025-01-02 20:01:34','2025-01-02 20:01:34'),(24,1,'5:30','p','2025-01-02 20:05:53','Updated price and cost for stockBatchId: 57, New Unit Price: 1200.00, New Unit Cost: 550.00, Old Unit Price: 1200.00, Old Unit Cost: 500.00','2025-01-02 20:05:53','2025-01-02 20:05:53'),(25,1,'5:30','p','2025-01-02 20:07:36','Updated price and cost for stockBatchId: 63, New Unit Price: 1500.00, New Unit Cost: 1000.00, Old Unit Price: 750.00, Old Unit Cost: 700.00','2025-01-02 20:07:36','2025-01-02 20:07:36'),(26,1,'5:30','p','2025-01-02 20:22:23','Updated price and cost for stockBatchId: 57, New Unit Price: 1300.00, New Unit Cost: 550.00, Old Unit Price: 1200.00, Old Unit Cost: 550.00','2025-01-02 20:22:23','2025-01-02 20:22:23'),(27,1,'5:30','p','2025-01-13 07:24:12','Updated price and cost for stockBatchId: 70, New Unit Price: 1400.00, New Unit Cost: 1200.00, Old Unit Price: 1300.00, Old Unit Cost: 1000.00','2025-01-13 07:24:12','2025-01-13 07:24:12'),(28,1,'5:30','p','2025-01-13 07:28:21','Updated price and cost for stockBatchId: 70, New Unit Price: 1350.00, New Unit Cost: 1250.00, Old Unit Price: 1400.00, Old Unit Cost: 1200.00','2025-01-13 07:28:21','2025-01-13 07:28:21'),(29,1,'5:30','p','2025-01-13 07:35:52','Updated price and cost for stockBatchId: 57, New Unit Price: 1000.00, New Unit Cost: 500.00, Old Unit Price: 1300.00, Old Unit Cost: 550.00','2025-01-13 07:35:52','2025-01-13 07:35:52'),(30,1,'5:30','p','2025-01-13 07:47:33','Updated price and cost for stockBatchId: 70, New Unit Price: 1000.00, New Unit Cost: 500.00, Old Unit Price: 1350.00, Old Unit Cost: 1250.00','2025-01-13 07:47:33','2025-01-13 07:47:33'),(31,1,'5:30','p','2025-01-13 07:47:33','Updated price and cost for stockBatchId: 70, New Unit Price: 1000.00, New Unit Cost: 500.00, Old Unit Price: 1000.00, Old Unit Cost: 500.00','2025-01-13 07:47:33','2025-01-13 07:47:33'),(32,1,'5:30','p','2025-01-13 07:47:43','Updated price and cost for stockBatchId: 70, New Unit Price: 1000.00, New Unit Cost: 500.00, Old Unit Price: 1000.00, Old Unit Cost: 500.00','2025-01-13 07:47:43','2025-01-13 07:47:43'),(33,1,'5:30','p','2025-01-13 07:54:26','Updated price and cost for stockBatchId: 70, New Unit Price: 1000.00, New Unit Cost: 500.00, Old Unit Price: 1000.00, Old Unit Cost: 500.00','2025-01-13 07:54:26','2025-01-13 07:54:26'),(34,1,'5:30','p','2025-01-13 07:58:28','Updated price and cost for stockBatchId: 70, New Unit Price: 2300.00, New Unit Cost: 1500.00, Old Unit Price: 1000.00, Old Unit Cost: 500.00','2025-01-13 07:58:28','2025-01-13 07:58:28'),(35,1,'5:30','p','2025-01-13 07:59:23','Updated price and cost for stockBatchId: 63, New Unit Price: 1000.00, New Unit Cost: 500.00, Old Unit Price: 1500.00, Old Unit Cost: 1000.00','2025-01-13 07:59:23','2025-01-13 07:59:23'),(36,1,'5:30','p','2025-01-13 08:00:32','Updated price and cost for stockBatchId: 63, New Unit Price: 1200.00, New Unit Cost: 700.00, Old Unit Price: 1000.00, Old Unit Cost: 500.00','2025-01-13 08:00:32','2025-01-13 08:00:32'),(37,1,'5:30','p','2025-01-28 13:02:49','Stock adjustment confirmed for stockBatchId: 70, adjustmentTypeId: 2, adjustedQty: 2.00, existingStockQty: 19.00','2025-01-28 13:02:49','2025-01-28 13:02:49'),(38,1,'5:30','p','2025-02-10 05:33:34','Stock adjustment confirmed for stockBatchId: 70, adjustmentTypeId: 1, adjustedQty: 2.00, existingStockQty: 10.00','2025-02-10 05:33:34','2025-02-10 05:33:34'),(39,1,'5:30','p','2025-02-10 05:33:48','Stock adjustment confirmed for stockBatchId: 70, adjustmentTypeId: 2, adjustedQty: 1.00, existingStockQty: 12.00','2025-02-10 05:33:48','2025-02-10 05:33:48'),(40,1,'5:30','p','2025-02-10 10:58:48','Stock adjustment confirmed for stockBatchId: 81, adjustmentTypeId: 2, adjustedQty: 1.00, existingStockQty: 45.00','2025-02-10 10:58:48','2025-02-10 10:58:48'),(41,1,'5:30','p','2025-02-11 04:35:49','Stock adjustment confirmed for stockBatchId: 71, adjustmentTypeId: 2, adjustedQty: 1.00, existingStockQty: 9.00','2025-02-11 04:35:49','2025-02-11 04:35:49'),(42,1,'5:30','p','2025-02-11 04:35:57','Stock adjustment confirmed for stockBatchId: 71, adjustmentTypeId: 1, adjustedQty: 1.00, existingStockQty: 8.00','2025-02-11 04:35:57','2025-02-11 04:35:57'),(43,1,'5:30','p','2025-03-08 17:44:21','Stock adjustment confirmed for stockBatchId: 83, adjustmentTypeId: 2, adjustedQty: 2.00, existingStockQty: 20.00','2025-03-08 17:44:21','2025-03-08 17:44:21'),(44,2,'5:30','p','2025-03-13 13:56:10','Stock adjustment confirmed for stockBatchId: 1, adjustmentTypeId: 2, adjustedQty: 1.00, existingStockQty: 10.00','2025-03-13 13:56:10','2025-03-13 13:56:10'),(45,52,'5:30','p','2025-09-05 11:27:28','Stock adjustment confirmed for stockBatchId: 22, adjustmentTypeId: 1, adjustedQty: 1.00, existingStockQty: 99.00','2025-09-05 11:27:28','2025-09-05 11:27:28'),(46,6,'5:30','p','2025-09-09 17:42:25','Stock adjustment confirmed for stockBatchId: 27, adjustmentTypeId: 1, adjustedQty: 100.00, existingStockQty: 5.00','2025-09-09 17:42:25','2025-09-09 17:42:25'),(47,6,'5:30','p','2025-09-09 17:44:00','Stock adjustment confirmed for stockBatchId: 40, adjustmentTypeId: 1, adjustedQty: 100.00, existingStockQty: 20.00','2025-09-09 17:44:00','2025-09-09 17:44:00'),(48,6,'5:30','p','2025-09-09 17:44:43','Stock adjustment confirmed for stockBatchId: 20, adjustmentTypeId: 1, adjustedQty: 11.00, existingStockQty: 89.00','2025-09-09 17:44:43','2025-09-09 17:44:43');
 /*!40000 ALTER TABLE `user_action_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3157,7 +2614,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `user_registration`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_registration` (
   `userId` int(11) NOT NULL AUTO_INCREMENT,
   `uName` varchar(500) DEFAULT NULL,
@@ -3174,7 +2631,7 @@ CREATE TABLE `user_registration` (
   `userLogId` int(11) DEFAULT NULL,
   `userRoleId` int(2) DEFAULT NULL,
   PRIMARY KEY (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3183,10 +2640,7 @@ CREATE TABLE `user_registration` (
 
 LOCK TABLES `user_registration` WRITE;
 /*!40000 ALTER TABLE `user_registration` DISABLE KEYS */;
-INSERT INTO `user_registration` VALUES
-(1,'spmskperera@gmail.com','$2b$10$M7Wdu/zmnzWfPzhbPKJk.e6rGN9i3GxJEdLDoM2ymJ1HHgQzpM1ui','$2b$10$cp2VWkn9oVMNcd8Yt7WfJu','spmskperera@gmail.com','UserA SP','hh','','2023-10-08 19:20:02','2023-10-09 00:50:02','2025-02-11 16:43:50','2025-02-11 16:43:50',1,1),
-(3,'kasun','ooooi','555444','kasun1@gmail.com','Kasun Peris','dfdsj3FD#RFdsjl','','2025-02-11 16:43:50','2025-02-11 22:13:50','2025-02-11 16:43:50','2025-02-11 22:13:50',1,2),
-(4,'sampath','ooooi','555444','sampath@gmail.com','Sampath Dias','dfdsj3FD#RFdsjl','','2025-02-11 16:44:33','2025-02-11 22:14:33','2025-02-11 16:44:33','2025-02-11 22:14:33',1,3);
+INSERT INTO `user_registration` VALUES (1,'spmskperera@gmail.com','$2b$10$M7Wdu/zmnzWfPzhbPKJk.e6rGN9i3GxJEdLDoM2ymJ1HHgQzpM1ui','$2b$10$cp2VWkn9oVMNcd8Yt7WfJu','spmskperera@gmail.com','UserA SP','hh','','2023-10-08 19:20:02','2023-10-09 00:50:02','2025-02-11 16:43:50','2025-02-11 16:43:50',1,1),(3,'kasun','ooooi','555444','kasun1@gmail.com','Kasun Peris','dfdsj3FD#RFdsjl','','2025-02-11 16:43:50','2025-02-11 22:13:50','2025-02-11 16:43:50','2025-02-11 22:13:50',1,2),(4,'sampath','ooooi','555444','sampath@gmail.com','Sampath Dias','dfdsj3FD#RFdsjl','','2025-02-11 16:44:33','2025-02-11 22:14:33','2025-02-11 16:44:33','2025-02-11 22:14:33',1,3),(5,'dayarastudio12@gmail.com','$2b$10$wo9U4N/ggVk12h6MJUL6u.FYAFLLimTi2AlYSY509ro6mI4mFEqya','$2b$10$EhXjFrI05ljfNM56Xf8Lge','tenantServAdmin41vsD','Dayara',NULL,'','2025-03-13 15:40:26','2025-03-13 15:40:26','2025-03-13 15:40:26','2025-03-13 15:40:26',NULL,1);
 /*!40000 ALTER TABLE `user_registration` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3196,7 +2650,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `user_store`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_store` (
   `userId` int(11) NOT NULL,
   `storeId` int(11) NOT NULL,
@@ -3217,6 +2671,7 @@ CREATE TABLE `user_store` (
 
 LOCK TABLES `user_store` WRITE;
 /*!40000 ALTER TABLE `user_store` DISABLE KEYS */;
+INSERT INTO `user_store` VALUES (5,19,'2025-08-25 06:52:28','2025-08-25 12:22:28',NULL,NULL);
 /*!40000 ALTER TABLE `user_store` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3226,7 +2681,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `user_terminal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_terminal` (
   `userId` int(11) NOT NULL,
   `terminalId` int(11) NOT NULL,
@@ -3247,6 +2702,7 @@ CREATE TABLE `user_terminal` (
 
 LOCK TABLES `user_terminal` WRITE;
 /*!40000 ALTER TABLE `user_terminal` DISABLE KEYS */;
+INSERT INTO `user_terminal` VALUES (5,29,'2025-03-13 19:56:58','2025-03-13 19:56:58',NULL,NULL);
 /*!40000 ALTER TABLE `user_terminal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3256,7 +2712,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `userlog`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `userlog` (
   `userLogId` int(11) NOT NULL AUTO_INCREMENT,
   `UserId` int(11) NOT NULL,
@@ -3270,7 +2726,7 @@ CREATE TABLE `userlog` (
   `utcOffset` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`userLogId`),
   CONSTRAINT `userlog_chk_1` CHECK (`LoginStatus` = _utf8mb4'Failed' or `LoginStatus` = _utf8mb4'Success')
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=434 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3279,6 +2735,7 @@ CREATE TABLE `userlog` (
 
 LOCK TABLES `userlog` WRITE;
 /*!40000 ALTER TABLE `userlog` DISABLE KEYS */;
+INSERT INTO `userlog` VALUES (1,5,'Success','112.134.170.147','{\"os\":\"Windows 10\",\"browser\":\"Chrome 109.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-09 11:27:41','2025-09-09 16:57:41','330'),(2,5,'Success','112.134.170.147','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-09 12:10:34','2025-09-09 17:40:34','330'),(3,5,'Success','175.157.84.8','{\"os\":\"iOS 16.7\",\"browser\":\"Mobile Chrome 123.0.6312.52\",\"device\":\"iPhone\"}','sessionId','additionalInfo','2025-09-09 12:19:31','2025-09-09 17:49:31','330'),(4,5,'Success','112.134.170.147','{\"os\":\"Windows 10\",\"browser\":\"Chrome 109.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-09 12:39:47','2025-09-09 18:09:47','330'),(5,5,'Success','112.134.170.147','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-09 13:44:44','2025-09-09 19:14:44','330'),(6,5,'Success','175.157.17.32','{\"os\":\"Windows 10\",\"browser\":\"Chrome 139.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-09 17:26:31','2025-09-09 22:56:31','330'),(7,5,'Success','175.157.17.32','{\"os\":\"iOS 16.7\",\"browser\":\"Mobile Chrome 123.0.6312.52\",\"device\":\"iPhone\"}','sessionId','additionalInfo','2025-09-10 02:23:56','2025-09-10 07:53:56','330'),(8,5,'Success','112.134.171.255','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-10 04:06:42','2025-09-10 09:36:42','330'),(9,5,'Success','175.157.17.32','{\"os\":\"Windows 10\",\"browser\":\"Chrome 139.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-10 04:28:16','2025-09-10 09:58:16','330'),(10,5,'Success','175.157.17.32','{\"os\":\"Windows 10\",\"browser\":\"Chrome 139.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-10 04:45:46','2025-09-10 10:15:46','330'),(11,5,'Success','112.134.171.255','{\"os\":\"Windows 10\",\"browser\":\"Chrome 109.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-10 04:49:02','2025-09-10 10:19:02','330'),(12,5,'Success','112.134.171.255','{\"os\":\"Windows 10\",\"browser\":\"Chrome 109.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-10 04:54:09','2025-09-10 10:24:09','330'),(13,5,'Success','112.134.171.255','{\"os\":\"Windows 10\",\"browser\":\"Chrome 109.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-10 06:49:07','2025-09-10 12:19:07','330'),(14,5,'Success','112.134.171.255','{\"os\":\"Windows 10\",\"browser\":\"Chrome 109.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-10 07:12:53','2025-09-10 12:42:53','330'),(15,5,'Success','175.157.17.32','{\"os\":\"Windows 10\",\"browser\":\"Chrome 139.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-10 07:59:50','2025-09-10 13:29:50','330'),(16,5,'Success','175.157.17.32','{\"os\":\"Windows 10\",\"browser\":\"Chrome 139.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-10 09:33:08','2025-09-10 15:03:08','330'),(17,5,'Success','175.157.17.32','{\"os\":\"Windows 10\",\"browser\":\"Chrome 139.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-10 10:19:09','2025-09-10 15:49:09','330'),(18,5,'Success','112.134.171.255','{\"os\":\"Windows 10\",\"browser\":\"Chrome 109.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-10 10:44:22','2025-09-10 16:14:22','330'),(19,5,'Success','175.157.17.32','{\"os\":\"Windows 10\",\"browser\":\"Chrome 139.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-10 14:29:51','2025-09-10 19:59:51','330'),(20,5,'Success','175.157.17.32','{\"os\":\"Windows 10\",\"browser\":\"Chrome 139.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-11 03:09:15','2025-09-11 08:39:15','330'),(21,5,'Success','175.157.17.32','{\"os\":\"Windows 10\",\"browser\":\"Chrome 139.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-11 04:58:36','2025-09-11 10:28:36','330'),(22,5,'Success','175.157.17.32','{\"os\":\"Windows 10\",\"browser\":\"Chrome 139.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-11 06:28:50','2025-09-11 11:58:50','330'),(23,5,'Success','175.157.17.32','{\"os\":\"Windows 10\",\"browser\":\"Chrome 139.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-11 08:57:28','2025-09-11 14:27:28','330'),(24,5,'Success','111.223.191.105','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-12 14:18:57','2025-09-12 19:48:57','330'),(25,5,'Success','111.223.191.105','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-12 14:19:06','2025-09-12 19:49:06','330'),(26,5,'Success','111.223.186.228','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-12 15:54:57','2025-09-12 21:24:57','330'),(27,5,'Success','112.134.169.132','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-13 09:26:23','2025-09-13 14:56:23','330'),(28,5,'Success','112.134.174.219','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-15 06:31:42','2025-09-15 12:01:42','330'),(29,5,'Success','175.157.20.143','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-15 07:13:56','2025-09-15 12:43:56','330'),(30,5,'Success','112.134.174.219','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-15 12:59:12','2025-09-15 18:29:12','330'),(31,5,'Success','112.134.174.219','{\"os\":\"Windows 10\",\"browser\":\"Chrome 109.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-15 13:02:05','2025-09-15 18:32:05','330'),(32,5,'Success','112.134.174.219','{\"os\":\"Windows 10\",\"browser\":\"Chrome 109.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-15 13:03:05','2025-09-15 18:33:05','330'),(33,5,'Success','175.157.20.143','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-15 15:43:21','2025-09-15 21:13:21','330'),(34,5,'Success','112.134.173.53','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-16 07:51:28','2025-09-16 13:21:28','330'),(35,5,'Success','175.157.24.235','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-16 08:05:22','2025-09-16 13:35:22','330'),(36,5,'Success','175.157.24.235','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-16 09:27:21','2025-09-16 14:57:21','330'),(37,5,'Success','175.157.24.235','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-16 10:17:09','2025-09-16 15:47:09','330'),(38,5,'Success','112.134.173.53','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-16 12:47:24','2025-09-16 18:17:24','330'),(39,5,'Success','175.157.24.235','{\"os\":\"iOS 16.7\",\"browser\":\"Mobile Chrome 123.0.6312.52\",\"device\":\"iPhone\"}','sessionId','additionalInfo','2025-09-17 04:47:39','2025-09-17 10:17:39','330'),(40,5,'Success','112.134.169.12','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-17 11:32:33','2025-09-17 17:02:33','330'),(41,5,'Success','175.157.24.235','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-17 13:50:04','2025-09-17 19:20:04','330'),(42,5,'Success','175.157.24.235','{\"os\":\"iOS 16.7\",\"browser\":\"Mobile Chrome 123.0.6312.52\",\"device\":\"iPhone\"}','sessionId','additionalInfo','2025-09-18 05:46:11','2025-09-18 11:16:11','330'),(43,5,'Success','175.157.24.235','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-19 06:04:05','2025-09-19 11:34:05','330'),(44,5,'Success','112.134.169.179','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-19 11:09:51','2025-09-19 16:39:51','330'),(45,5,'Success','175.157.24.235','{\"os\":\"iOS 16.7\",\"browser\":\"Mobile Chrome 123.0.6312.52\",\"device\":\"iPhone\"}','sessionId','additionalInfo','2025-09-20 06:38:56','2025-09-20 12:08:56','330'),(46,5,'Success','112.134.171.61','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-21 11:24:12','2025-09-21 16:54:12','330'),(47,5,'Success','175.157.14.58','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-22 17:19:21','2025-09-22 22:49:21','330'),(48,5,'Success','175.157.14.58','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-22 17:41:02','2025-09-22 23:11:02','330'),(49,5,'Success','175.157.14.58','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-22 17:55:05','2025-09-22 23:25:05','330'),(50,5,'Success','175.157.14.58','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-22 18:36:09','2025-09-23 00:06:09','330'),(51,5,'Success','112.134.175.61','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-24 11:51:58','2025-09-24 17:21:58','330'),(52,5,'Success','112.134.175.61','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-24 11:59:23','2025-09-24 17:29:23','330'),(53,5,'Success','112.134.175.61','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-24 12:00:39','2025-09-24 17:30:39','330'),(54,5,'Success','112.134.172.193','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 12:42:32','2025-09-25 18:12:32','330'),(55,5,'Success','112.134.172.193','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 12:46:57','2025-09-25 18:16:57','330'),(56,5,'Success','112.134.172.193','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 12:55:56','2025-09-25 18:25:56','330'),(57,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 17:04:34','2025-09-25 22:34:34','330'),(58,5,'Failed','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 17:06:02','2025-09-25 22:36:02','330'),(59,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 17:06:09','2025-09-25 22:36:09','330'),(60,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 17:41:13','2025-09-25 23:11:13','330'),(61,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 18:39:54','2025-09-26 00:09:54','330'),(62,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 18:40:16','2025-09-26 00:10:16','330'),(63,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 18:40:29','2025-09-26 00:10:29','330'),(64,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 18:40:35','2025-09-26 00:10:35','330'),(65,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 18:41:11','2025-09-26 00:11:11','330'),(66,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 18:45:08','2025-09-26 00:15:08','330'),(67,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 18:51:39','2025-09-26 00:21:39','330'),(68,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 18:52:25','2025-09-26 00:22:25','330'),(69,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 18:52:36','2025-09-26 00:22:36','330'),(70,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 18:53:53','2025-09-26 00:23:53','330'),(71,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 18:56:39','2025-09-26 00:26:39','330'),(72,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 19:01:15','2025-09-26 00:31:15','330'),(73,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 19:05:25','2025-09-26 00:35:25','330'),(74,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 19:06:34','2025-09-26 00:36:34','330'),(75,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 19:41:17','2025-09-26 01:11:17','330'),(76,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 19:42:09','2025-09-26 01:12:09','330'),(77,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 19:46:22','2025-09-26 01:16:22','330'),(78,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 20:37:41','2025-09-26 02:07:41','330'),(79,5,'Failed','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 21:06:25','2025-09-26 02:36:25','330'),(80,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 21:06:34','2025-09-26 02:36:34','330'),(81,5,'Failed','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 21:09:55','2025-09-26 02:39:55','330'),(82,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 21:10:03','2025-09-26 02:40:03','330'),(83,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 21:11:48','2025-09-26 02:41:48','330'),(84,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 21:13:24','2025-09-26 02:43:24','330'),(85,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 21:15:37','2025-09-26 02:45:37','330'),(86,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 21:31:17','2025-09-26 03:01:17','330'),(87,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 21:31:55','2025-09-26 03:01:55','330'),(88,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 21:32:46','2025-09-26 03:02:46','330'),(89,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 21:32:56','2025-09-26 03:02:56','330'),(90,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 21:35:21','2025-09-26 03:05:21','330'),(91,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 21:35:33','2025-09-26 03:05:33','330'),(92,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 21:36:01','2025-09-26 03:06:01','330'),(93,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 21:37:21','2025-09-26 03:07:21','330'),(94,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 21:37:36','2025-09-26 03:07:36','330'),(95,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-25 21:45:32','2025-09-26 03:15:32','330'),(96,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 04:58:44','2025-09-26 10:28:44','330'),(97,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 07:16:52','2025-09-26 12:46:52','330'),(98,5,'Failed','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 09:11:53','2025-09-26 14:41:53','330'),(99,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 09:11:59','2025-09-26 14:41:59','330'),(100,5,'Failed','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 09:15:33','2025-09-26 14:45:33','330'),(101,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 09:15:46','2025-09-26 14:45:46','330'),(102,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 09:28:33','2025-09-26 14:58:33','330'),(103,5,'Failed','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 10:09:10','2025-09-26 15:39:10','330'),(104,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 10:09:15','2025-09-26 15:39:15','330'),(105,5,'Success','175.157.26.177','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 10:19:14','2025-09-26 15:49:14','330'),(106,5,'Success','112.134.174.164','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 10:31:45','2025-09-26 16:01:45','330'),(107,5,'Success','112.134.174.164','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 10:43:31','2025-09-26 16:13:31','330'),(108,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 12:43:50','2025-09-26 18:13:50','330'),(109,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 12:55:56','2025-09-26 18:25:56','330'),(110,5,'Success','112.134.174.164','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 13:09:32','2025-09-26 18:39:32','330'),(111,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 13:18:59','2025-09-26 18:48:59','330'),(112,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 13:24:08','2025-09-26 18:54:08','330'),(113,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 13:27:33','2025-09-26 18:57:33','330'),(114,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 14:41:36','2025-09-26 20:11:36','330'),(115,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 15:18:23','2025-09-26 20:48:23','330'),(116,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 15:32:06','2025-09-26 21:02:06','330'),(117,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 15:32:44','2025-09-26 21:02:44','330'),(118,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 15:33:15','2025-09-26 21:03:15','330'),(119,5,'Failed','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 15:34:35','2025-09-26 21:04:35','330'),(120,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 15:34:44','2025-09-26 21:04:44','330'),(121,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 15:35:36','2025-09-26 21:05:36','330'),(122,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 15:35:53','2025-09-26 21:05:53','330'),(123,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 15:37:35','2025-09-26 21:07:35','330'),(124,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 15:42:02','2025-09-26 21:12:02','330'),(125,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 15:44:37','2025-09-26 21:14:37','330'),(126,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 15:45:44','2025-09-26 21:15:44','330'),(127,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 15:55:57','2025-09-26 21:25:57','330'),(128,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 15:59:25','2025-09-26 21:29:25','330'),(129,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-26 16:24:13','2025-09-26 21:54:13','330'),(130,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 03:12:37','2025-09-27 08:42:37','330'),(131,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 03:25:32','2025-09-27 08:55:32','330'),(132,5,'Success','175.157.139.255','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 03:38:38','2025-09-27 09:08:38','330'),(133,5,'Success','123.231.127.23','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 08:10:26','2025-09-27 13:40:26','330'),(134,5,'Success','123.231.127.23','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 08:13:33','2025-09-27 13:43:33','330'),(135,5,'Success','123.231.127.23','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 08:17:53','2025-09-27 13:47:53','330'),(136,5,'Success','123.231.127.23','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 08:21:54','2025-09-27 13:51:54','330'),(137,5,'Success','123.231.127.23','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 08:32:08','2025-09-27 14:02:08','330'),(138,5,'Success','123.231.127.23','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 08:36:20','2025-09-27 14:06:20','330'),(139,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 13:26:39','2025-09-27 18:56:39','330'),(140,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 13:36:52','2025-09-27 19:06:52','330'),(141,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 14:46:13','2025-09-27 20:16:13','330'),(142,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 14:50:01','2025-09-27 20:20:01','330'),(143,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 14:54:03','2025-09-27 20:24:03','330'),(144,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 15:31:12','2025-09-27 21:01:12','330'),(145,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 15:41:03','2025-09-27 21:11:03','330'),(146,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 16:10:42','2025-09-27 21:40:42','330'),(147,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 16:20:09','2025-09-27 21:50:09','330'),(148,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 16:21:04','2025-09-27 21:51:04','330'),(149,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 16:28:20','2025-09-27 21:58:20','330'),(150,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 16:32:15','2025-09-27 22:02:15','330'),(151,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 16:45:29','2025-09-27 22:15:29','330'),(152,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 16:54:08','2025-09-27 22:24:08','330'),(153,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 17:33:24','2025-09-27 23:03:24','330'),(154,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 17:55:32','2025-09-27 23:25:32','330'),(155,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 18:05:18','2025-09-27 23:35:18','330'),(156,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 18:12:49','2025-09-27 23:42:49','330'),(157,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 18:21:37','2025-09-27 23:51:37','330'),(158,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 18:33:41','2025-09-28 00:03:41','330'),(159,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 18:37:47','2025-09-28 00:07:47','330'),(160,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 18:39:45','2025-09-28 00:09:45','330'),(161,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 18:47:54','2025-09-28 00:17:54','330'),(162,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 18:53:49','2025-09-28 00:23:49','330'),(163,5,'Failed','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 19:02:04','2025-09-28 00:32:04','330'),(164,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 19:02:10','2025-09-28 00:32:10','330'),(165,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 19:06:32','2025-09-28 00:36:32','330'),(166,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 19:15:41','2025-09-28 00:45:41','330'),(167,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 19:25:04','2025-09-28 00:55:04','330'),(168,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 19:28:42','2025-09-28 00:58:42','330'),(169,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 19:38:17','2025-09-28 01:08:17','330'),(170,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 19:41:01','2025-09-28 01:11:01','330'),(171,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-27 19:49:27','2025-09-28 01:19:27','330'),(172,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-28 02:46:44','2025-09-28 08:16:44','330'),(173,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-28 02:58:16','2025-09-28 08:28:16','330'),(174,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-28 02:59:32','2025-09-28 08:29:32','330'),(175,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-28 07:29:02','2025-09-28 12:59:02','330'),(176,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-28 14:21:26','2025-09-28 19:51:26','330'),(177,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-28 20:04:51','2025-09-29 01:34:51','330'),(178,5,'Failed','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-28 20:05:45','2025-09-29 01:35:45','330'),(179,5,'Success','175.157.40.32','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-28 20:05:51','2025-09-29 01:35:51','330'),(180,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-29 13:41:47','2025-09-29 19:11:47','330'),(181,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-29 15:34:34','2025-09-29 21:04:34','330'),(182,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-29 15:34:43','2025-09-29 21:04:43','330'),(183,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-29 17:08:31','2025-09-29 22:38:31','330'),(184,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-29 17:25:02','2025-09-29 22:55:02','330'),(185,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-29 17:27:47','2025-09-29 22:57:47','330'),(186,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-29 17:35:27','2025-09-29 23:05:27','330'),(187,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-29 17:57:05','2025-09-29 23:27:05','330'),(188,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-29 18:02:05','2025-09-29 23:32:05','330'),(189,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-29 18:06:32','2025-09-29 23:36:32','330'),(190,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-29 18:10:11','2025-09-29 23:40:11','330'),(191,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-29 18:18:31','2025-09-29 23:48:31','330'),(192,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-29 18:19:55','2025-09-29 23:49:55','330'),(193,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-29 18:24:34','2025-09-29 23:54:34','330'),(194,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-29 18:27:40','2025-09-29 23:57:40','330'),(195,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-29 18:30:33','2025-09-30 00:00:33','330'),(196,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-30 02:32:22','2025-09-30 08:02:22','330'),(197,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-30 02:58:20','2025-09-30 08:28:20','330'),(198,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-30 02:59:56','2025-09-30 08:29:56','330'),(199,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-30 14:17:56','2025-09-30 19:47:56','330'),(200,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-30 14:24:38','2025-09-30 19:54:38','330'),(201,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-30 14:29:38','2025-09-30 19:59:38','330'),(202,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-30 14:32:06','2025-09-30 20:02:06','330'),(203,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-30 15:36:48','2025-09-30 21:06:48','330'),(204,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-30 16:42:04','2025-09-30 22:12:04','330'),(205,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-30 17:01:22','2025-09-30 22:31:22','330'),(206,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-30 17:16:20','2025-09-30 22:46:20','330'),(207,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-30 17:17:25','2025-09-30 22:47:25','330'),(208,5,'Success','175.157.143.46','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-30 17:17:34','2025-09-30 22:47:34','330'),(209,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-30 18:52:12','2025-10-01 00:22:12','330'),(210,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-30 18:52:21','2025-10-01 00:22:21','330'),(211,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-09-30 18:56:47','2025-10-01 00:26:47','330'),(212,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-01 02:44:29','2025-10-01 08:14:29','330'),(213,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-01 02:58:27','2025-10-01 08:28:27','330'),(214,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-01 03:13:09','2025-10-01 08:43:09','330'),(215,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-01 04:28:47','2025-10-01 09:58:47','330'),(216,5,'Success','112.134.175.182','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-01 07:14:51','2025-10-01 12:44:51','330'),(217,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-01 13:46:49','2025-10-01 19:16:49','330'),(218,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-01 14:07:03','2025-10-01 19:37:03','330'),(219,5,'Success','175.157.25.129','{\"os\":\"iOS 16.7\",\"browser\":\"Mobile Chrome 123.0.6312.52\",\"device\":\"iPhone\"}','sessionId','additionalInfo','2025-10-01 15:37:42','2025-10-01 21:07:42','330'),(220,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 03:23:03','2025-10-02 08:53:03','330'),(221,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 05:01:07','2025-10-02 10:31:07','330'),(222,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 06:03:28','2025-10-02 11:33:28','330'),(223,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:07:02','2025-10-02 13:37:02','330'),(224,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:07:19','2025-10-02 13:37:19','330'),(225,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:09:11','2025-10-02 13:39:11','330'),(226,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:12:12','2025-10-02 13:42:12','330'),(227,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:13:39','2025-10-02 13:43:39','330'),(228,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:13:42','2025-10-02 13:43:42','330'),(229,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:14:19','2025-10-02 13:44:19','330'),(230,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:17:24','2025-10-02 13:47:24','330'),(231,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:21:08','2025-10-02 13:51:08','330'),(232,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:22:11','2025-10-02 13:52:11','330'),(233,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:23:52','2025-10-02 13:53:52','330'),(234,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:24:19','2025-10-02 13:54:19','330'),(235,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:26:57','2025-10-02 13:56:57','330'),(236,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:27:15','2025-10-02 13:57:15','330'),(237,5,'Failed','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:27:24','2025-10-02 13:57:24','330'),(238,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:27:30','2025-10-02 13:57:30','330'),(239,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:27:36','2025-10-02 13:57:36','330'),(240,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:29:00','2025-10-02 13:59:00','330'),(241,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:29:10','2025-10-02 13:59:10','330'),(242,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:29:29','2025-10-02 13:59:29','330'),(243,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:51:34','2025-10-02 14:21:34','330'),(244,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:52:30','2025-10-02 14:22:30','330'),(245,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:52:37','2025-10-02 14:22:37','330'),(246,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 08:56:00','2025-10-02 14:26:00','330'),(247,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 09:01:29','2025-10-02 14:31:29','330'),(248,5,'Success','112.134.173.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 09:42:50','2025-10-02 15:12:50','330'),(249,5,'Success','112.134.173.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 09:44:50','2025-10-02 15:14:50','330'),(250,5,'Success','112.134.173.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 10:21:22','2025-10-02 15:51:22','330'),(251,5,'Success','112.134.173.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 11:21:02','2025-10-02 16:51:02','330'),(252,5,'Success','112.134.173.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 11:28:58','2025-10-02 16:58:58','330'),(253,5,'Success','112.134.173.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 11:34:36','2025-10-02 17:04:36','330'),(254,5,'Success','112.134.173.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 12:01:22','2025-10-02 17:31:22','330'),(255,5,'Success','112.134.173.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-02 12:14:41','2025-10-02 17:44:41','330'),(256,5,'Success','112.134.175.10','{\"os\":\"Windows 10\",\"browser\":\"Chrome 109.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 06:33:52','2025-10-03 12:03:52','330'),(257,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 13:38:33','2025-10-03 19:08:33','330'),(258,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 13:41:25','2025-10-03 19:11:25','330'),(259,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 13:49:12','2025-10-03 19:19:12','330'),(260,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 14:29:08','2025-10-03 19:59:08','330'),(261,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 14:29:31','2025-10-03 19:59:31','330'),(262,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 14:30:26','2025-10-03 20:00:26','330'),(263,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 14:37:45','2025-10-03 20:07:45','330'),(264,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 14:38:38','2025-10-03 20:08:38','330'),(265,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 14:46:15','2025-10-03 20:16:15','330'),(266,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 14:46:36','2025-10-03 20:16:36','330'),(267,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 14:50:40','2025-10-03 20:20:40','330'),(268,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 15:05:25','2025-10-03 20:35:25','330'),(269,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 15:39:55','2025-10-03 21:09:55','330'),(270,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 15:43:51','2025-10-03 21:13:51','330'),(271,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 15:44:02','2025-10-03 21:14:02','330'),(272,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 15:46:55','2025-10-03 21:16:55','330'),(273,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 16:01:18','2025-10-03 21:31:18','330'),(274,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 16:03:04','2025-10-03 21:33:04','330'),(275,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 16:05:31','2025-10-03 21:35:31','330'),(276,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 16:47:37','2025-10-03 22:17:37','330'),(277,5,'Success','175.157.25.129','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 17:22:05','2025-10-03 22:52:05','330'),(278,5,'Success','111.223.189.160','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 17:45:54','2025-10-03 23:15:54','330'),(279,5,'Success','111.223.189.160','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 17:46:32','2025-10-03 23:16:32','330'),(280,5,'Success','111.223.189.160','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-03 17:52:55','2025-10-03 23:22:55','330'),(281,5,'Success','111.223.189.160','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-04 05:15:42','2025-10-04 10:45:42','330'),(282,5,'Success','123.231.87.221','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-04 11:05:22','2025-10-04 16:35:22','330'),(283,5,'Success','112.134.171.205','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-04 12:14:12','2025-10-04 17:44:12','330'),(284,5,'Success','175.157.139.187','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-05 04:10:48','2025-10-05 09:40:48','330'),(285,5,'Success','175.157.27.97','{\"os\":\"Windows 10\",\"browser\":\"Edge 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-05 04:54:07','2025-10-05 10:24:07','330'),(286,5,'Success','112.134.173.74','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-06 09:02:34','2025-10-06 14:32:34','330'),(287,5,'Success','112.134.171.20','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-07 10:31:52','2025-10-07 16:01:52','330'),(288,5,'Success','175.157.27.97','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-07 11:09:44','2025-10-07 16:39:44','330'),(289,5,'Failed','112.134.171.20','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-07 11:58:33','2025-10-07 17:28:33','330'),(290,5,'Success','112.134.171.20','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-07 11:58:37','2025-10-07 17:28:37','330'),(291,5,'Success','112.134.171.20','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-07 12:41:59','2025-10-07 18:11:59','330'),(292,5,'Success','112.134.171.20','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-07 12:44:47','2025-10-07 18:14:47','330'),(293,5,'Success','112.134.171.20','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-07 13:39:50','2025-10-07 19:09:50','330'),(294,5,'Success','112.134.171.20','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-07 13:44:31','2025-10-07 19:14:31','330'),(295,5,'Success','112.134.171.20','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-07 13:46:51','2025-10-07 19:16:51','330'),(296,5,'Success','112.134.171.186','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-08 04:23:04','2025-10-08 09:53:04','330'),(297,5,'Success','112.134.171.186','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-08 04:33:57','2025-10-08 10:03:57','330'),(298,5,'Success','112.134.171.186','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-08 04:34:13','2025-10-08 10:04:13','330'),(299,5,'Success','175.157.27.97','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-08 06:40:41','2025-10-08 12:10:41','330'),(300,5,'Success','175.157.27.97','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-08 06:41:36','2025-10-08 12:11:36','330'),(301,5,'Success','112.134.171.186','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-08 06:44:55','2025-10-08 12:14:55','330'),(302,5,'Success','112.134.171.186','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-08 06:53:07','2025-10-08 12:23:07','330'),(303,5,'Success','112.134.171.186','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-08 06:57:12','2025-10-08 12:27:12','330'),(304,5,'Success','112.134.171.186','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-08 06:58:08','2025-10-08 12:28:08','330'),(305,5,'Success','112.134.171.186','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-08 07:08:17','2025-10-08 12:38:17','330'),(306,5,'Success','112.134.171.186','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-08 09:45:34','2025-10-08 15:15:34','330'),(307,5,'Success','112.134.171.186','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-08 10:15:06','2025-10-08 15:45:06','330'),(308,5,'Success','112.134.174.215','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-09 09:16:05','2025-10-09 14:46:05','330'),(309,5,'Success','112.134.174.215','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-09 09:27:46','2025-10-09 14:57:46','330'),(310,5,'Success','112.134.174.215','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-09 09:28:13','2025-10-09 14:58:13','330'),(311,5,'Success','112.134.174.215','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-09 09:29:37','2025-10-09 14:59:37','330'),(312,5,'Success','112.134.174.215','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-09 10:16:14','2025-10-09 15:46:14','330'),(313,5,'Success','112.134.174.215','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-09 10:21:21','2025-10-09 15:51:21','330'),(314,5,'Success','112.134.174.215','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-09 10:25:20','2025-10-09 15:55:20','330'),(315,5,'Success','112.134.174.215','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-09 10:25:58','2025-10-09 15:55:58','330'),(316,5,'Success','175.157.18.132','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-09 14:12:15','2025-10-09 19:42:15','330'),(317,5,'Success','112.134.170.116','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-11 11:45:25','2025-10-11 17:15:25','330'),(318,5,'Success','112.134.170.116','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-11 11:52:16','2025-10-11 17:22:16','330'),(319,5,'Success','175.157.18.132','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-12 04:40:27','2025-10-12 10:10:27','330'),(320,5,'Success','175.157.18.132','{\"os\":\"Windows 10\",\"browser\":\"Chrome 140.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-12 07:30:54','2025-10-12 13:00:54','330'),(321,5,'Success','112.134.174.146','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-12 07:51:50','2025-10-12 13:21:50','330'),(322,5,'Success','112.134.174.146','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-12 07:52:14','2025-10-12 13:22:14','330'),(323,5,'Success','112.134.168.128','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-13 13:58:36','2025-10-13 19:28:36','330'),(324,5,'Success','112.134.170.23','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-14 06:23:45','2025-10-14 11:53:45','330'),(325,5,'Success','112.134.170.23','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-14 06:29:31','2025-10-14 11:59:31','330'),(326,5,'Success','112.134.170.23','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-14 06:30:52','2025-10-14 12:00:52','330'),(327,5,'Success','112.134.170.23','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-14 06:31:46','2025-10-14 12:01:46','330'),(328,5,'Success','112.134.170.23','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-14 06:43:34','2025-10-14 12:13:34','330'),(329,5,'Success','175.157.20.196','{\"os\":\"Windows 10\",\"browser\":\"Chrome 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-15 14:07:00','2025-10-15 19:37:00','330'),(330,5,'Success','175.157.26.92','{\"os\":\"Windows 10\",\"browser\":\"Chrome 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-17 17:17:46','2025-10-17 22:47:46','330'),(331,5,'Success','175.157.26.92','{\"os\":\"Windows 10\",\"browser\":\"Chrome 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-17 18:07:43','2025-10-17 23:37:43','330'),(332,5,'Success','175.157.26.92','{\"os\":\"Windows 10\",\"browser\":\"Chrome 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-17 18:16:21','2025-10-17 23:46:21','330'),(333,5,'Success','175.157.26.92','{\"os\":\"Windows 10\",\"browser\":\"Chrome 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-18 15:12:34','2025-10-18 20:42:34','330'),(334,5,'Success','175.157.26.92','{\"os\":\"iOS 16.7\",\"browser\":\"Mobile Chrome 123.0.6312.52\",\"device\":\"iPhone\"}','sessionId','additionalInfo','2025-10-19 12:25:57','2025-10-19 17:55:57','330'),(335,5,'Success','112.134.175.136','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-21 10:08:43','2025-10-21 15:38:43','330'),(336,5,'Success','112.134.175.136','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-21 10:11:01','2025-10-21 15:41:01','330'),(337,5,'Success','112.134.175.136','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-21 10:12:12','2025-10-21 15:42:12','330'),(338,5,'Success','112.134.175.136','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-21 10:14:17','2025-10-21 15:44:17','330'),(339,5,'Success','112.134.171.138','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-21 10:35:23','2025-10-21 16:05:23','330'),(340,5,'Success','112.134.171.138','{\"os\":\"Windows 10\",\"browser\":\"Chrome 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-21 11:50:12','2025-10-21 17:20:12','330'),(341,5,'Success','112.134.171.138','{\"os\":\"Windows 10\",\"browser\":\"Chrome 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-21 12:25:48','2025-10-21 17:55:48','330'),(342,5,'Success','112.134.171.138','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-21 12:30:44','2025-10-21 18:00:44','330'),(343,5,'Success','112.134.171.138','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-21 12:43:11','2025-10-21 18:13:11','330'),(344,5,'Success','112.134.171.138','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-21 12:46:50','2025-10-21 18:16:50','330'),(345,5,'Success','112.134.171.138','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-21 12:48:30','2025-10-21 18:18:30','330'),(346,5,'Success','112.134.171.138','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-21 12:51:25','2025-10-21 18:21:25','330'),(347,5,'Success','112.134.171.138','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-21 13:01:51','2025-10-21 18:31:51','330'),(348,5,'Success','112.134.171.138','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-21 13:06:18','2025-10-21 18:36:18','330'),(349,5,'Success','112.134.171.138','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-21 13:13:01','2025-10-21 18:43:01','330'),(350,5,'Success','112.134.171.138','{\"os\":\"Windows 10\",\"browser\":\"Chrome 109.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-21 13:14:11','2025-10-21 18:44:11','330'),(351,5,'Success','112.134.170.193','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-22 04:37:27','2025-10-22 10:07:27','330'),(352,5,'Success','112.134.170.60','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-23 08:27:48','2025-10-23 13:57:48','330'),(353,5,'Success','112.134.170.60','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-23 08:31:24','2025-10-23 14:01:24','330'),(354,5,'Success','112.134.170.60','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-23 09:50:48','2025-10-23 15:20:48','330'),(355,5,'Success','112.134.170.60','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-23 11:32:46','2025-10-23 17:02:46','330'),(356,5,'Success','112.134.170.60','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-23 11:37:14','2025-10-23 17:07:14','330'),(357,5,'Success','112.134.170.60','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-23 11:42:36','2025-10-23 17:12:36','330'),(358,5,'Success','112.134.170.60','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-23 12:13:26','2025-10-23 17:43:26','330'),(359,5,'Success','112.134.170.60','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-23 13:40:26','2025-10-23 19:10:26','330'),(360,5,'Success','123.231.126.151','{\"os\":\"Windows 10\",\"browser\":\"Chrome 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-25 05:53:46','2025-10-25 11:23:46','330'),(361,5,'Success','123.231.126.151','{\"os\":\"Windows 10\",\"browser\":\"Chrome 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-27 14:28:27','2025-10-27 19:58:27','330'),(362,5,'Success','123.231.126.151','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-27 14:30:18','2025-10-27 20:00:18','330'),(363,5,'Success','112.134.168.80','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-28 11:24:52','2025-10-28 16:54:52','330'),(364,5,'Success','123.231.126.158','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-10-28 17:16:08','2025-10-28 22:46:08','330'),(365,5,'Success','123.231.126.158','{\"os\":\"Windows 10\",\"browser\":\"Chrome 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-01 11:17:38','2025-11-01 16:47:38','330'),(366,5,'Success','123.231.126.158','{\"os\":\"Windows 10\",\"browser\":\"Chrome 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-03 05:33:44','2025-11-03 11:03:44','330'),(367,5,'Success','123.231.126.158','{\"os\":\"Windows 10\",\"browser\":\"Chrome 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-05 15:42:26','2025-11-05 21:12:26','330'),(368,5,'Success','123.231.126.158','{\"os\":\"Windows 10\",\"browser\":\"Edge 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-05 15:45:21','2025-11-05 21:15:21','330'),(369,5,'Success','112.134.169.61','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-06 11:12:48','2025-11-06 16:42:48','330'),(370,5,'Success','112.134.175.37','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-07 11:17:20','2025-11-07 16:47:20','330'),(371,5,'Success','112.134.175.37','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-07 11:20:54','2025-11-07 16:50:54','330'),(372,5,'Success','111.223.186.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-07 15:54:12','2025-11-07 21:24:12','330'),(373,5,'Success','111.223.186.159','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-07 16:06:13','2025-11-07 21:36:13','330'),(374,5,'Success','111.223.186.159','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-07 16:07:42','2025-11-07 21:37:42','330'),(375,5,'Success','111.223.186.159','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-07 16:09:07','2025-11-07 21:39:07','330'),(376,5,'Success','111.223.186.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-09 06:26:13','2025-11-09 11:56:13','330'),(377,5,'Success','111.223.186.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 141.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-09 11:56:55','2025-11-09 17:26:55','330'),(378,5,'Success','111.223.186.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-09 20:17:23','2025-11-10 01:47:23','330'),(379,5,'Success','111.223.186.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-09 23:36:11','2025-11-10 05:06:11','330'),(380,5,'Success','111.223.186.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-10 08:57:07','2025-11-10 14:27:07','330'),(381,5,'Success','111.223.186.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-10 10:32:15','2025-11-10 16:02:15','330'),(382,5,'Failed','111.223.186.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-10 12:06:49','2025-11-10 17:36:49','330'),(383,5,'Success','111.223.186.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-10 12:06:53','2025-11-10 17:36:53','330'),(384,5,'Success','112.134.171.104','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 04:56:33','2025-11-11 10:26:33','330'),(385,5,'Success','112.134.171.104','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 06:20:34','2025-11-11 11:50:34','330'),(386,5,'Success','112.134.171.104','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 06:42:59','2025-11-11 12:12:59','330'),(387,5,'Success','112.134.171.104','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 06:47:26','2025-11-11 12:17:26','330'),(388,5,'Success','112.134.171.104','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 06:55:58','2025-11-11 12:25:58','330'),(389,5,'Success','112.134.171.104','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 07:00:31','2025-11-11 12:30:31','330'),(390,5,'Success','111.223.186.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 08:42:29','2025-11-11 14:12:29','330'),(391,5,'Success','::1','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 09:49:27','2025-11-11 15:19:27','330'),(392,5,'Success','111.223.186.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 10:40:30','2025-11-11 16:10:30','330'),(393,5,'Success','111.223.186.159','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 11:01:58','2025-11-11 16:31:58','330'),(394,5,'Success','111.223.186.159','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 11:13:19','2025-11-11 16:43:19','330'),(395,5,'Success','111.223.186.159','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 11:15:30','2025-11-11 16:45:30','330'),(396,5,'Success','111.223.186.159','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 11:15:37','2025-11-11 16:45:37','330'),(397,5,'Success','112.134.171.104','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 11:31:31','2025-11-11 17:01:31','330'),(398,5,'Success','112.134.171.104','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 11:48:30','2025-11-11 17:18:30','330'),(399,5,'Success','112.134.171.104','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 11:57:02','2025-11-11 17:27:02','330'),(400,5,'Success','112.134.171.104','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 11:57:45','2025-11-11 17:27:45','330'),(401,5,'Success','112.134.171.104','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 12:02:30','2025-11-11 17:32:30','330'),(402,5,'Success','112.134.171.104','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 12:11:55','2025-11-11 17:41:55','330'),(403,5,'Success','112.134.171.104','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 12:12:39','2025-11-11 17:42:39','330'),(404,5,'Success','112.134.171.104','{\"os\":\"Windows 10\",\"browser\":\"Chrome 109.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 12:13:42','2025-11-11 17:43:42','330'),(405,5,'Success','112.134.171.104','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 12:18:53','2025-11-11 17:48:53','330'),(406,5,'Success','111.223.186.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 15:14:08','2025-11-11 20:44:08','330'),(407,5,'Success','::1','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 16:48:04','2025-11-11 22:18:04','330'),(408,5,'Failed','::1','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 16:52:51','2025-11-11 22:22:51','330'),(409,5,'Success','::1','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 16:53:00','2025-11-11 22:23:00','330'),(410,5,'Success','::1','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-11 17:08:18','2025-11-11 22:38:18','330'),(411,5,'Success','111.223.186.159','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-12 01:45:13','2025-11-12 07:15:13','330'),(412,5,'Success','112.134.169.53','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-12 12:07:14','2025-11-12 17:37:14','330'),(413,5,'Success','::1','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-12 18:41:48','2025-11-13 00:11:48','330'),(414,5,'Success','::1','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-12 21:41:59','2025-11-13 03:11:59','330'),(415,5,'Success','175.157.41.239','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-13 09:20:06','2025-11-13 14:50:06','330'),(416,5,'Success','175.157.41.239','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-13 09:39:21','2025-11-13 15:09:21','330'),(417,5,'Success','112.134.169.48','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-13 09:52:49','2025-11-13 15:22:49','330'),(418,5,'Success','112.134.169.48','{\"os\":\"Windows 8.1\",\"browser\":\"Edge 109.0.1518.140\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-13 10:58:09','2025-11-13 16:28:09','330'),(419,5,'Success','112.134.169.48','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-13 11:38:12','2025-11-13 17:08:12','330'),(420,5,'Success','112.134.169.48','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-13 11:46:18','2025-11-13 17:16:18','330'),(421,5,'Success','175.157.41.239','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-14 13:48:32','2025-11-14 19:18:32','330'),(422,5,'Success','175.157.41.239','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-15 09:04:27','2025-11-15 14:34:27','330'),(423,5,'Success','175.157.41.239','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-15 09:28:54','2025-11-15 14:58:54','330'),(424,5,'Success','175.157.41.239','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-15 09:29:07','2025-11-15 14:59:07','330'),(425,5,'Success','175.157.41.239','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-15 10:37:46','2025-11-15 16:07:46','330'),(426,5,'Success','175.157.41.239','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-15 10:38:10','2025-11-15 16:08:10','330'),(427,5,'Success','175.157.41.239','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-15 10:40:42','2025-11-15 16:10:42','330'),(428,5,'Success','175.157.41.239','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-15 15:34:22','2025-11-15 21:04:22','330'),(429,5,'Success','175.157.41.239','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-16 08:03:29','2025-11-16 13:33:29','330'),(430,5,'Success','175.157.41.239','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-16 08:07:28','2025-11-16 13:37:28','330'),(431,5,'Success','175.157.41.239','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-16 08:12:06','2025-11-16 13:42:06','330'),(432,5,'Success','175.157.41.239','{\"os\":\"Windows 10\",\"browser\":\"Edge 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-18 06:20:14','2025-11-18 11:50:14','330'),(433,5,'Success','175.157.41.239','{\"os\":\"Windows 10\",\"browser\":\"Chrome 142.0.0.0\",\"device\":\"Unknown Device\"}','sessionId','additionalInfo','2025-11-18 07:06:10','2025-11-18 12:36:10','330');
 /*!40000 ALTER TABLE `userlog` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3288,7 +2745,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `userrole`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `userrole` (
   `userRoleId` int(11) NOT NULL AUTO_INCREMENT,
   `UserRoleName` varchar(50) DEFAULT NULL,
@@ -3306,10 +2763,7 @@ CREATE TABLE `userrole` (
 
 LOCK TABLES `userrole` WRITE;
 /*!40000 ALTER TABLE `userrole` DISABLE KEYS */;
-INSERT INTO `userrole` VALUES
-(1,'Admin','2025-02-11 10:06:43','2025-02-11 15:36:43',NULL,NULL),
-(2,'Manager','2025-02-11 10:07:01','2025-02-11 15:37:01',NULL,NULL),
-(3,'Cashier','2025-02-11 10:07:17','2025-02-11 15:37:17',NULL,NULL);
+INSERT INTO `userrole` VALUES (1,'Admin','2025-02-11 10:06:43','2025-02-11 15:36:43',NULL,NULL),(2,'Manager','2025-02-11 10:07:01','2025-02-11 15:37:01',NULL,NULL),(3,'Cashier','2025-02-11 10:07:17','2025-02-11 15:37:17',NULL,NULL);
 /*!40000 ALTER TABLE `userrole` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3319,7 +2773,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `variation_product`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `variation_product` (
   `variationProductId` int(11) NOT NULL AUTO_INCREMENT,
   `SKU` varchar(50) DEFAULT NULL,
@@ -3337,7 +2791,7 @@ CREATE TABLE `variation_product` (
   UNIQUE KEY `unique_barcode` (`barcode`),
   KEY `FK_variationProduct_product` (`productId`),
   CONSTRAINT `FK_variationProduct_product` FOREIGN KEY (`productId`) REFERENCES `product` (`ProductId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=217 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3346,6 +2800,7 @@ CREATE TABLE `variation_product` (
 
 LOCK TABLES `variation_product` WRITE;
 /*!40000 ALTER TABLE `variation_product` DISABLE KEYS */;
+INSERT INTO `variation_product` VALUES (5,'FR4RBLK3/4',NULL,61,'2025-07-28 20:54:06','2025-07-29 02:24:06',NULL,NULL,650.00,1.00,0.00),(6,'FR4RSILV1',NULL,61,'2025-07-28 20:54:06','2025-07-29 02:24:06',NULL,NULL,700.00,1.00,0.00),(7,'FR5RBLK3/4',NULL,62,'2025-07-28 20:55:38','2025-07-29 02:25:38',NULL,NULL,750.00,0.00,0.00),(8,'FR5RSILV1',NULL,62,'2025-07-28 20:55:38','2025-07-29 02:25:38',NULL,NULL,800.00,0.00,0.00),(9,'FR6RBLK3/4',NULL,63,'2025-07-28 20:56:55','2025-07-29 02:26:55',NULL,NULL,750.00,0.00,0.00),(10,'FR6RSILV1',NULL,63,'2025-07-28 20:56:55','2025-07-29 02:26:55',NULL,NULL,800.00,0.00,0.00),(11,'FR8RBLK3/4',NULL,64,'2025-07-28 20:58:14','2025-07-29 02:28:14',NULL,NULL,1000.00,0.00,0.00),(12,'FR8RSILV1',NULL,64,'2025-07-28 20:58:14','2025-07-29 02:28:14',NULL,NULL,1200.00,0.00,0.00),(13,'FR8x12BLK3/4',NULL,65,'2025-07-28 21:03:20','2025-07-29 02:33:20',NULL,NULL,1200.00,0.00,0.00),(14,'FR8x12SILV1',NULL,65,'2025-07-28 21:03:20','2025-07-29 02:33:20',NULL,NULL,1600.00,0.00,0.00),(15,'FR10x12BLK3/4',NULL,66,'2025-07-28 21:05:08','2025-07-29 02:35:08',NULL,NULL,1400.00,0.00,0.00),(16,'FR10x12SILV1',NULL,66,'2025-07-28 21:05:08','2025-07-29 02:35:08',NULL,NULL,1600.00,0.00,0.00),(17,'FR10x15BLK3/4',NULL,67,'2025-07-28 21:08:20','2025-07-29 02:38:20',NULL,NULL,1700.00,0.00,0.00),(18,'FR10x15SILV1',NULL,67,'2025-07-28 21:08:20','2025-07-29 02:38:20',NULL,NULL,2000.00,0.00,0.00),(19,'FR12X15BLK3/4',NULL,68,'2025-07-28 21:10:17','2025-07-29 02:40:17',NULL,NULL,2000.00,0.00,0.00),(20,'FR12X15SILV1',NULL,68,'2025-07-28 21:10:17','2025-07-29 02:40:17',NULL,NULL,2400.00,0.00,0.00),(21,'FR12X18BLK3/4',NULL,69,'2025-07-28 21:12:36','2025-07-29 02:42:36',NULL,NULL,2400.00,0.00,0.00),(22,'FR12X18SILV1',NULL,69,'2025-07-28 21:12:36','2025-07-29 02:42:36',NULL,NULL,2700.00,0.00,0.00),(23,'FR16X20BLK3/4',NULL,70,'2025-07-28 21:15:20','2025-07-29 02:45:20',NULL,NULL,5500.00,0.00,0.00),(24,'FR16x24BLK2\"',NULL,71,'2025-07-28 21:16:09','2025-07-29 02:46:09',NULL,NULL,5500.00,0.00,0.00),(25,'FR20x30BLK3/4',NULL,72,'2025-07-28 21:16:54','2025-07-29 02:46:54',NULL,NULL,7000.00,0.00,0.00),(28,'FR6x8BLK1/2',NULL,99,'2025-08-25 09:45:42','2025-08-25 15:15:42',NULL,NULL,750.00,0.00,0.00),(29,'FR6x8BROWN1/3',NULL,99,'2025-08-25 09:45:42','2025-08-25 15:15:42',NULL,NULL,750.00,0.00,0.00),(37,'FLYMOUNT6x8PF',NULL,104,'2025-08-25 16:27:06','2025-08-25 21:57:06',NULL,NULL,1400.00,0.00,0.00),(38,'FR16x24BROWN2\"',NULL,71,'2025-08-25 17:26:13','2025-08-25 22:56:13',NULL,NULL,5500.00,0.00,0.00),(39,'FR10x12BROWN1',NULL,66,'2025-08-25 17:28:38','2025-08-25 22:58:38',NULL,NULL,1400.00,0.00,0.00),(40,'FR8x12BROWN3/4',NULL,65,'2025-08-25 17:32:14','2025-08-25 23:02:14',NULL,NULL,1200.00,0.00,0.00),(41,'FR4x6BLK',NULL,105,'2025-08-25 17:40:03','2025-08-25 23:10:03',NULL,NULL,1.00,0.00,0.00),(42,'DOCSCANL',NULL,106,'2025-08-28 09:24:55','2025-08-28 14:54:55',NULL,NULL,100.00,0.00,0.00),(43,'DOCSCANSM',NULL,106,'2025-08-28 09:24:55','2025-08-28 14:54:55',NULL,NULL,75.00,0.00,0.00),(44,'DBLBXFRM4R',NULL,107,'2025-08-29 10:27:40','2025-08-29 15:57:40',NULL,NULL,900.00,0.00,0.00),(45,'DBLBXFRM5R',NULL,107,'2025-08-29 15:00:31','2025-08-29 20:30:31',NULL,NULL,1000.00,0.00,0.00),(46,'DBLBXFRM6R',NULL,107,'2025-08-29 15:00:31','2025-08-29 20:30:31',NULL,NULL,1200.00,0.00,0.00),(47,'DBLBXFRM8R',NULL,107,'2025-08-29 15:00:31','2025-08-29 20:30:31',NULL,NULL,1400.00,0.00,0.00),(48,'DBLBXFRM8x12',NULL,107,'2025-08-29 15:00:31','2025-08-29 20:30:31',NULL,NULL,1500.00,0.00,0.00),(49,'DBLBXFRM10x12',NULL,107,'2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL,2000.00,0.00,0.00),(50,'DBLBXFRM10x15',NULL,107,'2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL,2400.00,0.00,0.00),(51,'DBLBXFRM12x15',NULL,107,'2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL,2700.00,0.00,0.00),(52,'DBLBXFRM12x18',NULL,107,'2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL,2800.00,0.00,0.00),(53,'DBLBXFRM16x20',NULL,107,'2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL,6400.00,0.00,0.00),(54,'DBLBXFRM16x24',NULL,107,'2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL,7000.00,0.00,0.00),(55,'DBLBXFRM20x30',NULL,107,'2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL,8000.00,0.00,0.00),(56,'FRSTND4R',NULL,108,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,100.00,0.00,0.00),(57,'FRSTND5R',NULL,108,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,125.00,0.00,0.00),(58,'FRSTND6R',NULL,108,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,140.00,0.00,0.00),(59,'FRSTND8R',NULL,108,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,200.00,0.00,0.00),(60,'FRSTND8x12',NULL,108,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,250.00,0.00,0.00),(61,'FRSTND10x12',NULL,108,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,300.00,0.00,0.00),(62,'FRSTND10x15',NULL,108,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,350.00,0.00,0.00),(63,'FRSTND12x15',NULL,108,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,375.00,0.00,0.00),(64,'FRSTND12x18',NULL,108,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,400.00,0.00,0.00),(65,'FRSTND16x20',NULL,108,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,800.00,0.00,0.00),(66,'FRSTND16x24',NULL,108,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,900.00,0.00,0.00),(67,'FRSTND20x30',NULL,108,'2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL,1200.00,0.00,0.00),(68,'FRMGLS4R',NULL,109,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,250.00,0.00,0.00),(69,'FRMGLS5R',NULL,109,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,500.00,0.00,0.00),(70,'FRMGLS6R',NULL,109,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,300.00,0.00,0.00),(71,'FRMGLS8R',NULL,109,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,350.00,0.00,0.00),(72,'FRMGLS8x12',NULL,109,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,350.00,0.00,0.00),(73,'FRMGLS10x12',NULL,109,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,350.00,0.00,0.00),(74,'FRMGLS10x15',NULL,109,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,350.00,0.00,0.00),(75,'FRMGLS12x15',NULL,109,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,350.00,0.00,0.00),(76,'FRMGLS12x18',NULL,109,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,400.00,0.00,0.00),(77,'FRMGLS16x20',NULL,109,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,500.00,0.00,0.00),(78,'FRMGLS16x24',NULL,109,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,500.00,0.00,0.00),(79,'FRMGLS20x30',NULL,109,'2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL,600.00,0.00,0.00),(99,'PRNTWTFRM4RBLK',NULL,134,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,1000.00,0.00,0.00),(100,'PRNTWTFRM5RBLK',NULL,134,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,1400.00,0.00,0.00),(101,'PRNTWTFRM6RBLK',NULL,134,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,1500.00,0.00,0.00),(102,'PRNTWTFRM8RBLK',NULL,134,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,1900.00,0.00,0.00),(103,'PRNTWTFRM8x12BLK',NULL,134,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,2000.00,0.00,0.00),(104,'PRNTWTFRM10x12BLK',NULL,134,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,2400.00,0.00,0.00),(105,'PRNTWTFRM10x15BLK',NULL,134,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,2800.00,0.00,0.00),(106,'PRNTWTFRM12x15BLK',NULL,134,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,3300.00,0.00,0.00),(107,'PRNTWTFRM12x18BLK',NULL,134,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,3600.00,0.00,0.00),(108,'PRNTWTFRM16x20BLK',NULL,134,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,7000.00,0.00,0.00),(109,'PRNTWTFRM16x24BLK',NULL,134,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,7500.00,0.00,0.00),(110,'PRNTWTFRM20x30BLK',NULL,134,'2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL,8000.00,0.00,0.00),(111,'FR4RBLK1',NULL,61,'2025-09-05 06:21:39','2025-09-05 11:51:39',NULL,NULL,1.00,1.00,0.00),(130,'PRNT20x30NORMAL',NULL,136,'2025-09-08 07:00:59','2025-09-08 12:30:59',NULL,NULL,5400.00,0.00,0.00),(131,'PRNT20x30URGENT',NULL,136,'2025-09-08 07:00:59','2025-09-08 12:30:59',NULL,NULL,5500.00,0.00,0.00),(132,'PRNT16x24URGENT',NULL,137,'2025-09-08 07:05:40','2025-09-08 12:35:40',NULL,NULL,4500.00,0.00,0.00),(133,'PRNT16x24NORMAL',NULL,137,'2025-09-08 07:05:40','2025-09-08 12:35:40',NULL,NULL,4400.00,0.00,0.00),(134,'PRNT16x20URGENT',NULL,138,'2025-09-08 07:09:21','2025-09-08 12:39:21',NULL,NULL,4000.00,0.00,0.00),(135,'PRNT16x20NORMAL',NULL,138,'2025-09-08 07:09:21','2025-09-08 12:39:21',NULL,NULL,3900.00,0.00,0.00),(136,'PRNT12X18CUST',NULL,139,'2025-09-08 07:12:50','2025-09-08 12:42:50',NULL,NULL,1500.00,0.00,0.00),(137,'PRNT12X18ST',NULL,139,'2025-09-08 07:12:50','2025-09-08 12:42:50',NULL,NULL,1000.00,0.00,0.00),(138,'PRNT12X18UGNT',NULL,139,'2025-09-08 07:12:50','2025-09-08 12:42:50',NULL,NULL,1200.00,0.00,0.00),(139,'PRNT12X15URGENT',NULL,140,'2025-09-08 07:15:46','2025-09-08 12:45:46',NULL,NULL,1200.00,0.00,0.00),(141,'PRNT12X15NORMAL',NULL,140,'2025-09-08 07:15:46','2025-09-08 12:45:46',NULL,NULL,1100.00,0.00,0.00),(142,'PRNT10X15UGNT',NULL,141,'2025-09-08 07:18:36','2025-09-08 12:48:36',NULL,NULL,1000.00,0.00,0.00),(144,'PRNT10X15NORMAL',NULL,141,'2025-09-08 07:18:36','2025-09-08 12:48:36',NULL,NULL,900.00,0.00,0.00),(145,'PRNT10X12URGENT',NULL,142,'2025-09-08 07:21:30','2025-09-08 12:51:30',NULL,NULL,900.00,0.00,0.00),(147,'PRNT10X12NORMAL',NULL,142,'2025-09-08 07:21:30','2025-09-08 12:51:30',NULL,NULL,800.00,0.00,0.00),(152,'PRNT5R',NULL,144,'2025-09-08 11:03:26','2025-09-08 16:33:26',NULL,NULL,450.00,0.00,0.00),(154,'PRNT5RST',NULL,144,'2025-09-08 11:03:26','2025-09-08 16:33:26',NULL,NULL,300.00,0.00,0.00),(155,'PRNT6RURGENT',NULL,145,'2025-09-08 11:22:04','2025-09-08 16:52:04',NULL,NULL,500.00,0.00,0.00),(156,'PRNT6RNORMAL',NULL,145,'2025-09-08 11:22:04','2025-09-08 16:52:04',NULL,NULL,400.00,0.00,0.00),(158,'PRNT8R',NULL,146,'2025-09-08 11:33:48','2025-09-08 17:03:48',NULL,NULL,700.00,0.00,0.00),(160,'PRNT8RST',NULL,146,'2025-09-08 11:33:48','2025-09-08 17:03:48',NULL,NULL,600.00,0.00,0.00),(161,'PRNT8X12URGENT',NULL,147,'2025-09-08 11:46:06','2025-09-08 17:16:06',NULL,NULL,800.00,0.00,0.00),(163,'PRNT8X12NORMAL',NULL,147,'2025-09-08 11:46:06','2025-09-08 17:16:06',NULL,NULL,700.00,0.00,0.00),(164,'PRNTA4BW',NULL,149,'2025-09-08 11:52:13','2025-09-08 17:22:13',NULL,NULL,20.00,0.00,0.00),(165,'PRNTA4COL',NULL,149,'2025-09-08 11:52:13','2025-09-08 17:22:13',NULL,NULL,60.00,0.00,0.00),(166,'PCA4',NULL,150,'2025-09-08 12:22:59','2025-09-08 17:52:59',NULL,NULL,15.00,0.00,0.00),(167,'PRNT2X2.54P',NULL,151,'2025-09-09 06:13:57','2025-09-09 11:43:57',NULL,NULL,500.00,0.00,0.00),(168,'PRNT2X2.5EX',NULL,151,'2025-09-09 06:13:57','2025-09-09 11:43:57',NULL,NULL,350.00,0.00,0.00),(169,'PRNT2X24P',NULL,152,'2025-09-09 06:17:47','2025-09-09 11:47:47',NULL,NULL,500.00,0.00,0.00),(170,'PRNT2X2Ex',NULL,152,'2025-09-09 06:17:47','2025-09-09 11:47:47',NULL,NULL,350.00,0.00,0.00),(171,'POSTIDPRNT4P',NULL,153,'2025-09-09 06:27:17','2025-09-09 11:57:17',NULL,NULL,500.00,0.00,0.00),(172,'POSTIDPRNTEX',NULL,153,'2025-09-09 06:27:17','2025-09-09 11:57:17',NULL,NULL,350.00,0.00,0.00),(174,'STAMPPRNT6P',NULL,155,'2025-09-09 06:51:45','2025-09-09 12:21:45',NULL,NULL,500.00,0.00,0.00),(175,'STAMPPRNTEX',NULL,155,'2025-09-09 06:51:45','2025-09-09 12:21:45',NULL,NULL,350.00,0.00,0.00),(176,'PRINT4RMEDIA',NULL,156,'2025-09-09 08:49:15','2025-09-09 14:19:15',NULL,NULL,60.00,0.00,0.00),(177,'PRINT4RMEDIAUGNT',NULL,156,'2025-09-09 08:49:15','2025-09-09 14:19:15',NULL,NULL,200.00,0.00,0.00),(178,'FLYMOUNT6x8FO',NULL,104,'2025-09-09 10:01:08','2025-09-09 15:31:08',NULL,NULL,750.00,0.00,0.00),(179,'FLYMOUNT4RPF',NULL,104,'2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL,1000.00,0.00,0.00),(180,'FLYMOUNT4RFO',NULL,104,'2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL,650.00,0.00,0.00),(181,'FLYMOUNT5RPF',NULL,104,'2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL,1400.00,0.00,0.00),(182,'FLYMOUNT5RFO',NULL,104,'2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL,750.00,0.00,0.00),(183,'FLYMOUNT6RPF',NULL,104,'2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL,1500.00,0.00,0.00),(184,'FLYMOUNT6RFO',NULL,104,'2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL,750.00,0.00,0.00),(185,'FLYMOUNT8RPF',NULL,104,'2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL,1900.00,0.00,0.00),(186,'FLYMOUNT8RFO',NULL,104,'2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL,1000.00,0.00,0.00),(187,'FLYMOUNT8x12PF',NULL,104,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,2000.00,0.00,0.00),(188,'FLYMOUNT8x12FO',NULL,104,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,1200.00,0.00,0.00),(189,'FLYMOUNT10x12PF',NULL,104,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,2400.00,0.00,0.00),(190,'FLYMOUNT10x12FO',NULL,104,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,1400.00,0.00,0.00),(191,'FLYMOUNT10x15PF',NULL,104,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,2800.00,0.00,0.00),(192,'FLYMOUNT10x15FO',NULL,104,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,1700.00,0.00,0.00),(193,'FLYMOUNT12x15PF',NULL,104,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,3300.00,0.00,0.00),(194,'FLYMOUNT12x15FO',NULL,104,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,200.00,0.00,0.00),(195,'FLYMOUNT12x18PF',NULL,104,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,3600.00,0.00,0.00),(196,'FLYMOUNT12x18FO',NULL,104,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,2400.00,0.00,0.00),(197,'FLYMOUNT16x20PF',NULL,104,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,7000.00,0.00,0.00),(198,'FLYMOUNT16x20FO',NULL,104,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,5000.00,0.00,0.00),(199,'FLYMOUNT16x24PF',NULL,104,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,7500.00,0.00,0.00),(200,'FLYMOUNT16x24FO',NULL,104,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,5000.00,0.00,0.00),(201,'FLYMOUNT20x30PF',NULL,104,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,8000.00,0.00,0.00),(202,'FLYMOUNT20x30FO',NULL,104,'2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL,5500.00,0.00,0.00),(203,'TILEA4',NULL,157,'2025-09-09 10:35:00','2025-09-09 16:05:00',NULL,NULL,3000.00,0.00,0.00),(204,'TILE8X8',NULL,157,'2025-09-09 10:35:00','2025-09-09 16:05:00',NULL,NULL,2700.00,0.00,0.00),(205,'TILE6X6',NULL,157,'2025-09-09 10:35:00','2025-09-09 16:05:00',NULL,NULL,2500.00,0.00,0.00),(206,'ROCKA4	',NULL,158,'2025-09-09 10:39:36','2025-09-09 16:09:36',NULL,NULL,3500.00,0.00,0.00),(208,'PASSPORTSCOPYORI',NULL,160,'2025-09-09 11:39:56','2025-09-09 17:09:56',NULL,NULL,500.00,0.00,0.00),(209,'PASSPORTSCOPYEX',NULL,160,'2025-09-09 11:39:56','2025-09-09 17:09:56',NULL,NULL,350.00,0.00,0.00),(210,'PASSPORT4P',NULL,162,'2025-09-09 11:42:35','2025-09-09 17:12:35',NULL,NULL,500.00,0.00,0.00),(211,'PASSPORTEX',NULL,162,'2025-09-09 11:42:35','2025-09-09 17:12:35',NULL,NULL,350.00,0.00,0.00),(212,'45455',NULL,163,'2025-09-22 18:53:32','2025-09-23 00:23:32',NULL,NULL,400.00,150.00,0.00),(213,'PRNT4RURGENT',NULL,164,'2025-10-21 11:56:48','2025-10-21 17:26:48',NULL,NULL,200.00,0.00,0.00),(214,'PRNT4RNORMAL',NULL,164,'2025-10-21 12:04:57','2025-10-21 17:34:57',NULL,NULL,60.00,0.00,0.00),(215,'4RPRINTCOPY',NULL,165,'2025-10-21 13:16:49','2025-10-21 18:46:49',NULL,NULL,400.00,0.00,0.00),(216,'4RPRINT',NULL,165,'2025-10-21 13:16:49','2025-10-21 18:46:49',NULL,NULL,500.00,0.00,0.00);
 /*!40000 ALTER TABLE `variation_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3355,7 +2810,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `variation_product_detail`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `variation_product_detail` (
   `variationProductDetail_id` int(11) NOT NULL AUTO_INCREMENT,
   `variationProductId` int(11) DEFAULT NULL,
@@ -3371,7 +2826,7 @@ CREATE TABLE `variation_product_detail` (
   KEY `FK_variation_product_detail_productVariationType` (`variationTypeId`),
   CONSTRAINT `FK_variationProduct_variationProductDetail` FOREIGN KEY (`variationProductId`) REFERENCES `variation_product` (`variationProductId`),
   CONSTRAINT `FK_variation_product_detail_productVariationType` FOREIGN KEY (`variationTypeId`) REFERENCES `product_variation_type` (`variationTypeId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=505 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3380,15 +2835,16 @@ CREATE TABLE `variation_product_detail` (
 
 LOCK TABLES `variation_product_detail` WRITE;
 /*!40000 ALTER TABLE `variation_product_detail` DISABLE KEYS */;
+INSERT INTO `variation_product_detail` VALUES (12,5,2,'Black','2025-07-28 20:54:06','2025-07-29 02:24:06',NULL,NULL),(13,6,2,'Silver','2025-07-28 20:54:06','2025-07-29 02:24:06',NULL,NULL),(14,7,2,'Black','2025-07-28 20:55:38','2025-07-29 02:25:38',NULL,NULL),(15,8,2,'Silver','2025-07-28 20:55:38','2025-07-29 02:25:38',NULL,NULL),(16,9,2,'Black','2025-07-28 20:56:55','2025-07-29 02:26:55',NULL,NULL),(17,10,2,'Silver','2025-07-28 20:56:55','2025-07-29 02:26:55',NULL,NULL),(18,11,2,'Black','2025-07-28 20:58:14','2025-07-29 02:28:14',NULL,NULL),(19,12,2,'Silver','2025-07-28 20:58:14','2025-07-29 02:28:14',NULL,NULL),(20,13,2,'Black','2025-07-28 21:03:20','2025-07-29 02:33:20',NULL,NULL),(21,14,2,'Silver','2025-07-28 21:03:20','2025-07-29 02:33:20',NULL,NULL),(22,15,2,'Black','2025-07-28 21:05:08','2025-07-29 02:35:08',NULL,NULL),(23,16,2,'Silver','2025-07-28 21:05:08','2025-07-29 02:35:08',NULL,NULL),(24,17,2,'Black','2025-07-28 21:08:20','2025-07-29 02:38:20',NULL,NULL),(25,18,2,'Silver','2025-07-28 21:08:20','2025-07-29 02:38:20',NULL,NULL),(26,19,2,'Black','2025-07-28 21:10:17','2025-07-29 02:40:17',NULL,NULL),(27,20,2,'Silver','2025-07-28 21:10:17','2025-07-29 02:40:17',NULL,NULL),(28,21,2,'Black','2025-07-28 21:12:36','2025-07-29 02:42:36',NULL,NULL),(29,22,2,'Silver','2025-07-28 21:12:36','2025-07-29 02:42:36',NULL,NULL),(30,23,2,'Black','2025-07-28 21:15:20','2025-07-29 02:45:20',NULL,NULL),(31,24,2,'Black','2025-07-28 21:16:09','2025-07-29 02:46:09',NULL,NULL),(32,25,2,'Black','2025-07-28 21:16:54','2025-07-29 02:46:54',NULL,NULL),(61,5,4,'3/4\"','2025-08-04 08:10:35','2025-08-04 13:40:35',NULL,NULL),(62,6,4,'1\"','2025-08-04 08:10:35','2025-08-04 13:40:35',NULL,NULL),(63,15,4,'3/4\"','2025-08-04 08:13:51','2025-08-04 13:43:51',NULL,NULL),(64,16,4,'1\"','2025-08-04 08:13:51','2025-08-04 13:43:51',NULL,NULL),(65,17,4,'3/4\"','2025-08-04 08:14:27','2025-08-04 13:44:27',NULL,NULL),(66,18,4,'1\"','2025-08-04 08:14:27','2025-08-04 13:44:27',NULL,NULL),(67,19,4,'3/4\"','2025-08-04 08:14:48','2025-08-04 13:44:48',NULL,NULL),(68,20,4,'1\"','2025-08-04 08:14:48','2025-08-04 13:44:48',NULL,NULL),(69,21,4,'3/4\"','2025-08-04 08:15:09','2025-08-04 13:45:09',NULL,NULL),(70,22,4,'1\"','2025-08-04 08:15:09','2025-08-04 13:45:09',NULL,NULL),(71,23,4,'3/4\"','2025-08-04 08:15:29','2025-08-04 13:45:29',NULL,NULL),(72,24,4,'2\"','2025-08-04 08:15:49','2025-08-04 13:45:49',NULL,NULL),(73,25,4,'3/4\"','2025-08-04 08:16:09','2025-08-04 13:46:09',NULL,NULL),(74,7,4,'3/4\"','2025-08-04 08:16:42','2025-08-04 13:46:42',NULL,NULL),(75,8,4,'1\"','2025-08-04 08:16:42','2025-08-04 13:46:42',NULL,NULL),(76,9,4,'3/4\"','2025-08-04 08:17:06','2025-08-04 13:47:06',NULL,NULL),(77,10,4,'1\"','2025-08-04 08:17:06','2025-08-04 13:47:06',NULL,NULL),(78,11,4,'3/4\"','2025-08-04 08:17:26','2025-08-04 13:47:26',NULL,NULL),(79,12,4,'1\"','2025-08-04 08:17:26','2025-08-04 13:47:26',NULL,NULL),(80,13,4,'3/4\"','2025-08-04 08:17:44','2025-08-04 13:47:44',NULL,NULL),(81,14,4,'1\"','2025-08-04 08:17:44','2025-08-04 13:47:44',NULL,NULL),(85,28,1,'1/2\"','2025-08-25 09:45:42','2025-08-25 15:15:42',NULL,NULL),(86,28,2,'Black','2025-08-25 09:45:42','2025-08-25 15:15:42',NULL,NULL),(88,29,1,'1/3\"','2025-08-25 09:45:42','2025-08-25 15:15:42',NULL,NULL),(89,29,2,'Brown','2025-08-25 09:45:42','2025-08-25 15:15:42',NULL,NULL),(104,38,2,'Brown','2025-08-25 17:26:13','2025-08-25 22:56:13',NULL,NULL),(105,38,4,'2\"','2025-08-25 17:26:13','2025-08-25 22:56:13',NULL,NULL),(107,39,2,'Brown','2025-08-25 17:28:38','2025-08-25 22:58:38',NULL,NULL),(108,39,4,'3/4\"','2025-08-25 17:28:38','2025-08-25 22:58:38',NULL,NULL),(110,40,2,'Brown','2025-08-25 17:32:14','2025-08-25 23:02:14',NULL,NULL),(111,40,4,'3/4\"','2025-08-25 17:32:14','2025-08-25 23:02:14',NULL,NULL),(113,41,1,'1/2\"','2025-08-25 17:40:03','2025-08-25 23:10:03',NULL,NULL),(114,41,2,'Black','2025-08-25 17:40:03','2025-08-25 23:10:03',NULL,NULL),(116,42,1,'LARGE','2025-08-28 09:24:55','2025-08-28 14:54:55',NULL,NULL),(117,43,1,'SMALL','2025-08-28 09:24:55','2025-08-28 14:54:55',NULL,NULL),(118,44,1,'4R','2025-08-29 10:27:40','2025-08-29 15:57:40',NULL,NULL),(119,45,1,'5R','2025-08-29 15:00:31','2025-08-29 20:30:31',NULL,NULL),(120,46,1,'6R','2025-08-29 15:00:31','2025-08-29 20:30:31',NULL,NULL),(121,47,1,'8R','2025-08-29 15:00:31','2025-08-29 20:30:31',NULL,NULL),(122,48,1,'8x12','2025-08-29 15:00:31','2025-08-29 20:30:31',NULL,NULL),(123,49,1,'10x12','2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL),(124,50,1,'10x15','2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL),(125,51,1,'12x15','2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL),(126,52,1,'12x18','2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL),(127,53,1,'16x20','2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL),(128,54,1,'16x24','2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL),(129,55,1,'20x30','2025-08-29 15:03:31','2025-08-29 20:33:31',NULL,NULL),(130,56,1,'4R','2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL),(131,57,1,'5R','2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL),(132,58,1,'6R','2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL),(133,59,1,'8R','2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL),(134,60,1,'8x12','2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL),(135,61,1,'10x12','2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL),(136,62,1,'10x15','2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL),(137,63,1,'12x15','2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL),(138,64,1,'12x18','2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL),(139,65,1,'16x20','2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL),(140,66,1,'16x24','2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL),(141,67,1,'20x30','2025-08-29 15:13:33','2025-08-29 20:43:33',NULL,NULL),(142,68,1,'4R','2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL),(143,69,1,'5R','2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL),(144,70,1,'6R','2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL),(145,71,1,'8R','2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL),(146,72,1,'8x12','2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL),(147,73,1,'10x12','2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL),(148,74,1,'10x15','2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL),(149,75,1,'12x15','2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL),(150,76,1,'12x18','2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL),(151,77,1,'16x20','2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL),(152,78,1,'16x24','2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL),(153,79,1,'20x30','2025-08-29 15:19:00','2025-08-29 20:49:00',NULL,NULL),(199,99,1,'4R','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(200,99,2,'Black','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(202,100,1,'5R','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(203,100,2,'Black','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(205,101,1,'6R','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(206,101,2,'Black','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(208,102,1,'8R','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(209,102,2,'Black','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(211,103,1,'8x12','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(212,103,2,'Black','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(214,104,1,'10x12','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(215,104,2,'Black','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(217,105,1,'10x15','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(218,105,2,'Black','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(220,106,1,'12x15','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(221,106,2,'Black','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(223,107,1,'12x18','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(224,107,2,'Black','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(226,108,1,'16x20','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(227,108,2,'Black','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(229,109,1,'16x24','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(230,109,2,'Black','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(232,110,1,'20x30','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(233,110,2,'Black','2025-09-04 08:03:11','2025-09-04 13:33:11',NULL,NULL),(235,111,2,'Black','2025-09-05 06:21:39','2025-09-05 11:51:39',NULL,NULL),(236,111,4,'1\"','2025-09-05 06:21:39','2025-09-05 11:51:39',NULL,NULL),(291,130,5,'Normal','2025-09-08 07:00:59','2025-09-08 12:30:59',NULL,NULL),(294,131,5,'Urgent','2025-09-08 07:00:59','2025-09-08 12:30:59',NULL,NULL),(297,132,5,'Urgent','2025-09-08 07:05:40','2025-09-08 12:35:40',NULL,NULL),(298,132,6,'Studio','2025-09-08 07:05:40','2025-09-08 12:35:40',NULL,NULL),(300,133,5,'Normal','2025-09-08 07:05:40','2025-09-08 12:35:40',NULL,NULL),(301,133,6,'Customer','2025-09-08 07:05:40','2025-09-08 12:35:40',NULL,NULL),(303,134,5,'Urgent','2025-09-08 07:09:21','2025-09-08 12:39:21',NULL,NULL),(306,135,5,'Normal','2025-09-08 07:09:21','2025-09-08 12:39:21',NULL,NULL),(309,136,5,'Normal','2025-09-08 07:12:50','2025-09-08 12:42:50',NULL,NULL),(310,136,6,'Customer','2025-09-08 07:12:50','2025-09-08 12:42:50',NULL,NULL),(312,137,5,'Normal','2025-09-08 07:12:50','2025-09-08 12:42:50',NULL,NULL),(313,137,6,'Studio','2025-09-08 07:12:50','2025-09-08 12:42:50',NULL,NULL),(315,138,5,'Urgent','2025-09-08 07:12:50','2025-09-08 12:42:50',NULL,NULL),(316,138,6,'Studio','2025-09-08 07:12:50','2025-09-08 12:42:50',NULL,NULL),(318,139,5,'Urgent','2025-09-08 07:15:46','2025-09-08 12:45:46',NULL,NULL),(324,141,5,'Normal','2025-09-08 07:15:46','2025-09-08 12:45:46',NULL,NULL),(327,142,5,'Urgent','2025-09-08 07:18:36','2025-09-08 12:48:36',NULL,NULL),(333,144,5,'Normal','2025-09-08 07:18:36','2025-09-08 12:48:36',NULL,NULL),(336,145,5,'Urgent','2025-09-08 07:21:30','2025-09-08 12:51:30',NULL,NULL),(342,147,5,'Normal','2025-09-08 07:21:30','2025-09-08 12:51:30',NULL,NULL),(356,152,5,'Urgent','2025-09-08 11:03:26','2025-09-08 16:33:26',NULL,NULL),(362,154,5,'Normal','2025-09-08 11:03:26','2025-09-08 16:33:26',NULL,NULL),(365,155,5,'Urgent','2025-09-08 11:22:04','2025-09-08 16:52:04',NULL,NULL),(368,156,5,'Normal','2025-09-08 11:22:04','2025-09-08 16:52:04',NULL,NULL),(374,158,5,'Urgent','2025-09-08 11:33:48','2025-09-08 17:03:48',NULL,NULL),(380,160,5,'Normal','2025-09-08 11:33:48','2025-09-08 17:03:48',NULL,NULL),(383,161,5,'Urgent','2025-09-08 11:46:06','2025-09-08 17:16:06',NULL,NULL),(389,163,5,'Normal','2025-09-08 11:46:06','2025-09-08 17:16:06',NULL,NULL),(392,164,2,'Black and White','2025-09-08 11:52:13','2025-09-08 17:22:13',NULL,NULL),(393,165,2,'Color','2025-09-08 11:52:13','2025-09-08 17:22:13',NULL,NULL),(394,166,1,'A4','2025-09-08 12:22:59','2025-09-08 17:52:59',NULL,NULL),(396,37,1,'6x8','2025-09-08 18:04:32','2025-09-08 23:34:32',NULL,NULL),(397,167,7,'4 Pieces','2025-09-09 06:13:57','2025-09-09 11:43:57',NULL,NULL),(398,168,7,'Extra','2025-09-09 06:13:57','2025-09-09 11:43:57',NULL,NULL),(399,169,7,'4 Pieces','2025-09-09 06:17:47','2025-09-09 11:47:47',NULL,NULL),(400,170,7,'Extra','2025-09-09 06:17:47','2025-09-09 11:47:47',NULL,NULL),(401,171,7,'4 pieces','2025-09-09 06:27:17','2025-09-09 11:57:17',NULL,NULL),(402,172,7,'Extra','2025-09-09 06:27:17','2025-09-09 11:57:17',NULL,NULL),(404,174,7,'6 Pieces','2025-09-09 06:51:45','2025-09-09 12:21:45',NULL,NULL),(405,175,7,'Extra','2025-09-09 06:51:45','2025-09-09 12:21:45',NULL,NULL),(406,176,5,'Normal','2025-09-09 08:49:15','2025-09-09 14:19:15',NULL,NULL),(407,176,6,'Media Print','2025-09-09 08:49:15','2025-09-09 14:19:15',NULL,NULL),(409,177,5,'Urgeent','2025-09-09 08:49:15','2025-09-09 14:19:15',NULL,NULL),(410,177,6,'Media Print','2025-09-09 08:49:15','2025-09-09 14:19:15',NULL,NULL),(412,178,1,'6x8','2025-09-09 10:01:08','2025-09-09 15:31:08',NULL,NULL),(413,178,8,'Frame Only','2025-09-09 10:01:08','2025-09-09 15:31:08',NULL,NULL),(415,37,8,'Print with Frame','2025-09-09 10:01:08','2025-09-09 15:31:08',NULL,NULL),(416,179,1,'4R','2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL),(417,179,8,'Print with Frame','2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL),(419,180,1,'4R','2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL),(420,180,8,'Frame Only','2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL),(422,181,1,'5R','2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL),(423,181,8,'Print with Frame','2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL),(425,182,1,'5R','2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL),(426,182,8,'Frame Only','2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL),(428,183,1,'6R','2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL),(429,183,8,'Print with Frame','2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL),(431,184,1,'6R','2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL),(432,184,8,'Frame Only','2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL),(434,185,1,'6R','2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL),(435,185,8,'Print with Frame','2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL),(437,186,1,'6R','2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL),(438,186,8,'Frame Only','2025-09-09 10:14:03','2025-09-09 15:44:03',NULL,NULL),(440,187,1,'8x12','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(441,187,8,'Print with Frame','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(443,188,1,'8x12','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(444,188,8,'Frame Only','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(446,189,1,'10x12','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(447,189,8,'Print with Frame','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(449,190,1,'10x12','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(450,190,8,'Frame Only','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(452,191,1,'10x15','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(453,191,8,'Print with Frame','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(455,192,1,'10x15','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(456,192,8,'Frame Only','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(458,193,1,'12x15','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(459,193,8,'Print with Frame','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(461,194,1,'12x15','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(462,194,8,'Frame Only','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(464,195,1,'12x18','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(465,195,8,'Print with Frame','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(467,196,1,'12x18','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(468,196,8,'Frame Only','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(470,197,1,'16x20','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(471,197,8,'Print with Frame','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(473,198,1,'16x20','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(474,198,8,'Frame Only','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(476,199,1,'16x24','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(477,199,8,'Print with Frame','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(479,200,1,'16x24','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(480,200,8,'Frame Only','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(482,201,1,'20x30','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(483,201,8,'Print with Frame','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(485,202,1,'20x30','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(486,202,8,'Frame Only','2025-09-09 10:19:22','2025-09-09 15:49:22',NULL,NULL),(488,203,1,'A4','2025-09-09 10:35:00','2025-09-09 16:05:00',NULL,NULL),(489,204,1,'8X8','2025-09-09 10:35:00','2025-09-09 16:05:00',NULL,NULL),(490,205,1,'6x6','2025-09-09 10:35:00','2025-09-09 16:05:00',NULL,NULL),(491,206,1,'A4','2025-09-09 10:39:36','2025-09-09 16:09:36',NULL,NULL),(497,210,7,'4P','2025-09-09 11:45:04','2025-09-09 17:15:04',NULL,NULL),(498,211,7,'Extra','2025-09-09 11:45:04','2025-09-09 17:15:04',NULL,NULL),(499,208,7,'Original','2025-09-09 11:45:56','2025-09-09 17:15:56',NULL,NULL),(500,209,7,'Extra','2025-09-09 11:45:56','2025-09-09 17:15:56',NULL,NULL),(501,213,5,'Urgent','2025-10-21 11:56:48','2025-10-21 17:26:48',NULL,NULL),(502,214,5,'Normal','2025-10-21 12:04:57','2025-10-21 17:34:57',NULL,NULL),(503,215,10,'Copy','2025-10-21 13:16:49','2025-10-21 18:46:49',NULL,NULL),(504,216,10,'Normal','2025-10-21 13:16:49','2025-10-21 18:46:49',NULL,NULL);
 /*!40000 ALTER TABLE `variation_product_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Dumping events for database 'lbposc_light'
+-- Dumping events for database 'posdb_183'
 --
 
 --
--- Dumping routines for database 'lbposc_light'
+-- Dumping routines for database 'posdb_183'
 --
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
@@ -3678,7 +3134,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `category_register_menu_select`(
     IN p_UserLogID INT,
@@ -3692,9 +3148,15 @@ sp: BEGIN
 
 
 
-select  -1 as categoryId,'All' as categoryName
-union
-SELECT categoryId,categoryName FROM category ;
+SELECT categoryId, categoryName
+FROM (
+    SELECT -1 AS categoryId, 'All' AS categoryName, 0 AS sortOrder
+    UNION ALL
+    SELECT 1 AS categoryId, 'Fast Moving Items' AS categoryName, 1 AS sortOrder
+    UNION ALL
+    SELECT categoryId, categoryName, 2 AS sortOrder FROM category where isHiddenFromPOSMenu=0 
+) AS categories
+ORDER BY sortOrder, categoryName;
 
 
 
@@ -3848,195 +3310,6 @@ left outer join card_types as crdtpe on cp.CardTypeId=crdtpe.CardTypeId
 
 set p_ResponseStatus='success';
 set p_OutputMessage='loaded successfully';
-
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `CLEAN_ALL_TRANSACTIONAL_DATA` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `CLEAN_ALL_TRANSACTIONAL_DATA`(
-)
-sp: BEGIN
-  
-   delete from cash_payments;
-    ALTER TABLE cash_payments AUTO_INCREMENT = 1;
-    
-    delete from card_payments;
-    ALTER TABLE card_payments AUTO_INCREMENT = 1;
-    
-	delete from order_payments;
-    ALTER TABLE order_payments AUTO_INCREMENT = 1;
-
-	delete from order_return;
-    ALTER TABLE order_return AUTO_INCREMENT = 1;
-    
-   	delete from order_voided;
-    ALTER TABLE order_voided AUTO_INCREMENT = 1;
-    
-   
-   
-    	delete from order_line_discount;
-    ALTER TABLE order_line_discount AUTO_INCREMENT = 1;
-    
-        	delete from order_line_tax;
-    ALTER TABLE order_line_tax AUTO_INCREMENT = 1;
-    
-	delete from order_details;
-    ALTER TABLE order_details AUTO_INCREMENT = 1;
-    
-    delete from order_overall_discount;
-    ALTER TABLE order_overall_discount AUTO_INCREMENT = 1;
-    
-    
-         delete from order_summary_processed;
-    ALTER TABLE order_summary_processed AUTO_INCREMENT = 1;
-    
-      
-               
-delete from product_category;
-    ALTER TABLE product_category AUTO_INCREMENT = 1;
-
-		delete from store_inventory_product;
-    ALTER TABLE store_inventory_product AUTO_INCREMENT = 1;
-
-		
-				delete from stockentrydetails;
-    ALTER TABLE stockentrydetails AUTO_INCREMENT = 1;
-		
-		delete from all_product;
-    ALTER TABLE all_product AUTO_INCREMENT = 1;
-
-	delete from single_product;
-    ALTER TABLE single_product AUTO_INCREMENT = 1;
-	
-	
-		delete from variation_product_detail;
-    ALTER TABLE variation_product_detail AUTO_INCREMENT = 1;
-	
-	
-	delete from variation_product;
-    ALTER TABLE variation_product AUTO_INCREMENT = 1;
-	
-	delete from combo_product_detail;
-    ALTER TABLE combo_product_detail AUTO_INCREMENT = 1;
-	
-		delete from combo_product;
-    ALTER TABLE combo_product AUTO_INCREMENT = 1;
-	
-	delete from product;
-    ALTER TABLE product AUTO_INCREMENT = 1;
-	
-	delete from log_stock_adjustment;
-    ALTER TABLE log_stock_adjustment AUTO_INCREMENT = 1;
-					
-	delete from stock_batch_order_mapping;
-    ALTER TABLE stock_batch_order_mapping AUTO_INCREMENT = 1;
-	
-	delete from non_serialized_item;
-    ALTER TABLE non_serialized_item AUTO_INCREMENT = 1;
-			
-		delete from supplier_payments;
-    ALTER TABLE supplier_payments AUTO_INCREMENT = 1;
-	
-	delete from stockentry;
-    ALTER TABLE stockentry AUTO_INCREMENT = 1;
-	
-
-		
-	
-		delete from snapshot_combo_product_detail;
-    ALTER TABLE snapshot_combo_product_detail AUTO_INCREMENT = 1;
-	
-		
-			delete from snapshot_variation_product_detail;
-    ALTER TABLE snapshot_variation_product_detail AUTO_INCREMENT = 1;
-			
-	delete from snapshot_all_product;
-    ALTER TABLE snapshot_all_product AUTO_INCREMENT = 1;
-	
-	
-	
-	
-			delete from log_stock_adjustment;
-    ALTER TABLE log_stock_adjustment AUTO_INCREMENT = 1;
-	
-			delete from log_stock_adjustment;
-    ALTER TABLE log_stock_adjustment AUTO_INCREMENT = 1;
-	
-			
-	
-			delete from log_price_change;
-    ALTER TABLE log_price_change AUTO_INCREMENT = 1;
-	
-			
-               
-               		delete from userlog;
-    ALTER TABLE userlog AUTO_INCREMENT = 1;
-               
-               
-               
-               
-               
-               
-         
-         delete from stock_batch_order_mapping;
-        ALTER TABLE stock_batch_order_mapping AUTO_INCREMENT = 1;
-         
-	delete from order_header;
-    ALTER TABLE order_header AUTO_INCREMENT = 1;
-    
-    	delete from contact;
-    ALTER TABLE contact AUTO_INCREMENT = 1;
-	
-    	
-	delete from session_period;
-    ALTER TABLE session_period AUTO_INCREMENT = 1;
-	
-			
-	delete from supplier_payments;
-    ALTER TABLE supplier_payments AUTO_INCREMENT = 1;
-	
-		delete from stock_entry_voided;
-    ALTER TABLE stock_entry_voided AUTO_INCREMENT = 1;
-	
-			delete from stockentrydetails;
-    ALTER TABLE stockentrydetails AUTO_INCREMENT = 1;
-			
-		delete from stockentry;
-    ALTER TABLE stockentry AUTO_INCREMENT = 1;
-	
-		
-	delete from product;
-    ALTER TABLE product AUTO_INCREMENT = 1;
-		
-		
-		
-
-		
-	 delete from store_terminal;
-	   delete from user_store; 
-		   delete from store;
-	   delete from store_company;
-	        delete from system_info;
-          delete from company;
-            
-            delete from user_terminal;
-               
-                       delete from terminal;  
-                   
-	          delete from store;
-                      
 
 END ;;
 DELIMITER ;
@@ -4395,13 +3668,69 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `customProduct_snapshot_insert` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `customProduct_snapshot_insert`(
+   IN p_productDescription varchar(200),
+   in p_unitPrice decimal(10,2),
+   OUT p_ss_allProductId INT
+)
+sp:begin
+	
+	 
+	declare v_ss_allProductId int;
+      DECLARE err_message VARCHAR(255);
+      
+     
+     
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+       begin
+	        ROLLBACK;
+            -- Capture the original error message thrown by MariaDB
+            GET DIAGNOSTICS CONDITION 1 err_message = MESSAGE_TEXT;
+            -- Rethrow the original error to propagate it to the parent
+            SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = err_message;
+        END;
+   
+
+   
+    START TRANSACTION;
+		   
+		        INSERT INTO snapshot_all_product (allProductId,
+		            ProductId, productTypeId,  ProductNo,  ProductName,productDescription, unitPrice
+		            ,snshot_CreatedDate_UTC, snshot_CreatedDate_ServerTime
+		        )
+		        
+		        SELECT  null,null,null,  null,null,  p_productDescription, p_unitPrice, utc_timestamp(), current_timestamp();
+		
+		    SET   v_ss_allProductId=LAST_INSERT_ID();
+
+  
+  set p_ss_allProductId=v_ss_allProductId;
+ 
+    COMMIT;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `dashboard_details_Select` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `dashboard_details_Select`(
 	IN p_SessionId INT,
@@ -4414,6 +3743,11 @@ sp: BEGIN
 	
 	declare v_storeId int;
 	
+	declare v_outOfStock int;
+declare v_inStock decimal(10,2);
+declare v_lowStock decimal(10,2);
+declare v_expiredStock decimal(10,2);
+
 	
 	set v_storeId=(select st.storeId from session_period sp inner join store_terminal st on sp.terminalId=st.terminalId
 	 where sp.sessionId=p_SessionId);
@@ -4424,11 +3758,39 @@ sp: BEGIN
 	
 
 SELECT 
-    noOfTransactions, noOfVoidedTransactions, noOfCustomers,  noOfProductsSold, 
-    noOfProductsReturned,  productSales, serviceFees, totalSales, totalDiscounts, totalReturns, 
-    totalRefunds,  totalTax,  netSales,  netCashSales, netCardSales, averageTransactionValueNet, 
-    averageTransactionValueGross, openingCashAmount,  cashAdditions, cashRemovals, expectedCash,  noOfUnVoidedTransactions
- from session_details_summary_temp;
+    noOfTransactions, 
+    noOfVoidedTransactions, 
+    noOfCustomers,  
+    noOfProductsSold, 
+    noOfProductsReturned,  
+
+    productSales, 
+    serviceFees, 
+    totalSales, 
+    totalDiscounts, 
+    totalReturns, 
+    totalRefunds,  
+    totalTax,
+
+    /* SAFE GROSS MARGIN */
+    CASE 
+        WHEN productSales = 0 THEN NULL                 -- No sales → cannot calculate margin
+        WHEN (productSales - netSales) = 0 THEN 0       -- Break-even → 0%
+        ELSE ((productSales - netSales) / productSales) * 100  
+    END AS grossMargin,
+
+    netCashSales, 
+    netCardSales, 
+    averageTransactionValueNet, 
+    averageTransactionValueGross, 
+    openingCashAmount,  
+    cashAdditions, 
+    cashRemovals, 
+    expectedCash,  
+    noOfUnVoidedTransactions
+
+FROM session_details_summary_temp;
+
 
 	
 
@@ -4436,17 +3798,26 @@ SELECT
 
 
 SELECT
-  DAY(DATE_ADD(order_header.CreatedDate_UTC, INTERVAL 330 MINUTE)) AS Day,
-  SUM(order_details.GrossAmount) AS dailyGrossRevenue,
-  SUM(order_details.NetAmount) AS dailyNetRevenue,
-  SUM(order_details.GrossAmount - (ifnull(order_details.unitCost,0) * order_details.Qty)) AS dailyGrossProfit
+  DAY(DATE_ADD(oh.CreatedDate_UTC, INTERVAL 330 MINUTE)) AS Day,
+  SUM(od.GrossAmount) AS dailyGrossRevenue,
+  SUM(od.NetAmount) AS dailyNetRevenue,
+  SUM(od.GrossAmount - (IFNULL(od.unitCost,0) * od.Qty)) AS dailyGrossProfit
 FROM
-  order_header
+  order_header oh
 JOIN
-  order_details ON order_header.OrderId = order_details.OrderID
+  order_details od ON oh.OrderId = od.OrderID
 WHERE
-  order_header.isVoided = 0  -- Exclude voided orders
-  AND order_header.SessionId = p_SessionId
+  oh.isVoided = 0
+  AND MONTH(DATE_ADD(oh.CreatedDate_UTC, INTERVAL 330 MINUTE)) = (
+    SELECT MONTH(DATE_ADD(sessionStartDate_UTC, INTERVAL 330 MINUTE))
+    FROM session_period
+    WHERE sessionId = p_SessionId
+  )
+  AND YEAR(DATE_ADD(oh.CreatedDate_UTC, INTERVAL 330 MINUTE)) = (
+    SELECT YEAR(DATE_ADD(sessionStartDate_UTC, INTERVAL 330 MINUTE))
+    FROM session_period
+    WHERE sessionId = p_SessionId
+  )
 GROUP BY
   Day
 ORDER BY
@@ -4464,7 +3835,7 @@ JOIN
   order_details ON order_header.OrderId = order_details.OrderID
 WHERE
   order_header.isVoided = 0  -- Exclude voided orders
-   AND order_header.SessionId = p_SessionId
+ AND YEAR(order_header.CreatedDate_UTC) = YEAR(CURDATE())
 GROUP BY
   Month
 ORDER BY
@@ -4509,7 +3880,7 @@ INNER JOIN product p ON p.ProductId = COALESCE(vp.productId, sp.productId, cp.pr
 LEFT JOIN inventory i ON sip.inventoryId = i.inventoryId
 LEFT JOIN non_serialized_item nsi ON i.inventoryId = nsi.inventoryId
 LEFT JOIN contact c ON nsi.supplierId = c.contactId
-where sip.storeId=v_storeId 
+where i.reorderLevel is not null and sip.storeId=v_storeId 
 GROUP BY sku, p.productName, c.contactName, i.reorderLevel
 HAVING qty <= COALESCE(i.reorderLevel, 0) 
 ORDER BY qty ASC;
@@ -4543,19 +3914,79 @@ LIMIT 200 OFFSET 0; -- Optional limit for performance
 
 
 
-SELECT 
-    COUNT(CASE WHEN nsi.expDate >= CURDATE() OR nsi.expDate IS NULL THEN 1 END) AS inStock,
-    COUNT(CASE WHEN nsi.expDate < CURDATE() AND nsi.stockQty > 0 THEN 1 END) AS expiredStock,
-    COUNT(CASE WHEN nsi.stockQty <= 0 THEN 1 END) AS outOfStock,
-    COUNT(CASE WHEN nsi.stockQty <= COALESCE(i.reorderLevel, 0) THEN 1 END) AS lowStock
-FROM store_inventory_product sip
-LEFT JOIN variation_product vp ON sip.variationProductId = vp.variationProductId
-LEFT JOIN single_product sp ON sip.singleProductId = sp.productId
-LEFT JOIN combo_product cp ON sip.comboProductId = cp.productId
-INNER JOIN product p ON p.ProductId = COALESCE(vp.productId, sp.productId, cp.productId)
-INNER JOIN inventory i ON sip.inventoryId = i.inventoryId
-LEFT JOIN non_serialized_item nsi ON i.inventoryId = nsi.inventoryId
-WHERE sip.storeId=v_storeId and nsi.stockQty >= 0;
+-- SELECT 
+--     COUNT(CASE WHEN nsi.expDate >= CURDATE() OR nsi.expDate IS NULL THEN 1 END) AS inStock,
+--     COUNT(CASE WHEN nsi.expDate < CURDATE() AND nsi.stockQty > 0 THEN 1 END) AS expiredStock,
+--     COUNT(CASE WHEN nsi.stockQty <= 0 THEN 1 END) AS outOfStock,
+--     COUNT(CASE WHEN nsi.stockQty <= COALESCE(i.reorderLevel, 0) THEN 1 END) AS lowStock
+-- FROM store_inventory_product sip
+-- LEFT JOIN variation_product vp ON sip.variationProductId = vp.variationProductId
+-- LEFT JOIN single_product sp ON sip.singleProductId = sp.productId
+-- LEFT JOIN combo_product cp ON sip.comboProductId = cp.productId
+-- INNER JOIN product p ON p.ProductId = COALESCE(vp.productId, sp.productId, cp.productId)
+-- INNER JOIN inventory i ON sip.inventoryId = i.inventoryId
+-- LEFT JOIN non_serialized_item nsi ON i.inventoryId = nsi.inventoryId
+-- WHERE sip.storeId=v_storeId and nsi.stockQty >= 0;
+
+
+
+
+
+SELECT
+    -- In Stock
+    (
+        SELECT COUNT(*)
+        FROM store_inventory_product sip
+        INNER JOIN non_serialized_item nsi ON sip.inventoryId = nsi.inventoryId
+        WHERE nsi.StockQty > 0
+    ) AS inStock,
+
+    -- Out of Stock
+    (
+        SELECT COUNT(*)
+        FROM store_inventory_product sip
+        inner JOIN non_serialized_item nsi ON sip.inventoryId = nsi.inventoryId
+        WHERE nsi.StockQty <= 0
+    ) AS outOfStock,
+
+    -- Low Stock (StockQty > 0 AND StockQty <= reorderLevel)
+    (
+        SELECT COUNT(*)
+        FROM store_inventory_product sip
+        INNER JOIN non_serialized_item nsi ON sip.inventoryId = nsi.inventoryId
+        INNER JOIN inventory i ON sip.inventoryId = i.inventoryId
+        WHERE nsi.StockQty > 0
+          AND nsi.StockQty <= i.reorderLevel
+    ) AS lowStock,
+
+    -- Expired Stock (StockQty > 0 AND expDate <= CURDATE())
+    
+        (
+        SELECT COUNT(*)
+        FROM store_inventory_product sip
+        INNER JOIN non_serialized_item nsi ON sip.inventoryId = nsi.inventoryId
+        INNER JOIN inventory i ON sip.inventoryId = i.inventoryId
+        WHERE nsi.StockQty > 0 and
+           expDate >= DATE_ADD(CURDATE(), INTERVAL 14 DAY)
+    ) AS nonExpiredSafeStock,
+    (
+        SELECT COUNT(*)
+        FROM store_inventory_product sip
+        INNER JOIN non_serialized_item nsi ON sip.inventoryId = nsi.inventoryId
+        INNER JOIN inventory i ON sip.inventoryId = i.inventoryId
+        WHERE nsi.StockQty > 0
+          AND nsi.expDate <= CURDATE()  AND expDate <= DATE_ADD(CURDATE(), INTERVAL 14 DAY)
+    ) AS expiringSoon,
+
+    
+        (
+        SELECT COUNT(*)
+        FROM store_inventory_product sip
+        INNER JOIN non_serialized_item nsi ON sip.inventoryId = nsi.inventoryId
+        INNER JOIN inventory i ON sip.inventoryId = i.inventoryId
+        WHERE nsi.StockQty > 0
+          AND nsi.expDate <= CURDATE()
+    ) AS expiredStock;
 
 
 
@@ -5286,24 +4717,91 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `getSingleStockBatchIdForReduction` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`remoteuser`@`%` PROCEDURE `getSingleStockBatchIdForReduction`(
+    IN p_inventoryId INT,
+    IN p_qty DECIMAL(10,2),
+    OUT p_ResponseStatus VARCHAR(50),
+    OUT p_OutputMessage VARCHAR(1000),
+    OUT p_stockBatchId INT
+)
+sp: BEGIN
+    DECLARE v_totalStockQty DECIMAL(10,2) DEFAULT 0;
+    DECLARE v_stockBatchId INT;
+    DECLARE v_current_stock_qty DECIMAL(10,2);
+
+    -- Validation: Check total stock for all batches
+    SELECT IFNULL(SUM(StockQty), 0) INTO v_totalStockQty
+    FROM non_serialized_item 
+    WHERE inventoryId = p_inventoryId;
+
+    IF v_totalStockQty = 0 THEN
+        SET p_ResponseStatus = 'failed';
+        SET p_OutputMessage = 'No stock available for the specified inventory ID.';
+        SET p_stockBatchId = NULL;
+        LEAVE sp;
+    END IF;
+
+    -- Check if sufficient stock is available
+    IF v_totalStockQty < p_qty THEN
+        SET p_ResponseStatus = 'failed';
+        SET p_OutputMessage = 'Insufficient stock quantity available.';
+        SET p_stockBatchId = NULL;
+        LEAVE sp;
+    END IF;
+
+    -- Fetch the first batch with StockQty > 0, ordered by batchQueueNumber
+    SELECT stockBatchId, StockQty INTO v_stockBatchId, v_current_stock_qty
+    FROM non_serialized_item
+    WHERE inventoryId = p_inventoryId AND StockQty > 0
+    ORDER BY batchQueueNumber ASC
+    LIMIT 1;
+
+    IF v_stockBatchId IS NULL THEN
+        SET p_ResponseStatus = 'failed';
+        SET p_OutputMessage = 'No batches with positive stock found.';
+        SET p_stockBatchId = NULL;
+        LEAVE sp;
+    END IF;
+
+    -- Set output for success
+    SET p_ResponseStatus = 'success';
+    SET p_OutputMessage = 'Sufficient stock quantity is available.';
+    SET p_stockBatchId = v_stockBatchId;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `getStockInfo` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getStockInfo`(
-    IN p_inventoryId  INT,
-    IN p_showZeroStockQtyData BIT
+    IN p_inventoryId INT,
+    IN p_showZeroStockQtyData BIT,
+    out p_isSelectBatchManually bit
 )
 BEGIN
     DECLARE p_sortType VARCHAR(20);
     DECLARE p_orderDirection VARCHAR(4);
     DECLARE sql_query TEXT;
 
-
+set p_isSelectBatchManually=false;
 
     -- Get the sortType and orderDirection from the database or set defaults
     SELECT 
@@ -5337,10 +4835,21 @@ BEGIN
             nsi.prodDate,
             nsi.unitCost,
             nsi.unitPrice,
-            CAST(nsi.isBatchReleased AS UNSIGNED) as isBatchReleased,
-            nsi.createdDate_utc
+            CAST(nsi.isBatchReleased AS UNSIGNED) AS isBatchReleased,
+            nsi.createdDate_utc,
+            CASE 
+                WHEN nsi.stockBatchId = (
+                    SELECT stockBatchId 
+                    FROM non_serialized_item 
+                    WHERE inventoryId = ', p_inventoryId, ' AND StockQty > 0 
+                    ORDER BY batchQueueNumber ASC 
+                    LIMIT 1
+                ) THEN 1 
+                ELSE 0 
+            END AS currentBatchFlag
         FROM 
             non_serialized_item nsi
+
         WHERE 
             nsi.inventoryId = ', p_inventoryId
     );
@@ -5368,6 +4877,61 @@ BEGIN
     PREPARE stmt FROM sql_query;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `getSubProductListOfAssemblyProduct` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getSubProductListOfAssemblyProduct`(
+    IN p_allProductId INT,
+    OUT p_ResponseStatus VARCHAR(50),
+    OUT p_OutputMessage VARCHAR(1000)
+)
+sp: BEGIN
+
+    -- Return both single products and variation products in one result set
+    SELECT spd.allProductId_mat,
+           sp.sku,
+           p.productName AS productDescription,
+           mu.measurementUnitName,
+           spd.qty
+    FROM sub_product_detail spd
+    INNER JOIN all_product ap ON spd.allProductId_mat = ap.allProductId
+    INNER JOIN single_product sp ON ap.singleProductId = sp.productId
+    INNER JOIN product p ON sp.productId = p.productId
+    INNER JOIN measurement_unit mu ON p.measurementUnitId = mu.measurementUnitId
+    WHERE spd.allProductId = p_allProductId
+
+    UNION ALL
+
+    SELECT spd.allProductId_mat,
+           vp.sku,
+           CONCAT(pvari.productName, ' ', GROUP_CONCAT(vd.variationValue SEPARATOR ', ')) AS productDescription,
+           mu.measurementUnitName,
+           spd.qty
+    FROM sub_product_detail spd
+    INNER JOIN all_product ap ON spd.allProductId_mat = ap.allProductId
+    INNER JOIN variation_product vp ON ap.variationProductId = vp.variationProductId
+    INNER JOIN variation_product_detail vd ON vp.variationProductId = vd.variationProductId
+    INNER JOIN product pvari ON vp.productId = pvari.productId
+    INNER JOIN measurement_unit mu ON pvari.measurementUnitId = mu.measurementUnitId
+    WHERE spd.allProductId = p_allProductId
+    GROUP BY spd.allProductId_mat, vp.sku, pvari.productName, mu.measurementUnitName, spd.qty;
+
+    -- Otherwise, validation passed
+    SET p_ResponseStatus = 'success';
+    SET p_OutputMessage = 'validated';
 
 END ;;
 DELIMITER ;
@@ -5460,7 +5024,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getVariationProductDetails`(
     IN p_ProductId INT,
@@ -5472,10 +5036,16 @@ BEGIN
         sip.inventoryId, 
         sip.allProductId, 
         vp.unitPrice, 
-         vp.taxPerc,
+        vp.taxPerc,
         (
-            SELECT JSON_ARRAYAGG(DISTINCT vpd.variationValue) 
+            SELECT JSON_ARRAYAGG(
+                JSON_OBJECT(
+                    'variationTypeName', pvt.variationTypeName,
+                    'variationValue', vpd.variationValue
+                )
+            ) 
             FROM variation_product_detail vpd 
+            INNER JOIN product_variation_type pvt ON vpd.variationTypeId = pvt.variationTypeId
             WHERE vpd.variationProductId = vp.variationProductId
         ) AS variationValues,
         vp.sku, 
@@ -5483,7 +5053,7 @@ BEGIN
         IFNULL((
             SELECT SUM(nsi.stockQty) 
             FROM non_serialized_item nsi 
-            WHERE nsi.inventoryId = sip.inventoryId AND nsi.isBatchReleased = 1
+            WHERE nsi.inventoryId = sip.inventoryId -- AND nsi.isBatchReleased = 1
         ), 0) AS stockQty
     FROM 
         store_inventory_product sip 
@@ -5497,7 +5067,8 @@ BEGIN
         sip.allProductId, 
         vp.unitPrice, 
         vp.sku, 
-        vp.barcode
+        vp.barcode,
+        vp.taxPerc
     ORDER BY 
         vp.variationProductId;
 END ;;
@@ -5923,6 +5494,62 @@ sp: BEGIN
     -- Set response status
     SET p_ResponseStatus = 'success';
     SET p_OutputMessage = 'Query executed successfully.';
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `get_ProductDetailsByInventoryId` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_ProductDetailsByInventoryId`(
+    IN p_inventoryId INT
+)
+BEGIN
+    -- Declare variables
+    DECLARE v_singleProductId INT;
+    DECLARE v_variationProductId INT;
+    DECLARE v_comboProductId INT;
+    DECLARE v_rowCount INT;
+
+    -- Initialize variables to avoid null issues
+    SET v_singleProductId = NULL;
+    SET v_variationProductId = NULL;
+    SET v_comboProductId = NULL;
+
+  SELECT singleProductId, variationProductId, comboProductId
+    INTO v_singleProductId, v_variationProductId, v_comboProductId
+    FROM store_inventory_product
+    WHERE inventoryId = p_inventoryId
+    LIMIT 1; 
+    
+
+    -- Conditional logic based on product type
+    IF v_singleProductId IS NOT NULL THEN
+        SELECT p.productName, sp.sku 
+        FROM store_inventory_product sip 
+        INNER JOIN single_product sp ON sip.singleProductId = sp.productId 
+        INNER JOIN product p ON sp.productId = p.ProductId
+        WHERE sip.inventoryId = p_inventoryId;
+
+    ELSEIF v_variationProductId IS NOT NULL THEN
+        SELECT p.productName, vp.sku, GROUP_CONCAT(vpd.variationValue SEPARATOR ' ') AS variationValues 
+        FROM store_inventory_product sip 
+        INNER JOIN variation_product vp ON sip.variationProductId = vp.variationProductId
+        INNER JOIN variation_product_detail vpd ON vp.variationProductId = vpd.variationProductId
+        INNER JOIN product p ON vp.productId = p.ProductId  -- Adjusted join condition
+        WHERE sip.inventoryId = p_inventoryId
+        GROUP BY p.ProductName, vp.sku;
+
+    END IF;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -6752,7 +6379,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `OrderReceipt_SelectByOrderId`(
   IN p_OrderId INT,
@@ -6796,15 +6423,8 @@ SELECT
     od.createdDate_ServerTime,
     od.createdDate_UTC,
     od.productId,
-    -- p.productName,
-    CONCAT(
-        p.productName, 
-        
-        IFNULL(
-           concat( ' - ', GROUP_CONCAT(svpd.variationValue ORDER BY svpd.snshot_allProductId SEPARATOR '|')),
-            ''
-        )
-    ) AS productName,
+    p.productDescription,
+   
     p.productNo,
      p.sku,
     od.unitPrice,
@@ -6815,22 +6435,18 @@ SELECT
     od.snshot_allProductId,
     od.grossAmount,
     od.netAmount,
-    mu.measurementUnitName,
+    od.measurementUnitName,
     ld.discountValue,
     dt.typeName AS discountTypeName,
     ld.discountAmount
 FROM 
     order_details AS od 
 INNER JOIN 
-    measurement_unit AS mu ON od.MeasurementUnitId = mu.MeasurementUnitId
-INNER JOIN 
     snapshot_all_product AS p ON od.snshot_allProductId = p.snshot_allProductId
 LEFT OUTER JOIN 
     order_line_discount AS ld ON od.orderDetailId = ld.orderDetailId
 LEFT OUTER JOIN 
     discount_type AS dt ON ld.discountTypeId = dt.discountTypeId
-LEFT OUTER JOIN 
-    snapshot_variation_product_detail AS svpd ON p.snshot_allProductId = svpd.snshot_allProductId
 WHERE 
     od.OrderId = p_OrderId
 GROUP BY 
@@ -6840,14 +6456,14 @@ GROUP BY
     od.createdDate_ServerTime, 
     od.createdDate_UTC, 
     od.productId, 
-    p.productName, 
+    p.productDescription,
     p.productNo, 
     od.unitPrice, 
     od.isReturned, 
     od.snshot_allProductId, 
     od.grossAmount, 
     od.netAmount, 
-    mu.measurementUnitName, 
+    od.measurementUnitName, 
     ld.discountValue, 
     dt.typeName, 
     ld.discountAmount;
@@ -6880,7 +6496,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Order_Insert`(
   
@@ -7060,7 +6676,12 @@ DECLARE po_isStockTracked BIT;
     DECLARE outputCreatedDate_ServerTime DATETIME;
     
     
+    declare v_productDescription varchar(200);
+    declare v_isCustomProduct bit;
+    declare v_measurementUnitName varchar(50);
     
+     declare v_sessionIdFromDb int;
+        
 -- DECLARE _orderId INT;
 -- DECLARE _orderNo VARCHAR(50);
    
@@ -7098,18 +6719,27 @@ DECLARE po_isStockTracked BIT;
 	if not exists (select * from session_period where sessionId=p_sessionId and terminalId=p_terminalId) then
 		set p_OutputMessage=concat('The session :',p_sessionId,' is not exists for the termial:',p_terminalId);
         set p_ResponseStatus='failed';
-        set p_sessionId=p_sessionId;
+       -- set p_sessionId=p_sessionId;
         leave sp;
 	end if; 
     
 	if exists (select * from session_period where isSessionEnded=1 and sessionId=p_sessionId and terminalId=p_terminalId) then
 		set p_OutputMessage=concat('The session :',p_sessionId,' is already closed');
         set p_ResponseStatus='failed';
-        set p_sessionId=p_sessionId;
+      --  set p_sessionId=p_sessionId;
         leave sp;
 	end if; 
     
 
+	
+	set v_sessionIdFromDb=(select max(sessionId) from session_period where terminalId=p_TerminalId and isSessionEnded=0);
+		if v_sessionIdFromDb!=p_SessionID then
+		set p_OutputMessage=concat('Cannot process the order. Your session is invalid. Please re-open the POS terminal.');
+        set p_ResponseStatus='failed';
+        leave sp;
+	end if; 
+    
+	
        -- IF p_IsConfirm is null or p_IsConfirm=0 THEN
       --  SET p_ResponseStatus = 'confirm';
       --  SET p_OutputMessage = 'Are you sure you want to continue?.';
@@ -7177,15 +6807,26 @@ IF v_DC_StoreId is null THEN
    create temporary table tblOrderList(productId int,productTypeId int,dc_productId int,unitCost decimal(10,2),unitPrice decimal(10,2),qty decimal(10,2),isDiscountExists bit,
   discountTypeId int, discountValue decimal(10,2),discountReasonId int,discountRemark varchar(500),lineDiscountAmount decimal(10,2),
   lineTaxAmount decimal(10,2),lineTaxRate decimal(10,2),grossAmount decimal(10,2),netAmount decimal(10,2),
-  isReturned BIT(1),pre_orderDetailId_return int);
+  isReturned BIT(1),pre_orderDetailId_return int,isCustomProduct bit,measurementUnitName varchar(10));
 
 
 while i_orderList < noOfItemsInOrderList do
 set v_productId=JSON_UNQUOTE(JSON_EXTRACT(p_orderList_json, CONCAT('$[', i_orderList, '].productId')));
 set v_productTypeId=JSON_UNQUOTE(JSON_EXTRACT(p_orderList_json, CONCAT('$[', i_orderList, '].productTypeId')));
--- set v_unitPrice=JSON_UNQUOTE(JSON_EXTRACT(p_orderList_json, CONCAT('$[', i_orderList, '].unitPrice')));
+ set v_unitPrice=JSON_UNQUOTE(JSON_EXTRACT(p_orderList_json, CONCAT('$[', i_orderList, '].unitPrice')));
 set v_qty=JSON_UNQUOTE(JSON_EXTRACT(p_orderList_json, CONCAT('$[', i_orderList, '].qty')));
+set v_measurementUnitName=JSON_UNQUOTE(JSON_EXTRACT(p_orderList_json, CONCAT('$[', i_orderList, '].measurementUnitName')));
 
+set v_productDescription=JSON_UNQUOTE(JSON_EXTRACT(p_orderList_json, CONCAT('$[', i_orderList, '].description')));
+
+
+if LOWER(JSON_UNQUOTE(JSON_EXTRACT(p_orderList_json, CONCAT('$[', i_orderList, '].isCustomProduct')))) = 'true' then
+   set v_isCustomProduct=true;
+   else 
+   set v_isCustomProduct=false;
+end if;
+
+select v_isCustomProduct;
   
 set v_discount=JSON_UNQUOTE(JSON_EXTRACT(p_orderList_json, CONCAT('$[', i_orderList, '].discount')));
 if (v_discount='null') then 
@@ -7200,15 +6841,23 @@ if v_orderDiscount!=null and v_discount!=null then
 end if;
 
 
+-- if v_isCustomProduct=true then
+
+
+-- end if;
+
+if v_isCustomProduct=false then
 
 if v_productTypeId=1 then 
-select unitCost,unitPrice,taxPerc into v_unitCost,v_unitPrice,v_lineTaxPerc from single_product where productId=v_productId;
-
-	if not exists (select * from product where productId=v_productId) then
-	set p_ResponseStatus='failed';
-	set p_OutputMessage=concat('Invalid productId : ',v_productId);
-	leave sp;
+	if v_productId!=0 then 
+	select unitCost,unitPrice,taxPerc into v_unitCost,v_unitPrice,v_lineTaxPerc from single_product where productId=v_productId;
 	
+		if not exists (select * from product where productId=v_productId) then
+		set p_ResponseStatus='failed';
+		set p_OutputMessage=concat('Invalid productId : ',v_productId);
+		leave sp;
+		
+		end if;
 	end if;
 end if;
 
@@ -7234,6 +6883,9 @@ select unitCost,unitPrice,taxPerc into v_unitCost,v_unitPrice,v_lineTaxPerc from
 	
 	end if;
 end if;
+
+end if;
+
       -- select v_unitCost,v_unitPrice,v_lineTaxPerc,'hhhhho';
 -- calcuate for line 
 
@@ -7333,6 +6985,8 @@ if (v_isReturned=false) then
 			leave sp;
 	end if;
  
+if(v_isCustomProduct=false) then
+
 if v_productTypeId=1 then 
 set v_allProductId=(select allProductId from all_product where singleProductId=v_productId);
 
@@ -7369,10 +7023,29 @@ CALL get_snapshot_ProductIdByProductId(v_allProductId, o_ss_allProductId);
 
 end if;
 
-CALL _updateStockQty_validate_by_allProductId(v_allProductId,p_StoreId, v_qty, p_ResponseStatus,  p_OutputMessage);
-if(p_ResponseStatus='failed') then
-leave sp;
+CALL getIsStockTrackedByProductId(v_productId, v_StoreId, v_productTypeId, po_isStockTracked);
+
+-- if po_isStockTracked=1 then
+ CALL _updateStockQty_by_allProductId(v_allProductId,p_StoreId, v_qty,null,true,p_ResponseStatus,  p_OutputMessage);
+
+ if(p_ResponseStatus='failed') then
+ rollback;
+ leave sp;
+ 
 end if;
+ 
+-- end if;
+
+end if;
+
+
+
+if v_isCustomProduct=true then
+
+ CALL customProduct_snapshot_insert(v_productDescription, v_unitPrice, o_ss_allProductId);
+select o_ss_allProductId;
+end if;
+
 
 
  set v_DC_productId_forOrderList=o_ss_allProductId;
@@ -7458,18 +7131,19 @@ end if;
 
  insert into tblOrderList(productId,productTypeId,dc_productId,unitCost,unitPrice,qty,isDiscountExists,discountTypeId,discountValue,discountReasonId,discountRemark,lineDiscountAmount,
  lineTaxAmount,lineTaxRate,grossAmount,netAmount,
- isReturned,pre_orderDetailId_return)
+ isReturned,pre_orderDetailId_return,isCustomProduct,measurementUnitName)
 values (v_productId,v_productTypeId,v_DC_productId_forOrderList,v_unitCost, v_unitPrice,v_qty,v_isDiscountExists,
 v_discountTypeId,v_discountValue,v_discountReasonId,v_discountRemark,v_lineDiscountAmount,
 o_lineTaxAmount,v_lineTaxPerc,o_grossAmount, o_netAmount,
-v_isReturned,v_pre_orderDetailId_return);
+v_isReturned,v_pre_orderDetailId_return,v_isCustomProduct,v_measurementUnitName);
  
         SET i_orderList = i_orderList + 1;
 end while;
 
 
-
--- leave sp; -- break point
+-- select * from tblOrderList;
+-- rollback;
+ -- leave sp; -- break point
 
 
  set v_servicechargeRate=0.00;
@@ -7669,7 +7343,7 @@ set v_displayUserName=(select displayName from user_registration where userId=v_
    
 INSERT INTO `order_header`(`SessionId`,`userLogId`,DC_CustomerId,dc_StoreId,terminalId,customerId,CurrencyId,
 StoreId,userId,displayUserName,systemInfoId,companyId,utcOffset)
-VALUES (p_SessionID,p_UserLogID,v_DC_CustomerId,v_DC_StoreId,p_TerminalId,p_CustomerID,v_CurrencyId,
+VALUES (v_sessionIdFromDb,p_UserLogID,v_DC_CustomerId,v_DC_StoreId,p_TerminalId,p_CustomerID,v_CurrencyId,
 v_StoreId,v_UserId,v_displayUserName,v_systemInfoId,v_companyId,p_UTC_Offset);
 
 SET v_orderId = LAST_INSERT_ID();
@@ -7683,6 +7357,7 @@ UPDATE `order_header` SET `OrderNo` =v_orderNo WHERE `OrderId`=v_orderId;
 	END IF;
 
 
+
 -- START insert order details
 set v_totalItems_tblOrderList=(select count(*) from tblOrderList);
 while (0< v_totalItems_tblOrderList) do
@@ -7691,9 +7366,9 @@ set v_productId=(select productId from tblOrderList  limit 1);
 set v_dc_productId=(select dc_productId from tblOrderList  limit 1);
 set v_productTypeId=(select productTypeId from tblOrderList  limit 1);
 
--- set v_unitPrice=(select unitPrice from tblOrderList  limit 1);
+ set v_unitPrice=(select unitPrice from tblOrderList  limit 1);
 set v_qty=(select qty from tblOrderList  limit 1);
-
+set v_measurementUnitName=(select measurementUnitName from tblOrderList  limit 1);
 set v_lineTaxPerc=(select lineTaxRate from tblOrderList  limit 1);
 set o_lineTaxAmount=(select lineTaxAmount from tblOrderList  limit 1);
 
@@ -7720,45 +7395,51 @@ set v_isDiscountExists=(select isDiscountExists from tblOrderList  limit 1);
 --
 
 
+if v_isCustomProduct=false then
 
-
-if v_productTypeId=1 then 
-	set v_measurementUnitId=(select MeasurementUnitId from product where ProductId=v_productId);
-
-	-- select unitCost, unitPrice INTO v_unitCost, v_unitPrice from single_product 
-	-- where productId=v_productId;
+	if v_productTypeId=1 then 
+		set v_measurementUnitId=(select MeasurementUnitId from product where ProductId=v_productId);
+	
+		-- select unitCost, unitPrice INTO v_unitCost, v_unitPrice from single_product 
+		-- where productId=v_productId;
+	
+	end if;
+	
+	if  v_productTypeId=3 then 
+		set v_measurementUnitId=(select MeasurementUnitId from product where ProductId=v_productId);
+	-- select unitCost, unitPrice INTO v_unitCost, v_unitPrice  from combo_product where productId=v_productId;
+	end if;
+	
+	if v_productTypeId=2 then 
+		set v_measurementUnitId=(select MeasurementUnitId from product p inner join variation_product vp on p.productId=vp.productId
+	 	where vp.variationProductId=v_productId);
+	
+	-- select unitCost, unitPrice INTO v_unitCost, v_unitPrice from variation_product where variationProductId=v_productId;
+	end if;
+	
+	
+	if v_productTypeId=1 then 
+	set v_allProductId=(select allProductId from all_product where singleProductId=v_productId);
+	end if;
+	
+	if v_productTypeId=2 then 
+	set v_allProductId=(select allProductId from all_product where variationProductId=v_productId);
+	end if;
+	
+	if v_productTypeId=3 then 
+	set v_allProductId=(select allProductId from all_product where comboProductId=v_productId);
+	end if;
 
 end if;
 
-if  v_productTypeId=3 then 
-	set v_measurementUnitId=(select MeasurementUnitId from product where ProductId=v_productId);
--- select unitCost, unitPrice INTO v_unitCost, v_unitPrice  from combo_product where productId=v_productId;
-end if;
 
-if v_productTypeId=2 then 
-	set v_measurementUnitId=(select MeasurementUnitId from product p inner join variation_product vp on p.productId=vp.productId
- 	where vp.variationProductId=v_productId);
-
--- select unitCost, unitPrice INTO v_unitCost, v_unitPrice from variation_product where variationProductId=v_productId;
-end if;
+CALL sp_update_fast_moving_items(
+    v_productId,v_StoreId,p_TerminalId,v_qty, UTC_TIMESTAMP()
+);
 
 
-if v_productTypeId=1 then 
-set v_allProductId=(select allProductId from all_product where singleProductId=v_productId);
-end if;
-
-if v_productTypeId=2 then 
-set v_allProductId=(select allProductId from all_product where variationProductId=v_productId);
-end if;
-
-if v_productTypeId=3 then 
-set v_allProductId=(select allProductId from all_product where comboProuctId=v_productId);
-end if;
-
-
-
-INSERT INTO `order_details`(`OrderID`,`Qty`,`ProductId`,allProductId,snshot_allProductId,unitCost,unitPrice,isReturned,GrossAmount,NetAmount,MeasurementUnitId)
- values (v_orderId,v_qty,v_productId,v_allProductId,v_dc_productId,v_unitCost,v_unitPrice,v_isReturned,o_grossAmount,o_netAmount,v_measurementUnitId);
+INSERT INTO `order_details`(`OrderID`,`Qty`,`ProductId`,allProductId,snshot_allProductId,unitCost,unitPrice,isReturned,GrossAmount,NetAmount,MeasurementUnitId,measurementUnitName)
+ values (v_orderId,v_qty,v_productId,v_allProductId,v_dc_productId,v_unitCost,v_unitPrice,v_isReturned,o_grossAmount,o_netAmount,v_measurementUnitId,v_measurementUnitName);
  
  SET v_orderDetailId = LAST_INSERT_ID();
  
@@ -7772,6 +7453,7 @@ if v_lineTaxPerc>0 then
 end if;
 
 
+if v_isCustomProduct=false then
 
 CALL getIsStockTrackedByProductId(v_productId, v_StoreId, v_productTypeId, po_isStockTracked);
 
@@ -7783,12 +7465,6 @@ CALL getIsStockTrackedByProductId(v_productId, v_StoreId, v_productTypeId, po_is
 		leave sp;
 	end if;
 
-	if v_qty is null  then
-		set p_ResponseStatus='failed';
-		set p_OutputMessage=concat('v_qty is null.');
-	rollback;
-		leave sp;
-	end if;
 
 	if p_StoreId is null  then
 		set p_ResponseStatus='failed';
@@ -7803,17 +7479,31 @@ CALL getIsStockTrackedByProductId(v_productId, v_StoreId, v_productTypeId, po_is
 	rollback;
 		leave sp;
 	end if;
+	
+end if;
+
+		if v_qty is null  then
+		set p_ResponseStatus='failed';
+		set p_OutputMessage=concat('v_qty is null.');
+	rollback;
+		leave sp;
+	end if;
 
 
-if po_isStockTracked=1 then
+if v_isCustomProduct=true then
+	set po_isStockTracked=false;
+end if;
+	
+		
+-- if po_isStockTracked=1 then
 
 
- CALL _updateStockQty_by_allProductId(v_allProductId,p_StoreId, v_qty,v_orderId,p_ResponseStatus,  p_OutputMessage);
+ CALL _updateStockQty_by_allProductId(v_allProductId,p_StoreId, v_qty,v_orderId,false,p_ResponseStatus,  p_OutputMessage);
 
- update order_details set stockBatchId=vo_stockBatchId where orderDetailId=v_orderDetailId;
+-- update order_details set stockBatchId=vo_stockBatchId where orderDetailId=v_orderDetailId;
 select vo_stockBatchId as vo_stockBatchId_oooooooo,v_allProductId as v_allProductId, p_StoreId as p_StoreId,v_qty as v_qty;
 
-end if;
+-- end if;
 
 if(v_isReturned=1) then
 insert into order_return(`orderDetailId`,`pre_orderDetailId_return`,Qty,isStockTracked)
@@ -7899,7 +7589,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Order_Select`(
   IN p_OrderId INT,
@@ -8010,8 +7700,7 @@ left outer join contact as c on oh.customerid=c.contactId  ',_filter,
 	DEALLOCATE PREPARE stmt;
 
 
-    SET @queryTotal = CONCAT('SELECT COUNT(OrderId) INTO @totalRows from order_header as oh 
-inner join contact as c on oh.customerid=c.contactId ', _filter);
+    SET @queryTotal = CONCAT('SELECT COUNT(OrderId) INTO @totalRows from order_header as oh ', _filter);
         
     PREPARE stmt FROM @queryTotal;
     EXECUTE stmt;
@@ -8089,141 +7778,163 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Product_Delete`(
     IN p_allProductId INT,
-    
     IN p_UserLogID INT,
-	IN p_UTC_Offset VARCHAR(50),
+    IN p_UTC_Offset VARCHAR(50),
     IN p_PageName VARCHAR(50),
-    -- IN p_PromptBeforeContinue BIT,
-    IN p_IsConfirm bit,
+    IN p_IsConfirm BIT,
     OUT p_ResponseStatus VARCHAR(50),
     OUT p_OutputMessage VARCHAR(1000)
 )
 sp: BEGIN
-  
-	    declare v_singleProductId int;
-declare v_variationProductId int;
-declare v_comboProductId int;
-declare v_productTypeId int;
-declare v_inventoryId int;
+    DECLARE v_singleProductId INT;
+    DECLARE v_variationProductId INT;
+    DECLARE v_comboProductId INT;
+    DECLARE v_productTypeId INT;
+    DECLARE v_inventoryId INT;
+    DECLARE v_productId INT;
+    DECLARE v_isValidated BIT;
+    DECLARE v_skus TEXT;
+    DECLARE err_message VARCHAR(255);
 
-declare v_productId int;
-
-DECLARE EXIT HANDLER FOR SQLEXCEPTION
-    BEGIN
-    
-     DECLARE custom_error_low CONDITION FOR SQLSTATE '45001';  -- Custom error with a low severity SQLSTATE code
-    DECLARE custom_error_high CONDITION FOR SQLSTATE '45002'; -- Custom error with a high severity SQLSTATE code
-    
-        SHOW ERRORS;  -- this is the only one which you need
-        ROLLBACK;   
-    END;
-    
-    START TRANSACTION;
-    
-
-
-
-    
-    SET p_OutputMessage = 'null';
-    -- SET p_IsConfirm = 0;
-    
-    
-    select singleProductid,variationProductId,comboProductId,productTypeId 
-into v_singleProductId,v_variationProductId,v_comboProductId,v_productTypeId
- from all_product where allProductId=p_allProductId;
-    
-set v_inventoryId=(select inventoryId from store_inventory_product where  allProductId=p_allProductId);
-
-
-
-    
-     if not exists (select * from all_product where allProductId=p_allProductId) then
-		set p_OutputMessage='Product is not exists';
-        set p_ResponseStatus='failed';
-        leave sp;
-	end if;
-    
-    IF p_IsConfirm is null or p_IsConfirm=0 THEN
-        SET p_ResponseStatus = 'confirm';
-        SET p_OutputMessage = 'Are you sure you want to delete this product?.';
-        leave sp;
-      END IF;
       
-       
-       if  exists (select * from order_details where allProductId=p_allProductId) then
-		set p_OutputMessage='Product is already in use';
-        set p_ResponseStatus='failed';
-        leave sp;
-	end if;
-       
-           if  exists (select * from stockentrydetails where allProductId=p_allProductId) then
-		set p_OutputMessage='Product is already use in stockentrydetails';
-        set p_ResponseStatus='failed';
-        leave sp;
-	end if;
+     -- Declare a handler for SQLEXCEPTION to catch errors in the child
+    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
+    BEGIN
+        -- Rollback transaction on error
+        ROLLBACK;
+        -- Capture the original error message thrown by MariaDB
+        GET DIAGNOSTICS CONDITION 1 err_message = MESSAGE_TEXT;
+        -- Rethrow the original error (with additional context if needed)
+        SET err_message = CONCAT('Parent error: ', err_message);
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = err_message;
+    END;
 
-       
-       
-       
-       select v_inventoryId, v_singleProductId,v_variationProductId,v_comboProductId,v_productTypeId;
+    -- Initialize output parameters
+    SET p_ResponseStatus = 'failed';
+    SET p_OutputMessage = 'null';
 
+    -- Validate input parameters
+    IF p_allProductId IS NULL THEN
+        SET p_OutputMessage = 'allProductId is required.';
+        LEAVE sp;
+    END IF;
 
-       
-if(v_productTypeId=1) then
-	-- inventory
-delete from product_category where productId=v_singleProductId;
-delete from store_inventory_product where allProductId=p_allProductId;
-delete from stockentrydetails where allProductId=p_allProductId;
-delete from inventory where inventoryId=v_inventoryId;
+    IF p_IsConfirm IS NULL OR p_IsConfirm = 0 THEN
+        SET p_ResponseStatus = 'confirm';
+        SET p_OutputMessage = 'Are you sure you want to delete this product?';
+        LEAVE sp;
+    END IF;
 
--- product catelogue
-DELETE FROM all_product where allProductId = p_allProductId;
-DELETE FROM single_product WHERE productId = v_singleProductId;
-DELETE FROM product WHERE ProductId = v_singleProductId;
-		  
-end if;
+    -- Check if allProductId exists
+    IF NOT EXISTS (SELECT 1 FROM all_product WHERE allProductId = p_allProductId) THEN
+        SET p_OutputMessage = 'Product does not exist.';
+        LEAVE sp;
+    END IF;
 
+    -- Get product type and related IDs
+    SELECT singleProductId, variationProductId, comboProductId, productTypeId
+    INTO v_singleProductId, v_variationProductId, v_comboProductId, v_productTypeId
+    FROM all_product
+    WHERE allProductId = p_allProductId;
 
-if(v_productTypeId=2) then
-	-- inventory
+    -- Validate productTypeId
+    IF v_productTypeId NOT IN (1, 2, 3) THEN
+        SET p_OutputMessage = 'Invalid productTypeId. Must be 1, 2, or 3.';
+        LEAVE sp;
+    END IF;
 
-set v_productId=(select productId from variation_product where variationProductId=v_variationProductId);
-delete from product_category where productId=v_productId;
-delete from store_inventory_product where allProductId=p_allProductId;
-delete from stockentrydetails where allProductId=p_allProductId;
-delete from inventory where inventoryId=v_inventoryId;
+    -- Check if product is used in order_details
+    IF EXISTS (SELECT 1 FROM order_details WHERE allProductId = p_allProductId) THEN
+        SET p_OutputMessage = 'Product is already in use in order_details.';
+        LEAVE sp;
+    END IF;
 
--- product catelogue
-DELETE FROM all_product where allProductId = p_allProductId;
-DELETE FROM combo_product WHERE productId = v_comboProductId;
-DELETE FROM product WHERE ProductId = v_comboProductId;
-		  
-end if;
+    -- Check if product is used in stockentrydetails
+    IF EXISTS (SELECT 1 FROM stockentrydetails WHERE allProductId = p_allProductId) THEN
+        SET p_OutputMessage = 'Product is already in use in stockentrydetails.';
+        LEAVE sp;
+    END IF;
 
+    -- Check if the product is used as a sub-product
+    CALL _validateProductIsUsedAsASubProductOfAnotherProduct(p_allProductId, v_isValidated, v_skus);
+    IF v_isValidated = FALSE THEN
+        SET p_OutputMessage = CONCAT('Cannot delete product. It is used as a sub-product in: ', v_skus);
+        LEAVE sp;
+    END IF;
 
-if(v_productTypeId=3) then
-	-- inventory
-delete from product_category where productId=v_comboProductId;
-delete from store_inventory_product where allProductId=p_allProductId;
-delete from stockentrydetails where allProductId=p_allProductId;
-delete from inventory where inventoryId=v_inventoryId;
+    -- Get inventoryId
+    SELECT inventoryId INTO v_inventoryId
+    FROM store_inventory_product
+    WHERE allProductId = p_allProductId
+    LIMIT 1;
 
--- product catelogue
-DELETE FROM all_product where allProductId = p_allProductId;
+    -- Start transaction
+    START TRANSACTION;
 
-DELETE FROM combo_product_detail WHERE productId = v_comboProductId; 
-DELETE FROM combo_product WHERE productId = v_comboProductId;
-DELETE FROM product WHERE ProductId = v_comboProductId;
-		  
-end if;
+    -- Handle product type-specific deletions
+    IF v_productTypeId = 1 THEN
+        -- Single Product
+        SET v_productId = v_singleProductId;
 
-       
-        SET p_ResponseStatus = 'success';
-        SET p_OutputMessage = 'Deleted Successfully.';
+        -- Delete inventory-related records
+        IF v_inventoryId IS NOT NULL THEN
+            DELETE FROM non_serialized_item WHERE inventoryId = v_inventoryId;
+            DELETE FROM inventory WHERE inventoryId = v_inventoryId;
+        END IF;
+
+        -- Delete product-related records
+        DELETE FROM product_category WHERE productId = v_singleProductId;
+        DELETE FROM sub_product_detail WHERE allProductId = p_allProductId;
+        DELETE FROM store_inventory_product WHERE allProductId = p_allProductId;
+        DELETE FROM all_product WHERE allProductId = p_allProductId;
+        DELETE FROM single_product WHERE productId = v_singleProductId;
+        DELETE FROM product WHERE productId = v_singleProductId;
+
+    ELSEIF v_productTypeId = 2 THEN
+        -- Variation Product
+        SET v_productId = (SELECT productId FROM variation_product WHERE variationProductId = v_variationProductId);
+
+        -- Delete inventory-related records
+        IF v_inventoryId IS NOT NULL THEN
+            DELETE FROM non_serialized_item WHERE inventoryId = v_inventoryId;
+            DELETE FROM inventory WHERE inventoryId = v_inventoryId;
+        END IF;
+
+        -- Delete variation-specific records
+        DELETE FROM variation_product_detail WHERE variationProductId = v_variationProductId;
+    
+        DELETE FROM store_inventory_product WHERE allProductId = p_allProductId;
+        DELETE FROM product_category WHERE productId = v_productId;
+                    DELETE FROM sub_product_detail WHERE allProductId = p_allProductId;
+        DELETE FROM all_product WHERE allProductId = p_allProductId;
+        DELETE FROM variation_product WHERE variationProductId = v_variationProductId;
+        DELETE FROM product WHERE productId = v_productId;
+
+    ELSEIF v_productTypeId = 3 THEN
+        -- Combo Product
+        SET v_productId = v_comboProductId;
+
+        -- Delete inventory-related records
+        IF v_inventoryId IS NOT NULL THEN
+            DELETE FROM non_serialized_item WHERE inventoryId = v_inventoryId;
+            DELETE FROM inventory WHERE inventoryId = v_inventoryId;
+        END IF;
+
+        -- Delete combo-specific records
+        DELETE FROM product_category WHERE productId = v_comboProductId;
+        DELETE FROM store_inventory_product WHERE allProductId = p_allProductId;
+        DELETE FROM all_product WHERE allProductId = p_allProductId;
+        DELETE FROM combo_product WHERE productId = v_comboProductId;
+        DELETE FROM product WHERE productId = v_comboProductId;
+    END IF;
+
+    -- Set success response
+    SET p_ResponseStatus = 'success';
+    SET p_OutputMessage = 'Product deleted successfully.';
 
     COMMIT;
 END ;;
@@ -8240,7 +7951,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Product_Insert_Update`(
     IN p_tableID INT,
@@ -8251,6 +7962,8 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `Product_Insert_Update`(
     IN p_CategoryIdList_json json,
    IN p_variationProductList_json json,
      IN p_comboProductDetailList_json json,
+      IN p_subProductsList_json json,
+     
     IN p_MeasurementUnitId int,
    IN p_productTypeId int,
    IN p_isNotForSelling bit,
@@ -8258,7 +7971,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `Product_Insert_Update`(
   IN p_isUnique bit,
  IN p_isStockTracked bit,
   IN p_isProductItem bit,
- 
+   IN p_isAssemblyProduct bit,
     IN p_BrandId int,
     IN p_unitCost DECIMAL(10, 2),
     IN p_unitPrice DECIMAL(10, 2),
@@ -8293,6 +8006,10 @@ sp: BEGIN
             declare v_variationProductId_new int;
         
          	DECLARE v_variationDetailsObjArr JSON;
+         	
+         	
+         	
+         	
 DECLARE v_lastInsertedId int;
  	
 declare i_variationDetails int;
@@ -8308,6 +8025,19 @@ declare v_variationName varchar(50);
         
         declare v_totalItems_tblComboProductDetail int;
        
+        DECLARE v_subProductDetailsForVari_ObjArr JSON;
+
+        DECLARE noOfSubProductslList int;
+        DECLARE i_subProductsList int default 0;
+        declare i_subProductDetailsForVari int;
+        
+          DECLARE noOfSubProductDetailsForVari int;
+          
+          declare v_subProductAllProductId_mat int;
+          declare v_subProductQty decimal(10,2);
+        
+        declare v_allProductId_mat int;
+         declare v_allProductId_sv int;
        
         declare v_variationProductIdStr varchar(50);
        declare v_sku varchar(50);
@@ -8323,6 +8053,8 @@ declare v_variationName varchar(50);
        
      DECLARE  v_totalItems_tblStoreIdList int;
       DECLARE v_storeIdTmp int;
+       declare v_totalItems_tblSubProducts int;
+     
        
        declare v_qty decimal(10,2);
  		declare v_comboSku_mat varchar(50);
@@ -8333,6 +8065,10 @@ declare v_variationName varchar(50);
  	declare v_variationComboProductId_mat_str varchar(50);
 			 
  
+
+ 	 
+ 	 
+ 	 
  	declare v_productId_mat int;
  	declare v_variationProductId_mat int;
  
@@ -8351,6 +8087,8 @@ declare v_variationName varchar(50);
          declare v_taxPerc decimal(10,2);
 
             declare v_allProductId int;
+            
+           -- declare v_isAssemblyProduct bit;
 
      DECLARE err_message VARCHAR(255);
      
@@ -8374,6 +8112,14 @@ declare v_variationName varchar(50);
 	end if;
 
 
+   	
+   	if (p_isAssemblyProduct is null) then
+		set p_OutputMessage='p_isAssemblyProduct can not be null';
+        set p_ResponseStatus='failed';
+
+        leave sp;
+	end if;
+   	
    
 	set noOfItemsInCategoryList=JSON_LENGTH(p_CategoryIdList_json);
   
@@ -8416,9 +8162,124 @@ declare v_variationName varchar(50);
 		END WHILE;
         
 
+  if p_isProductItem=false then
+  set p_isStockTracked=false;
+  end if;
+  
+
+--   if p_isProductItem=true and p_isStockTracked=true and p_productTypeId!=3 then
+--   	if p_ReorderLevel='' then 
+-- 		set p_ResponseStatus='failed';
+-- 		set p_OutputMessage=concat('ReorderLevel is Required.');
+-- 		leave sp;
+--   end if;
+-- 	  else
+-- 	  	set p_ReorderLevel=null;
+-- 	  end if;
+	  
+  
+  
+DROP TEMPORARY TABLE IF EXISTS tblSubProducts;
+  CREATE TEMPORARY TABLE tblSubProducts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    qty decimal(10,2),
+    allProductId_mat int
+);
+
+
+ if p_isAssemblyProduct=true && p_isStockTracked=true then
+    	set p_ResponseStatus='failed';
+		set p_OutputMessage=concat('An assembly product cannot be a stock-tracked item');
+		leave sp;
+  
+  end if;
+  
+  if p_productTypeId=1 then
+  -- oo
+  if p_isAssemblyProduct=true then
+  
+  
+
+  
+  set noOfSubProductslList=JSON_LENGTH(p_subProductsList_json);
+  
+
+ if noOfSubProductslList=0 or p_subProductsList_json is null then 
+ 	set p_ResponseStatus='failed';
+	set p_OutputMessage=concat('An assembly product must have at least one sub-product.');
+	leave sp;
+ end if;
+
+ 
+
+   
+        WHILE i_subProductsList < noOfSubProductslList DO	
+         	 set v_qty=JSON_UNQUOTE(JSON_EXTRACT(p_subProductsList_json, CONCAT('$[', i_subProductsList, '].qty')));
+			 set v_allProductId_mat=JSON_UNQUOTE(JSON_EXTRACT(p_subProductsList_json, CONCAT('$[', i_subProductsList, '].allProductId')));      	
+			
+	if not exists(select * from all_product where allProductId=v_allProductId_mat)  then
+		set p_ResponseStatus='failed';
+		set p_OutputMessage=concat('invalid sub product.');
+		leave sp;
+	end if;
+	
+
+	-- place here
+
+
+		if exists(select * from all_product ap inner join variation_product vp on ap.variationProductId=vp.variationProductId
+	inner join product p on vp.productId=p.productId where p.isAssemblyProduct=1 and ap.allProductId=v_allProductId_mat)  then
+		set p_ResponseStatus='failed';
+		set p_OutputMessage=concat('An assembly product cannot be a sub-product of another assembly product.');
+		leave sp;
+	end if;
 	
 	
 	
+	
+	
+		
+    INSERT INTO tblSubProducts(qty,allProductId_mat) VALUES (v_qty,v_allProductId_mat);
+            
+            SET i_subProductsList = i_subProductsList + 1;
+            
+		END WHILE;
+        
+		
+IF EXISTS (
+    SELECT 1
+    FROM tblSubProducts subp
+    inner JOIN store_inventory_product sip 
+        ON subp.allProductId_mat = sip.allProductId
+    WHERE sip.inventoryId IS NULL
+) THEN
+    SET p_OutputMessage = 'A sub-item must always be a stock-tracked product.';
+    SET p_ResponseStatus = 'failed';
+    ROLLBACK;
+    LEAVE sp;
+END IF;
+
+  
+
+		
+		
+	IF ( SELECT COUNT(*) FROM (  SELECT allProductId_mat FROM tblSubProducts
+	        GROUP BY allProductId_mat HAVING COUNT(*) > 1) dup
+	) > 0 THEN
+	    SET p_ResponseStatus = 'failed';
+	    SET p_OutputMessage = 'Duplicated sub-products are not allowed';
+	    ROLLBACK;
+	    LEAVE sp;
+	END IF;
+	
+	
+	end if;
+end if;
+	
+
+  
+ 
+  
 	 -- variation product
      if p_productTypeId=2 then
 
@@ -8437,6 +8298,7 @@ set noOfVariationProductList=JSON_LENGTH(p_variationProductList_json);
 -- Drop temporary tables if they exist
 DROP TEMPORARY TABLE IF EXISTS tblVariationProduct;
 DROP TEMPORARY TABLE IF EXISTS tmpVariationDetails;
+DROP TEMPORARY TABLE IF EXISTS tmpSubProductDetailsForVari;
 
 -- Create the temporary table to store the variation products
 CREATE TEMPORARY TABLE tblVariationProduct (
@@ -8446,7 +8308,8 @@ CREATE TEMPORARY TABLE tblVariationProduct (
     barcode VARCHAR(50),
     unitCost decimal(10,2),
     unitPrice decimal(10,2),
-    taxPerc decimal(10,2)
+    taxPerc decimal(10,2),
+    isAssemblyProduct bit
 );
 
 -- Create the temporary table to store the variation details
@@ -8456,6 +8319,14 @@ CREATE TEMPORARY TABLE tmpVariationDetails (
     variationProductId INT,
     variationTypeId VARCHAR(50),
     variationValue VARCHAR(50)
+);
+
+CREATE TEMPORARY TABLE tmpSubProductDetailsForVari (
+    detailId INT AUTO_INCREMENT PRIMARY KEY,
+    variationProductIdTmp INT,
+    variationProductId INT,
+    qty decimal(10,2),
+    allProductId_mat int
 );
 
 -- Initialize loop index
@@ -8472,22 +8343,52 @@ set v_variationProductIdStr=JSON_UNQUOTE(JSON_EXTRACT(p_variationProductList_jso
 SET v_unitPrice = JSON_UNQUOTE(JSON_EXTRACT(p_variationProductList_json, CONCAT('$[', i_variationProductList, '].unitPrice')));      
    SET v_taxPerc = JSON_UNQUOTE(JSON_EXTRACT(p_variationProductList_json, CONCAT('$[', i_variationProductList, '].taxPerc')));      
 
+-- if LOWER(JSON_UNQUOTE(JSON_EXTRACT(p_variationProductList_json, CONCAT('$[', i_variationProductList, '].isAssemblyProduct')))) = 'true' then
+--    set v_isAssemblyProduct=true;
+--    else 
+--    set v_isAssemblyProduct=false;
+-- end if;
+
+
+if v_unitCost is null then
+   	set p_ResponseStatus='failed';
+		set p_OutputMessage=concat('UnitCost is required for ',v_sku);
+		leave sp;
+	end if;
+
+if v_unitPrice is null then
+   	set p_ResponseStatus='failed';
+		set p_OutputMessage=concat('UnitPrice is required for ',v_sku);
+		leave sp;
+	end if;
+
+if v_taxPerc is null then
+   	set p_ResponseStatus='failed';
+		set p_OutputMessage=concat('Tax is required for ',v_sku);
+		leave sp;
+	end if;
+
+
    
+   if v_barcode='null' then set v_barcode=null; end if;
+   if v_barcode='' then set v_barcode=null; end if;
+
     -- Extract the variationDetailsObjArr from the current item
     SET v_variationDetailsObjArr = JSON_EXTRACT(p_variationProductList_json, CONCAT('$[', i_variationProductList, '].variationDetails'));
  if v_variationDetailsObjArr='null' then set v_variationDetailsObjArr=null; end if;
 
-   if v_variationDetailsObjArr is null then
+  if v_variationDetailsObjArr is null then
    	set p_ResponseStatus='failed';
-		set p_OutputMessage=concat('variationDetails can not be null.');
+	set p_OutputMessage=concat('variationDetails can not be null.');
 		leave sp;
-	end if;
+	 end if;
    
    if v_variationProductIdStr='null' then set v_variationProductIdStr=null; end if;
    
    
     -- Insert sku and barcode into tblVariationProduct
-    INSERT INTO tblVariationProduct(variationProductId,sku, barcode,unitCost,unitPrice,taxPerc) VALUES (v_variationProductIdStr,v_sku, v_barcode,v_unitCost,v_unitPrice,v_taxPerc);
+    INSERT INTO tblVariationProduct(variationProductId,sku, barcode,unitCost,unitPrice,taxPerc) 
+    VALUES (v_variationProductIdStr,v_sku, v_barcode,v_unitCost,v_unitPrice,v_taxPerc);
     
     -- Get the last inserted id from tblVariationProduct
     SET v_lastInsertedId = LAST_INSERT_ID();
@@ -8519,26 +8420,140 @@ SET v_unitPrice = JSON_UNQUOTE(JSON_EXTRACT(p_variationProductList_json, CONCAT(
         SET i_variationDetails = i_variationDetails + 1;
     END WHILE;
  
+        
+        
+        
+        -- ------------------------------------------
+   -- if v_isAssemblyProduct=true then
+   if p_isAssemblyProduct=true then
+  
+   
+
+   
+   
+            -- Extract the variationDetailsObjArr from the current item
+    SET v_subProductDetailsForVari_ObjArr = JSON_EXTRACT(p_variationProductList_json, CONCAT('$[', i_variationProductList, '].subProductsList'));
+ if v_subProductDetailsForVari_ObjArr='null' then set v_subProductDetailsForVari_ObjArr=null; end if;
+
+    if v_subProductDetailsForVari_ObjArr is null then
+    	set p_ResponseStatus='failed';
+		set p_OutputMessage=concat('Sub product can not be null for the product sku:',v_sku);
+		leave sp;
+ 	end if;
+        
+        
+            SET i_subProductDetailsForVari = 0;
+    SET noOfSubProductDetailsForVari = JSON_LENGTH(v_subProductDetailsForVari_ObjArr);
+
+        
+  if noOfSubProductDetailsForVari=0 then 
+ 	set p_ResponseStatus='failed';
+ 	set p_OutputMessage=concat('An assembly product SKU:',v_sku,' must have at least one sub-product.');
+ 	leave sp;
+  end if;
+
+     
+
+    WHILE i_subProductDetailsForVari < noOfSubProductDetailsForVari DO
+    
+        SET v_subProductAllProductId_mat = JSON_UNQUOTE(JSON_EXTRACT(v_subProductDetailsForVari_ObjArr, CONCAT('$[', i_subProductDetailsForVari, '].allProductId')));
+
+        SET v_subProductQty = JSON_UNQUOTE(JSON_EXTRACT(v_subProductDetailsForVari_ObjArr, CONCAT('$[', i_subProductDetailsForVari, '].qty')));
+             
+        
+        
+    if not exists(select * from all_product where allProductId=v_subProductAllProductId_mat)  then
+		set p_ResponseStatus='failed';
+		set p_OutputMessage=concat('invalid sub product.');
+		leave sp;
+	end if;
+	
+
+
+  
+	-- need to check
+	if exists(select * from all_product ap inner join variation_product vp on ap.variationProductId=vp.variationProductId
+	inner join product p on vp.productId=p.productId where p.isAssemblyProduct=1 and ap.allProductId=v_subProductAllProductId_mat)  then
+		set p_ResponseStatus='failed';
+		set p_OutputMessage=concat('An assembly product cannot be a sub-product of another assembly product.');
+		leave sp;
+	end if;
+	
+		
+
+	
+        
+        
+        
+        INSERT INTO tmpSubProductDetailsForVari(variationProductIdTmp,variationProductId, qty, allProductId_mat)
+        VALUES (v_lastInsertedId,v_variationProductIdStr, v_subProductQty, v_subProductAllProductId_mat);
+         
+        
+        -- Increment inner loop index
+        SET i_subProductDetailsForVari = i_subProductDetailsForVari + 1;
+    END WHILE;
+        
+        IF EXISTS (
+    SELECT 1
+    FROM tmpSubProductDetailsForVari subp
+    inner JOIN store_inventory_product sip 
+        ON subp.allProductId_mat = sip.allProductId
+    WHERE sip.inventoryId IS NULL
+) THEN
+    SET p_OutputMessage = 'A sub-item must always be a stock-tracked product.';
+    SET p_ResponseStatus = 'failed';
+    ROLLBACK;
+    LEAVE sp;
+END IF;
+        
+IF (
+    SELECT COUNT(*)
+    FROM (
+        SELECT variationProductId, variationProductIdTmp, allProductId_mat
+        FROM tmpSubProductDetailsForVari
+        GROUP BY variationProductId, variationProductIdTmp, allProductId_mat
+        HAVING COUNT(*) > 1
+    ) dup
+) > 0 THEN
+    SET p_ResponseStatus = 'failed';
+    SET p_OutputMessage = 'Duplicated sub-products are not allowed for the same variation.';
+    ROLLBACK;
+    LEAVE sp;
+END IF;
+
+        
+
+end if;   
+        -- -----------------------------------------
+     
     -- Increment outer loop index
     SET i_variationProductList = i_variationProductList + 1;
 END WHILE;
 
 
 
+	if not exists (select * from tmpVariationDetails) then
+	set p_ResponseStatus='failed';
+		set p_OutputMessage=concat('At least one variation type is required.');
+		leave sp;
 	end if;
 
 
 	
+	
+	end if;
+
+
 	 -- combo product
      if p_productTypeId=3 then
      
 set noOfComboProductDetailList=JSON_LENGTH(p_comboProductDetailList_json);
   
-	if JSON_LENGTH(p_comboProductDetailList_json)=0 or p_comboProductDetailList_json is null then
-		set p_ResponseStatus='failed';
-		set p_OutputMessage=concat('At least one material is required.');
-		leave sp;
-	end if;
+	-- if JSON_LENGTH(p_comboProductDetailList_json)=0 or p_comboProductDetailList_json is null then
+	--	set p_ResponseStatus='failed';
+	--	set p_OutputMessage=concat('At least one material is required.');
+	--	leave sp;
+	-- end if;
 	
 
 
@@ -8743,17 +8758,16 @@ end if;
 		
 		
 		
-IF (SELECT COUNT(barcode) 
-    FROM tblVariationProduct 
-    WHERE barcode IS NOT NULL AND barcode != 'null') 
-    != 
-    (SELECT COUNT(DISTINCT barcode) 
-    FROM tblVariationProduct 
-    WHERE barcode IS NOT NULL AND barcode != 'null') 
-THEN
+IF EXISTS (
+    SELECT tmp.barcode
+    FROM tblVariationProduct tmp inner join variation_product vp on tmp.variationProductId=vp.variationProductId 
+      AND tmp.barcode IS NOT NULL 
+    GROUP BY tmp.barcode,vp.barcode
+    HAVING COUNT(*) > 1
+) THEN
     SET p_ResponseStatus = 'failed';
-    SET p_OutputMessage = 'Duplicate Barcodes are not allowed for variations.';
-    rollback;	leave sp;
+    SET p_OutputMessage = concat('Duplicate Barcodes are not allowed for variations.');
+    ROLLBACK; LEAVE sp;
 END IF;
 
 		
@@ -8773,7 +8787,7 @@ END IF;
 		
 			if v_skuDupCount>0  then
 				set p_ResponseStatus='failed';
-				set p_OutputMessage=concat('Barcode is already used in products v.');
+				set p_OutputMessage=concat('Barcode is already used in productsooo v.');
 				-- SIGNAL SQLSTATE '45000'  SET MESSAGE_TEXT = p_OutputMessage;
 		        -- SQLSTATE '45000' is a generic user-defined exception 
 				rollback;	leave sp;
@@ -8872,14 +8886,14 @@ set v_skuDupCount=v_skuDupCount+(select count(*) from serialized_item si where s
 
         INSERT INTO Product (
         productId,ProductName, BrandId, MeasurementUnitId,  productTypeId,isProductItem,
-isNotForSelling,imageUrl,isUnique, isExpiringProduct, UserLogId,ModifiedDate_UTC, ModifiedDate_ServerTime
+isNotForSelling,imageUrl,isUnique, isExpiringProduct, UserLogId,ModifiedDate_UTC, ModifiedDate_ServerTime,isAssemblyProduct
         )
         VALUES (
 			p_tableId,
             p_ProductName,  p_BrandId, p_MeasurementUnitId,p_productTypeId,p_isProductItem,
 p_isNotForSelling,p_imgUrl,p_isUnique,p_isExpiringProduct,
            
-p_UserLogID, utc_timestamp(), current_timestamp() );
+p_UserLogID, utc_timestamp(), current_timestamp(),p_isAssemblyProduct );
 
       set  v_productId=LAST_INSERT_ID();
      
@@ -8923,9 +8937,29 @@ end if;
 
 		insert into single_product(productId,sku,barcode,unitPrice,unitCost,taxPerc) values(v_productId,p_sku,p_Barcode,p_unitPrice,p_unitCost,p_taxPerc);
 
-	insert into all_product(singleProductId,productTypeId) values (v_productId,p_productTypeId);
- 	     set v_allProductId=LAST_INSERT_ID();
-		                 
+	insert into all_product(singleProductId,productTypeId) 
+	values (v_productId,p_productTypeId);
+ 	 
+	set v_allProductId=LAST_INSERT_ID();
+		             
+	 
+	 
+	 set v_totalItems_tblSubProducts=(select count(*) from tblSubProducts);
+  
+   while (0< v_totalItems_tblSubProducts) do
+    
+		set v_qty=(select qty from tblSubProducts  limit 1);
+		set v_allProductId_mat=(select allProductId_mat from tblSubProducts  limit 1);
+		
+		insert into sub_product_detail(allProductId,qty,allProductId_mat) 
+		values(v_allProductId,v_qty,v_allProductId_mat);
+		
+		delete  from tblSubProducts limit 1;
+		set v_totalItems_tblSubProducts=(select count(*) from tblSubProducts);
+	end while;
+  
+	
+	
 		   set v_totalItems_tblStoreIdList=(select count(*) from tblStoreIdList);
 		       
 		    
@@ -8935,11 +8969,13 @@ end if;
 			  
 				set v_inventoryId=null;
 			  
-			  	if p_isStockTracked=true then
-		
-			     	insert into inventory(reorderLevel) values(p_ReorderLevel);
-			     	set v_inventoryId=LAST_INSERT_ID();
-			     	         
+				if p_isProductItem=true then
+				  	if p_isStockTracked=true then
+			
+				     	insert into inventory(reorderLevel) values(p_ReorderLevel);
+				     	set v_inventoryId=LAST_INSERT_ID();
+				     	         
+				   end if;
 			   end if;
 			  
 
@@ -8962,7 +8998,6 @@ end if;
      if p_productTypeId=2 then
 
 
-
 set v_totalItems_tblVariationProduct=(select count(*) from tblVariationProduct);
 
      while (0< v_totalItems_tblVariationProduct) do
@@ -8973,6 +9008,7 @@ set v_barcode=(select barcode from tblVariationProduct  limit 1);
 set v_unitCost=(select unitCost from tblVariationProduct  limit 1);
 set v_unitPrice=(select unitPrice from tblVariationProduct  limit 1);
 set v_taxPerc=(select taxPerc from tblVariationProduct  limit 1);
+-- set v_isAssemblyProduct=(select isAssemblyProduct from tblVariationProduct  limit 1);
   
          if(p_isUnique=1) then
             if (p_isStockTracked=0) then
@@ -8994,8 +9030,16 @@ values(v_sku,v_barcode,v_productId,v_unitPrice,v_unitCost);
 
 set v_variationProductId=LAST_INSERT_ID();
 	
-insert into all_product(variationProductId,productTypeId) values (v_variationProductId,p_productTypeId);
+insert into all_product(variationProductId,productTypeId) 
+values (v_variationProductId,p_productTypeId);
 set v_allProductId=LAST_INSERT_ID();
+
+
+
+		 insert into sub_product_detail(allProductId,qty,allProductId_mat) 
+		 select v_allProductId,qty,allProductId_mat from tmpSubProductDetailsForVari where variationProductIdTmp=v_variationProductIdTmp;
+		
+	     select * from tmpSubProductDetailsForVari where variationProductIdTmp=v_variationProductIdTmp;
 
 insert into variation_product_detail(variationProductId,variationTypeId,variationValue)
 select v_variationProductId,variationTypeId,variationValue from tmpVariationDetails where variationProductIdTmp=v_variationProductIdTmp;
@@ -9017,12 +9061,13 @@ SELECT * FROM tblStoreIdList;
 				set v_inventoryId=null;
 			  
 						
-			
+				if p_isProductItem=true then
 			  	if p_isStockTracked=true then
 		
 			     	insert into inventory(reorderLevel) values(p_ReorderLevel);
 			     	set v_inventoryId=LAST_INSERT_ID();
 			     	         
+			   end if;
 			   end if;
 			  	  
 			  
@@ -9053,7 +9098,8 @@ end while;
      
    end if;
   
-    
+
+
     -- combo product
          if p_productTypeId=3 then
          
@@ -9129,12 +9175,12 @@ end while;
 			  	set v_storeIdTmp=(select storeId from tblStoreIdList  limit 1);
 				set v_inventoryId=null;
 			  
-			  	if p_isStockTracked=true then
+			  --	if p_isStockTracked=true then
 		
-			     	insert into inventory(reorderLevel) values(p_ReorderLevel);
-			     	set v_inventoryId=LAST_INSERT_ID();
+			  --   	insert into inventory(reorderLevel) values(p_ReorderLevel);
+			   --  	set v_inventoryId=LAST_INSERT_ID();
 			     	         
-			   end if;
+			  -- end if;
 			  
 			      -- insert into store_inventory_product
 			        insert into store_inventory_product(storeId,inventoryId,comboProductId,allProductId) 
@@ -9295,58 +9341,57 @@ and serialNumber in (select sku from tblVariationProduct));
 
 
 		
-IF (SELECT COUNT(barcode) 
-    FROM tblVariationProduct 
-    where variationProductId!=p_tableID and barcode IS NOT NULL AND barcode != 'null') 
-    != 
-    (SELECT COUNT(DISTINCT barcode) 
-    FROM tblVariationProduct 
-    where variationProductId!=p_tableID and barcode IS NOT NULL AND barcode != 'null') 
-THEN
+
+
+IF EXISTS (
+    SELECT tmp.barcode
+    FROM tblVariationProduct tmp inner join variation_product vp on tmp.variationProductId=vp.variationProductId 
+    WHERE vp.productId != p_tableID 
+      AND tmp.barcode IS NOT null 
+    GROUP BY tmp.barcode,vp.barcode
+    HAVING COUNT(*) > 1
+) THEN
     SET p_ResponseStatus = 'failed';
-    SET p_OutputMessage = 'Duplicate Barcodes are not allowed for variations.';
-    rollback;	leave sp;
+    SET p_OutputMessage = concat('Duplicate Barcodes are not allowed for variationsoo.');
+    ROLLBACK; LEAVE sp;
 END IF;
+
 
 		   
 SET v_skuDupCount = v_skuDupCount +
     (SELECT COUNT(*) 
-     FROM single_product sp 
-     WHERE sp.productId != p_tableID 
-       AND sp.barcode IN (
-           SELECT barcode 
-           FROM tblVariationProduct 
-           WHERE barcode IS NOT NULL 
-           AND barcode != 'null'
+     FROM single_product sp  WHERE sp.productId != p_tableID  AND sp.barcode IN (
+           SELECT barcode  FROM tblVariationProduct  WHERE barcode IS NOT NULL  AND barcode != ''
        )
     );
     
-		set v_skuDupCount=v_skuDupCount+(select count(*) from single_product sp 
-	where  sp.productId != p_tableID  and barcode in (select barcode from tblVariationProduct where barcode IS NOT NULL AND barcode != 'null'));
+	 set v_skuDupCount=v_skuDupCount+(select count(*) from single_product sp 
+	 where  sp.productId != p_tableID  and 
+	 barcode in (select barcode from tblVariationProduct where barcode IS NOT NULL AND barcode != ''));
 	
 
 		set v_skuDupCount=v_skuDupCount+(select count(*) from variation_product vp where productId!=p_tableID and
-	barcode in (select barcode from tblVariationProduct where barcode IS NOT NULL AND barcode != 'null'));
+	barcode in (select barcode from tblVariationProduct where barcode IS NOT null AND barcode != ''));
   
 
 
-set v_skuDupCount=v_skuDupCount+(select count(*) from variation_product vp 
-inner join tblVariationProduct tvp on vp.variationProductId!=tvp.variationProductId
-and vp.barcode=tvp.barcode and  tvp.barcode != 'null');
+	--	set v_skuDupCount=v_skuDupCount+(select count(*) from variation_product vp 
+	--	inner join tblVariationProduct tvp on vp.variationProductId!=tvp.variationProductId
+	--	and vp.barcode=tvp.barcode and  tvp.barcode is not null);
 
 
 		set v_skuDupCount=v_skuDupCount+(select count(*) from combo_product cp where productId!=p_tableID and 
-	barcode in (select barcode from tblVariationProduct where barcode IS NOT NULL AND barcode != 'null'));
+	barcode in (select barcode from tblVariationProduct where barcode IS NOT null AND barcode != ''));
 
 		set v_skuDupCount=v_skuDupCount+(select count(*) from serialized_item si inner join 
 		store_inventory_product sip on si.inventoryId=sip.inventoryId 
 		inner join variation_product vp ON sip.variationProductId=vp.variationProductId where vp.productId!=p_tableID and 
-	serialNumber in (select barcode from tblVariationProduct where barcode IS NOT null AND barcode != 'null'));
+	serialNumber in (select barcode from tblVariationProduct where barcode IS NOT null AND barcode != '' ));
 
 	
 			if v_skuDupCount>0  then
 				set p_ResponseStatus='failed';
-				set p_OutputMessage=concat('Barcode is already used in products v.');
+				set p_OutputMessage=concat('Barcode is already used in an other producti.',v_skuDupCount);
 				-- SIGNAL SQLSTATE '45000'  SET MESSAGE_TEXT = p_OutputMessage;
 		        -- SQLSTATE '45000' is a generic user-defined exception 
 				rollback;	leave sp;
@@ -9410,7 +9455,7 @@ inner join product p on sip.comboProductId=p.productId where p.productId=p_table
 
 	if v_skuDupCount>0  then
 		set p_ResponseStatus='failed';
-		set p_OutputMessage=concat('Barcode is already used in products.');
+		set p_OutputMessage=concat('Barcode is already used in an other product.');
 		-- SIGNAL SQLSTATE '45000'  SET MESSAGE_TEXT = p_OutputMessage;
         -- SQLSTATE '45000' is a generic user-defined exception 
 		rollback;	leave sp;
@@ -9508,7 +9553,8 @@ SELECT p_tableID, categoryId FROM categoriesToAdd;
         isUnique = p_isUnique,
         isExpiringProduct=p_isExpiringProduct,
         ModifiedDate_UTC = utc_timestamp(),
-        ModifiedDate_ServerTime = current_timestamp()
+        ModifiedDate_ServerTime = current_timestamp(),
+        isAssemblyProduct=p_isAssemblyProduct
     WHERE ProductId = p_tableID;
        					
         -- Update ProductNo if not auto-generated
@@ -9541,7 +9587,117 @@ SELECT p_tableID, categoryId FROM categoriesToAdd;
  -- **** currently modifying
    UPDATE single_product SET sku = p_sku,barcode = p_barcode,unitPrice=p_unitPrice,
  unitCost=p_unitCost,taxPerc=p_taxPerc where productId=p_tableId;
+  
+ UPDATE product SET isAssemblyProduct=p_isAssemblyProduct where productId=p_tableId;
 
+ 
+  set v_allProductId=(select allProductId from all_product where singleProductId=p_tableID);
+ 
+  
+
+  
+  if(p_isAssemblyProduct=true) then
+  
+  if exists(select * from tblSubProducts where allProductId_mat=v_allProductId) then 
+	  set p_OutputMessage='The product being updated cannot be included in the list as a subproduct.';
+	  set p_ResponseStatus='failed';
+	  rollback;	
+	  leave sp;
+  end if;
+
+  
+     call _validateProductIsUsedAsASubProductOfAnotherProduct(v_allProductId,@isTheProductUsedAsASubProductInAnotherValidated,@skus);
+  		if @isTheProductUsedAsASubProductInAnotherValidated=false then  	          
+	  	 set p_ResponseStatus='failed';
+	  	 set p_OutputMessage= CONCAT('This product cannot be updated as an assembly product because it is already used as a sub-product in other SKU(s): ', @skus);   
+		  rollback;
+	    leave sp;
+  		end if;
+  end if;
+     
+         if(p_isStockTracked=false) then
+  
+     call _validateProductIsUsedAsASubProductOfAnotherProduct(v_allProductId,@isTheProductUsedAsASubProductInAnotherValidated,@skus);
+  		if @isTheProductUsedAsASubProductInAnotherValidated=false then  	          
+	  	 set p_ResponseStatus='failed';
+	  	 set p_OutputMessage= CONCAT('This product must be stock-tracked because it is already used as a sub-product in other SKU(s): ', @skus);   
+		  rollback;
+	    leave sp;
+  		end if;
+  end if;
+  
+ -- ooooo
+ -- validate product is already a sub product of an assembly item
+-- if exists( select * from sub_product_detail where allProductId_mat=v_allProductId) then
+-- set v_sku=(select si.sku from single_product si 
+-- inner join all_product as ap on si.productId=ap.singleProductId
+-- 
+--  where ap.allProductId=v_allProductId);
+--  	set p_OutputMessage=concat('This product is already a sub product of ',v_sku);
+-- 	set p_ResponseStatus='failed';
+-- 	rollback;
+--  	leave sp;
+-- end if;
+ -- ---------------------------------------------------
+ 
+
+   
+       
+DROP TEMPORARY TABLE IF EXISTS tblCurrentSubProducts;
+CREATE TEMPORARY TABLE tblCurrentSubProducts(allProductId_mat INT,qty decimal(10,2));
+
+INSERT INTO tblCurrentSubProducts(allProductId_mat,qty)
+SELECT distinct spd.allProductId_mat,spd.qty FROM sub_product_detail spd 
+inner join all_product ap on spd.allProductId=ap.allProductId
+where ap.singleProductId = p_tableID;
+
+    
+DROP TEMPORARY TABLE IF EXISTS tblSubProductsAdd;
+CREATE TEMPORARY TABLE tblSubProductsAdd(allProductId_mat INT,qty decimal(10,2));
+
+DROP TEMPORARY TABLE IF EXISTS tblSubProductsRemove;
+CREATE TEMPORARY TABLE tblSubProductsRemove(allProductId_mat INT);
+
+  
+  INSERT INTO tblSubProductsAdd(allProductId_mat,qty)
+SELECT tsp.allProductId_mat,tsp.qty FROM tblSubProducts tsp
+WHERE NOT EXISTS (SELECT 1 FROM tblCurrentSubProducts csp 
+ WHERE csp.allProductId_mat = tsp.allProductId_mat);
+   
+
+INSERT INTO tblSubProductsRemove(allProductId_mat)
+SELECT csp.allProductId_mat FROM tblCurrentSubProducts csp
+WHERE NOT EXISTS (SELECT 1 FROM tblSubProducts tsp WHERE tsp.allProductId_mat = csp.allProductId_mat);
+
+
+-- preparing tblRemainingVariationProduct table
+DROP TEMPORARY TABLE IF EXISTS tblRemainingSubProducts;
+
+CREATE TEMPORARY TABLE tblRemainingSubProducts AS
+SELECT * FROM tblSubProducts;
+
+  
+	 delete from tblRemainingSubProducts where allProductId_mat in (select allProductId_mat from tblSubProductsAdd);
+	delete from tblRemainingSubProducts where allProductId_mat in (select allProductId_mat from tblSubProductsRemove);
+   
+
+ -- -------------------------------------------------
+ insert into sub_product_detail(allProductId_mat,qty,allProductId)
+ select allProductId_mat,qty,v_allProductId from tblSubProductsAdd;
+ 
+
+DELETE spd
+FROM sub_product_detail spd
+INNER JOIN tblSubProductsRemove spda 
+    ON spd.allProductId_mat = spda.allProductId_mat
+WHERE spd.allProductId = v_allProductId;
+
+ 
+UPDATE sub_product_detail spd
+INNER JOIN tblRemainingSubProducts trsp 
+    ON spd.allProductId_mat = trsp.allProductId_mat
+SET spd.qty = trsp.qty
+WHERE spd.allProductId = v_allProductId;
 
        
 DROP TEMPORARY TABLE IF EXISTS currentStores;
@@ -9594,6 +9750,13 @@ WHERE NOT EXISTS (SELECT 1 FROM tblStoreIdList t WHERE t.storeId = c.storeId);
 				  	 inner join non_serialized_item nsi on i.inventoryId=nsi.inventoryId
 				  	where singleProductId=p_tableID and sip.storeId=v_storeIdTmp) then 
 				  	
+				  	if(p_isAssemblyProduct=true) then
+				  		set p_OutputMessage='You cannot make this an assembly product because this prodct already have inventory transactions.';
+						set p_ResponseStatus='failed';
+						SIGNAL SQLSTATE '45000'  SET MESSAGE_TEXT = p_OutputMessage;
+						rollback;	leave sp;	
+				  	end if;
+				  	
 				  		set p_OutputMessage='You cannot remove stock tracking from the product because this prodct already have inventory transactions.';
 						set p_ResponseStatus='failed';
 						SIGNAL SQLSTATE '45000'  SET MESSAGE_TEXT = p_OutputMessage;
@@ -9622,7 +9785,6 @@ WHERE NOT EXISTS (SELECT 1 FROM tblStoreIdList t WHERE t.storeId = c.storeId);
 		
 
 
-
 		-- Add new stores
    set v_totalItems_tblStoreIdList=(select count(*) from storesToAdd);
 
@@ -9631,17 +9793,19 @@ WHERE NOT EXISTS (SELECT 1 FROM tblStoreIdList t WHERE t.storeId = c.storeId);
 			  	set v_storeIdTmp=(select storeId from storesToAdd  limit 1);
 				set v_inventoryId=null;
 	
-		
 
-			
+
+
+				if p_isProductItem=true then
 				  	if p_isStockTracked=true then	  	
 				  			-- select v_storeIdTmp as v_storeIdTmp;	
 			     	insert into inventory(reorderLevel) values(p_ReorderLevel);
 			     	set v_inventoryId=LAST_INSERT_ID();
 			     	         
 			  		 end if;
+			  	end if;
 		
-			  	
+			  	  
 		-- leave sp;	
 
 			           -- insert into store_inventory_product
@@ -9658,8 +9822,7 @@ WHERE NOT EXISTS (SELECT 1 FROM tblStoreIdList t WHERE t.storeId = c.storeId);
 
       -- ====================---
 
-		
-
+			
 
 			
    set v_totalItems_tblStoreIdList=(select count(*) from tblStoreIdList);
@@ -9670,22 +9833,30 @@ WHERE NOT EXISTS (SELECT 1 FROM tblStoreIdList t WHERE t.storeId = c.storeId);
 			  
 				set v_inventoryId=(select inventoryId from store_inventory_product where storeId=v_storeIdTmp and singleProductId=p_tableID);
 
-				  if p_isStockTracked=true then
+				
+			if p_isStockTracked=true and p_isProductItem=true then
 		
 				  	if v_inventoryId is null then -- -
 				     	insert into inventory(reorderLevel) values(p_ReorderLevel);
 				     	set v_inventoryId=LAST_INSERT_ID();
-			     	       
+			     	   
+             		
 				         -- insert into store_inventory_product
 				        update store_inventory_product set inventoryId=v_inventoryId
 				        where  storeId=v_storeIdTmp and singleProductId=p_tableID;
 					
-				else
-				update inventory set reorderLevel=p_ReorderLevel where inventoryId=v_inventoryId;
-				
-				     end if; -- -
+				 --	 set p_OutputMessage=concat('Yoiiiii',v_inventoryId,',productid:',p_tableID,',s:',v_storeIdTmp);
+ 						-- set p_ResponseStatus='failed';
+ 						-- rollback;	
+ 				         --   leave sp;	
+            			
+				             			
+					else
+					update inventory set reorderLevel=p_ReorderLevel where inventoryId=v_inventoryId;
+					
+					end if; -- -
 				    
-				    else
+				 else
 				      	if v_inventoryId is not null then -- --
 				      	
 				      	
@@ -9693,6 +9864,15 @@ WHERE NOT EXISTS (SELECT 1 FROM tblStoreIdList t WHERE t.storeId = c.storeId);
 					   	if exists ( select nsi.* from inventory i inner join store_inventory_product sip on i.inventoryId=sip.inventoryId 
 				  	 inner join non_serialized_item nsi on i.inventoryId=nsi.inventoryId
 				  	where singleProductId=p_tableID and sip.storeId=v_storeIdTmp) then 
+				  	
+				  	
+				  	 	if(p_isAssemblyProduct=true) then
+				  		set p_OutputMessage='You cannot make this an assembly product because this prodct already have inventory transactions.';
+						set p_ResponseStatus='failed';
+						SIGNAL SQLSTATE '45000'  SET MESSAGE_TEXT = p_OutputMessage;
+						rollback;	leave sp;	
+				  	end if;
+				  	
 				  	
 				  		set p_OutputMessage='You cannot remove stock tracking from the product because this prodct already have inventory transactions.';
 						set p_ResponseStatus='failed';
@@ -9741,8 +9921,6 @@ WHERE NOT EXISTS (SELECT 1 FROM tblStoreIdList t WHERE t.storeId = c.storeId);
        -- Variation Product
     IF p_productTypeId = 2 then
     
-
-
 
        
 DROP TEMPORARY TABLE IF EXISTS tblCurrentVariationProducts;
@@ -9802,6 +9980,11 @@ delete from tmpRemainingVariationDetails where variationProductIdTmp in (select 
  -- select * from tblRemainingVariationProduct;
 -- select * from tmpRemainingVariationDetails;
 
+-- ------------------------------------------
+
+
+-- ----------------------------------------------------
+  
        
 DROP TEMPORARY TABLE IF EXISTS currentStores;
 CREATE TEMPORARY TABLE currentStores(storeId INT);
@@ -9848,6 +10031,7 @@ delete from tblRemainingStoreIdList where storeId in (select storeId from stores
 -- tblVariationProductsRemove
 	-- remove all the variations with their existing stores
 
+		
 
 -- ================================================== REMOVE PRODUCTS
 SET v_totalItems_tblVariationProduct = (SELECT COUNT(*) FROM tblVariationProductsRemove);
@@ -9896,8 +10080,14 @@ WHILE v_totalItems_tblVariationProduct > 0 DO
      
   
         delete from variation_product_detail where variationProductId=v_variationProductId;
+              
+      DELETE spd FROM sub_product_detail spd INNER JOIN all_product ap  
+      ON spd.allProductId = ap.allProductId WHERE ap.variationProductId = v_variationProductId;
+
+        
+         delete from all_product where variationProductId=v_variationProductId;
       delete from variation_product where variationProductId=v_variationProductId;
-     
+    
 
         DELETE FROM tblStoreIdList2 LIMIT 1;
         SET v_totalItems_tblStoreIdList = (SELECT COUNT(*) FROM tblStoreIdList2);
@@ -9912,8 +10102,6 @@ END WHILE;
 
 
 -- ----------------------------------------------------
-	
-
 	-- all store add
 	
 -- ==================================================
@@ -9923,7 +10111,7 @@ SET v_totalItems_tblVariationProduct = (SELECT COUNT(*) FROM tblVariationProduct
 WHILE v_totalItems_tblVariationProduct > 0 DO
 
     SELECT variationProductIdTmp, sku, barcode,unitCost,unitPrice,taxPerc  
-    INTO v_variationProductIdTmp, v_sku, v_barcode,v_unitCost,v_unitPrice,v_taxPerc
+    INTO v_variationProductIdTmp, v_sku, v_barcode,v_unitCost,v_unitPrice,v_taxPerc 
    	FROM tblVariationProductsAdd LIMIT 1;
 
     INSERT INTO variation_product (sku, barcode, productId,unitCost,unitPrice,taxPerc) 
@@ -9938,7 +10126,16 @@ WHILE v_totalItems_tblVariationProduct > 0 DO
     FROM tmpVariationDetails
     WHERE variationProductIdTmp = v_variationProductIdTmp;
 
+    
+    insert into all_product(variationProductId,productTypeId) values (v_variationProductId_new,p_productTypeId);
+set v_allProductId=LAST_INSERT_ID();
    
+
+	 insert into sub_product_detail(allProductId,qty,allProductId_mat) 
+		 select v_allProductId,qty,allProductId_mat from tmpSubProductDetailsForVari where variationProductIdTmp=v_variationProductIdTmp;
+		
+
+
    	DROP TEMPORARY TABLE IF EXISTS tblStoreIdList2;
    	CREATE TEMPORARY TABLE tblStoreIdList2 as SELECT * from tblStoreIdList;
 
@@ -9956,8 +10153,8 @@ WHILE v_totalItems_tblVariationProduct > 0 DO
         END IF;
 
         -- Insert into store_inventory_product table
-        INSERT INTO store_inventory_product (storeId, inventoryId, variationProductId) 
-        VALUES (v_storeIdTmp, v_inventoryId, v_variationProductId_new);
+        INSERT INTO store_inventory_product (storeId, inventoryId, variationProductId,allProductId) 
+        VALUES (v_storeIdTmp, v_inventoryId, v_variationProductId_new,v_allProductId);
 
         -- Delete the processed store ID and update the total count
         DELETE FROM tblStoreIdList2 LIMIT 1;
@@ -9990,7 +10187,15 @@ END WHILE;
 	-- Initialize total items for tblRemainingVariationProduct
 
 -- select * from tblRemainingVariationProduct;
+ DROP TEMPORARY TABLE IF EXISTS tblCurrentSubProductDetailsForVari;
+ CREATE TEMPORARY TABLE tblCurrentSubProductDetailsForVari(qty decimal(10,2),allProductId_mat int);
 
+
+DROP TEMPORARY TABLE IF EXISTS tblSubProductDetailsForVariAdd;
+CREATE TEMPORARY TABLE tblSubProductDetailsForVariAdd(qty decimal(10,2),allProductId_mat int);
+
+DROP TEMPORARY TABLE IF EXISTS tblSubProductDetailsForVariRemove;
+CREATE TEMPORARY TABLE tblSubProductDetailsForVariRemove(allProductId_mat int);
 
 
 SET v_totalItems_tblVariationProduct = (SELECT COUNT(*) FROM tblRemainingVariationProduct);
@@ -9998,10 +10203,116 @@ SET v_totalItems_tblVariationProduct = (SELECT COUNT(*) FROM tblRemainingVariati
 WHILE v_totalItems_tblVariationProduct > 0 DO
 
 
-    SELECT variationProductId, sku, barcode,unitCost,unitPrice,taxPerc INTO v_variationProductId, v_sku, v_barcode,v_unitCost,v_unitPrice,v_taxPerc  FROM tblRemainingVariationProduct LIMIT 1;
+    SELECT variationProductId, sku, barcode,unitCost,unitPrice,taxPerc
+    INTO v_variationProductId, v_sku, v_barcode,v_unitCost,v_unitPrice,v_taxPerc 
+    FROM tblRemainingVariationProduct LIMIT 1;
    
 
+ -- select v_variationProductId, v_sku, v_barcode,v_unitCost,v_unitPrice,v_taxPerc;
+
+
+-- --------------------------------------------------------
+--   INSERT INTO tmpSubProductDetailsForVari(variationProductIdTmp,variationProductId, qty, allProductId_mat)
+--         VALUES (v_lastInsertedId,v_variationProductIdStr, v_subProductQty, v_subProductAllProductId_mat);
+--          
+
+    set v_allProductId_sv=(select allProductId from all_product where variationProductId=v_variationProductId);
+    
+    
+    
+    
+
   
+  
+  if(p_isAssemblyProduct=true) then
+    
+    call _validateProductIsUsedAsASubProductOfAnotherProduct(v_allProductId_sv,@isTheProductUsedAsASubProductInAnotherValidated,@skus);
+  	if @isTheProductUsedAsASubProductInAnotherValidated=false then
+  	     
+  	 set p_ResponseStatus='failed';
+  	 set p_OutputMessage= CONCAT('This product cannot be updated as an assembly product because it is already used as a sub-product in other SKU(s): ', @skus);
+      
+  	rollback;
+    leave sp;
+  	end if;
+  	
+  end if;
+    
+         if(p_isStockTracked=false) then
+  
+       call _validateProductIsUsedAsASubProductOfAnotherProduct(v_allProductId_sv,@isTheProductUsedAsASubProductInAnotherValidated,@skus);
+  	if @isTheProductUsedAsASubProductInAnotherValidated=false then
+  	     
+  	 set p_ResponseStatus='failed';
+  		 set p_OutputMessage= CONCAT('This product must be stock-tracked because it is already used as a sub-product in other SKU(s): ', @skus);   
+		  
+  	rollback;
+    leave sp;
+  	end if;
+  	
+  end if;
+    
+ 
+    
+-- update all_product set isAssemblyProduct=v_isAssemblyProduct where variationProductId=v_variationProductId;
+
+ delete from tblCurrentSubProductDetailsForVari;
+ delete from tblSubProductDetailsForVariAdd;
+delete from tblSubProductDetailsForVariRemove;
+ 
+ INSERT INTO tblCurrentSubProductDetailsForVari(qty,allProductId_mat)
+SELECT distinct spd.qty,spd.allProductId_mat FROM sub_product_detail spd where spd.allProductId = v_allProductId_sv;
+
+  
+  INSERT INTO tblSubProductDetailsForVariAdd(qty,allProductId_mat)
+SELECT t.qty,t.allProductId_mat FROM tmpSubProductDetailsForVari t
+where t.variationProductId=v_variationProductId and NOT EXISTS (SELECT 1 FROM tblCurrentSubProductDetailsForVari c 
+				where  t.allProductId_mat=c.allProductId_mat);
+    
+
+INSERT INTO tblSubProductDetailsForVariRemove(allProductId_mat)
+ SELECT c.allProductId_mat FROM tblCurrentSubProductDetailsForVari c
+ WHERE NOT EXISTS (SELECT 1 FROM tmpSubProductDetailsForVari t WHERE t.variationProductId = v_variationProductId and t.allProductId_mat=c.allProductId_mat);
+
+
+select * from tblSubProductDetailsForVariRemove;
+
+
+
+
+ DROP TEMPORARY TABLE IF EXISTS tblSubProductsDetailsRemainingVari;
+
+ CREATE TEMPORARY TABLE tblSubProductsDetailsRemainingVari AS
+ SELECT * FROM tmpSubProductDetailsForVari where variationProductId=v_variationProductId;
+ 
+  
+	 delete from tblSubProductsDetailsRemainingVari 
+	 where allProductId_mat in (select allProductId_mat from tblSubProductDetailsForVariAdd);
+	 
+ 	delete from tblSubProductsDetailsRemainingVari 
+ 	where allProductId_mat in (select allProductId_mat from tblSubProductDetailsForVariRemove);
+--    
+
+ 	
+insert into sub_product_detail (allProductId,qty,allProductId_mat)
+select v_allProductId_sv,qty,allProductId_mat from tblSubProductDetailsForVariAdd;
+
+DELETE spd FROM sub_product_detail spd
+INNER JOIN tblSubProductDetailsForVariRemove spda ON spd.allProductId_mat = spda.allProductId_mat
+WHERE spd.allProductId = v_allProductId_sv;
+
+ 
+UPDATE sub_product_detail spd
+INNER JOIN tblSubProductsDetailsRemainingVari spdrem ON spd.allProductId_mat = spdrem.allProductId_mat
+SET spd.qty = spdrem.qty WHERE spd.allProductId = v_allProductId_sv;
+
+
+-- -------------------------------------------------------
+
+
+
+
+-- if(v_barcode="") then set v_barcode=null; end if;
 
 update variation_product set sku=v_sku,barcode=v_barcode,unitPrice=v_unitPrice,
  unitCost=v_unitCost,taxPerc=v_taxPerc where variationProductId=v_variationProductId;
@@ -10011,6 +10322,9 @@ UPDATE variation_product_detail tvd INNER JOIN tmpVariationDetails vpd
 SET tvd.variationValue = vpd.variationValue
 WHERE tvd.variationProductId = v_variationProductId AND tvd.variationValue != vpd.variationValue;
 
+set v_allProductId=(select ap.allProductId from all_product ap 
+   inner join variation_product vp on ap.variationProductId=vp.variationProductId
+where vp.variationProductId=v_variationProductId);
  
    INSERT INTO variation_product_detail(variationProductId, variationTypeId, variationValue)
  SELECT  v_variationProductId,tvd.variationTypeId,  tvd.variationValue 
@@ -10045,20 +10359,22 @@ WHERE tvd.variationProductId = v_variationProductId AND vpd.variationProductId I
             SET v_inventoryId = LAST_INSERT_ID();
         END IF;
 
-        INSERT INTO store_inventory_product (storeId, inventoryId, variationProductId) 
-        VALUES (v_storeIdTmp, v_inventoryId, v_variationProductId);
+        INSERT INTO store_inventory_product (storeId, inventoryId, variationProductId,allProductId) 
+        VALUES (v_storeIdTmp, v_inventoryId, v_variationProductId,v_allProductId);
 
         DELETE FROM storesToAdd2 LIMIT 1;
         SET v_totalItems_tblStoreIdList = (SELECT COUNT(*) FROM storesToAdd2);
 
     END WHILE;
    
-
    		DROP TEMPORARY TABLE IF EXISTS storesToRemove2;
    		CREATE TEMPORARY TABLE storesToRemove2 as SELECT * from storesToRemove;
   
     SET v_totalItems_tblStoreIdList = (SELECT COUNT(*) FROM storesToRemove2);
 
+    
+   
+    
     WHILE v_totalItems_tblStoreIdList > 0 DO
         SET v_storeIdTmp = (SELECT storeId FROM storesToRemove2 LIMIT 1);
         SET v_inventoryId = (SELECT inventoryId FROM store_inventory_product 
@@ -10104,7 +10420,7 @@ WHERE tvd.variationProductId = v_variationProductId AND vpd.variationProductId I
         SET v_totalItems_tblStoreIdList = (SELECT COUNT(*) FROM storesToRemove2);
 
     END WHILE;
-
+ 
 
    
    	DROP TEMPORARY TABLE IF EXISTS tblRemainingStoreIdList2;
@@ -10126,12 +10442,12 @@ WHERE tvd.variationProductId = v_variationProductId AND vpd.variationProductId I
 				
       end if;
        
-       
+      
        
         SET v_inventoryId = (SELECT inventoryId FROM store_inventory_product 
                              WHERE variationProductId = v_variationProductId AND storeId = v_storeIdTmp);
                     
-                     
+     
                             
         IF p_isStockTracked then
           IF v_inventoryId IS NULL THEN
@@ -10189,10 +10505,12 @@ WHERE tvd.variationProductId = v_variationProductId AND vpd.variationProductId I
     SET v_totalItems_tblVariationProduct = (SELECT COUNT(*) FROM tblRemainingVariationProduct);
 
 END WHILE;
-    			
+    		
+
+
        end if; 
 
-      
+
  
      -- NEED TO START FORM THIS
     -- combo product
@@ -10540,192 +10858,280 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Product_Select`(
-  IN p_ProductId INT,
-	IN p_ProductNo VARCHAR(100),
+    IN p_ProductId INT,
+    IN p_ProductNo VARCHAR(100),
     IN p_ProductName VARCHAR(500),
+        IN p_ProductDescription VARCHAR(500),
     IN p_sku VARCHAR(100),
     IN p_Barcode VARCHAR(100),
     IN p_CategoryId INT,
-      IN p_BrandId INT,
-           IN p_StoreId INT,
-       IN p_ProductTypeIds JSON, -- Now a JSON parameter
-	IN p_MeasurementUnitId INT,
-	in p_allSearchableFields  VARCHAR(100),
-   
-	IN p_SearchByKeyword BIT,
-	IN p_Skip INT,
+    IN p_BrandId INT,
+    IN p_StoreId INT,
+    IN p_ProductTypeIds JSON,
+    in p_isProductItem bit,
+    IN p_MeasurementUnitId INT,
+    IN p_allSearchableFields VARCHAR(100),
+    IN p_SearchByKeyword BIT,
+    IN p_Skip INT,
     IN p_Limit INT,
     IN p_UserLogID INT,
-	IN p_UTC_Offset VARCHAR(50),
+    IN p_UTC_Offset VARCHAR(50),
     IN p_PageName VARCHAR(50),
-
     OUT p_ResponseStatus VARCHAR(50),
     OUT p_OutputMessage VARCHAR(1000),
-	OUT p_TotalRows INT
+    OUT p_TotalRows INT
 )
 sp: BEGIN
-
--- DECLARE _query varchar(10000);
-DECLARE _PagingQuery VARCHAR(1000);
-DECLARE _filter varchar(1000);
-
-DECLARE _jsonProductTypeId INT;
-  DECLARE _productTypeCondition VARCHAR(1000);
-
-DECLARE _index INT DEFAULT 0;
-DECLARE _jsonLength INT;
-
-       
-SET _filter = concat(' WHERE 1=1 AND sip.StoreId=',p_StoreId);
-
-set _PagingQuery='';
-IF p_Skip IS NOT NULL AND p_Limit IS NOT NULL THEN
-    SET _PagingQuery = CONCAT(' LIMIT ', p_Skip, ', ', p_Limit);
-    
-ELSEIF p_Skip IS  null  THEN
-    SET p_ResponseStatus = 'invalid';
-    SET p_OutputMessage = 'The _Skip parameter should not be null.';
-	leave sp;
-    
-ELSEIF p_Limit IS null or p_Limit > 500 THEN
-    SET p_ResponseStatus = 'invalid';
-    SET p_OutputMessage = 'The _Limit parameter should not be null and less than or equal to 500.';
-	leave sp;
-END IF;
+    DECLARE _query VARCHAR(10000);
+    DECLARE _PagingQuery VARCHAR(1000);
+    DECLARE _filter VARCHAR(1000);
+    DECLARE _jsonProductTypeId INT;
+    DECLARE _productTypeCondition VARCHAR(1000);
+    DECLARE _index INT DEFAULT 0;
+    DECLARE _jsonLength INT;
+    DECLARE _normalizedProductName VARCHAR(500);
+    DECLARE _normalizedProductDescription VARCHAR(500);
+    DECLARE _keyword VARCHAR(100);
+    DECLARE _pos INT DEFAULT 1;
+    DECLARE _len INT;
+    DECLARE _filter_words VARCHAR(2000);
 
 
-   
+    SET _filter = CONCAT(' WHERE 1=1 AND sip.StoreId=', p_StoreId);
+
+    SET _PagingQuery = '';
+    IF p_Skip IS NOT NULL AND p_Limit IS NOT NULL THEN
+        SET _PagingQuery = CONCAT(' LIMIT ', p_Skip, ', ', p_Limit);
+    ELSEIF p_Skip IS NULL THEN
+        SET p_ResponseStatus = 'invalid';
+        SET p_OutputMessage = 'The _Skip parameter should not be null.';
+        LEAVE sp;
+    ELSEIF p_Limit IS NULL OR p_Limit > 500 THEN
+        SET p_ResponseStatus = 'invalid';
+        SET p_OutputMessage = 'The _Limit parameter should not be null and less than or equal to 500.';
+        LEAVE sp;
+    END IF;
+
     IF p_StoreId IS NULL THEN
-            SET p_ResponseStatus = 'invalid';
-            SET p_OutputMessage = 'p_StoreId is required.';
-			leave sp;
-        END IF;
-       
+        SET p_ResponseStatus = 'invalid';
+        SET p_OutputMessage = 'p_StoreId is required.';
+        LEAVE sp;
+    END IF;
 
-IF p_SearchByKeyword = 0 THEN
+    -- Normalize p_ProductName: trim spaces, replace multiple spaces with single space, convert to lowercase
+    IF p_ProductName IS NOT NULL THEN
+        SET _normalizedProductName = LOWER(TRIM(REGEXP_REPLACE(p_ProductName, '\s+', ' ')));
+    ELSE
+        SET _normalizedProductName = NULL;
+    END IF;
+
+    -- Normalize p_ProductDescription: trim spaces, replace multiple spaces with single space, convert to lowercase
+    IF p_ProductDescription IS NOT NULL THEN
+        SET _normalizedProductDescription = LOWER(TRIM(REGEXP_REPLACE(p_ProductDescription, '\s+', ' ')));
+    ELSE
+        SET _normalizedProductDescription = NULL;
+    END IF;
+
+    IF p_SearchByKeyword = 0 THEN
         IF p_ProductId IS NOT NULL THEN
             SET _filter = CONCAT(_filter, ' AND p.ProductID = ', p_ProductId);
         END IF;
-        
-        IF p_ProductName IS NOT NULL THEN
-            SET _filter = CONCAT(_filter, ' AND p.ProductName LIKE ''%', p_ProductName, '%''');
+
+        IF _normalizedProductName IS NOT NULL AND _normalizedProductName != '' THEN
+            -- Split product name into keywords and match each
+            SET _filter_words = '';
+            SET _pos = 1;
+            SET _len = LENGTH(_normalizedProductName);
+            WHILE _pos <= _len DO
+                SET _keyword = SUBSTRING_INDEX(SUBSTRING(_normalizedProductName, _pos), ' ', 1);
+                IF _keyword != '' THEN
+                    IF _filter_words = '' THEN
+                        SET _filter_words = CONCAT('LOWER(p.ProductName) LIKE ''%', _keyword, '%''');
+                    ELSE
+                        SET _filter_words = CONCAT(_filter_words, ' AND LOWER(p.ProductName) LIKE ''%', _keyword, '%''');
+                    END IF;
+                END IF;
+                SET _pos = _pos + LENGTH(_keyword) + 1;
+            END WHILE;
+            IF _filter_words != '' THEN
+                SET _filter = CONCAT(_filter, ' AND (', _filter_words, ')');
+            END IF;
         END IF;
-        
+
+        IF _normalizedProductDescription IS NOT NULL AND _normalizedProductDescription != '' THEN
+            -- Split product description into keywords and match each
+            SET _filter_words = '';
+            SET _pos = 1;
+            SET _len = LENGTH(_normalizedProductDescription);
+            WHILE _pos <= _len DO
+                SET _keyword = SUBSTRING_INDEX(SUBSTRING(_normalizedProductDescription, _pos), ' ', 1);
+                IF _keyword != '' THEN
+                    IF _filter_words = '' THEN
+                        SET _filter_words = CONCAT(
+                            'LOWER(CONCAT(p.productName, '' '', IFNULL((SELECT GROUP_CONCAT(DISTINCT vpd.variationValue SEPARATOR '', '') FROM variation_product_detail vpd WHERE vpd.variationProductId = vp.variationProductId), ''''))) LIKE ''%', _keyword, '%'''
+                        );
+                    ELSE
+                        SET _filter_words = CONCAT(
+                            _filter_words,
+                            ' AND LOWER(CONCAT(p.productName, '' '', IFNULL((SELECT GROUP_CONCAT(DISTINCT vpd.variationValue SEPARATOR '', '') FROM variation_product_detail vpd WHERE vpd.variationProductId = vp.variationProductId), ''''))) LIKE ''%', _keyword, '%'''
+                        );
+                    END IF;
+                END IF;
+                SET _pos = _pos + LENGTH(_keyword) + 1;
+            END WHILE;
+            IF _filter_words != '' THEN
+                SET _filter = CONCAT(_filter, ' AND (', _filter_words, ')');
+            END IF;
+        END IF;
+
         IF p_ProductNo IS NOT NULL THEN
-               SET _filter = CONCAT(_filter, ' AND p.ProductNo LIKE ''%', p_ProductNo, '%''');
+            SET _filter = CONCAT(_filter, ' AND LOWER(p.ProductNo) LIKE ''%', LOWER(TRIM(p_ProductNo)), '%''');
         END IF;
-        
-       
+
         IF p_sku IS NOT NULL THEN
-               SET _filter = CONCAT(_filter, ' AND (vp.SKU=''', p_sku, ''' or sp.SKU=''', p_sku, ''' or cp.SKU=''', p_sku,''')');
+            SET _filter = CONCAT(_filter, ' AND (vp.SKU=''', p_sku, ''' OR sp.SKU=''', p_sku, ''' OR cp.SKU=''', p_sku, ''')');
         END IF;
-       
-       
+
         IF p_Barcode IS NOT NULL THEN
-               SET _filter = CONCAT(_filter, ' AND p.Barcode LIKE ', p_Barcode);
+            SET _filter = CONCAT(_filter, ' AND (vp.barcode LIKE ''%', p_Barcode, '%'' OR sp.barcode LIKE ''%', p_Barcode, '%'' OR cp.barcode LIKE ''%', p_Barcode, '%'')');
         END IF;
-         
-        
+
         IF p_BrandId IS NOT NULL THEN
-               SET _filter = CONCAT(_filter, ' AND p.BrandId LIKE ''%', p_BrandId, '%''');
-        END IF;   
-       
+            SET _filter = CONCAT(_filter, ' AND p.BrandId = ', p_BrandId);
+        END IF;
 
-SET _jsonLength = JSON_LENGTH(p_ProductTypeIds);
+        SET _jsonLength = JSON_LENGTH(p_ProductTypeIds);
+        SET _productTypeCondition = '';
+        WHILE _index < _jsonLength DO
+            SET _jsonProductTypeId = JSON_UNQUOTE(JSON_EXTRACT(p_ProductTypeIds, CONCAT('$[', _index, ']')));
+            IF _index = 0 THEN
+                SET _productTypeCondition = CONCAT('p.ProductTypeId = ', _jsonProductTypeId);
+            ELSE
+                SET _productTypeCondition = CONCAT(_productTypeCondition, ' OR p.ProductTypeId = ', _jsonProductTypeId);
+            END IF;
+            SET _index = _index + 1;
+        END WHILE;
 
-WHILE _index < _jsonLength DO
-    SET _jsonProductTypeId = JSON_UNQUOTE(JSON_EXTRACT(p_ProductTypeIds, CONCAT('$[', _index, ']')));
-    
-    IF _index = 0 THEN
-        SET _productTypeCondition = CONCAT('p.ProductTypeId = ', _jsonProductTypeId);
-    ELSE
-        SET _productTypeCondition = CONCAT(_productTypeCondition, ' OR p.ProductTypeId = ', _jsonProductTypeId);
-    END IF;
-    
-    SET _index = _index + 1;
-END WHILE;
+        IF _productTypeCondition != '' THEN
+            SET _filter = CONCAT(_filter, ' AND (', _productTypeCondition, ')');
+        END IF;
 
-IF _productTypeCondition != '' THEN
-    SET _filter = CONCAT(_filter, ' AND (', _productTypeCondition, ')');
-END IF;
-
-       
+         
+        if p_isProductItem=true then
+      SET _filter = CONCAT(_filter, ' AND p.isProductItem = ', CAST(p_isProductItem AS UNSIGNED));
+        END IF;
+        
         IF p_CategoryId IS NOT NULL THEN
-			IF p_CategoryId=-1 THEN
-              SET _filter = CONCAT(_filter, ' ');
-            else
-            SET _filter = CONCAT(_filter, ' AND mpc.CategoryId = ', p_CategoryId);
-            end if;
+            IF p_CategoryId = -1 THEN
+                SET _filter = CONCAT(_filter, ' ');
+            ELSE
+                SET _filter = CONCAT(_filter, ' AND mpc.CategoryId = ', p_CategoryId);
+            END IF;
         END IF;
-        
-        
-		IF p_MeasurementUnitId IS NOT NULL THEN
-			IF p_MeasurementUnitId=-1 THEN
-              SET _filter = CONCAT(_filter, ' ');
-            else
-            SET _filter = CONCAT(_filter, ' AND p.MeasurementUnitId = ', p_MeasurementUnitId);
-            end if;
+
+        IF p_MeasurementUnitId IS NOT NULL THEN
+            IF p_MeasurementUnitId = -1 THEN
+                SET _filter = CONCAT(_filter, ' ');
+            ELSE
+                SET _filter = CONCAT(_filter, ' AND p.MeasurementUnitId = ', p_MeasurementUnitId);
+            END IF;
         END IF;
-        
-        
-        
+
     ELSE
         IF p_ProductId IS NOT NULL THEN
             SET p_ResponseStatus = 'invalid';
             SET p_OutputMessage = 'ProductID is not supported for keyword search.';
-			leave sp;
+            LEAVE sp;
         END IF;
-       
-       
-        IF p_ProductName IS NOT NULL THEN
-            SET _filter = CONCAT(_filter, ' AND p.ProductName LIKE ''%', p_ProductName, '%''');
+
+        IF _normalizedProductName IS NOT NULL AND _normalizedProductName != '' THEN
+            -- Split product name into keywords and match each
+            SET _filter_words = '';
+            SET _pos = 1;
+            SET _len = LENGTH(_normalizedProductName);
+            WHILE _pos <= _len DO
+                SET _keyword = SUBSTRING_INDEX(SUBSTRING(_normalizedProductName, _pos), ' ', 1);
+                IF _keyword != '' THEN
+                    IF _filter_words = '' THEN
+                        SET _filter_words = CONCAT('LOWER(p.ProductName) LIKE ''%', _keyword, '%''');
+                    ELSE
+                        SET _filter_words = CONCAT(_filter_words, ' AND LOWER(p.ProductName) LIKE ''%', _keyword, '%''');
+                    END IF;
+                END IF;
+                SET _pos = _pos + LENGTH(_keyword) + 1;
+            END WHILE;
+            IF _filter_words != '' THEN
+                SET _filter = CONCAT(_filter, ' AND (', _filter_words, ')');
+            END IF;
         END IF;
-        
+
+        IF _normalizedProductDescription IS NOT NULL AND _normalizedProductDescription != '' THEN
+            -- Split product description into keywords and match each
+            SET _filter_words = '';
+            SET _pos = 1;
+            SET _len = LENGTH(_normalizedProductDescription);
+            WHILE _pos <= _len DO
+                SET _keyword = SUBSTRING_INDEX(SUBSTRING(_normalizedProductDescription, _pos), ' ', 1);
+                IF _keyword != '' THEN
+                    IF _filter_words = '' THEN
+                        SET _filter_words = CONCAT(
+                            'LOWER(CONCAT(p.productName, '' '', IFNULL((SELECT GROUP_CONCAT(DISTINCT vpd.variationValue SEPARATOR '', '') FROM variation_product_detail vpd WHERE vpd.variationProductId = vp.variationProductId), ''''))) LIKE ''%', _keyword, '%'''
+                        );
+                    ELSE
+                        SET _filter_words = CONCAT(
+                            _filter_words,
+                            ' AND LOWER(CONCAT(p.productName, '' '', IFNULL((SELECT GROUP_CONCAT(DISTINCT vpd.variationValue SEPARATOR '', '') FROM variation_product_detail vpd WHERE vpd.variationProductId = vp.variationProductId), ''''))) LIKE ''%', _keyword, '%'''
+                        );
+                    END IF;
+                END IF;
+                SET _pos = _pos + LENGTH(_keyword) + 1;
+            END WHILE;
+            IF _filter_words != '' THEN
+                SET _filter = CONCAT(_filter, ' AND (', _filter_words, ')');
+            END IF;
+        END IF;
+
         IF p_ProductNo IS NOT NULL THEN
-            SET _filter = CONCAT(_filter, ' AND p.ProductNo LIKE ''%', p_ProductNo, '%''');
+            SET _filter = CONCAT(_filter, ' AND LOWER(p.ProductNo) LIKE ''%', LOWER(TRIM(p_ProductNo)), '%''');
         END IF;
-        
+
         IF p_Barcode IS NOT NULL THEN
-            SET _filter = CONCAT(_filter, ' AND (vp.barcode LIKE ''%', p_Barcode, '%'') or (sp.barcode LIKE ''%', p_Barcode, '%'') or (cp.barcode LIKE ''%', p_Barcode, '%'') ');
+            SET _filter = CONCAT(_filter, ' AND (LOWER(vp.barcode) LIKE ''%', LOWER(p_Barcode), '%'' OR LOWER(sp.barcode) LIKE ''%', LOWER(p_Barcode), '%'' OR LOWER(cp.barcode) LIKE ''%', LOWER(p_Barcode), '%'')');
         END IF;
-       
-   
-          if p_allSearchableFields is not null then
-            SET _filter = CONCAT(_filter, ' AND p.ProductName LIKE ''%', p_allSearchableFields, '%'' or p.ProductNo LIKE ''%', p_allSearchableFields, '%'' or  (vp.SKU=''', p_allSearchableFields, ''' or sp.SKU=''', p_allSearchableFields, ''' or cp.SKU=''', p_allSearchableFields,''') ');
-          END IF;
-       
-       
+
+        IF p_allSearchableFields IS NOT NULL THEN
+            SET _filter = CONCAT(_filter, ' AND (LOWER(p.ProductName) LIKE ''%', LOWER(TRIM(p_allSearchableFields)), '%'' OR LOWER(p.ProductNo) LIKE ''%', LOWER(TRIM(p_allSearchableFields)), '%'' OR vp.SKU=''', p_allSearchableFields, ''' OR sp.SKU=''', p_allSearchableFields, ''' OR cp.SKU=''', p_allSearchableFields, ''')');
+        END IF;
+
         IF p_CategoryId IS NOT NULL THEN
             SET p_ResponseStatus = 'invalid';
             SET p_OutputMessage = 'CategoryId is not supported for keyword search.';
-			leave sp;
+            LEAVE sp;
         END IF;
     END IF;
 
-
-   
-
--- Prepare the main query
-SET @_query = CONCAT(
-    'SELECT ',
-        ' (SELECT JSON_ARRAYAGG(DISTINCT vpd.variationValue) FROM variation_product_detail vpd WHERE vpd.variationProductId = vp.variationProductId) AS variationValue,',
-        ' p.productId,sip.variationProductId, p.productName, p.brandId, br.brandName,',
-        ' pt.productTypeName, p.measurementUnitId, mu.measurementUnitName,imageUrl,',
-        ' (SELECT JSON_ARRAYAGG(DISTINCT JSON_OBJECT("id", c.categoryId, "displayName", c.categoryName))',
-        ' FROM product_category pc INNER JOIN Category c ON pc.CategoryId = c.CategoryId WHERE pc.ProductId = p.ProductId) AS categories,',
-        ' p.productNo, COALESCE(vp.SKU, sp.SKU, cp.SKU) AS sku, COALESCE(vp.barcode, sp.barcode, cp.barcode) AS barcode,',
-        ' SUM(nsi.stockQty) AS stockQty,',
-        ' CASE WHEN i.inventoryId IS NULL THEN ''-'' ELSE IFNULL(SUM(nsi.stockQty), 0) END AS stockQty,',
-        ' CASE WHEN i.inventoryId IS NULL THEN false ELSE true END AS isStockTracked,',
-        ' i.reorderLevel, sip.storeId, CAST(p.isNotForSelling AS UNSIGNED) AS isNotForSelling,',
-        ' CAST(p.isUnique AS UNSIGNED) AS isUnique,CAST(p.isProductItem AS UNSIGNED) as isProductItem,',
-       ' COALESCE(vp.unitPrice, sp.unitPrice, cp.unitPrice) AS unitPrice,'
-        ' COALESCE(vp.unitCost, sp.unitCost, cp.unitCost) AS unitCost,'
-           ' COALESCE(vp.taxPerc, sp.taxPerc, cp.taxPerc) AS taxPerc,'
-        ' c.contactName, c.contactCode, p.productTypeId, s.storeId, s.storeName, s.storeCode,CAST(p.isExpiringProduct AS UNSIGNED) AS isExpiringProduct,sip.allProductId,sip.inventoryId ',
+    -- Prepare the main query
+    SET _query = CONCAT(
+        'SELECT ',
+            ' (SELECT JSON_ARRAYAGG(DISTINCT vpd.variationValue) FROM variation_product_detail vpd WHERE vpd.variationProductId = vp.variationProductId) AS variationValue,',
+            ' p.productId, sip.variationProductId, p.productName, p.brandId, br.brandName,',
+            ' CONCAT(p.productName, '' '', IFNULL((SELECT GROUP_CONCAT(DISTINCT vpd.variationValue SEPARATOR '', '') FROM variation_product_detail vpd WHERE vpd.variationProductId = vp.variationProductId), '''')) AS productDescription,',
+            ' pt.productTypeName, p.measurementUnitId, mu.measurementUnitName, imageUrl,',
+            ' (SELECT JSON_ARRAYAGG(DISTINCT JSON_OBJECT("id", c.categoryId, "displayName", c.categoryName))',
+            ' FROM product_category pc INNER JOIN Category c ON pc.CategoryId = c.CategoryId WHERE pc.ProductId = p.ProductId) AS categories,',
+            ' p.productNo, COALESCE(vp.SKU, sp.SKU, cp.SKU) AS sku, COALESCE(vp.barcode, sp.barcode, cp.barcode) AS barcode,',
+            ' SUM(nsi.stockQty) AS stockQty,',
+            ' CASE WHEN i.inventoryId IS NULL THEN ''-'' ELSE IFNULL(SUM(nsi.stockQty), 0) END AS stockQty,',
+            ' CASE WHEN i.inventoryId IS NULL THEN false ELSE true END AS isStockTracked,',
+            ' i.reorderLevel, sip.storeId, CAST(p.isNotForSelling AS UNSIGNED) AS isNotForSelling,',
+            ' CAST(p.isUnique AS UNSIGNED) AS isUnique, CAST(p.isProductItem AS UNSIGNED) AS isProductItem,',
+            ' COALESCE(vp.unitPrice, sp.unitPrice, cp.unitPrice) AS unitPrice,',
+            ' COALESCE(vp.unitCost, sp.unitCost, cp.unitCost) AS unitCost,',
+            ' COALESCE(vp.taxPerc, sp.taxPerc, cp.taxPerc) AS taxPerc,',
+            ' c.contactName, c.contactCode, p.productTypeId, s.storeId, s.storeName, s.storeCode, CAST(p.isExpiringProduct AS UNSIGNED) AS isExpiringProduct, sip.allProductId, sip.inventoryId,cast(p.isAssemblyProduct as unsigned) as isAssemblyProduct ',
         ' FROM store_inventory_product sip',
         ' LEFT JOIN variation_product vp ON sip.variationProductId = vp.variationProductId',
         ' LEFT JOIN single_product sp ON sip.singleProductId = sp.productId',
@@ -10737,26 +11143,23 @@ SET @_query = CONCAT(
         ' LEFT JOIN inventory i ON sip.inventoryId = i.inventoryId',
         ' LEFT JOIN non_serialized_item nsi ON i.inventoryId = nsi.inventoryId',
         ' LEFT JOIN contact c ON nsi.supplierId = c.contactId',
-        ' INNER JOIN store s ON sip.storeId = s.storeId ',
-        'inner join product_category mpc ON p.productId=mpc.productId',
+        ' INNER JOIN store s ON sip.storeId = s.storeId',
+        ' INNER JOIN product_category mpc ON p.productId = mpc.productId',
         _filter,
-        ' GROUP BY p.ProductId, p.productNo, p.ProductName, pt.productTypeName, p.productTypeId, p.MeasurementUnitId, s.storeId, p.isExpiringProduct,sip.allProductId,sip.inventoryId',
+        ' GROUP BY p.ProductId, p.productNo, p.ProductName, pt.productTypeName, p.productTypeId, p.MeasurementUnitId, s.storeId, p.isExpiringProduct, sip.allProductId, sip.inventoryId',
         ' ORDER BY p.productName ASC, s.storeName ASC',
         _PagingQuery
     );
 
+    -- Execute the main query
+    PREPARE stmt FROM _query;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
 
-
--- Execute the main query
- PREPARE stmt FROM @_query;
- EXECUTE stmt;
-DEALLOCATE PREPARE stmt;
-
-  
--- Updated counting query to match refactored main query
-SET @queryTotal = CONCAT(
-    'SELECT ',
-        'COUNT(DISTINCT p.ProductId, s.storeId) INTO @totalRows ',
+    -- Updated counting query to match refactored main query
+    SET @queryTotal = CONCAT(
+        'SELECT ',
+            'COUNT(DISTINCT p.ProductId, s.storeId) INTO @totalRows ',
         ' FROM store_inventory_product sip',
         ' LEFT JOIN variation_product vp ON sip.variationProductId = vp.variationProductId',
         ' LEFT JOIN single_product sp ON sip.singleProductId = sp.productId',
@@ -10768,24 +11171,20 @@ SET @queryTotal = CONCAT(
         ' LEFT JOIN inventory i ON sip.inventoryId = i.inventoryId',
         ' LEFT JOIN non_serialized_item nsi ON i.inventoryId = nsi.inventoryId',
         ' LEFT JOIN contact c ON nsi.supplierId = c.contactId',
-        ' INNER JOIN store s ON sip.storeId = s.storeId ',
-        'inner join product_category mpc ON p.productId=mpc.productId',
-        _filter  -- use the same filter logic as the main query
-);
+        ' INNER JOIN store s ON sip.storeId = s.storeId',
+        ' INNER JOIN product_category mpc ON p.productId = mpc.productId',
+        _filter
+    );
 
-    
-PREPARE stmt FROM @queryTotal;
-EXECUTE stmt;
-DEALLOCATE PREPARE stmt;
+    PREPARE stmt FROM @queryTotal;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
 
-SET p_TotalRows = @totalRows;
+    SET p_TotalRows = @totalRows;
 
-
-SET p_ResponseStatus='success';
-SET p_OutputMessage='loaded successfully';
-
-
-end ;;
+    SET p_ResponseStatus = 'success';
+    SET p_OutputMessage = 'loaded successfully';
+END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -11054,7 +11453,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Product_Select_extraDetails`(
   IN p_ProductId INT,
@@ -11091,6 +11490,7 @@ SELECT
     vp.unitCost,
     vp.unitPrice,
     vp.taxPerc,
+   -- cast(ap.isAssemblyProduct as unsigned) as isAssemblyProduct,
     (
         SELECT JSON_ARRAYAGG(
             DISTINCT JSON_OBJECT(
@@ -11102,8 +11502,53 @@ SELECT
         FROM variation_product_detail vpd
         INNER JOIN product_variation_type pvt2 ON vpd.variationTypeId = pvt2.variationTypeId
         WHERE vpd.variationProductId = vp.variationProductId
-    ) AS variationDetails
+    ) AS variationDetails,
+  (   SELECT JSON_ARRAYAGG(
+        JSON_OBJECT(
+            'allProductId', sub.allProductId_mat,
+            'qty', sub.qty,
+            'sku', sub.sku,
+            'productDescription', sub.productDescription,
+            'measurementUnitName', sub.measurementUnitName
+        )
+    )
+    FROM (
+        -- Single product sub-products
+        SELECT 
+            spd.allProductId_mat,
+            spd.qty,
+            sp.sku,
+            p_sub.productName AS productDescription,
+            mu_sub.measurementUnitName,
+            spd.allProductId 
+        FROM sub_product_detail spd
+        inner JOIN all_product ap_sub ON spd.allProductId_mat = ap_sub.allProductId
+        inner JOIN single_product sp ON ap_sub.singleProductId = sp.productId
+        inner JOIN product p_sub ON sp.productId = p_sub.productId
+        inner JOIN measurement_unit mu_sub ON p_sub.measurementUnitId = mu_sub.measurementUnitId
+
+        UNION ALL
+
+        -- Variation product sub-products
+        SELECT 
+            spd.allProductId_mat,
+            spd.qty,
+            vp_sub.sku,
+            CONCAT(pvari_sub.productName, ' ', GROUP_CONCAT(vd_sub.variationValue SEPARATOR ', ')) AS productDescription,
+            mu_sub.measurementUnitName,
+             spd.allProductId 
+        FROM sub_product_detail spd
+        inner JOIN all_product ap_sub ON spd.allProductId_mat = ap_sub.allProductId
+        inner JOIN variation_product vp_sub ON ap_sub.variationProductId = vp_sub.variationProductId
+        inner JOIN variation_product_detail vd_sub ON vp_sub.variationProductId = vd_sub.variationProductId
+        inner JOIN product pvari_sub ON vp_sub.productId = pvari_sub.productId
+        inner JOIN measurement_unit mu_sub ON pvari_sub.measurementUnitId = mu_sub.measurementUnitId
+        GROUP BY spd.allProductId_mat, spd.qty, vp_sub.sku, pvari_sub.productName, mu_sub.measurementUnitName
+    ) sub
+    WHERE sub.allProductId = ap.allProductId 
+) AS subProductsList
 FROM variation_product vp
+INNER JOIN all_product ap ON vp.variationProductId = ap.variationProductId 
 WHERE vp.productId = p_ProductId;
 
 
@@ -11194,9 +11639,414 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Product_Select_pos_menu`(
+    IN p_ProductId INT,
+    IN p_ProductNo VARCHAR(100),
+    IN p_ProductName VARCHAR(500),
+    IN p_sku VARCHAR(100),
+    IN p_Barcode VARCHAR(100),
+    IN p_CategoryId INT,
+    IN p_BrandId INT,
+    IN p_StoreId INT,
+      IN p_terminalId INT,
+    IN p_ProductTypeIds JSON, -- Now a JSON parameter
+    IN p_MeasurementUnitId INT,
+    IN p_allSearchableFields VARCHAR(100),
+    IN p_SearchByKeyword BIT,
+    IN p_Skip INT,
+    IN p_Limit INT,
+    IN p_UserLogID INT,
+    IN p_UTC_Offset VARCHAR(50),
+    IN p_PageName VARCHAR(50),
+    OUT p_ResponseStatus VARCHAR(50),
+    OUT p_OutputMessage VARCHAR(1000),
+    OUT p_TotalRows INT
+)
+sp: BEGIN
+    DECLARE _PagingQuery VARCHAR(1000);
+    DECLARE _filter VARCHAR(1000);
+    DECLARE _jsonProductTypeId INT;
+    DECLARE _productTypeCondition VARCHAR(1000);
+    DECLARE _index INT DEFAULT 0;
+    DECLARE _jsonLength INT;
+
+    SET _filter = CONCAT(' WHERE 1=1 AND sip.StoreId=', p_StoreId);
+
+    SET _PagingQuery = '';
+    IF p_Skip IS NOT NULL AND p_Limit IS NOT NULL THEN
+        SET _PagingQuery = CONCAT(' LIMIT ', p_Skip, ', ', p_Limit);
+    ELSEIF p_Skip IS NULL THEN
+        SET p_ResponseStatus = 'invalid';
+        SET p_OutputMessage = 'The _Skip parameter should not be null.';
+        LEAVE sp;
+    ELSEIF p_Limit IS NULL OR p_Limit > 500 THEN
+        SET p_ResponseStatus = 'invalid';
+        SET p_OutputMessage = 'The _Limit parameter should not be null and less than or equal to 500.';
+        LEAVE sp;
+    END IF;
+
+    IF p_StoreId IS NULL THEN
+        SET p_ResponseStatus = 'invalid';
+        SET p_OutputMessage = 'p_StoreId is required.';
+        LEAVE sp;
+    END IF;
+
+    IF p_SearchByKeyword = 0 THEN
+        IF p_ProductId IS NOT NULL THEN
+            SET _filter = CONCAT(_filter, ' AND p.ProductID = ', p_ProductId);
+        END IF;
+        IF p_ProductName IS NOT NULL THEN
+            SET _filter = CONCAT(_filter, ' AND p.ProductName LIKE ''%', p_ProductName, '%''');
+        END IF;
+        IF p_ProductNo IS NOT NULL THEN
+            SET _filter = CONCAT(_filter, ' AND p.ProductNo LIKE ''%', p_ProductNo, '%''');
+        END IF;
+        IF p_sku IS NOT NULL THEN
+            SET _filter = CONCAT(_filter, ' AND (vp.SKU=''', p_sku, ''' OR sp.SKU=''', p_sku, ''' OR cp.SKU=''', p_sku, ''')');
+        END IF;
+        IF p_Barcode IS NOT NULL THEN
+            SET _filter = CONCAT(_filter, ' AND p.Barcode LIKE ''%', p_Barcode, '%''');
+        END IF;
+        IF p_BrandId IS NOT NULL THEN
+            SET _filter = CONCAT(_filter, ' AND p.BrandId LIKE ''%', p_BrandId, '%''');
+        END IF;
+
+        SET _jsonLength = JSON_LENGTH(p_ProductTypeIds);
+        WHILE _index < _jsonLength DO
+            SET _jsonProductTypeId = JSON_UNQUOTE(JSON_EXTRACT(p_ProductTypeIds, CONCAT('$[', _index, ']')));
+            IF _index = 0 THEN
+                SET _productTypeCondition = CONCAT('p.ProductTypeId = ', _jsonProductTypeId);
+            ELSE
+                SET _productTypeCondition = CONCAT(_productTypeCondition, ' OR p.ProductTypeId = ', _jsonProductTypeId);
+            END IF;
+            SET _index = _index + 1;
+        END WHILE;
+
+        IF _productTypeCondition != '' THEN
+            SET _filter = CONCAT(_filter, ' AND (', _productTypeCondition, ')');
+        END IF;
+
+        IF p_CategoryId IS NOT NULL THEN
+            IF p_CategoryId = -1 THEN
+                SET _filter = CONCAT(_filter, ' ');
+            ELSE
+                SET _filter = CONCAT(_filter, ' AND mpc.CategoryId = ', p_CategoryId);
+            END IF;
+        END IF;
+
+        IF p_MeasurementUnitId IS NOT NULL THEN
+            IF p_MeasurementUnitId = -1 THEN
+                SET _filter = CONCAT(_filter, ' ');
+            ELSE
+                SET _filter = CONCAT(_filter, ' AND p.MeasurementUnitId = ', p_MeasurementUnitId);
+            END IF;
+        END IF;
+    ELSE
+        IF p_ProductId IS NOT NULL THEN
+            SET p_ResponseStatus = 'invalid';
+            SET p_OutputMessage = 'ProductID is not supported for keyword search.';
+            LEAVE sp;
+        END IF;
+        IF p_ProductName IS NOT NULL THEN
+            SET _filter = CONCAT(_filter, ' AND p.ProductName LIKE ''%', p_ProductName, '%''');
+        END IF;
+        IF p_ProductNo IS NOT NULL THEN
+            SET _filter = CONCAT(_filter, ' AND p.ProductNo LIKE ''%', p_ProductNo, '%''');
+        END IF;
+        IF p_Barcode IS NOT NULL THEN
+            SET _filter = CONCAT(_filter, ' AND (vp.barcode LIKE ''%', p_Barcode, '%'' OR sp.barcode LIKE ''%', p_Barcode, '%'' OR cp.barcode LIKE ''%', p_Barcode, '%'') ');
+        END IF;
+        IF p_allSearchableFields IS NOT NULL THEN
+            SET _filter = CONCAT(_filter, ' AND (p.ProductName LIKE ''%', p_allSearchableFields, '%'' OR p.ProductNo LIKE ''%', p_allSearchableFields, '%'' OR vp.SKU=''', p_allSearchableFields, ''' OR sp.SKU=''', p_allSearchableFields, ''' OR cp.SKU=''', p_allSearchableFields, ''') ');
+        END IF;
+        IF p_CategoryId IS NOT NULL THEN
+            SET p_ResponseStatus = 'invalid';
+            SET p_OutputMessage = 'CategoryId is not supported for keyword search.';
+            LEAVE sp;
+        END IF;
+    END IF;
+
+        
+       
+
+    IF p_CategoryId = 1 THEN
+        /*  terminal_id comes from a session variable set by the POS  */
+        /*  Example:  SET @current_terminal_id = 29;  */
+        SET _filter = CONCAT(_filter,
+            ' AND EXISTS (',
+            '   SELECT 1 FROM fast_moving_items fmi ',
+            '   WHERE fmi.store_id   = ', p_StoreId,
+            '     AND fmi.product_id = p.ProductId ',
+            '     AND (fmi.terminal_id =', p_terminalId,' OR (fmi.terminal_id IS NULL AND ',p_terminalId,' IS NULL))',
+            ' )');
+    END IF;
+       
+        
+        
+        
+    
+--     FAST MOVING ITEMS NEED TO IMPROVE
+    
+--  SET @_query = CONCAT(
+-- 'SELECT 
+--     p.productId,  
+--     p.productName,
+--     p.brandId,
+--     br.brandName,
+--     pt.productTypeName,
+--     p.measurementUnitId,
+--     mu.measurementUnitName,
+--     p.imageUrl,
+--     
+--     (SELECT JSON_ARRAYAGG(DISTINCT JSON_OBJECT(''id'', c.categoryId, ''displayName'', c.categoryName)) 
+--      FROM product_category pc 
+--      INNER JOIN Category c ON pc.CategoryId = c.CategoryId 
+--      WHERE pc.ProductId = p.ProductId) AS categories,
+--      
+--     p.productNo,
+--     COALESCE(sp.SKU, cp.SKU) AS sku,
+--     COALESCE(sp.barcode, cp.barcode) AS barcode,
+--     
+--     CASE 
+--         WHEN i.inventoryId IS NULL THEN NULL 
+--         ELSE IFNULL((SELECT SUM(nsi.stockQty) 
+--                      FROM non_serialized_item nsi 
+--                      WHERE nsi.inventoryId = sip.inventoryId), 0) 
+--     END AS stockQty,
+--     
+--     CASE WHEN i.inventoryId IS NULL THEN false ELSE true END AS isStockTracked,
+--     
+--     i.reorderLevel,
+--     i.inventoryId,
+--     sip.storeId,
+--     CAST(p.isNotForSelling AS UNSIGNED) AS isNotForSelling,
+--     CAST(p.isUnique AS UNSIGNED) AS isUnique,
+--     CAST(p.isProductItem AS UNSIGNED) AS isProductItem,
+--     
+--     COALESCE(sp.unitPrice, cp.unitPrice) AS unitPrice,
+--     COALESCE(vp.taxPerc, sp.taxPerc, cp.taxPerc) AS taxPerc,
+--     c.contactName,
+--     c.contactCode,
+--     p.productTypeId,
+--     s.storeId,
+--     s.storeName,
+--     s.storeCode,
+--     
+--     CAST(p.isExpiringProduct AS UNSIGNED) AS isExpiringProduct,
+--     
+--     JSON_ARRAYAGG(sip.allProductId) AS allProductId,
+--     JSON_ARRAYAGG(sip.inventoryId) AS inventoryIds,
+--     
+--     CASE 
+--         WHEN 
+--             (SELECT IFNULL(SUM(stockQty), 0) 
+--              FROM non_serialized_item nsi 
+--              WHERE nsi.inventoryId = sip.inventoryId 
+--                AND nsi.isBatchReleased = 1) = 0 
+--             AND 
+--             EXISTS (
+--                 SELECT 1 
+--                 FROM non_serialized_item nsi 
+--                 WHERE nsi.inventoryId = sip.inventoryId 
+--                   AND nsi.isBatchReleased = 0 
+--                   AND nsi.stockQty > 0
+--             ) 
+--         THEN 1 ELSE 0 
+--     END AS hasUnreleasedStock,
+--     
+--     IF(', p_CategoryId, ' = 1, fmi.rank_position, NULL) AS fast_moving_rank,
+--     IF(', p_CategoryId, ' = 1, fmi.sales_count, NULL) AS fast_moving_sales
+-- 
+-- FROM 
+--     store_inventory_product sip 
+-- LEFT JOIN variation_product vp ON sip.variationProductId = vp.variationProductId 
+-- LEFT JOIN single_product sp ON sip.singleProductId = sp.productId 
+-- LEFT JOIN combo_product cp ON sip.comboProductId = cp.productId 
+-- INNER JOIN product p ON p.ProductId = COALESCE(vp.productId, sp.productId, cp.productId) 
+-- INNER JOIN product_type pt ON p.productTypeId = pt.productTypeId 
+-- INNER JOIN measurement_unit mu ON p.MeasurementUnitId = mu.MeasurementUnitId 
+-- INNER JOIN brand br ON p.BrandId = br.BrandId 
+-- LEFT JOIN inventory i ON sip.inventoryId = i.inventoryId 
+-- LEFT JOIN non_serialized_item nsi ON i.inventoryId = nsi.inventoryId 
+-- LEFT JOIN contact c ON nsi.supplierId = c.contactId 
+-- INNER JOIN store s ON sip.storeId = s.storeId 
+-- INNER JOIN product_category mpc ON p.productId = mpc.productId 
+-- LEFT JOIN fast_moving_items fmi 
+--   ON fmi.product_id = p.ProductId 
+--  AND fmi.store_id   = ', p_StoreId, '
+--  AND (fmi.terminal_id = ', p_terminalId, ' OR (fmi.terminal_id IS NULL AND ', p_terminalId, ' IS NULL)) ',
+-- _filter, '
+-- GROUP BY 
+--     p.ProductId, p.productNo, p.ProductName, pt.productTypeName, p.productTypeId, 
+--     p.MeasurementUnitId, s.storeId, p.isExpiringProduct
+-- ORDER BY 
+--     p.productName ASC, s.storeName ASC ',
+-- _PagingQuery
+-- );
+-- 
+-- 
+
+
+
+
+
+
+
+
+
+
+
+
+    SET @_query = CONCAT(
+        'SELECT 
+      
+            
+            p.productId,  
+            p.productName,
+            p.brandId,
+            br.brandName,
+            pt.productTypeName,
+            p.measurementUnitId,
+            mu.measurementUnitName,
+            p.imageUrl,
+            
+            (SELECT JSON_ARRAYAGG(DISTINCT JSON_OBJECT(''id'', c.categoryId, ''displayName'', c.categoryName)) 
+             FROM product_category pc 
+             INNER JOIN Category c ON pc.CategoryId = c.CategoryId 
+             WHERE pc.ProductId = p.ProductId) AS categories,
+             
+            p.productNo,
+            COALESCE(sp.SKU, cp.SKU) AS sku,
+            COALESCE(sp.barcode, cp.barcode) AS barcode,
+            
+            CASE 
+                WHEN i.inventoryId IS NULL THEN NULL 
+                ELSE IFNULL((SELECT SUM(nsi.stockQty) 
+                             FROM non_serialized_item nsi 
+                             WHERE nsi.inventoryId = sip.inventoryId 
+                            ), 0) 
+            END AS stockQty,
+            
+            CASE WHEN i.inventoryId IS NULL THEN false ELSE true END AS isStockTracked,
+            
+            i.reorderLevel,
+            i.inventoryId,
+            sip.storeId,
+            CAST(p.isNotForSelling AS UNSIGNED) AS isNotForSelling,
+            CAST(p.isUnique AS UNSIGNED) AS isUnique,
+            CAST(p.isProductItem AS UNSIGNED) AS isProductItem,
+            
+            COALESCE(sp.unitPrice, cp.unitPrice) AS unitPrice,
+            COALESCE(vp.taxPerc, sp.taxPerc, cp.taxPerc) AS taxPerc,
+            c.contactName,
+            c.contactCode,
+            p.productTypeId,
+            s.storeId,
+            s.storeName,
+            s.storeCode,
+            
+            CAST(p.isExpiringProduct AS UNSIGNED) AS isExpiringProduct,
+            
+            JSON_ARRAYAGG(sip.allProductId) AS allProductId,
+            JSON_ARRAYAGG(sip.inventoryId) AS inventoryIds,
+            
+            CASE 
+                WHEN 
+                    (SELECT IFNULL(SUM(stockQty), 0) 
+                     FROM non_serialized_item nsi 
+                     WHERE nsi.inventoryId = sip.inventoryId 
+                       AND nsi.isBatchReleased = 1) = 0 
+                    AND 
+                    EXISTS (
+                        SELECT 1 
+                        FROM non_serialized_item nsi 
+                        WHERE nsi.inventoryId = sip.inventoryId 
+                          AND nsi.isBatchReleased = 0 
+                          AND nsi.stockQty > 0
+                    ) 
+                THEN 1 ELSE 0 
+            END AS hasUnreleasedStock,
+            CASE WHEN i.inventoryId IS NULL THEN false ELSE true END AS isStockTracked
+            
+        FROM 
+            store_inventory_product sip 
+        LEFT JOIN variation_product vp ON sip.variationProductId = vp.variationProductId 
+        LEFT JOIN single_product sp ON sip.singleProductId = sp.productId 
+        LEFT JOIN combo_product cp ON sip.comboProductId = cp.productId 
+        INNER JOIN product p ON p.ProductId = COALESCE(vp.productId, sp.productId, cp.productId) 
+        INNER JOIN product_type pt ON p.productTypeId = pt.productTypeId 
+        INNER JOIN measurement_unit mu ON p.MeasurementUnitId = mu.MeasurementUnitId 
+        INNER JOIN brand br ON p.BrandId = br.BrandId 
+        LEFT JOIN inventory i ON sip.inventoryId = i.inventoryId 
+        LEFT JOIN non_serialized_item nsi ON i.inventoryId = nsi.inventoryId 
+        LEFT JOIN contact c ON nsi.supplierId = c.contactId 
+        INNER JOIN store s ON sip.storeId = s.storeId 
+        INNER JOIN product_category mpc ON p.productId = mpc.productId ',
+        _filter,
+        ' GROUP BY 
+            p.ProductId, p.productNo, p.ProductName, pt.productTypeName, p.productTypeId, 
+            p.MeasurementUnitId, s.storeId, p.isExpiringProduct
+        ORDER BY 
+            p.productName ASC, s.storeName ASC ',
+        _PagingQuery
+    );
+
+    -- Execute the main query
+    PREPARE stmt FROM @_query;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+
+
+
+
+
+    -- Updated counting query to match refactored main query
+    SET @queryTotal = CONCAT(
+        'SELECT ',
+            'COUNT(DISTINCT p.ProductId, s.storeId) INTO @totalRows ',
+            ' FROM store_inventory_product sip',
+            ' LEFT JOIN variation_product vp ON sip.variationProductId = vp.variationProductId',
+            ' LEFT JOIN single_product sp ON sip.singleProductId = sp.productId',
+            ' LEFT JOIN combo_product cp ON sip.comboProductId = cp.productId',
+            ' INNER JOIN product p ON p.ProductId = COALESCE(vp.productId, sp.productId, cp.productId)',
+            ' INNER JOIN product_type pt ON p.productTypeId = pt.productTypeId',
+            ' INNER JOIN measurement_unit mu ON p.MeasurementUnitId = mu.MeasurementUnitId',
+            ' INNER JOIN brand br ON p.BrandId = br.BrandId',
+            ' LEFT JOIN inventory i ON sip.inventoryId = i.inventoryId',
+            ' LEFT JOIN non_serialized_item nsi ON i.inventoryId = nsi.inventoryId',
+            ' LEFT JOIN contact c ON nsi.supplierId = c.contactId',
+            ' INNER JOIN store s ON sip.storeId = s.storeId',
+            ' INNER JOIN product_category mpc ON p.productId = mpc.productId',
+            _filter
+    );
+
+    PREPARE stmt FROM @queryTotal;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+
+    SET p_TotalRows = @totalRows;
+
+    SET p_ResponseStatus = 'success';
+    SET p_OutputMessage = 'loaded successfully';
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `Product_Select_pos_menu_ori_notinuse` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Product_Select_pos_menu_ori_notinuse`(
   IN p_ProductId INT,
 	IN p_ProductNo VARCHAR(100),
     IN p_ProductName VARCHAR(500),
@@ -11742,7 +12592,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `product_snapshot_insert`(
    IN p_allProductId INT,
@@ -11801,11 +12651,11 @@ DECLARE v_ss_allProductId_mat INT;
 		   if(v_productTypeId=1) then
 		   
 		        INSERT INTO snapshot_all_product (allProductId,
-		            ProductId, productTypeId,  ProductNo,  ProductName,  BrandName, MeasurementUnitName,
+		            ProductId, productTypeId,  ProductNo,  ProductName,productDescription,  BrandName, MeasurementUnitName,
 		            SKU,barcode, unitPrice,    
 		            ModifiedDate_UTC, ModifiedDate_ServerTime,snshot_CreatedDate_UTC, snshot_CreatedDate_ServerTime
 		        )
-		        SELECT  ap.allProductId,p.ProductId,p.productTypeId,  p.ProductNo,  p.ProductName, b.BrandName,
+		        SELECT  ap.allProductId,p.ProductId,p.productTypeId,  p.ProductNo,  p.ProductName, p.ProductName, b.BrandName,
 		            mu.MeasurementUnitName,sp.SKU, sp.barcode, sp.unitPrice,
 		            p.ModifiedDate_UTC,p.ModifiedDate_ServerTime, utc_timestamp(), current_timestamp()
 		        FROM product p inner join brand b on p.brandId=b.brandId
@@ -11820,17 +12670,30 @@ DECLARE v_ss_allProductId_mat INT;
 		   if(v_productTypeId=2) then
 		   
 		        INSERT INTO snapshot_all_product (allProductId,
-		            ProductId, productTypeId,  ProductNo,  ProductName,  BrandName, MeasurementUnitName,
+		            ProductId, productTypeId,  ProductNo,  ProductName,productDescription,  BrandName, MeasurementUnitName,
 		            SKU,barcode, unitPrice,    
 		            ModifiedDate_UTC, ModifiedDate_ServerTime,snshot_CreatedDate_UTC, snshot_CreatedDate_ServerTime
 		        )
-			        SELECT  ap.allProductId,p.ProductId, p.productTypeId,  p.ProductNo,  p.ProductName, b.BrandName,
+	           
+		        SELECT  ap.allProductId,p.ProductId, p.productTypeId,  p.ProductNo,  p.ProductName,
+          --  concat(p.ProductName, ' - ' , GROUP_CONCAT(vpd.variationValue ORDER BY vpd.variationProductDetail_id SEPARATOR ' ')) variationValuesConcat,
+			     CASE 
+        WHEN COUNT(vpd.variationValue) = 0 
+        THEN p.ProductName
+        ELSE CONCAT(
+                p.ProductName, 
+                ' - ', 
+                GROUP_CONCAT(vpd.variationValue ORDER BY vpd.variationProductDetail_id SEPARATOR ' ')
+             )
+    END AS variationValuesConcat,  
+		        b.BrandName,
 			            mu.MeasurementUnitName,sp.SKU, sp.barcode, sp.unitPrice,
 			            p.ModifiedDate_UTC,p.ModifiedDate_ServerTime, utc_timestamp(), current_timestamp()
 			        FROM product p inner join brand b on p.brandId=b.brandId
 			        inner join measurement_unit mu on p.MeasurementUnitId=mu.MeasurementUnitId
 			        inner join variation_product sp on p.productId=sp.productId
 			         inner join all_product ap on sp.variationProductId=ap.variationProductId
+			         LEFT join variation_product_detail vpd on sp.variationProductId=vpd.variationProductId
 			          WHERE ap.allProductId = p_allProductId;
 		
 		  			  SET   v_ss_allProductId=LAST_INSERT_ID();
@@ -11838,14 +12701,14 @@ DECLARE v_ss_allProductId_mat INT;
 		  			 
 					 INSERT INTO snapshot_variation_product_detail(snshot_allProductId, variationTypeName, variationValue)
 					
-					select v_ss_allProductId,pvt.variationTypeName,vpd.variationValue from variation_product_detail vpd
-					inner join product_variation_type pvt on vpd.variationTypeId=pvt.variationTypeId 
-					where variationProductId=(
+				select v_ss_allProductId,pvt.variationTypeName,vpd.variationValue from variation_product_detail vpd
+				 inner join product_variation_type pvt on vpd.variationTypeId=pvt.variationTypeId 
+				where variationProductId=(
 					SELECT  vp.variationProductId 
 					        FROM  variation_product vp
 					         inner join all_product ap on vp.variationProductId=ap.variationProductId
-					         where ap.allProductId=p_allProductId
-					);
+				         where ap.allProductId=p_allProductId
+			);
 		   
 		   
 		   
@@ -11854,11 +12717,11 @@ DECLARE v_ss_allProductId_mat INT;
 		     if(v_productTypeId=3) then
 		   
 		        INSERT INTO snapshot_all_product (allProductId,
-		            ProductId, productTypeId,  ProductNo,  ProductName,  BrandName, MeasurementUnitName,
+		            ProductId, productTypeId,  ProductNo,  ProductName,productDescription,  BrandName, MeasurementUnitName,
 		            SKU,barcode, unitPrice,    
 		            ModifiedDate_UTC, ModifiedDate_ServerTime,snshot_CreatedDate_UTC, snshot_CreatedDate_ServerTime
 		        )
-		        SELECT  ap.allProductId,p.ProductId, p.productTypeId,  p.ProductNo,  p.ProductName, b.BrandName,
+		        SELECT  ap.allProductId,p.ProductId, p.productTypeId,  p.ProductNo,  p.ProductName,p.ProductName, b.BrandName,
 		            mu.MeasurementUnitName,cp.SKU, cp.barcode, cp.unitPrice,
 		            p.ModifiedDate_UTC,p.ModifiedDate_ServerTime, utc_timestamp(), current_timestamp()
 		        FROM product p inner join brand b on p.brandId=b.brandId
@@ -12403,7 +13266,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sessionDetails_Select`(
 	IN p_SessionId INT,
@@ -12437,13 +13300,14 @@ sp: BEGIN
     DECLARE v_expectedCash DECIMAL(10,2);
 
     -- Calculate values
-    SET v_noOfTransactions = IFNULL((SELECT COUNT(OrderId) FROM order_header WHERE SessionId = p_SessionId), 0);
+    SET v_noOfTransactions = IFNULL((SELECT COUNT(OrderId) FROM order_header where isVoided = 0 and SessionId = p_SessionId), 0);
     SET v_noOfVoidedTransactions = IFNULL((SELECT COUNT(OrderId) FROM order_header WHERE isVoided = 1 AND SessionId = p_SessionId), 0);
     SET v_NoOfUnVoidedTransactions = v_noOfTransactions - v_noOfVoidedTransactions;
     SET v_noOfCustomers = IFNULL((SELECT COUNT(DISTINCT c.contactID) FROM contact c INNER JOIN order_header oh ON c.contactID = oh.customerId WHERE isVoided = 0 AND SessionId = p_SessionId), 0);
     SET v_noOfProductsSold = IFNULL((SELECT SUM(od.Qty) FROM order_header oh INNER JOIN order_details od ON oh.OrderId = od.OrderId WHERE isVoided = 0 AND SessionId = p_SessionId), 0);
     SET v_noOfProductsReturned = IFNULL((SELECT -1 * SUM(od.Qty) FROM order_header oh INNER JOIN order_details od ON oh.OrderId = od.OrderId WHERE isVoided = 0 AND od.IsReturned = 1 AND SessionId = p_SessionId), 0);
     SET v_productSales = IFNULL((SELECT SUM(osp.GrossAmount_total) FROM order_header oh INNER JOIN order_summary_processed osp ON oh.OrderId = osp.OrderId WHERE isVoided = 0 AND SessionId = p_SessionId), 0);
+   
     SET v_totalDiscounts = IFNULL((SELECT SUM(osp.All_DiscountAmount_total) FROM order_header oh INNER JOIN order_summary_processed osp ON oh.OrderId = osp.OrderId WHERE isVoided = 0 AND SessionId = p_SessionId), 0);
     SET v_Returns = IFNULL((SELECT -1 * SUM(od.NetAmount) FROM order_header oh INNER JOIN order_details od ON oh.OrderId = od.OrderId WHERE isVoided = 0 AND od.IsReturned = 1 AND SessionId = p_SessionId), 0);
     SET v_TotalTax = IFNULL((SELECT SUM(osp.LineTaxAmount_total) FROM order_header oh INNER JOIN order_summary_processed osp ON oh.OrderId = osp.OrderId WHERE isVoided = 0 AND SessionId = p_SessionId), 0);
@@ -12472,7 +13336,7 @@ sp: BEGIN
     INSERT INTO session_details_summary_temp VALUES (
         v_noOfTransactions, v_noOfVoidedTransactions, v_noOfCustomers,
         v_noOfProductsSold, v_noOfProductsReturned, 10, 10,
-        v_productSales, 10, v_productSales,
+        v_productSales, 0, v_productSales,
         v_totalDiscounts, v_Returns, 10, v_TotalTax, v_NetSales,
         v_netCashSales, v_netCardSales, v_atvNet, v_atvGross,
         v_openingAmount, v_cashAdditions, v_cashRemovals, v_expectedCash,
@@ -12592,7 +13456,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SessionEndDetails_Select`(
 	IN p_SessionId INT,
@@ -12606,8 +13470,11 @@ sp: BEGIN
 
 	call  sessionDetails_Select (p_SessionId,p_ResponseStatus,p_OutputMessage);
 	
-	SELECT noOfTransactions, noOfVoidedTransactions, noOfCustomers, noOfProductsSold, noOfProductsReturned, noOfServices, noOfServicesReturned, productSales, serviceFees, totalSales, totalDiscounts, totalReturns, totalRefunds, totalTax, netSales, netCashSales, netCardSales, averageTransactionValueNet, averageTransactionValueGross, openingCashAmount, cashAdditions, cashRemovals, expectedCash, noOfUnVoidedTransactions
-FROM lbposc_light.session_details_summary_temp;
+	SELECT noOfTransactions, noOfVoidedTransactions, noOfCustomers, noOfProductsSold, noOfProductsReturned,
+	noOfServices, noOfServicesReturned, productSales, serviceFees, totalSales, totalDiscounts, totalReturns, 
+	totalRefunds,totalTax, netSales, netCashSales, netCardSales, averageTransactionValueNet, 
+	averageTransactionValueGross,openingCashAmount, cashAdditions, cashRemovals, expectedCash, 
+	noOfUnVoidedTransactions FROM session_details_summary_temp;
 	
 
 
@@ -12615,6 +13482,45 @@ set p_ResponseStatus='success';
 set p_OutputMessage='loaded successfully';
 
 END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sessionMismatchCheck` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sessionMismatchCheck`(
+	IN p_SessionId INT,
+    in p_TerminalId int,
+    OUT p_ResponseStatus VARCHAR(50),
+    OUT p_OutputMessage VARCHAR(1000),
+    out p_isSessionMismatched bit
+)
+sp: BEGIN
+
+	declare v_sessionIdFromDb int;
+	set p_isSessionMismatched=0;
+
+	set v_sessionIdFromDb=(select max(sessionId) from session_period where terminalId=p_TerminalId and isSessionEnded=0);
+		if v_sessionIdFromDb!=p_SessionID then
+		set p_isSessionMismatched=1;
+	end if; 
+    
+	
+
+
+set p_ResponseStatus='success';
+set p_OutputMessage='loaded successfully';
+
+end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -12973,6 +13879,106 @@ BEGIN
 
     -- Call the child procedure
     CALL spchild();
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_update_fast_moving_items` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`remoteuser`@`%` PROCEDURE `sp_update_fast_moving_items`(
+    IN p_product_id BIGINT,
+    IN p_store_id BIGINT,
+    IN p_terminal_id BIGINT,
+    IN p_quantity INT,
+    IN p_order_timestamp DATETIME
+)
+BEGIN
+    DECLARE v_exists INT DEFAULT 0;
+    DECLARE v_rank_score DECIMAL(12,6);
+
+    -- Start transaction
+    START TRANSACTION;
+
+    -- Check if record exists
+    SELECT COUNT(*) INTO v_exists
+    FROM fast_moving_items
+    WHERE store_id = p_store_id
+      AND product_id = p_product_id
+      AND (terminal_id = p_terminal_id OR (terminal_id IS NULL AND p_terminal_id IS NULL));
+
+    IF v_exists > 0 THEN
+        -- Update existing
+        UPDATE fast_moving_items
+        SET sales_count = sales_count + p_quantity,
+            last_sold_at = p_order_timestamp,
+            updated_at = CURRENT_TIMESTAMP
+        WHERE store_id = p_store_id
+          AND product_id = p_product_id
+          AND (terminal_id = p_terminal_id OR (terminal_id IS NULL AND p_terminal_id IS NULL));
+    ELSE
+        -- Insert new
+        INSERT INTO fast_moving_items (
+            product_id, store_id, terminal_id, sales_count, last_sold_at
+        ) VALUES (
+            p_product_id, p_store_id, p_terminal_id, p_quantity, p_order_timestamp
+        );
+    END IF;
+
+    -- Recalculate rank_score (example: sales per day velocity)
+    -- Adjust formula as needed: e.g., (sales_count / hours_since_first_sale)
+    -- For simplicity: use sales_count + velocity boost if recent
+    SET v_rank_score = p_quantity;
+
+    -- Optional: Boost score if sold recently (last 1 hour = +50%, last 24h = +20%)
+    IF TIMESTAMPDIFF(HOUR, p_order_timestamp, NOW()) <= 1 THEN
+        SET v_rank_score = v_rank_score * 1.5;
+    ELSEIF TIMESTAMPDIFF(HOUR, p_order_timestamp, NOW()) <= 24 THEN
+        SET v_rank_score = v_rank_score * 1.2;
+    END IF;
+
+    -- Update rank score
+--     UPDATE fast_moving_items
+--     SET rank_score = rank_score + v_rank_score
+--     WHERE store_id = p_store_id
+--       AND product_id = p_product_id
+--       AND (terminal_id = p_terminal_id OR (terminal_id IS NULL AND p_terminal_id IS NULL));
+
+    UPDATE fast_moving_items fmi
+JOIN (
+    SELECT id,
+           @rank := @rank + 1 AS new_rank
+    FROM fast_moving_items
+    WHERE store_id = p_store_id
+      AND terminal_id = p_terminal_id   -- Only this terminal!
+    ORDER BY rank_score DESC, sales_count DESC
+) ranked ON fmi.id = ranked.id
+SET fmi.rank_position = ranked.new_rank;
+
+    
+    -- Recalculate rank_position for the store (or store+terminal)
+    SET @rank = 0;
+    UPDATE fast_moving_items fmi
+    JOIN (
+        SELECT id,
+               @rank := @rank + 1 AS new_rank
+        FROM fast_moving_items
+        WHERE store_id = p_store_id
+          AND (terminal_id = p_terminal_id OR (terminal_id IS NULL AND p_terminal_id IS NULL))
+        ORDER BY rank_score DESC, sales_count DESC, last_sold_at DESC
+    ) ranked ON fmi.id = ranked.id
+    SET fmi.rank_position = ranked.new_rank;
+
+    COMMIT;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -14092,6 +15098,149 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `UpdateStockQtyOrderBybatchQueueNumber` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`remoteuser`@`%` PROCEDURE `UpdateStockQtyOrderBybatchQueueNumber`(
+    IN p_inventoryId INT,
+    IN p_qty DECIMAL(10,2),
+    IN p_validate BOOLEAN,
+    OUT p_ResponseStatus VARCHAR(50),
+    OUT p_OutputMessage VARCHAR(1000)
+)
+sp: BEGIN
+    DECLARE v_totalStockQty DECIMAL(10,2) DEFAULT 0;
+    DECLARE v_remaining_qty DECIMAL(10,2);
+    DECLARE v_stockBatchId INT;
+    DECLARE v_current_stock_qty DECIMAL(10,2);
+    DECLARE done INT DEFAULT 0;
+    declare v_sku varchar(50);
+      declare v_singleProductId varchar(50);
+      declare v_variationProductId varchar(50);
+
+    -- Declare cursor for fetching batches with StockQty > 0
+    DECLARE batch_cursor CURSOR FOR
+        SELECT stockBatchId, StockQty
+        FROM non_serialized_item
+        WHERE inventoryId = p_inventoryId AND StockQty > 0
+        ORDER BY batchQueueNumber ASC;
+
+    -- Declare continue handler for when no more rows are found
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+
+    
+       IF p_qty=0 or p_qty is null THEN
+        SET p_ResponseStatus = 'failed';
+        SET p_OutputMessage = 'Invalid Qty.';
+        LEAVE sp;
+    end if;
+    
+    
+    -- Validation: Check total stock for all batches
+    SELECT IFNULL(SUM(StockQty), 0) INTO v_totalStockQty
+    FROM non_serialized_item 
+    WHERE inventoryId = p_inventoryId;
+    
+    select singleProductId,variationProductId into v_singleProductId,v_variationProductId 
+    from store_inventory_product where inventoryId=p_inventoryId;
+
+    if(v_singleProductId is not null) then 
+    set v_sku=(select sku from single_product where productId=v_singleProductId);
+    end if;
+    
+     if(v_variationProductId is not null) then 
+    set v_sku=(select sku from variation_product where variationProductId=v_variationProductId);
+    end if;
+    
+    IF v_totalStockQty = 0 THEN
+        SET p_ResponseStatus = 'failed';
+        SET p_OutputMessage = concat('No stock available for the SKU:',v_sku);
+        LEAVE sp;
+    END IF;
+
+    -- Check if sufficient stock is available
+    IF v_totalStockQty < p_qty THEN
+        SET p_ResponseStatus = 'failed';
+        SET p_OutputMessage = concat('Insufficient stock quantity available for the SKU:',v_sku);
+        LEAVE sp;
+    ELSE
+        SET p_ResponseStatus = 'success';
+        SET p_OutputMessage = 'Sufficient stock quantity is available.';
+    END IF;
+
+    -- If only validating, exit after setting response
+    IF p_validate THEN
+        LEAVE sp;
+    END IF;
+
+    -- Proceed with stock update if p_validate = FALSE
+    SET v_remaining_qty = p_qty;
+
+    -- Start transaction for updates
+    START TRANSACTION;
+
+    -- Open the cursor
+    OPEN batch_cursor;
+
+    -- Loop through batches using the cursor
+    batch_loop: LOOP
+        -- Fetch the next batch
+        FETCH batch_cursor INTO v_stockBatchId, v_current_stock_qty;
+
+    select v_current_stock_qty as v_current_stock_qty;
+        -- If no more rows, exit the loop
+        IF done = 1 THEN
+            LEAVE batch_loop;
+        END IF;
+
+        -- Check if remaining quantity is greater than 0
+        IF v_remaining_qty <= 0 THEN
+            LEAVE batch_loop;
+        END IF;
+
+        -- If current batch has enough stock
+        IF v_current_stock_qty >= v_remaining_qty THEN
+            UPDATE non_serialized_item
+            SET StockQty = StockQty - v_remaining_qty,
+                ModifiedDate_UTC = UTC_TIMESTAMP()
+            WHERE stockBatchId = v_stockBatchId;
+            SET v_remaining_qty = 0; -- All quantity allocated
+        ELSE
+            -- Deduct all available stock from this batch
+            UPDATE non_serialized_item
+            SET StockQty = 0,
+                ModifiedDate_UTC = UTC_TIMESTAMP()
+            WHERE stockBatchId = v_stockBatchId;
+            SET v_remaining_qty = v_remaining_qty - v_current_stock_qty;
+        END IF;
+    END LOOP batch_loop;
+
+    -- Close the cursor
+    CLOSE batch_cursor;
+
+    -- Check if remaining quantity is still positive (insufficient stock)
+    IF v_remaining_qty > 0 THEN
+        SET p_ResponseStatus = 'failed';
+        SET p_OutputMessage = 'Insufficient stock to fulfill the requested quantity after update.';
+        ROLLBACK;
+        LEAVE sp;
+    END IF;
+
+    -- Commit the transaction
+    COMMIT;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `update_price_cost` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -14708,6 +15857,730 @@ DELIMITER ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `util_CLEAN_ALL_TRANSACTIONAL_DATA` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `util_CLEAN_ALL_TRANSACTIONAL_DATA`(
+)
+sp: BEGIN
+  
+   
+	
+	
+   delete from cash_payments;
+    ALTER TABLE cash_payments AUTO_INCREMENT = 1;
+    
+    delete from card_payments;
+    ALTER TABLE card_payments AUTO_INCREMENT = 1;
+    
+	delete from order_payments;
+    ALTER TABLE order_payments AUTO_INCREMENT = 1;
+
+	delete from order_return;
+    ALTER TABLE order_return AUTO_INCREMENT = 1;
+    
+   	delete from order_voided;
+    ALTER TABLE order_voided AUTO_INCREMENT = 1;
+    
+   
+   
+    	delete from order_line_discount;
+    ALTER TABLE order_line_discount AUTO_INCREMENT = 1;
+    
+        	delete from order_line_tax;
+    ALTER TABLE order_line_tax AUTO_INCREMENT = 1;
+    
+	delete from order_details;
+    ALTER TABLE order_details AUTO_INCREMENT = 1;
+    
+    delete from order_overall_discount;
+    ALTER TABLE order_overall_discount AUTO_INCREMENT = 1;
+    
+    
+         delete from order_summary_processed;
+    ALTER TABLE order_summary_processed AUTO_INCREMENT = 1;
+    
+      
+               
+-- delete from product_category;
+  --  ALTER TABLE product_category AUTO_INCREMENT = 1;
+
+	--	delete from store_inventory_product;
+  --  ALTER TABLE store_inventory_product AUTO_INCREMENT = 1;
+
+		
+--				delete from stockentrydetails;
+--    ALTER TABLE stockentrydetails AUTO_INCREMENT = 1;
+		
+--		delete from all_product;
+  --  ALTER TABLE all_product AUTO_INCREMENT = 1;
+
+--	delete from single_product;
+  --  ALTER TABLE single_product AUTO_INCREMENT = 1;
+	
+	
+	--	delete from variation_product_detail;
+   -- ALTER TABLE variation_product_detail AUTO_INCREMENT = 1;
+	
+	
+	-- delete from variation_product;
+   -- ALTER TABLE variation_product AUTO_INCREMENT = 1;
+	
+--	delete from combo_product_detail;
+  --  ALTER TABLE combo_product_detail AUTO_INCREMENT = 1;
+	
+	--	delete from combo_product;
+  --  ALTER TABLE combo_product AUTO_INCREMENT = 1;
+	
+--	delete from product;
+  --  ALTER TABLE product AUTO_INCREMENT = 1;
+	
+	delete from log_stock_adjustment;
+    ALTER TABLE log_stock_adjustment AUTO_INCREMENT = 1;
+					
+	delete from stock_batch_order_mapping;
+    ALTER TABLE stock_batch_order_mapping AUTO_INCREMENT = 1;
+	
+--	delete from non_serialized_item;
+  --  ALTER TABLE non_serialized_item AUTO_INCREMENT = 1;
+			
+		delete from supplier_payments;
+    ALTER TABLE supplier_payments AUTO_INCREMENT = 1;
+	
+	delete from stockentry;
+    ALTER TABLE stockentry AUTO_INCREMENT = 1;
+	
+
+		
+	
+		delete from snapshot_combo_product_detail;
+    ALTER TABLE snapshot_combo_product_detail AUTO_INCREMENT = 1;
+	
+		
+			delete from snapshot_variation_product_detail;
+    ALTER TABLE snapshot_variation_product_detail AUTO_INCREMENT = 1;
+			
+	delete from snapshot_all_product;
+    ALTER TABLE snapshot_all_product AUTO_INCREMENT = 1;
+	
+	
+	
+	
+			delete from log_stock_adjustment;
+    ALTER TABLE log_stock_adjustment AUTO_INCREMENT = 1;
+	
+			delete from log_stock_adjustment;
+    ALTER TABLE log_stock_adjustment AUTO_INCREMENT = 1;
+	
+			
+	
+			delete from log_price_change;
+    ALTER TABLE log_price_change AUTO_INCREMENT = 1;
+	
+			
+               
+               		delete from userlog;
+    ALTER TABLE userlog AUTO_INCREMENT = 1;
+               
+               
+               
+               
+               
+              
+         
+	delete from order_header;
+    ALTER TABLE order_header AUTO_INCREMENT = 1;
+    
+   -- 	delete from contact;
+  --  ALTER TABLE contact AUTO_INCREMENT = 1;
+	
+    	
+	delete from session_period;
+    ALTER TABLE session_period AUTO_INCREMENT = 1;
+	
+			
+	delete from supplier_payments;
+    ALTER TABLE supplier_payments AUTO_INCREMENT = 1;
+	
+		delete from stock_entry_voided;
+    ALTER TABLE stock_entry_voided AUTO_INCREMENT = 1;
+	
+			delete from stockentrydetails;
+    ALTER TABLE stockentrydetails AUTO_INCREMENT = 1;
+			
+			
+				delete from stock_entry_voided;
+			ALTER TABLE stock_entry_voided AUTO_INCREMENT = 1;
+				
+		delete from stockentry;
+    ALTER TABLE stockentry AUTO_INCREMENT = 1;
+	
+		
+--	delete from product;
+ --   ALTER TABLE product AUTO_INCREMENT = 1;
+		
+		
+		
+
+		
+	-- delete from store_terminal;
+	 --  delete from user_store; 
+	--	   delete from store;
+	--   delete from store_company;
+	  --      delete from system_info;
+    --      delete from company;
+            
+      --      delete from user_terminal;
+               
+        --               delete from terminal;  
+                   
+	   --       delete from store;
+                      
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `util_Product_Delete_force` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `util_Product_Delete_force`(
+    IN p_allProductId INT,
+    IN p_UserLogID INT,
+    IN p_UTC_Offset VARCHAR(50),
+    IN p_PageName VARCHAR(50),
+    IN p_IsConfirm BIT,
+    OUT p_ResponseStatus VARCHAR(50),
+    OUT p_OutputMessage VARCHAR(1000)
+)
+sp: BEGIN
+    DECLARE v_singleProductId INT;
+    DECLARE v_variationProductId INT;
+    DECLARE v_comboProductId INT;
+    DECLARE v_productTypeId INT;
+    DECLARE v_inventoryId INT;
+    DECLARE v_productId INT;
+    DECLARE v_orderId INT;
+    DECLARE v_isValidated BIT;
+    DECLARE v_skus TEXT;
+    DECLARE err_message VARCHAR(255);
+
+   
+     -- Declare a handler for SQLEXCEPTION to catch errors in the child
+    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
+    BEGIN
+        -- Rollback transaction on error
+        ROLLBACK;
+        -- Capture the original error message thrown by MariaDB
+        GET DIAGNOSTICS CONDITION 1 err_message = MESSAGE_TEXT;
+        -- Rethrow the original error (with additional context if needed)
+        SET err_message = CONCAT('Parent error: ', err_message);
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = err_message;
+    END;
+     
+    -- Initialize output parameters
+    SET p_ResponseStatus = 'failed';
+    SET p_OutputMessage = 'null';
+
+
+    -- Validate input parameters
+    IF p_allProductId IS NULL THEN
+        SET p_OutputMessage = 'allProductId is required.';
+        LEAVE sp;
+    END IF;
+
+    IF p_IsConfirm IS NULL OR p_IsConfirm = 0 THEN
+        SET p_ResponseStatus = 'confirm';
+        SET p_OutputMessage = 'Are you sure you want to delete this product?';
+        LEAVE sp;
+    END IF;
+
+    -- Check if allProductId exists
+    IF NOT EXISTS (SELECT 1 FROM all_product WHERE allProductId = p_allProductId) THEN
+        SET p_OutputMessage = 'allProductId does not exist.';
+        LEAVE sp;
+    END IF;
+ 
+    -- Get product type and related IDs
+    SELECT singleProductId, variationProductId, comboProductId, productTypeId
+    INTO v_singleProductId, v_variationProductId, v_comboProductId, v_productTypeId
+    FROM all_product
+    WHERE allProductId = p_allProductId;
+
+    -- Check if the product is used as a sub-product
+    CALL _validateProductIsUsedAsASubProductOfAnotherProduct(p_allProductId, v_isValidated, v_skus);
+    IF v_isValidated = FALSE THEN
+        SET p_OutputMessage = CONCAT('Cannot delete product. It is used as a sub-product in: ', v_skus);
+    select p_OutputMessage;
+        LEAVE sp;
+    END IF;
+
+    -- Get inventoryId
+    SELECT inventoryId INTO v_inventoryId
+    FROM store_inventory_product
+    WHERE allProductId = p_allProductId
+    LIMIT 1;
+
+    -- Start transaction
+    START TRANSACTION;
+
+    -- Handle order-related deletions
+    SET v_orderId = (
+        SELECT oh.orderId
+        FROM order_header oh
+        INNER JOIN order_details od ON oh.orderId = od.orderId
+        WHERE od.allProductId = p_allProductId
+        LIMIT 1
+    );
+
+    IF v_orderId IS NOT NULL THEN
+        -- Delete related order data
+        DELETE FROM stock_batch_order_mapping WHERE orderId = v_orderId;
+        DELETE cp
+        FROM cash_payments cp
+        INNER JOIN order_payments op ON cp.paymentId = op.paymentId
+        WHERE op.orderId = v_orderId;
+        DELETE FROM order_payments WHERE orderId = v_orderId;
+        DELETE FROM order_details WHERE orderId = v_orderId;
+        DELETE FROM order_summary_processed WHERE orderId = v_orderId;
+        DELETE FROM order_header WHERE orderId = v_orderId;
+    END IF;
+ 
+    -- Handle product type-specific deletions
+    IF v_productTypeId = 1 then
+    
+        -- Single Product
+        SET v_productId = v_singleProductId;
+
+        -- Delete inventory-related records
+        IF v_inventoryId IS NOT NULL THEN
+            DELETE FROM stockentrydetails WHERE allProductId = p_allProductId;
+            DELETE FROM non_serialized_item WHERE inventoryId = v_inventoryId;
+            DELETE FROM inventory WHERE inventoryId = v_inventoryId;
+        END IF;
+
+        -- Delete product-related records
+        DELETE FROM product_category WHERE productId = v_singleProductId;
+        DELETE FROM sub_product_detail WHERE allProductId = p_allProductId;
+        DELETE FROM store_inventory_product WHERE allProductId = p_allProductId;
+        DELETE FROM all_product WHERE allProductId = p_allProductId;
+        DELETE FROM single_product WHERE productId = v_singleProductId;
+        DELETE FROM product WHERE productId = v_singleProductId;
+
+    ELSEIF v_productTypeId = 2 THEN
+        -- Variation Product
+        SET v_productId = (SELECT productId FROM variation_product WHERE variationProductId = v_variationProductId);
+
+        -- Delete inventory-related records
+        IF v_inventoryId IS NOT NULL THEN
+            DELETE FROM stockentrydetails WHERE allProductId = p_allProductId;
+            DELETE FROM non_serialized_item WHERE inventoryId = v_inventoryId;
+            DELETE FROM inventory WHERE inventoryId = v_inventoryId;
+        END IF;
+
+   
+        -- Delete variation-specific records
+        DELETE FROM variation_product_detail WHERE variationProductId = v_variationProductId;
+        DELETE FROM store_inventory_product WHERE allProductId = p_allProductId;
+
+        DELETE FROM product_category WHERE productId = v_productId;
+           select p_allProductId,v_productTypeId,v_productId,v_variationProductId,v_inventoryId;
+           
+                DELETE FROM sub_product_detail WHERE allProductId = p_allProductId;
+        DELETE FROM all_product WHERE allProductId = p_allProductId;
+               
+        DELETE FROM variation_product WHERE variationProductId = v_variationProductId;
+        
+               
+        DELETE FROM product WHERE productId = v_productId;
+     
+        
+    ELSEIF v_productTypeId = 3 THEN
+        -- Combo Product
+        SET v_productId = v_comboProductId;
+
+        -- Delete inventory-related records
+        IF v_inventoryId IS NOT NULL THEN
+            DELETE FROM stockentrydetails WHERE allProductId = p_allProductId;
+            DELETE FROM non_serialized_item WHERE inventoryId = v_inventoryId;
+            DELETE FROM inventory WHERE inventoryId = v_inventoryId;
+        END IF;
+
+        -- Delete combo-specific records
+        DELETE FROM product_category WHERE productId = v_comboProductId;
+        DELETE FROM store_inventory_product WHERE allProductId = p_allProductId;
+        DELETE FROM all_product WHERE allProductId = p_allProductId;
+        DELETE FROM combo_product WHERE productId = v_comboProductId;
+        DELETE FROM product WHERE productId = v_comboProductId;
+
+    ELSE
+        ROLLBACK;
+        SET p_OutputMessage = 'Invalid productTypeId.';
+        LEAVE sp;
+    END IF;
+
+    -- Set success response
+    SET p_ResponseStatus = 'success';
+    SET p_OutputMessage = 'Product deleted successfully.';
+select p_OutputMessage;
+    COMMIT;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `util_Product_ForceDelete_By_Sku` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `util_Product_ForceDelete_By_Sku`(
+    IN p_sku VARCHAR(255),
+    IN p_UserLogID INT,
+    IN p_UTC_Offset VARCHAR(50),
+    IN p_PageName VARCHAR(50),
+    IN p_IsConfirm BIT,
+    OUT p_ResponseStatus VARCHAR(50),
+    OUT p_OutputMessage VARCHAR(1000)
+)
+sp: BEGIN
+    DECLARE v_allProductId INT;
+    DECLARE v_singleProductId INT;
+    DECLARE v_variationProductId INT;
+    DECLARE v_comboProductId INT;
+    DECLARE v_productTypeId INT;
+    DECLARE v_inventoryId INT;
+    DECLARE v_productId INT;
+    DECLARE v_orderId INT;
+    DECLARE v_isValidated BIT;
+    DECLARE v_skus TEXT;
+    DECLARE err_message VARCHAR(255);
+
+ 
+     -- Declare a handler for SQLEXCEPTION to catch errors in the child
+    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
+    BEGIN
+        -- Rollback transaction on error
+        ROLLBACK;
+        -- Capture the original error message thrown by MariaDB
+        GET DIAGNOSTICS CONDITION 1 err_message = MESSAGE_TEXT;
+        -- Rethrow the original error (with additional context if needed)
+        SET err_message = CONCAT('Parent error: ', err_message);
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = err_message;
+    END;
+
+    -- Initialize output parameters
+    SET p_ResponseStatus = 'failed';
+    SET p_OutputMessage = 'null';
+
+    -- Validate input parameters
+    IF p_sku IS NULL OR p_sku = '' THEN
+        SET p_OutputMessage = 'SKU is required.';
+        LEAVE sp;
+    END IF;
+
+    IF p_IsConfirm IS NULL OR p_IsConfirm = 0 THEN
+        SET p_ResponseStatus = 'confirm';
+        SET p_OutputMessage = 'Are you sure you want to delete this product?';
+        LEAVE sp;
+    END IF;
+
+  -- Check if SKU exists and get allProductId and productTypeId
+SELECT ap.allProductId, ap.productTypeId
+INTO v_allProductId, v_productTypeId
+FROM all_product ap
+LEFT JOIN single_product sp ON ap.singleProductId = sp.productId
+LEFT JOIN variation_product vp ON ap.variationProductId = vp.variationProductId
+WHERE sp.sku = p_sku OR vp.sku = p_sku
+LIMIT 1;
+
+IF v_allProductId IS NULL THEN
+    SET p_OutputMessage = 'Product with specified SKU does not exist.';
+    SET p_ResponseStatus = 'failed';
+    LEAVE sp;
+END IF;
+
+    -- Get product type and related IDs
+    SELECT singleProductId, variationProductId, comboProductId, productTypeId
+    INTO v_singleProductId, v_variationProductId, v_comboProductId, v_productTypeId
+    FROM all_product
+    WHERE allProductId = v_allProductId;
+
+    -- Validate productTypeId
+    IF v_productTypeId NOT IN (1, 2, 3) THEN
+        SET p_OutputMessage = 'Invalid productTypeId. Must be 1, 2, or 3.';
+        LEAVE sp;
+    END IF;
+
+    -- Check if the product is used as a sub-product
+    CALL _validateProductIsUsedAsASubProductOfAnotherProduct(v_allProductId, v_isValidated, v_skus);
+    IF v_isValidated = FALSE THEN
+        SET p_OutputMessage = CONCAT('Cannot delete product. It is used as a sub-product in: ', v_skus);
+        LEAVE sp;
+    END IF;
+
+    -- Get inventoryId
+    SELECT inventoryId INTO v_inventoryId
+    FROM store_inventory_product
+    WHERE allProductId = v_allProductId
+    LIMIT 1;
+
+    -- Start transaction
+    START TRANSACTION;
+
+    -- Handle order-related deletions
+    SET v_orderId = (
+        SELECT oh.orderId
+        FROM order_header oh
+        INNER JOIN order_details od ON oh.orderId = od.orderId
+        WHERE od.allProductId = v_allProductId
+        LIMIT 1
+    );
+
+    IF v_orderId IS NOT NULL THEN
+        -- Delete related order data
+        DELETE FROM stock_batch_order_mapping WHERE orderId = v_orderId;
+        DELETE cp
+        FROM cash_payments cp
+        INNER JOIN order_payments op ON cp.paymentId = op.paymentId
+        WHERE op.orderId = v_orderId;
+        DELETE FROM order_payments WHERE orderId = v_orderId;
+        DELETE FROM order_details WHERE orderId = v_orderId;
+        DELETE FROM order_summary_processed WHERE orderId = v_orderId;
+        DELETE FROM order_header WHERE orderId = v_orderId;
+    END IF;
+
+    -- Handle product type-specific deletions
+    IF v_productTypeId = 1 THEN
+        -- Single Product
+        SET v_productId = v_singleProductId;
+
+        -- Delete inventory-related records
+        IF v_inventoryId IS NOT NULL THEN
+            DELETE FROM stockentrydetails WHERE allProductId = v_allProductId;
+            DELETE FROM non_serialized_item WHERE inventoryId = v_inventoryId;
+            DELETE FROM inventory WHERE inventoryId = v_inventoryId;
+        END IF;
+
+        -- Delete product-related records
+        DELETE FROM product_category WHERE productId = v_singleProductId;
+        DELETE FROM sub_product_detail WHERE allProductId = v_allProductId;
+        DELETE FROM store_inventory_product WHERE allProductId = v_allProductId;
+             DELETE FROM sub_product_detail WHERE allProductId = v_allProductId;
+        DELETE FROM all_product WHERE allProductId = v_allProductId;
+        DELETE FROM single_product WHERE productId = v_singleProductId;
+        DELETE FROM product WHERE productId = v_singleProductId;
+
+    ELSEIF v_productTypeId = 2 THEN
+        -- Variation Product
+        SET v_productId = (SELECT productId FROM variation_product WHERE variationProductId = v_variationProductId);
+
+        -- Delete inventory-related records
+        IF v_inventoryId IS NOT NULL THEN
+            DELETE FROM stockentrydetails WHERE allProductId = v_allProductId;
+            DELETE FROM non_serialized_item WHERE inventoryId = v_inventoryId;
+            DELETE FROM inventory WHERE inventoryId = v_inventoryId;
+        END IF;
+        
+        
+        
+        
+        
+        
+delete FROM variation_product_detail 
+           WHERE variationProductId in (select variationProductId from variation_product
+           								WHERE productId = v_productId);
+   
+      delete FROM store_inventory_product  
+           WHERE variationProductId in (select variationProductId from variation_product
+           								WHERE productId = v_productId);
+    
+    DELETE FROM sub_product_detail WHERE allProductId in 
+                (select allProductId from all_product where variationProductId in (select variationProductId from variation_product
+           								WHERE productId = v_productId));
+    
+    delete FROM all_product 
+           WHERE variationProductId in (select variationProductId from variation_product
+           								WHERE productId = v_productId);
+    
+    
+   
+delete  FROM variation_product WHERE productId = v_productId;
+  
+              
+        DELETE FROM product_category WHERE productId = v_productId;
+     
+    
+        DELETE FROM product WHERE productId = v_productId;
+ 
+    ELSEIF v_productTypeId = 3 THEN
+        -- Combo Product
+        SET v_productId = v_comboProductId;
+
+        -- Delete inventory-related records
+        IF v_inventoryId IS NOT NULL THEN
+            DELETE FROM stockentrydetails WHERE allProductId = v_allProductId;
+            DELETE FROM non_serialized_item WHERE inventoryId = v_inventoryId;
+            DELETE FROM inventory WHERE inventoryId = v_inventoryId;
+        END IF;
+
+        -- Delete combo-specific records
+        DELETE FROM product_category WHERE productId = v_comboProductId;
+        DELETE FROM store_inventory_product WHERE allProductId = v_allProductId;
+        DELETE FROM all_product WHERE allProductId = v_allProductId;
+        DELETE FROM combo_product WHERE productId = v_comboProductId;
+        DELETE FROM product WHERE productId = v_comboProductId;
+    END IF;
+
+    -- Set success response
+    SET p_ResponseStatus = 'success';
+    SET p_OutputMessage = 'Product deleted successfully.';
+
+    COMMIT;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `util_remove_stock_tracked_from_product` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `util_remove_stock_tracked_from_product`(
+    IN p_productId INT,
+    IN p_productTypeId INT,
+    OUT p_ResponseStatus VARCHAR(50),
+    OUT p_OutputMessage VARCHAR(1000)
+)
+sp: BEGIN
+    DECLARE err_message VARCHAR(255);
+
+    -- Error handler
+    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        GET DIAGNOSTICS CONDITION 1 err_message = MESSAGE_TEXT;
+        SET err_message = CONCAT('Error: ', err_message);
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = err_message;
+    END;
+
+    -- Initialize output
+    SET p_ResponseStatus = 'failed';
+    SET p_OutputMessage = 'null';
+
+    -- Validate inputs
+    IF p_productId IS NULL OR p_productTypeId IS NULL THEN
+        SET p_OutputMessage = 'productId and productTypeId are required.';
+        LEAVE sp;
+    END IF;
+
+    START TRANSACTION;
+
+    -- For single products
+    IF p_productTypeId = 1 THEN
+        DELETE lsa
+        FROM log_stock_adjustment lsa
+        JOIN non_serialized_item nsi ON lsa.stockBatchId = nsi.stockBatchId
+        JOIN store_inventory_product sip ON nsi.inventoryId = sip.inventoryId
+        WHERE sip.singleProductId = p_productId;
+
+    DELETE sbom
+FROM stock_batch_order_mapping sbom
+JOIN non_serialized_item nsi ON sbom.stockBatchId = nsi.stockBatchId
+JOIN store_inventory_product sip ON nsi.inventoryId = sip.inventoryId
+WHERE sip.singleProductId = p_productId;
+
+        DELETE nsi
+        FROM non_serialized_item nsi
+        JOIN store_inventory_product sip ON nsi.inventoryId = sip.inventoryId
+        WHERE sip.singleProductId = p_productId;
+
+     
+        
+        DELETE inv
+        FROM inventory inv
+        JOIN store_inventory_product sip ON inv.inventoryId = sip.inventoryId
+        WHERE sip.singleProductId = p_productId;
+
+      
+        UPDATE store_inventory_product
+        SET inventoryId = NULL
+        WHERE singleProductId = p_productId;
+    END IF;
+
+    -- For variation products
+    IF p_productTypeId = 2 THEN
+        DELETE lsa
+        FROM log_stock_adjustment lsa
+        JOIN non_serialized_item nsi ON lsa.stockBatchId = nsi.stockBatchId
+        JOIN store_inventory_product sip ON nsi.inventoryId = sip.inventoryId
+        JOIN variation_product vp ON sip.variationProductId = vp.variationProductId
+        WHERE vp.productId = p_productId;
+
+        DELETE sbom
+        FROM stock_batch_order_mapping sbom
+        JOIN non_serialized_item nsi ON sbom.stockBatchId = nsi.stockBatchId
+        JOIN store_inventory_product sip ON nsi.inventoryId = sip.inventoryId
+        JOIN variation_product vp ON sip.variationProductId = vp.variationProductId
+        WHERE vp.productId = p_productId;
+
+        DELETE nsi
+        FROM non_serialized_item nsi
+        JOIN store_inventory_product sip ON nsi.inventoryId = sip.inventoryId
+        JOIN variation_product vp ON sip.variationProductId = vp.variationProductId
+        WHERE vp.productId = p_productId;
+
+        DELETE inv
+        FROM inventory inv
+        JOIN store_inventory_product sip ON inv.inventoryId = sip.inventoryId
+        JOIN variation_product vp ON sip.variationProductId = vp.variationProductId
+        WHERE vp.productId = p_productId;
+
+        UPDATE store_inventory_product sip
+        JOIN variation_product vp ON sip.variationProductId = vp.variationProductId
+        SET sip.inventoryId = NULL
+        WHERE vp.productId = p_productId;
+    END IF;
+
+    COMMIT;
+
+    SET p_ResponseStatus = 'success';
+    SET p_OutputMessage = 'Product updated successfully.';
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `VoidOrderByOrderId` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -14765,6 +16638,47 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `_getIsProductItemByAllProductId` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `_getIsProductItemByAllProductId`(
+  IN p_allProductId INT,
+  OUT p_isProductItem bit
+)
+sp: BEGIN
+
+declare  v_singleProductId int;
+declare v_variationProductId int;
+
+set v_singleProductId=(select singleProductid from all_product ap where ap.allProductId=p_allProductId);
+set v_variationProductId=(select variationProductId from all_product ap where ap.allProductId=p_allProductId);
+
+if v_singleProductId is not null then 
+	if exists(select 1 from product where productId=v_singleProductId and isProductId=true) then
+	set p_isProductItem=true;
+	end if;
+end if;
+
+if v_variationProductId is not null then 
+	if exists(select 1 from product p inner join variation_product as vp on p.productId=vp.productId
+	where vp.variationProductId=v_variationProductId and isProductId=true) then
+	set p_isProductItem=true;
+	end if;	
+end if;
+
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `_getProductTypeIdByAllProductId` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -14802,6 +16716,50 @@ if v_comboProductId is not null then
 end if;
 
 set p_productTypeId_o=v_productTypeId;
+
+
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `_getSkuByInventoryId` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `_getSkuByInventoryId`(
+  IN p_inventoryId INT,
+  OUT p_sku_o varchar(100)
+)
+sp: BEGIN
+
+	declare v_productTypeId int;
+
+declare  v_singleProductId int;
+declare v_variationProductId int;
+declare v_comboProductId int;
+declare p_allProductId int;
+
+set p_allProductId=(select allProductId from store_inventory_product where inventoryId=p_inventoryId);
+
+set v_singleProductId=(select singleProductid from all_product ap where ap.allProductId=p_allProductId);
+set v_variationProductId=(select variationProductId from all_product ap where ap.allProductId=p_allProductId);
+set v_comboProductId=(select comboProductId from all_product ap where ap.allProductId=p_allProductId);
+
+if v_singleProductId is not null then 
+	set p_sku_o=(select sku from single_product where productId=v_singleProductId);
+end if;
+
+if v_variationProductId is not null then 
+	set p_sku_o=(select sku from variation_product where variationProductId=v_variationProductId);
+end if;
 
 
 end ;;
@@ -14914,71 +16872,99 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `_updateStockQty`(
     IN p_inventoryId INT,
     IN p_qty DECIMAL(10,2),
-    OUT p_stockBatchId INT 
+    IN p_validate BOOLEAN,
+    OUT p_stockBatchId INT,
+    OUT p_ResponseStatus VARCHAR(50),
+    OUT p_OutputMessage VARCHAR(1000)
 )
-BEGIN
-    DECLARE v_batchOrderPreferenceId INT DEFAULT 1; -- Default to 'batchQueueNumber', 'ASC'
-    DECLARE p_sortType VARCHAR(20);
-    DECLARE v_orderDirection VARCHAR(4);
+sp: BEGIN
+    DECLARE v_totalStockQty DECIMAL(10,2) DEFAULT 0;
+    DECLARE v_stockBatchId INT;
     DECLARE err_message VARCHAR(255);
+declare v_sku varchar(100);
 
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
         ROLLBACK;
-        -- Capture the original error message thrown by MariaDB
         GET DIAGNOSTICS CONDITION 1 err_message = MESSAGE_TEXT;
-        -- Rethrow the original error to propagate it to the parent
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = err_message;
-    END; 
+    END;
+
+    CALL _getSkuByInventoryId(p_inventoryId, v_sku);
+    
+    -- Validation: Check total stock for released batches
+    SELECT IFNULL(SUM(StockQty), 0) INTO v_totalStockQty
+    FROM non_serialized_item
+    WHERE inventoryId = p_inventoryId AND isBatchReleased = 1;
+
+    
+    IF v_totalStockQty = 0 THEN
+        -- Check for unreleased batches
+        SELECT IFNULL(SUM(StockQty), 0) INTO v_totalStockQty
+        FROM non_serialized_item
+        WHERE inventoryId = p_inventoryId AND isBatchReleased = 0;
+
+        IF v_totalStockQty > 0 THEN
+            SET p_ResponseStatus = 'failed';
+            SET p_OutputMessage = concat('The stock is not released for the specified inventory ID:',v_sku);
+            SET p_stockBatchId = NULL;
+            LEAVE sp;
+        END IF;
+
+        SET p_ResponseStatus = 'failed';
+        SET p_OutputMessage = 'No stock available for the specified inventory ID.';
+        SET p_stockBatchId = NULL;
+        LEAVE sp;
+    END IF;
+
+    -- Check if sufficient stock is available
+    IF v_totalStockQty < p_qty THEN
+        SET p_ResponseStatus = 'failed';
+        SET p_OutputMessage = 'Insufficient stock quantity available for released batches.';
+        SET p_stockBatchId = NULL;
+        LEAVE sp;
+    ELSE
+        SET p_ResponseStatus = 'success';
+        SET p_OutputMessage = 'Sufficient stock quantity is available for released batches.';
+    END IF;
+
+    -- If only validating, exit after setting response
+    IF p_validate THEN
+        SET p_stockBatchId = NULL;
+        LEAVE sp;
+    END IF;
 
     START TRANSACTION;
 
-    SELECT batchOrderPreferenceId INTO v_batchOrderPreferenceId
-    FROM inventory_stock_update_order
-    WHERE inventoryId = p_inventoryId  
+    -- Select the first batch with StockQty > 0 and isBatchReleased = 1
+    SELECT stockBatchId INTO v_stockBatchId
+    FROM non_serialized_item nsi
+    INNER JOIN inventory i ON nsi.inventoryId = i.inventoryId
+    WHERE nsi.inventoryId = p_inventoryId
+      AND nsi.isBatchReleased = 1
+      AND nsi.StockQty > 0
+    ORDER BY nsi.stockBatchId ASC
     LIMIT 1;
 
-    SELECT sortType, orderDirection INTO p_sortType, v_orderDirection
-    FROM batch_order_preference
-    WHERE id = v_batchOrderPreferenceId;
+    IF v_stockBatchId IS NOT NULL THEN
+        -- Update stock quantity
+        UPDATE non_serialized_item
+        SET StockQty = StockQty - p_qty
+        WHERE stockBatchId = v_stockBatchId;
 
-    SET @select_sql = CONCAT(
-        'SELECT stockBatchId INTO @p_stockBatchId 
-         FROM non_serialized_item nsi
-         INNER JOIN inventory i ON nsi.inventoryId = i.inventoryId
-         WHERE nsi.inventoryId = ? 
-         AND nsi.isBatchReleased = 1 -- Only select batches where isBatchReleased = 1
-         AND nsi.StockQty > 0 -- Only select batches with stock available
-         ORDER BY stockBatchId asc 
-         LIMIT 1'
-    );
-    
-    PREPARE stmt_select FROM @select_sql;
-    EXECUTE stmt_select USING p_inventoryId;
-    DEALLOCATE PREPARE stmt_select;
-
-    SET p_stockBatchId = @p_stockBatchId;
-
-    IF p_stockBatchId IS NOT NULL THEN
-
-        UPDATE non_serialized_item 
-        SET StockQty = StockQty - p_qty 
-        WHERE stockBatchId = p_stockBatchId;
-
+        SET p_stockBatchId = v_stockBatchId;
         COMMIT;
-
-       -- SELECT p_stockBatchId AS p_stockBatchId, p_sortType AS p_sortType, v_orderDirection AS v_orderDirection;
     ELSE
         ROLLBACK;
         SET p_stockBatchId = NULL;
-        SELECT 'No valid stock batch found or no stock available' AS error_message;
+        SET p_ResponseStatus = 'failed';
+        SET p_OutputMessage = 'No valid stock batch found or no stock available.';
     END IF;
-
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -14993,14 +16979,14 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `_updateStockQty_by_allProductId`(
     IN p_allProductId INT,
     IN p_storeId INT,
     IN p_qty DECIMAL(10,2),
-     IN p_orderId INT, 
-
+    IN p_orderId INT,
+    IN p_validate BOOLEAN,
     OUT p_ResponseStatus VARCHAR(50),
     OUT p_OutputMessage VARCHAR(1000)
 )
@@ -15011,142 +16997,178 @@ sp: BEGIN
     DECLARE v_comboProductId INT;
     DECLARE v_inventoryId INT;
     DECLARE v_qty DECIMAL(10,2);
-    DECLARE v_productId_mat INT;
-    DECLARE v_variationProductId_mat INT;
-    DECLARE v_totalItems_tempTableComboProductDetail INT;
-   
-    DECLARE vo_stockBatchId INT DEFAULT 0;
+    DECLARE v_allProductId_mat INT;
+    DECLARE v_totalItems_tempTableSubItemDetail INT;
+    DECLARE v_stockBatchId INT DEFAULT 0;
     DECLARE v_productName VARCHAR(50);
+    DECLARE v_isStockItem BIT;
+    DECLARE v_isAssemblyProduct BIT;
     DECLARE err_message VARCHAR(255);
-    DECLARE v_stockBatchIds VARCHAR(255) DEFAULT '';
-   
+
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
-       BEGIN
-            ROLLBACK;
-            -- Capture the original error message thrown by MariaDB
-            GET DIAGNOSTICS CONDITION 1 err_message = MESSAGE_TEXT;
-            -- Rethrow the original error to propagate it to the parent
-            SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = err_message;
-        END; 
-       
-    START TRANSACTION;
-   
-    DROP TEMPORARY TABLE IF EXISTS tempTableComboProductDetail;
-   
-    
-    	if (p_orderId is null) then
-		set p_OutputMessage='p_orderId is required ';
-        set p_ResponseStatus='failed';
-        leave sp;
-	end if; 
-    
-    
- 	
-    	
-    CREATE TEMPORARY TABLE tempTableComboProductDetail (
-        productId_mat INT,
-        variationProductId_mat INT,
-        qty DECIMAL(10,2)
-    );
+    BEGIN
+        ROLLBACK;
+        GET DIAGNOSTICS CONDITION 1 err_message = MESSAGE_TEXT;
+        SET p_ResponseStatus = 'failed';
+        SET p_OutputMessage = CONCAT('SQL Error: ', err_message);
+        DROP TEMPORARY TABLE IF EXISTS tempTableSubItemDetail;
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = p_OutputMessage;
+    END;
 
-    -- Fetch product details
-    SELECT 
-        singleProductId, 
-        variationProductId, 
-        comboProductId
-    INTO 
-        v_singleProductId, 
-        v_variationProductId, 
-        v_comboProductId
-    FROM store_inventory_product WHERE storeId=p_storeId and allProductId = p_allProductId;
+    -- Initialize output parameters
+    SET p_ResponseStatus = 'failed';
+    SET p_OutputMessage = '';
 
-    IF (v_singleProductId IS NOT NULL) THEN 
-       
-        SELECT inventoryId INTO v_inventoryId  FROM store_inventory_product WHERE storeId=p_storeId and allProductId = p_allProductId;
-      
-           CALL `_updateStockQty_validate`(v_inventoryId,p_qty, p_ResponseStatus, p_OutputMessage);
-               if (p_ResponseStatus='failed') then
-           leave sp;
-           end if; 
-    
-    
-           	
-        SELECT 'stock updated', v_inventoryId, p_qty, vo_stockBatchId;
-        CALL _updateStockQty(v_inventoryId, p_qty, vo_stockBatchId);
-          
-       insert into stock_batch_order_mapping(stockBatchId,orderId,qty) values(vo_stockBatchId,p_orderId, p_qty); 
-       
-        
-           set v_stockBatchIds=vo_stockBatchId;
-       
-    ELSEIF (v_variationProductId IS NOT NULL) THEN 
-       
-        SELECT inventoryId INTO v_inventoryId  FROM store_inventory_product 
-        WHERE storeId=p_storeId and allProductId = p_allProductId;
-      
-        CALL `_updateStockQty_validate`(v_inventoryId,p_qty, p_ResponseStatus, p_OutputMessage);
-             if (p_ResponseStatus='failed') then
-           leave sp;
-           end if; 
-        
-        SELECT 'stock updated', v_inventoryId, p_qty, vo_stockBatchId;
-        CALL _updateStockQty(v_inventoryId, p_qty, vo_stockBatchId);
-        
-      insert into stock_batch_order_mapping(stockBatchId,orderId,qty) values(vo_stockBatchId,p_orderId, p_qty); 
-             
-        set v_stockBatchIds=vo_stockBatchId;
-
-    ELSEIF (v_comboProductId IS NOT NULL) THEN
-    
-        INSERT INTO tempTableComboProductDetail (productId_mat, variationProductId_mat, qty)
-        SELECT productId_mat, variationProductId_mat, qty
-        FROM combo_product_detail WHERE productId = v_comboProductId;
-
-        SET v_totalItems_tempTableComboProductDetail = (SELECT COUNT(*) FROM tempTableComboProductDetail);
-
-        WHILE (v_totalItems_tempTableComboProductDetail > 0) DO
-
-            SELECT qty, productId_mat, variationProductId_mat
-            INTO 
-                v_qty, v_productId_mat, v_variationProductId_mat
-            FROM tempTableComboProductDetail LIMIT 1;
-
-            -- Determine inventoryId for the item
-            IF (v_productId_mat IS NOT NULL) THEN
-                SET v_productName = (SELECT sku FROM single_product WHERE productId = v_productId_mat);
-                SELECT inventoryId INTO v_inventoryId
-                FROM store_inventory_product 
-                WHERE storeId = p_storeId and singleProductId = v_productId_mat;
-            END IF;
-
-            IF (v_variationProductId_mat IS NOT NULL) THEN
-                SET v_productName = (SELECT sku FROM variation_product WHERE variationProductId = v_variationProductId_mat);
-                SELECT inventoryId INTO v_inventoryId FROM store_inventory_product
-                WHERE storeId = p_storeId and variationProductId = v_variationProductId_mat;
-            END IF;
-
-  CALL `_updateStockQty_validate`(v_inventoryId,p_qty, p_ResponseStatus, p_OutputMessage);
-           if (p_ResponseStatus='failed') then
-           leave sp;
-           end if; 
-            
-            SELECT 'stock updated', v_inventoryId, v_qty * p_qty;
-            CALL _updateStockQty(v_inventoryId, v_qty * p_qty, vo_stockBatchId);
-
-             insert into stock_batch_order_mapping(stockBatchId,orderId,qty) values(vo_stockBatchId,p_orderId,v_qty * p_qty);  
-           
-            SET v_stockBatchIds = CONCAT(v_stockBatchIds, IF(v_stockBatchIds = '', '', ','), vo_stockBatchId);
-
-            
-            DELETE FROM tempTableComboProductDetail LIMIT 1;
-            SET v_totalItems_tempTableComboProductDetail = (SELECT COUNT(*) FROM tempTableComboProductDetail);
-        END WHILE;
+    IF p_validate = FALSE AND p_orderId IS NULL THEN
+        SET p_OutputMessage = 'p_orderId is required when p_validate is FALSE';
+        LEAVE sp;
     END IF;
 
-    DROP TEMPORARY TABLE IF EXISTS tempTableComboProductDetail;
+    -- Check if allProductId exists
+    IF NOT EXISTS (SELECT 1 FROM all_product WHERE allProductId = p_allProductId) THEN
+        SET p_OutputMessage = 'allProductId does not exist';
+        LEAVE sp;
+    END IF;
 
-    COMMIT; 
+    -- Check if storeId exists
+    IF NOT EXISTS (SELECT 1 FROM store WHERE storeId = p_storeId) THEN
+        SET p_OutputMessage = 'storeId does not exist';
+        LEAVE sp;
+    END IF;
     
+
+                   
+
+    START TRANSACTION;
+
+    -- Get inventoryId and stock status
+    SELECT inventoryId,singleProductId,variationProductId 
+    INTO v_inventoryId,v_singleProductId,v_variationProductId
+    FROM store_inventory_product
+    WHERE storeId = p_storeId AND allProductId = p_allProductId;
+
+    SET v_isStockItem = IF(v_inventoryId IS NOT NULL, TRUE, FALSE);
+
+   if v_singleProductId is not null then 
+   set v_isAssemblyProduct=(select isAssemblyProduct from product where productId=v_singleProductId);
+   end if;
+   
+   if v_variationProductId is not null then 
+   set v_isAssemblyProduct=(select isAssemblyProduct from product p 
+   inner join variation_product vp on p.productId=vp.productId where vp.variationProductId=v_variationProductId);
+   end if;
+
+   select v_isStockItem as v_isStockItem,v_isAssemblyProduct;
+    -- Handle stock-tracked items
+    IF v_isStockItem = TRUE then
+ 
+        -- Update stock quantity
+        -- CALL _updateStockQty(v_inventoryId, p_qty, p_validate, v_stockBatchId, p_ResponseStatus, p_OutputMessage);
+    	 CALL UpdateStockQtyOrderBybatchQueueNumber(v_inventoryId, p_qty, p_validate, p_ResponseStatus, p_OutputMessage);
+    
+
+        
+        
+        IF p_ResponseStatus = 'failed' THEN
+
+             
+        ROLLBACK;
+            DROP TEMPORARY TABLE IF EXISTS tempTableSubItemDetail;
+            LEAVE sp;
+        END IF;
+
+--         IF p_validate = FALSE THEN
+--             INSERT INTO stock_batch_order_mapping (inventoryId, orderId, qty)
+--             VALUES (v_inventoryId, p_orderId, p_qty);
+--         END IF;
+        
+     end if;
+     
+    IF v_isAssemblyProduct = TRUE then
+    
+      
+      
+        -- Create temporary table for sub-products
+        DROP TEMPORARY TABLE IF EXISTS tempTableSubItemDetail;
+        CREATE TEMPORARY TABLE tempTableSubItemDetail (
+            allProductId_mat INT,
+            qty DECIMAL(10,2)
+        );
+
+
+        -- Populate sub-products
+        INSERT INTO tempTableSubItemDetail (allProductId_mat, qty)
+        SELECT allProductId_mat, qty
+        FROM sub_product_detail WHERE allProductId = p_allProductId;
+        
+        SET v_totalItems_tempTableSubItemDetail = (SELECT COUNT(*) FROM tempTableSubItemDetail);
+
+        IF v_totalItems_tempTableSubItemDetail = 0 THEN
+            SET p_OutputMessage = 'No sub-products found for assembly product';
+            ROLLBACK;
+            DROP TEMPORARY TABLE IF EXISTS tempTableSubItemDetail;
+            LEAVE sp;
+        END IF;
+
+        select v_totalItems_tempTableSubItemDetail as v_totalItems_tempTableSubItemDetail;
+        -- Process each sub-product
+        
+ 
+      
+        WHILE v_totalItems_tempTableSubItemDetail > 0 DO
+            SELECT allProductId_mat, qty INTO v_allProductId_mat, v_qty FROM tempTableSubItemDetail LIMIT 1;
+        
+     
+        
+            -- Get inventoryId for sub-product
+            SELECT inventoryId INTO v_inventoryId
+            FROM store_inventory_product
+            WHERE storeId = p_storeId AND allProductId = v_allProductId_mat;
+
+             --  SELECT allProductId_mat, qty,v_inventoryId FROM tempTableSubItemDetail LIMIT 1;
+               
+             IF v_inventoryId IS NULL THEN
+                SET p_OutputMessage = CONCAT('No inventory found for sub-product allProductId: ', v_allProductId_mat);
+                ROLLBACK;
+                DROP TEMPORARY TABLE IF EXISTS tempTableSubItemDetail;
+                 LEAVE sp;
+            END IF;
+
+--                      SET p_ResponseStatus = 'failed';
+--       SET p_OutputMessage = concat('assssemb....',p_validate);
+--         LEAVE sp;
+--     select 'assssemb';
+                     
+            -- select v_qty * p_qty;
+            -- Update stock for sub-product
+           -- CALL _updateStockQty(v_inventoryId, v_qty * p_qty, p_validate, v_stockBatchId, p_ResponseStatus, p_OutputMessage);
+			 CALL UpdateStockQtyOrderBybatchQueueNumber(v_inventoryId, v_qty * p_qty, p_validate, p_ResponseStatus, p_OutputMessage);
+    
+             IF p_ResponseStatus='failed' then
+             	select p_OutputMessage;
+             	rollback;
+	            LEAVE sp;
+       		 END IF;
+
+            IF p_validate = FALSE THEN
+    
+                INSERT INTO stock_batch_order_mapping (inventoryId, orderId, qty)
+                VALUES (v_inventoryId, p_orderId, v_qty * p_qty);
+            END IF;
+
+            DELETE FROM tempTableSubItemDetail LIMIT 1;
+            SET v_totalItems_tempTableSubItemDetail = (SELECT COUNT(*) FROM tempTableSubItemDetail);
+        END WHILE;
+
+        DROP TEMPORARY TABLE IF EXISTS tempTableSubItemDetail;
+
+    END IF;
+
+    -- Set success response
+    SET p_ResponseStatus = 'success';
+    SET p_OutputMessage = 'Stock quantity updated successfully';
+
+    COMMIT;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -15161,7 +17183,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `_updateStockQty_validate`(
     IN p_inventoryId INT,
@@ -15220,149 +17242,58 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `_updateStockQty_validate_by_allProductId` */;
+/*!50003 DROP PROCEDURE IF EXISTS `_validateProductIsUsedAsASubProductOfAnotherProduct` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `_updateStockQty_validate_by_allProductId`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `_validateProductIsUsedAsASubProductOfAnotherProduct`(
     IN p_allProductId INT,
-    IN p_storeId INT,
-    IN p_qty DECIMAL(10,2),
-    OUT p_ResponseStatus VARCHAR(50),
-    OUT p_OutputMessage VARCHAR(1000)
+    out p_isValidated bit,
+    out p_skus text
 )
 sp: BEGIN
-    DECLARE v_totalStockQty DECIMAL(10,2) DEFAULT 0;
-    DECLARE v_singleProductId INT;
-    DECLARE v_variationProductId INT;
-    DECLARE v_comboProductId INT;
-    DECLARE v_inventoryId INT;
-    DECLARE v_qty DECIMAL(10,2);
-    DECLARE v_productId_mat INT;
-    DECLARE v_variationProductId_mat INT;
-    DECLARE v_totalItems_tempTableComboProductDetail INT;
-   
-   declare v_productName varchar(50);
-DECLARE v_isStockItem bit DEFAULT 1;
- 
 
-    DROP TEMPORARY TABLE IF EXISTS tempTableComboProductDetail;
-   
-    -- Temporary table for combo product details
-    CREATE TEMPORARY TABLE tempTableComboProductDetail (
-        productId_mat INT,
-        variationProductId_mat INT,
-        qty DECIMAL(10,2)
-    );
+    DECLARE v_sku_list TEXT;
 
-   
-    -- Fetch product details
-    SELECT singleProductId, variationProductId,  comboProductId
-    INTO 
-        v_singleProductId, v_variationProductId, v_comboProductId
-    FROM store_inventory_product WHERE storeId=p_storeId and allProductId = p_allProductId;
+    -- Collect SKUs from single_product assemblies
+    SELECT GROUP_CONCAT(sp.sku)
+    INTO v_sku_list
+    FROM sub_product_detail spd
+    INNER JOIN all_product ap ON spd.allProductId = ap.allProductId
+    INNER JOIN single_product sp ON ap.singleProductId = sp.productId
+    WHERE spd.allProductId_mat = p_allProductId;
 
-    IF (v_singleProductId IS NOT NULL) THEN 
-       
-            SELECT inventoryId INTO v_inventoryId  FROM store_inventory_product 
-  WHERE storeId=p_storeId and allProductId = p_allProductId;
- 
-    SET v_isStockItem = IF(v_inventoryId IS NOT NULL, TRUE, FALSE);
-    
-     if v_isStockItem=1 then
-      
-       select v_inventoryId as v_inventoryId,p_qty as p_qty;
-        CALL _updateStockQty_validate(v_inventoryId, p_qty, p_ResponseStatus, p_OutputMessage);
-        IF (p_ResponseStatus = 'failed') then
-       set v_productName=(select sku from single_product where productId=v_singleProductId);
-           set p_OutputMessage=concat(v_productName,' : ',p_OutputMessage);
-          LEAVE sp;
+    -- Collect SKUs from variation_product assemblies
+    SELECT GROUP_CONCAT(vp.sku)
+    INTO @v_variation_skus
+    FROM sub_product_detail spd
+    INNER JOIN all_product ap ON spd.allProductId = ap.allProductId
+    INNER JOIN variation_product vp ON ap.variationProductId = vp.variationProductId
+    WHERE spd.allProductId_mat = p_allProductId;
+
+    -- Merge both (if variation SKUs exist)
+    IF @v_variation_skus IS NOT NULL AND @v_variation_skus <> '' THEN
+        IF v_sku_list IS NULL OR v_sku_list = '' THEN
+            SET v_sku_list = @v_variation_skus;
+        ELSE
+            SET v_sku_list = CONCAT(v_sku_list, ',', @v_variation_skus);
         END IF;
-       
-        end if;
-       
-        ELSEIF (v_variationProductId IS NOT NULL) THEN 
-       
-               SELECT inventoryId INTO v_inventoryId  FROM store_inventory_product 
-  WHERE storeId=p_storeId and allProductId = p_allProductId;
- 
-         SET v_isStockItem = IF(v_inventoryId IS NOT NULL, TRUE, FALSE);
-        
-           if v_isStockItem=true then
-      
-       select v_inventoryId as v_inventoryId,p_qty as p_qty;
-        CALL _updateStockQty_validate(v_inventoryId, p_qty, p_ResponseStatus, p_OutputMessage);
-        IF (p_ResponseStatus = 'failed') then
-           set v_productName=(select sku from variation_Product where variationProductId=v_variationProductId);
-           set p_OutputMessage=concat(v_productName,' : ',p_OutputMessage);
-            LEAVE sp;
-        END IF;
-       
-       end if;
-       
-
-    ELSEIF (v_comboProductId IS NOT NULL) then
-    
-        INSERT INTO tempTableComboProductDetail (productId_mat, variationProductId_mat, qty)
-        SELECT   productId_mat,  variationProductId_mat,  qty
-            FROM combo_product_detail WHERE  productId = v_comboProductId;
-
-        SET v_totalItems_tempTableComboProductDetail = (SELECT COUNT(*) FROM tempTableComboProductDetail);
-
-        WHILE (v_totalItems_tempTableComboProductDetail > 0) DO
-
-            SELECT  qty,  productId_mat, variationProductId_mat
-            INTO 
-                v_qty,  v_productId_mat,  v_variationProductId_mat
-            FROM   tempTableComboProductDetail  LIMIT 1;
-
-            -- Determine inventoryId for the item
-            IF (v_productId_mat IS NOT NULL) then
-            set v_productName=(select sku from single_product where productId=v_productId_mat);
-           
-                SELECT inventoryId INTO v_inventoryId
-                FROM store_inventory_product 
-                where storeId=p_storeId and singleProductId = v_productId_mat;
-            END IF;
-
-            IF (v_variationProductId_mat IS NOT NULL) then
-               set v_productName= (select sku from variation_Product where variationProductId=v_variationProductId_mat);
-        
-                SELECT inventoryId INTO v_inventoryId
-                FROM store_inventory_product
-                WHERE storeId=p_storeId and variationProductId = v_variationProductId_mat;
-            END IF;
-
-           select v_inventoryId as v_inventoryId,v_qty * p_qty as v_qty;
-            -- Validate stock for the item
-             SET v_isStockItem = IF(v_inventoryId IS NOT NULL, TRUE, FALSE);
-          
-          
-          if v_isStockItem=true then
-          
-          CALL _updateStockQty_validate(v_inventoryId, v_qty * p_qty, p_ResponseStatus, p_OutputMessage);
-            IF (p_ResponseStatus = 'failed') then
-              
-           set p_OutputMessage=concat(v_productName,' : ',p_OutputMessage);
-                LEAVE sp;
-            END IF;
-
-           select p_OutputMessage as p_OutputMessage;
-          
-          end if;
-            -- Remove processed item from the temporary table
-            DELETE FROM tempTableComboProductDetail LIMIT 1;
-            SET v_totalItems_tempTableComboProductDetail = (SELECT COUNT(*) FROM tempTableComboProductDetail);
-        END WHILE;
     END IF;
 
-    -- Clean up temporary table
-    DROP TEMPORARY TABLE IF EXISTS tempTableComboProductDetail;
+    -- Validation
+    IF v_sku_list IS NOT NULL AND v_sku_list <> '' then
+    	set p_isValidated=false;
+        SET p_skus = v_sku_list;
+         select v_sku_list;
+    LEAVE sp;
+    END IF;
 
+    -- Otherwise, validation passed
+    	set p_isValidated=true;
 
 END ;;
 DELIMITER ;
@@ -15380,4 +17311,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-13 19:42:14
+-- Dump completed on 2025-11-18 14:04:24
